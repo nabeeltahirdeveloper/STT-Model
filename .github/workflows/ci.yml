@@ -1,0 +1,52 @@
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      # Phase 0 gates deliberately do NOT install torch, qwen-asr or
+      # transformers. Nothing in src/ imports them at module scope, so lint,
+      # typecheck and tests run in seconds instead of pulling ~3 GB of wheels.
+      # If this step starts needing a model dependency, that is a signal that a
+      # heavy import has leaked to module scope -- fix the import, not the CI.
+      - name: Install Phase 0 dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            ruff mypy pytest pytest-cov \
+            pydantic pyyaml typer fastapi python-multipart types-pyyaml
+          python -m pip install -e . --no-deps
+
+      - name: Lint
+        run: ruff check src tests scripts
+
+      - name: Format check
+        run: ruff format --check src tests scripts
+
+      - name: Typecheck
+        run: mypy src
+
+      - name: Test
+        run: pytest -q --cov=src --cov-report=term-missing
+
+      # The lexicons are product artifacts, not build output. A row that breaks
+      # them breaks every label the project generates, so this runs even though
+      # the test suite already loads them.
+      - name: Validate lexicons
+        run: python -c "from src.labeling.lexicon import Lexicon; print(len(Lexicon.load()), 'entries')"
