@@ -1,0 +1,50 @@
+# Phase 2 — code-switched conversational speech.
+#
+# This is the phase that teaches the actual product behaviour: keeping English
+# words in English orthography inside Urdu sentences (PROJECT.md §5.4). It
+# starts from the Phase 1 checkpoint, not from the base model.
+#
+# GATE: docs/SPELLING-SPEC.md must be FROZEN before this runs. Label spelling is
+# baked into the weights permanently; changing a rule afterwards means a full
+# retrain (ADR-004, SPELLING-SPEC §12).
+
+name: phase2-code-switched
+phase: 2
+description: >-
+  Continued full fine-tune from the Phase 1 checkpoint on UrduSpeech US-CS
+  (89.4h code-switched) plus hand-verified in-domain audio.
+
+data:
+  manifests:
+    - data/labels/urduspeech_cs.jsonl
+    - data/labels/urduspeech_engpk.jsonl
+    - data/labels/in_domain.jsonl
+  eval_manifest: data/eval/manifest.jsonl
+  max_seconds_per_utterance: 35.0
+
+training:
+  # Resume from Phase 1 output, not from Qwen/Qwen3-ASR-0.6B.
+  base_model: checkpoints/phase1
+  full_finetune: true
+  use_lora: false
+  optimizer: adamw
+  learning_rate: 1.0e-5        # halved: the model already spells; do not wash it out
+  lr_schedule: linear
+  warmup_ratio: 0.02
+  effective_batch_size: 32
+  per_device_batch_size: 4
+  gradient_accumulation_steps: 8
+  epochs: 2
+  precision: bf16
+  flash_attention: true
+  freeze_audio_encoder: false
+  freeze_projector: false
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  sample_format: s16
+
+output_dir: checkpoints/phase2
+seed: 1337
+tracker: wandb

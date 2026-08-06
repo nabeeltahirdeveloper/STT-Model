@@ -1,0 +1,51 @@
+# Phase 1 — romanized read speech.
+#
+# Teaches the model HOW TO SPELL Roman Urdu, and nothing about code-switching:
+# read-speech corpora contain essentially none (PROJECT.md §5.4). It exists to
+# warm-start the model so Phase 2 needs less hand-verified data. Neither phase
+# is optional.
+#
+# Hyperparameters are Srota's (PROJECT.md §3.2) — the reference Hinglish
+# fine-tune that took conversational WER 24.73% -> 15.85% for ~$6.50.
+
+name: phase1-romanized-read-speech
+phase: 1
+description: >-
+  Full fine-tune of Qwen3-ASR-0.6B on romanized Common Voice Urdu, FLEURS Urdu
+  and UrduSpeech US-Std (~150h). Output target is canonical Roman Urdu.
+
+data:
+  manifests:
+    - data/labels/common_voice_ur.jsonl
+    - data/labels/fleurs_ur.jsonl
+    - data/labels/urduspeech_std.jsonl
+  # Referenced for scoring only. Never appears in `manifests` — the config
+  # loader rejects any manifest path under data/eval/.
+  eval_manifest: data/eval/manifest.jsonl
+  max_seconds_per_utterance: 35.0
+
+training:
+  base_model: Qwen/Qwen3-ASR-0.6B
+  full_finetune: true          # ADR-003 — LoRA needs an A/B against FFT first
+  use_lora: false
+  optimizer: adamw
+  learning_rate: 2.0e-5
+  lr_schedule: linear
+  warmup_ratio: 0.02
+  effective_batch_size: 32
+  per_device_batch_size: 4
+  gradient_accumulation_steps: 8
+  epochs: 2
+  precision: bf16
+  flash_attention: true
+  freeze_audio_encoder: false  # Srota froze nothing; the encoder must adapt too
+  freeze_projector: false
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  sample_format: s16
+
+output_dir: checkpoints/phase1
+seed: 1337
+tracker: wandb

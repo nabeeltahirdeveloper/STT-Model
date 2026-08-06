@@ -1,0 +1,49 @@
+# Inference and captioning settings.
+#
+# `asr.model_id` points at the stock checkpoint until Phase 2 produces a
+# fine-tune. Stock output is the Phase 0 baseline, not the product.
+
+asr:
+  model_id: Qwen/Qwen3-ASR-1.7B
+  # PROJECT.md §4.3 — Urdu is not a supported language and the built-in language
+  # ID cannot separate Hindi from Urdu. Never force a language token.
+  decoding_prefix: "language None<asr_text>"
+  force_language: null
+  trust_language_id: false
+  # Streaming cannot emit timestamps (PROJECT.md §4.4), so captions are offline.
+  streaming: false
+
+aligner:
+  model_id: Qwen/Qwen3-ForcedAligner-0.6B
+  # UNRESOLVED — `direct` is strategy 1 of 3 in PROJECT.md §4.4 and has not been
+  # tested. Run `python -m scripts.test_aligner` before trusting any timestamp.
+  strategy: direct
+  language: English
+  max_chunk_seconds: 300.0     # hard model cap; longer audio is chunked
+
+audio:
+  sample_rate: 16000
+  channels: 1
+  sample_format: s16
+
+segmentation:
+  min_seconds: 2.0
+  max_seconds: 35.0
+  remove_music: true
+  diarize: true
+
+subtitle:
+  max_chars_per_line: 42
+  max_lines: 2
+  min_duration_s: 1.0
+  max_duration_s: 7.0
+  max_chars_per_second: 17.0
+  min_gap_s: 0.1
+
+lexicon:
+  canonical: data/lexicon/canonical.tsv
+  english: data/lexicon/english.txt
+  ambiguous: data/lexicon/ambiguous.tsv
+  acronyms: data/lexicon/acronyms.txt
+
+work_dir: data/work
