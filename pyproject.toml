@@ -7,7 +7,7 @@ name = "roman-urdu-captions"
 version = "0.1.0"
 description = "Roman Urdu subtitles for code-switched Urdu-English video"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = "==3.12.*"
 license = { text = "Proprietary" }
 
 # Heavy model/runtime deps live here. Nothing in src/ may import them at module
@@ -26,6 +26,26 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# A real optional feature group, not a dev group: alignment is a shipped
+# capability that not every deployment needs (PROJECT.md §4.4).
+align = [
+    "torchaudio",
+    "pyannote.audio",
+    "demucs",
+]
+# flash-attn is CUDA-only and cannot be built in an isolated environment (see
+# [tool.uv] below), so it is an extra rather than a runtime dependency and is
+# marker-gated to Linux. On macOS `uv sync --all-extras` resolves it to nothing;
+# on a training box `./run.sh setup` syncs twice -- once without this extra so
+# torch exists, then again so flash-attn can build against it.
+cuda = [
+    "flash-attn; sys_platform == 'linux'",
+]
+
+# PEP 735. Dev tooling is not a feature of the package, so it does not belong in
+# optional-dependencies -- a consumer installing `roman-urdu-captions[dev]`
+# should not be a thing. This is what `uv add --dev` writes to.
+[dependency-groups]
 dev = [
     "ruff",
     "mypy",
@@ -34,16 +54,35 @@ dev = [
     "pre-commit",
     "types-pyyaml",
 ]
-align = [
-    "torchaudio",
-    "pyannote.audio",
-    "demucs",
-]
 
 [tool.hatch.build.targets.wheel]
 # The documented commands are `python -m src.eval.score`, `python -m src.api.pipeline`
 # etc. (CLAUDE.md > Commands), so the import root is literally `src`.
 packages = ["src"]
+
+# --------------------------------------------------------------------------- #
+# uv
+# --------------------------------------------------------------------------- #
+[tool.uv]
+# flash-attn's setup.py imports torch to read the CUDA version, so it cannot be
+# built in uv's default isolated build environment. This is only reachable on a
+# CUDA machine; it is inert elsewhere.
+no-build-isolation-package = ["flash-attn"]
+
+# NOTE: no CUDA index is configured. This machine reports no NVIDIA GPU
+# (`nvidia-smi` absent), so torch resolves to the default PyPI build. On a
+# training box, add the matching index -- e.g. for CUDA 12.4:
+#
+#   [tool.uv.sources]
+#   torch = [{ index = "pytorch-cu124" }]
+#   torchaudio = [{ index = "pytorch-cu124" }]
+#
+#   [[tool.uv.index]]
+#   name = "pytorch-cu124"
+#   url = "https://download.pytorch.org/whl/cu124"
+#   explicit = true
+#
+# Match the CUDA version to `nvidia-smi`, and re-run `uv lock` after adding it.
 
 # --------------------------------------------------------------------------- #
 # Lint

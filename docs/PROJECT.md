@@ -196,6 +196,7 @@ full fine-tuning. Do not reach for LoRA without testing it against FFT first.**
 | API | FastAPI | MIT | |
 | Scoring | jiwer + SN-WER | MIT | CER + script-normalized WER |
 | Media | ffmpeg | LGPL/GPL | |
+| Dependency + Python management | uv | MIT / Apache-2.0 | Cross-platform lockfile; also provisions the interpreter |
 | Experiment tracking | Weights & Biases or MLflow | — | Non-negotiable for a training project |
 
 ### 4.3 ⚠️ Critical constraint: Urdu is not an officially supported language

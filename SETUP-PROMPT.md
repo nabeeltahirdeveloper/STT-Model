@@ -23,18 +23,48 @@ failing-or-passing test, so that Phase 0 verification work can start immediately
 ## What to build
 
 ### 1. Project configuration
-- `pyproject.toml` — Python 3.12, hatchling backend, project name
-  `roman-urdu-captions`. Dependency groups:
-  - core: `torch`, `qwen-asr`, `transformers`, `pydantic`, `pyyaml`, `typer`,
-    `fastapi`, `uvicorn`, `python-multipart`
-  - `[dev]`: `ruff`, `mypy`, `pytest`, `pytest-cov`, `pre-commit`, `types-pyyaml`
-  - `[align]`: `torchaudio`, `pyannote.audio`, `demucs`
+
+Dependencies are managed with **uv**. Never `pip install` or `uv pip install`;
+use `uv add` / `uv add --dev`, and commit `uv.lock`.
+
+- `pyproject.toml` — hatchling backend, project name `roman-urdu-captions`,
+  `requires-python = "==3.12.*"`. Dependencies:
+  - `[project].dependencies`: `torch`, `qwen-asr`, `transformers`, `pydantic`,
+    `pyyaml`, `typer`, `fastapi`, `uvicorn`, `python-multipart`
+  - `[project.optional-dependencies].align`: `torchaudio`, `pyannote.audio`, `demucs`
+  - `[project.optional-dependencies].cuda`: `flash-attn; sys_platform == 'linux'`
+  - `[dependency-groups].dev` (PEP 735, **not** an extra — this is what
+    `uv add --dev` writes to): `ruff`, `mypy`, `pytest`, `pytest-cov`,
+    `pre-commit`, `types-pyyaml`
+- `[tool.uv]` — the two things that otherwise break:
+
+  ```toml
+  [tool.uv]
+  # flash-attn's setup.py imports torch to read the CUDA version, so it cannot
+  # build in an isolated environment. Setup syncs twice: once without the cuda
+  # extra so torch exists, then again so flash-attn builds against it.
+  no-build-isolation-package = ["flash-attn"]
+
+  # On a CUDA machine, pin torch to the matching index (match `nvidia-smi`):
+  # [tool.uv.sources]
+  # torch = [{ index = "pytorch-cu124" }]
+  # torchaudio = [{ index = "pytorch-cu124" }]
+  #
+  # [[tool.uv.index]]
+  # name = "pytorch-cu124"
+  # url = "https://download.pytorch.org/whl/cu124"
+  # explicit = true
+  ```
+
+- `.python-version` containing `3.12` — uv provisions the interpreter from this.
+  Make sure `.gitignore` does **not** ignore it, or `uv.lock`.
 - Configure ruff (line length 100, select E/F/I/N/UP/B/SIM) and mypy
   (`strict = true` for `src`, relaxed for `tests`) inside `pyproject.toml`.
 - `.gitignore` — Python defaults plus `data/raw/`, `data/work/`, `.venv/`,
   `*.wav`, `*.mp4`, `out/`, model checkpoints.
 - `.pre-commit-config.yaml` — ruff, ruff-format, mypy, trailing-whitespace.
 - `.editorconfig`.
+- Run `uv lock` and commit `uv.lock`.
 
 ### 2. Package skeleton
 Create these with real type-hinted signatures, docstrings explaining WHY, and
@@ -143,9 +173,9 @@ Tests for unimplemented modules should exist and be marked
 Run these in order — both are Phase 0 gates from `PROJECT.md` §8:
 
 ```bash
-./run.sh doctor                    # confirm ffmpeg, GPU, lexicons
-python -m scripts.verify_data      # gate on R1: is UrduSpeech actually usable?
-python -m scripts.test_aligner     # gate on §4.4: does alignment work on Roman Urdu?
+./run.sh doctor                           # confirm uv, ffmpeg, GPU, lexicons
+uv run python -m scripts.verify_data      # gate on R1: is UrduSpeech actually usable?
+uv run python -m scripts.test_aligner     # gate on §4.4: does alignment work on Roman Urdu?
 ```
 
 If `verify_data` fails, stop and re-plan — the whole roadmap assumes that corpus.

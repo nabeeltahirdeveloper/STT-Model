@@ -145,8 +145,8 @@ def run_aligner(audio: Path, tokens: list[str], config: AlignerConfig) -> list[T
     half of this script stays importable and testable without the model stack.
 
     Raises:
-        NotImplementedError: needs `pip install -e .` with the model deps and a
-            check of the installed `qwen-asr` aligner API. Pass
+        NotImplementedError: needs `uv sync --all-extras` and a check of the
+            installed `qwen-asr` aligner API. Pass
             `language="English"` (config.language) -- do NOT pass "Urdu", which
             the aligner does not support (PROJECT.md §4.3).
     """

@@ -8,7 +8,6 @@ set -Eeuo pipefail
 
 PROJECT_NAME="roman-urdu-captions"
 PYTHON_VERSION="3.12"
-VENV_DIR=".venv"
 SRC_DIRS="src tests scripts"
 
 # ------------------------------- colours -----------------------------------
@@ -52,27 +51,20 @@ need_cmd() {
   command -v "$1" >/dev/null 2>&1 || die "required command not found: $1"
 }
 
-activate_venv() {
-  if [[ -d "$VENV_DIR" ]]; then
-    # shellcheck disable=SC1091
-    source "$VENV_DIR/bin/activate"
-  else
-    warn "no virtualenv at $VENV_DIR — run './run.sh setup' first"
-  fi
-}
+# Every tool runs through `uv run`, which resolves and syncs the project
+# environment on demand. There is deliberately no activation step: an activated
+# shell can silently point at the wrong interpreter, and that failure is
+# invisible until a version-dependent bug appears in CI and not locally.
 
 # ------------------------------- commands ----------------------------------
 cmd_setup() {
   banner
   step "Environment setup"
 
-  need_cmd python3
+  need_cmd uv
   need_cmd git
 
-  local py_ver
-  py_ver=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
-  info "python ${py_ver} detected (target ${PYTHON_VERSION})"
-  [[ "$py_ver" == "$PYTHON_VERSION" ]] || warn "python ${PYTHON_VERSION} recommended; continuing with ${py_ver}"
+  info "uv $(uv --version | awk '{print $2}')"
 
   if command -v ffmpeg >/dev/null 2>&1; then
     ok "ffmpeg found"
@@ -91,13 +83,25 @@ cmd_setup() {
     warn "no NVIDIA GPU — training will not be possible locally"
   fi
 
-  step "Creating virtualenv"
-  [[ -d "$VENV_DIR" ]] && info "reusing existing $VENV_DIR" || run python3 -m venv "$VENV_DIR"
-  activate_venv
+  step "Provisioning Python ${PYTHON_VERSION}"
+  run uv python install "$PYTHON_VERSION"
 
-  step "Installing dependencies"
-  run python -m pip install --upgrade pip setuptools wheel
-  run python -m pip install -e ".[dev]"
+  # Two passes. flash-attn's build imports torch to read the CUDA version, so it
+  # cannot build in an isolated environment ([tool.uv] no-build-isolation-package)
+  # and torch must already be installed when it builds. Pass one gets torch in
+  # place; pass two builds flash-attn against it. On a machine without CUDA the
+  # `cuda` extra is marker-gated to Linux and pass two is a no-op.
+  step "Installing dependencies (pass 1 — everything except flash-attn)"
+  run uv sync --all-extras --all-groups --no-extra cuda
+
+  step "Installing dependencies (pass 2 — flash-attn)"
+  if command -v nvidia-smi >/dev/null 2>&1; then
+    info "CUDA detected — building flash-attn without build isolation"
+    info "  set MAX_JOBS=4 if this machine has under 96 GB RAM"
+  else
+    info "no CUDA — flash-attn is skipped by its platform marker"
+  fi
+  run uv sync --all-extras --all-groups
 
   step "Creating directory tree"
   run mkdir -p data/raw data/labels data/eval data/lexicon data/work
@@ -109,9 +113,8 @@ cmd_setup() {
     run git init -q
   fi
 
-  if command -v pre-commit >/dev/null 2>&1; then
-    run pre-commit install
-  fi
+  step "Installing git hooks"
+  run uv run pre-commit install
 
   hr
   ok "setup complete"
@@ -119,34 +122,30 @@ cmd_setup() {
 }
 
 cmd_lint() {
-  activate_venv
   step "Lint (ruff)"
   # shellcheck disable=SC2086
-  run ruff check $SRC_DIRS
+  run uv run ruff check $SRC_DIRS
   ok "lint passed"
 }
 
 cmd_format() {
-  activate_venv
   step "Format (ruff)"
   # shellcheck disable=SC2086
-  run ruff format $SRC_DIRS
+  run uv run ruff format $SRC_DIRS
   # shellcheck disable=SC2086
-  run ruff check --fix $SRC_DIRS
+  run uv run ruff check --fix $SRC_DIRS
   ok "formatted"
 }
 
 cmd_typecheck() {
-  activate_venv
   step "Type check (mypy)"
-  run mypy src
+  run uv run mypy src
   ok "types passed"
 }
 
 cmd_test() {
-  activate_venv
   step "Tests (pytest)"
-  run pytest -q --cov=src --cov-report=term-missing "$@"
+  run uv run pytest -q --cov=src --cov-report=term-missing "$@"
   ok "tests passed"
 }
 
@@ -161,10 +160,9 @@ cmd_check() {
 }
 
 cmd_lexicon() {
-  activate_venv
   step "Building frequency lexicon from Roman-Urdu-Parl"
   [[ -d data/raw/roman-urdu-parl ]] || die "corpus missing: data/raw/roman-urdu-parl"
-  run python -m scripts.build_lexicon \
+  run uv run python -m scripts.build_lexicon \
     --corpus data/raw/roman-urdu-parl \
     --top-n 5000 \
     --out docs/lexicon-frequency.tsv
@@ -172,27 +170,24 @@ cmd_lexicon() {
 }
 
 cmd_transcribe() {
-  activate_venv
   [[ $# -ge 1 ]] || die "usage: ./run.sh transcribe <video-file> [--out DIR]"
   step "Transcribing: $1"
-  run python -m src.api.pipeline --input "$@"
+  run uv run python -m src.api.pipeline --input "$@"
   ok "done"
 }
 
 cmd_train() {
-  activate_venv
   local config="${1:-configs/phase1.yaml}"
   [[ -f "$config" ]] || die "config not found: $config"
   step "Training with $config"
   warn "verify data/eval/ is NOT in the training manifest before proceeding"
-  run python -m src.training.finetune --config "$config"
+  run uv run python -m src.training.finetune --config "$config"
   ok "training complete"
 }
 
 cmd_eval() {
-  activate_venv
   step "Evaluating"
-  run python -m src.eval.score \
+  run uv run python -m src.eval.score \
     --pred "${1:-out/predictions.txt}" \
     --ref  "${2:-data/eval/reference.txt}" \
     --metrics cer,sn-wer,normalized-wer,english-preservation
@@ -200,11 +195,10 @@ cmd_eval() {
 }
 
 cmd_serve() {
-  activate_venv
   local model="${MODEL:-Qwen/Qwen3-ASR-1.7B}"
   local port="${PORT:-8000}"
   step "Serving $model on port $port"
-  run qwen-asr-serve "$model" --gpu-memory-utilization 0.8 --host 0.0.0.0 --port "$port"
+  run uv run qwen-asr-serve "$model" --gpu-memory-utilization 0.8 --host 0.0.0.0 --port "$port"
 }
 
 cmd_clean() {
@@ -218,14 +212,21 @@ cmd_doctor() {
   banner
   step "Diagnostics"
   local issues=0
+  # `|| status=$?` rather than `if eval ...` on purpose. Under `set -Eeuo
+  # pipefail` the ERR trap fires on the failing eval, and because that line
+  # redirects 2>&1 the trap's own message is swallowed -- doctor exited 1 after
+  # the first missing tool, silently, which is the opposite of what a diagnostic
+  # command should do.
   _chk() {
-    if eval "$2" >/dev/null 2>&1; then ok "$1"; else warn "$1 — MISSING"; issues=$((issues+1)); fi
+    local status=0
+    ( set +eE; trap - ERR; eval "$2" ) >/dev/null 2>&1 || status=$?
+    if [[ $status -eq 0 ]]; then ok "$1"; else warn "$1 — MISSING"; issues=$((issues+1)); fi
   }
-  _chk "python3"        "command -v python3"
+  _chk "uv"             "command -v uv"
   _chk "ffmpeg"         "command -v ffmpeg"
   _chk "git"            "command -v git"
   _chk "NVIDIA GPU"     "command -v nvidia-smi"
-  _chk "virtualenv"     "test -d $VENV_DIR"
+  _chk "uv.lock"        "test -s uv.lock"
   _chk "eval set"       "test -s data/eval/reference.txt"
   _chk "canonical lexicon" "test -s data/lexicon/canonical.tsv"
   _chk "english lexicon"   "test -s data/lexicon/english.txt"
@@ -240,7 +241,7 @@ ${C_BOLD}USAGE${C_RESET}
   ./run.sh <command> [args]
 
 ${C_BOLD}SETUP${C_RESET}
-  ${C_GREEN}setup${C_RESET}        Create venv, install deps, scaffold directories
+  ${C_GREEN}setup${C_RESET}        Provision Python, sync deps, scaffold directories
   ${C_GREEN}doctor${C_RESET}       Diagnose missing tools and data
 
 ${C_BOLD}QUALITY${C_RESET}
@@ -265,6 +266,12 @@ ${C_BOLD}ENVIRONMENT${C_RESET}
   MODEL=<hf-id>   override serving model
   PORT=<n>        override serving port
   NO_COLOR=1      disable coloured output
+  MAX_JOBS=<n>    limit flash-attn build parallelism (use 4 if <96GB RAM)
+
+${C_BOLD}NOTES${C_RESET}
+  Dependencies are managed with uv. Every command runs through ${C_BOLD}uv run${C_RESET},
+  which syncs the environment on demand — there is no venv to activate.
+  Use ${C_BOLD}uv add${C_RESET} / ${C_BOLD}uv add --dev${C_RESET} to change dependencies, then commit uv.lock.
 EOF
 }
 

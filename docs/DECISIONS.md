@@ -160,6 +160,66 @@ pending the frequency data required by §2.
 
 ---
 
+## ADR-007 — uv for dependency management
+
+**Date:** 2026-08-06 · **Status:** Accepted
+
+> Numbered 007, not 006: ADR-006 is already taken by the English-orthography
+> decision above, and this log is append-only with stable identifiers.
+
+**Context.** The project was scaffolded with `python -m venv` plus
+`pip install -e ".[dev]"`, which produces no lockfile. Two contributors
+installing on the same day get different versions of torch, transformers and
+pyannote, and neither can reproduce the other's result. For a project whose
+central output is a *trained model*, an unreproducible environment means an
+unreproducible experiment — the config hash logged with every run (CLAUDE.md >
+Code conventions) is only as meaningful as the environment it ran in.
+
+**Options.** pip + venv (status quo) · Poetry · PDM · uv
+
+**Decision.** uv. Dev tooling moves to a PEP 735 `[dependency-groups]` block;
+`uv.lock` is committed; `.python-version` pins the interpreter.
+
+**Reasoning.**
+
+- **Lockfile reproducibility.** `uv.lock` is universal — one file resolves
+  correctly for macOS laptops and Linux training boxes, so the Mac used for
+  Phase 0 normalizer work and the H100 box used for Phase 2 agree on versions.
+  Poetry and PDM also lock; pip alone does not.
+- **Resolver speed.** Full resolution of 197 packages takes seconds rather than
+  minutes. This matters more than it sounds: a slow resolve is a resolve people
+  skip, and skipped resolves are how lockfiles drift out of date.
+- **uv manages Python itself.** `uv python install 3.12` removes the assumption
+  that the right interpreter is already on PATH. This was not hypothetical — the
+  machine this migration ran on had only Python 3.14 installed, and the previous
+  `run.sh` would have silently proceeded on it after a warning. Poetry and PDM
+  manage packages but not interpreters.
+- **The upstream stack already recommends it.** The Qwen3-ASR documentation uses
+  uv as the environment manager for the vLLM install path, which is the exact
+  serving path in PROJECT.md §4.2. Matching upstream's tooling means their
+  install instructions work here unmodified.
+
+**Consequence.**
+
+- Contributors now need uv installed. It is a single-command install on every
+  platform and replaces both the Python and the pip install, so this is a net
+  reduction in setup steps, but it *is* a new hard prerequisite — `./run.sh
+  doctor` and `./run.sh setup` both fail fast without it.
+- **flash-attn needs a build-isolation escape hatch.** Its `setup.py` imports
+  torch to read the CUDA version, so it cannot build in uv's default isolated
+  build environment. It is declared as the `cuda` extra, marker-gated to Linux,
+  with `no-build-isolation-package = ["flash-attn"]`, and `./run.sh setup` syncs
+  twice — once excluding the extra so torch is present, then again so flash-attn
+  builds against it. Getting this wrong produces a confusing `ModuleNotFoundError:
+  torch` from inside a build backend.
+- Torch is resolved from default PyPI. A training box must add the matching
+  `[[tool.uv.index]]` for its CUDA version and re-run `uv lock`; the block is
+  commented in `pyproject.toml` next to the setting.
+- `uv.lock` must be committed with every dependency change, and reviewed like
+  code. A lockfile that is edited but not reviewed is worse than no lockfile.
+
+---
+
 ## Spelling spec decisions
 
 Mirrors `docs/SPELLING-SPEC.md` §10 — amend in both places.
@@ -209,6 +269,8 @@ Added at Phase 0 scaffolding (2026-08-06):
 | pytest / pytest-cov | MIT | ✅ | dev only |
 | pre-commit | MIT | ✅ | dev only |
 | types-pyyaml | Apache-2.0 | ✅ | dev only |
+| uv | MIT / Apache-2.0 (dual) | ✅ | Dependency + interpreter management (ADR-007). A tool, not a linked dependency |
+| flash-attn | BSD-3-Clause | ✅ | `cuda` extra, Linux-only; needs `no-build-isolation` |
 
 No copyleft dependency has been added. `jiwer` was **not** added: CER and SN-WER
 are short pure functions and an extra dependency for edit distance is not worth

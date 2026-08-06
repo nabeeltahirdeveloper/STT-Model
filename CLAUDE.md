@@ -90,27 +90,36 @@ notebooks/             # Colab experiments — not production code
 
 ## Commands
 
+Dependencies and the Python version are both managed by uv. There is no
+virtualenv to activate: `uv run` resolves the environment per invocation.
+
 ```bash
-# environment
-conda create -n rux python=3.12 -y && conda activate rux
-pip install -U qwen-asr[vllm]
-pip install -U flash-attn --no-build-isolation   # MAX_JOBS=4 if <96GB RAM
+# environment — uv installs Python 3.12 itself (.python-version)
+uv sync --all-extras --all-groups        # everything, from uv.lock
+uv sync                                  # runtime deps only, fastest loop
+./run.sh setup                           # first time: also scaffolds + git hooks
 
 # quality gates — run before every commit
-ruff check src/ tests/
-ruff format src/ tests/
-mypy src/
-pytest -q
+uv run ruff check src/ tests/
+uv run ruff format src/ tests/
+uv run mypy src/
+uv run pytest -q
+./run.sh check                           # all three, in order
 
 # pipeline
-python -m src.ingest.extract --input video.mp4 --out data/work/
-python -m src.labeling.romanize --in data/raw/ --out data/labels/
-python -m src.training.finetune --config configs/phase1.yaml
-python -m src.eval.score --pred out.txt --ref data/eval/ref.txt   # CER + SN-WER
+uv run python -m src.ingest.extract --input video.mp4 --out data/work/
+uv run python -m src.labeling.romanize --input data/raw/ --out data/labels/
+uv run python -m src.training.finetune --config configs/phase1.yaml
+uv run python -m src.eval.score --pred out.txt --ref data/eval/ref.txt  # CER + SN-WER
 
 # serving
-qwen-asr-serve Qwen/Qwen3-ASR-1.7B --gpu-memory-utilization 0.8 --port 8000
+uv run qwen-asr-serve Qwen/Qwen3-ASR-1.7B --gpu-memory-utilization 0.8 --port 8000
 ```
+
+flash-attn is the `cuda` extra, marker-gated to Linux. It cannot build under
+uv's default build isolation (its setup.py imports torch), so `./run.sh setup`
+syncs twice — torch first, then flash-attn against it. Set `MAX_JOBS=4` if the
+machine has under 96 GB RAM.
 
 Keep this section accurate. If you add or rename a command, update it in the same commit.
 
@@ -118,6 +127,8 @@ Keep this section accurate. If you add or rename a command, update it in the sam
 
 ## Code conventions
 
+- **Dependencies are managed with uv.** Use `uv add` / `uv add --dev`, never
+  `pip install` or `uv pip install`. Commit `uv.lock` with any dependency change.
 - **Python 3.12**, type hints on every public function
 - **ruff** for lint + format; **mypy** for types; **pytest** for tests
 - Config in YAML under `configs/`, never hardcoded in scripts
