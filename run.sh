@@ -212,8 +212,15 @@ cmd_doctor() {
   banner
   step "Diagnostics"
   local issues=0
+  # `|| status=$?` rather than `if eval ...` on purpose. Under `set -Eeuo
+  # pipefail` the ERR trap fires on the failing eval, and because that line
+  # redirects 2>&1 the trap's own message is swallowed -- doctor exited 1 after
+  # the first missing tool, silently, which is the opposite of what a diagnostic
+  # command should do.
   _chk() {
-    if eval "$2" >/dev/null 2>&1; then ok "$1"; else warn "$1 — MISSING"; issues=$((issues+1)); fi
+    local status=0
+    ( set +eE; trap - ERR; eval "$2" ) >/dev/null 2>&1 || status=$?
+    if [[ $status -eq 0 ]]; then ok "$1"; else warn "$1 — MISSING"; issues=$((issues+1)); fi
   }
   _chk "uv"             "command -v uv"
   _chk "ffmpeg"         "command -v ffmpeg"
