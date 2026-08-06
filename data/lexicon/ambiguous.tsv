@@ -1,0 +1,25 @@
+# Tokens that are simultaneously an English word and a Roman Urdu word
+# (SPELLING-SPEC §5.4).
+#
+# Columns:  token <TAB> default <TAB> comma,separated,context
+#
+#   default  — the reading to use when nothing nearby disambiguates
+#              ("english" = pass through untouched, "urdu" = normalize)
+#   context  — neighbouring words (within two tokens) that force the OTHER
+#              reading. Empty ("-") means the default always wins.
+#
+# Keep this list short. Every row is a place where the normalizer can be wrong,
+# and a wrong English reading is the P0 failure this project exists to avoid
+# (SPELLING-SPEC §5.1). `Lexicon.load` refuses to start if a token appears in
+# both english.txt and canonical.tsv without a row here.
+
+token	default	context
+# `main` is English in "main road" and Urdu میں ("I") everywhere else.
+# Contexts are nouns that only ever follow the English adjective.
+main	urdu	road,gate,door,street,entrance,menu,screen,branch,campus,switch,server,highway,line,course
+# `sale` — SPELLING-SPEC §5.4's own example. Resolved as always-English: the
+# Urdu homograph is coarse slang that will not appear in captioned content.
+sale	english	-
+# `record` is English as both noun and verb, including in "record kar lo"
+# (SPELLING-SPEC §11 case 4). No Urdu reading.
+record	english	-

@@ -1,0 +1,204 @@
+# Canonical Roman Urdu spelling — authoritative at runtime.
+#
+# Columns:  urdu <TAB> canonical <TAB> comma,separated,rejected,variants
+# Use "-" for an empty variants cell. Lines starting with # are ignored.
+#
+# STATUS: seed, NOT frozen. Rows marked ⚠️ in SPELLING-SPEC.md §8 are contested
+# and must be resolved against Roman-Urdu-Parl frequency data before Phase 2
+# (SPELLING-SPEC §2, §12). Until `scripts/build_lexicon.py` has run, every
+# spelling here is a hypothesis.
+#
+# Two variants listed in SPELLING-SPEC §8 are deliberately NOT reproduced here:
+# `the` and `they` as variants of تھے. Both are common English words, and
+# mapping them would respell English — which outranks §8 (ADR-001, ADR-006).
+
+# --- SPELLING-SPEC §8 seed table -------------------------------------------
+urdu	canonical	variants
+ہے	hai	hei,he,hae
+ہیں	hain	hein,hen
+تھا	tha	thaa
+تھی	thi	thee
+تھے	thay	-
+نہیں	nahin	nahi,nai,nhi
+میں	mein	main,mai,me
+کیا	kya	kia,keya
+کا	ka	-
+کی	ki	kee
+کے	ke	kay
+کو	ko	-
+سے	se	say
+پر	par	per
+تک	tak	-
+اور	aur	or,aor
+یہ	ye	yeh,yh
+وہ	wo	woh,wh
+کہ	ke	keh,k
+بہت	bohot	bahut,bohat,buhat
+اچھا	acha	achha,achcha
+کرنا	karna	krna
+ہونا	hona	-
+جانا	jana	jaana
+آنا	ana	aana
+دینا	dena	daina
+لینا	lena	laina
+ابھی	abhi	abhee
+کبھی	kabhi	kabhee
+زیادہ	zyada	ziyada,zyadah
+تھوڑا	thora	thoda,thodha
+صرف	sirf	serf
+ضرور	zaroor	zarur,zroor
+مطلب	matlab	matlub
+بالکل	bilkul	bilkool,bilqul
+شکریہ	shukriya	shukria
+اللہ	Allah	-
+پاکستان	Pakistan	-
+
+# --- Verbs and auxiliaries -------------------------------------------------
+کر	kar	kr
+کرو	karo	kro
+کرتا	karta	krta
+کرتی	karti	krti
+کرتے	karte	krte
+ہوں	hun	hoon,hu,hoo
+ہو	ho	-
+ہوتا	hota	-
+ہوتی	hoti	-
+ہوتے	hote	-
+رہا	raha	rha
+رہی	rahi	rhi
+رہے	rahe	rhe
+گیا	gaya	gya
+گئی	gayi	gyi,gai
+گئے	gaye	gye
+دیا	diya	dya
+لیا	liya	lya
+آ	aa	-
+لو	lo	-
+دو	do	-
+دیکھ	dekh	dekhh
+سن	sun	-
+بول	bol	-
+چل	chal	-
+مل	mil	-
+لگ	lag	-
+سمجھ	samajh	samjh
+سوچ	soch	-
+جانتا	janta	jaanta
+پتہ	pata	pta,patah
+چاہیے	chahiye	chahiay,chahye
+سکتا	sakta	-
+سکتی	sakti	-
+سکتے	sakte	-
+
+# --- Pronouns, particles, connectives --------------------------------------
+ہم	hum	hm
+تم	tum	-
+آپ	aap	ap
+مجھے	mujhe	mujhay,mujy
+تمہیں	tumhein	tumhen
+انہیں	unhein	unhen
+ہمیں	humein	humen
+میرا	mera	-
+تیرا	tera	-
+اس کا	uska	-
+میری	meri	-
+ہمارا	hamara	humara
+تمہارا	tumhara	tumhaara
+ان کا	unka	-
+جو	jo	-
+کس	kis	-
+کون	kaun	kon
+کیوں	kyun	kyu,kion
+کہاں	kahan	kahaan
+کیسے	kaise	kese
+کب	kab	-
+اب	ab	-
+تو	to	tou
+بھی	bhi	b
+ہی	hi	-
+نا	na	-
+مت	mat	-
+ہاں	haan	han
+جی	ji	-
+اگر	agar	-
+لیکن	lekin	-
+مگر	magar	-
+یا	ya	-
+سب	sab	-
+کچھ	kuch	kuchh
+کوئی	koi	-
+یہاں	yahan	yahaan
+وہاں	wahan	wahaan
+پھر	phir	fir
+بس	bas	-
+یعنی	yaani	yani,yeni
+
+# --- Common nouns and adjectives -------------------------------------------
+آج	aaj	aj
+کل	kal	-
+وقت	waqt	wakt
+دن	din	-
+رات	raat	-
+صبح	subah	subha
+شام	shaam	sham
+سال	saal	sal
+مہینہ	mahina	maheena
+گھر	ghar	-
+کام	kaam	-
+بات	baat	-
+لوگ	log	-
+پانی	pani	paani
+کھانا	khana	khaana
+چائے	chai	chaye
+پیسہ	paisa	paise
+روپے	rupay	rupaye,rupye
+کتاب	kitab	kitaab
+دوست	dost	-
+بھائی	bhai	bhaai
+بہن	behen	behn
+والد	walid	-
+زندگی	zindagi	zindgi
+قسمت	qismat	kismat
+غلط	ghalat	galat
+ٹھیک	theek	thik,teek
+صحیح	sahi	sahih
+سچ	sach	such
+جھوٹ	jhoot	jhut
+خوش	khush	khsuh
+بڑا	bara	barra,bada
+چھوٹا	chhota	chota,chhoota
+نیا	naya	-
+پرانا	purana	puraana
+ٹماٹر	tamatar	tamaatar,tamater
+دھوپ	dhoop	dhup
+جگہ	jagah	jaga
+طرح	tarah	tara
+وجہ	wajah	waja
+
+# --- Numbers 0-10 (SPELLING-SPEC §6: written as words) ---------------------
+صفر	sifar	-
+ایک	ek	aik,ik
+دو	do	-
+تین	teen	-
+چار	chaar	char
+پانچ	paanch	panch,paanj
+چھ	chhay	chay,che
+سات	saat	sat
+آٹھ	aath	ath
+نو	nau	no
+دس	das	dus
+بجے	baje	bajay
+
+# --- Proper nouns (SPELLING-SPEC §6: always capitalised) -------------------
+کراچی	Karachi	-
+لاہور	Lahore	-
+اسلام آباد	Islamabad	-
+پشاور	Peshawar	-
+کوئٹہ	Quetta	-
+پنجاب	Punjab	-
+سندھ	Sindh	-
+اردو	Urdu	-
+احمد	Ahmed	-
+محمد	Muhammad	-
+رمضان	Ramzan	ramadan
+عید	Eid	-

@@ -1,0 +1,63 @@
+# Acronyms — always uppercase, never periods (SPELLING-SPEC §5.3).
+#
+# Matched case-insensitively and emitted uppercase, so `tv` and `Tv` both become
+# `TV`. Sentence-start capitalisation never touches these.
+
+# Media and telecoms
+TV
+CD
+DVD
+PTV
+BBC
+CNN
+SMS
+GPS
+ATM
+PIN
+CNG
+LPG
+AC
+DC
+
+# Pakistani institutions
+PTI
+PMLN
+PPP
+FBR
+NADRA
+PIA
+ISI
+FIA
+NAB
+HEC
+WAPDA
+KESC
+SSGC
+PSL
+PCB
+PSX
+
+# International
+UN
+UK
+USA
+EU
+WHO
+IMF
+NGO
+
+# Everyday
+ID
+OK
+PDF
+URL
+HTTP
+API
+CEO
+CFO
+HR
+IT
+PhD
+MBA
+BSc
+MSc
