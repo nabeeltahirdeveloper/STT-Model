@@ -26,12 +26,20 @@ everything downstream:
 
 ## Quickstart
 
+Install [uv](https://docs.astral.sh/uv/) first — it manages the Python version
+as well as the packages, so you do not need Python installed beforehand:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh          # macOS / Linux
+powershell -c "irm https://astral.sh/uv/install.ps1|iex" # Windows
+```
+
 **Linux / macOS**
 
 ```bash
 git clone <repo> && cd roman-urdu-captions
 chmod +x run.sh
-./run.sh setup
+uv sync --all-extras
 ./run.sh doctor
 ./run.sh check
 ```
@@ -40,10 +48,15 @@ chmod +x run.sh
 
 ```bat
 git clone <repo> && cd roman-urdu-captions
-run.bat setup
+uv sync --all-extras
 run.bat doctor
 run.bat check
 ```
+
+`uv sync` reads `uv.lock`, so everyone gets byte-identical versions. There is no
+virtualenv to activate — every command goes through `uv run`. Use `./run.sh setup`
+instead of `uv sync` for a first-time machine: it also provisions the interpreter,
+scaffolds directories, installs git hooks and builds flash-attn where CUDA exists.
 
 Transcribe something:
 
@@ -59,7 +72,8 @@ Run `./run.sh help` for the full command list.
 
 | | |
 |---|---|
-| Python | 3.12 |
+| uv | required — the only thing you install by hand |
+| Python | 3.12 — pinned in `.python-version`; uv installs it for you |
 | ffmpeg | required (audio extraction) |
 | GPU | NVIDIA, ≥16 GB VRAM for inference, ≥40 GB for training |
 | Disk | ~150 GB (corpora + checkpoints) |
@@ -71,6 +85,8 @@ GPUs; `1.7B` wants more headroom.
 `transformers` at module scope, so the spelling normalizer, the lexicons, the
 tests and `./run.sh check` all run on a laptop. If a Phase 0 gate starts needing
 a model dependency, a heavy import has leaked to module scope — fix the import.
+For the fastest possible loop, `uv sync` (no flags) installs runtime deps only;
+`uv sync --all-groups` adds the dev tooling the gates need.
 
 ---
 
