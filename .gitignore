@@ -11,10 +11,12 @@ dist/
 .installed.cfg
 
 # --- Environments ---------------------------------------------------------
+# .python-version and uv.lock are deliberately NOT ignored: uv reads the first to
+# provision the interpreter and the second to pin every version. Ignoring either
+# hands each contributor a different environment, which is what uv is here to stop.
 .venv/
 venv/
 env/
-.python-version
 
 # --- Tooling caches -------------------------------------------------------
 .pytest_cache/
