@@ -1,0 +1,102 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "roman-urdu-captions"
+version = "0.1.0"
+description = "Roman Urdu subtitles for code-switched Urdu-English video"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Proprietary" }
+
+# Heavy model/runtime deps live here. Nothing in src/ may import them at module
+# scope: Phase 0 work (lint, typecheck, tests, normalizer) must run on a machine
+# with no GPU and no torch installed. Import them inside the function that uses them.
+dependencies = [
+    "torch",
+    "qwen-asr",
+    "transformers",
+    "pydantic>=2",
+    "pyyaml",
+    "typer",
+    "fastapi",
+    "uvicorn",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest",
+    "pytest-cov",
+    "pre-commit",
+    "types-pyyaml",
+]
+align = [
+    "torchaudio",
+    "pyannote.audio",
+    "demucs",
+]
+
+[tool.hatch.build.targets.wheel]
+# The documented commands are `python -m src.eval.score`, `python -m src.api.pipeline`
+# etc. (CLAUDE.md > Commands), so the import root is literally `src`.
+packages = ["src"]
+
+# --------------------------------------------------------------------------- #
+# Lint
+# --------------------------------------------------------------------------- #
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["."]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src", "scripts", "tests"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests assert on literal spelling pairs; long table rows are more readable unwrapped.
+"tests/*" = ["E501"]
+
+# --------------------------------------------------------------------------- #
+# Types
+# --------------------------------------------------------------------------- #
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_untyped_decorators = false
+
+# Model/audio stacks ship incomplete or absent stubs. Phase 0 does not install them.
+[[tool.mypy.overrides]]
+module = [
+    "demucs.*",
+    "pyannote.*",
+    "qwen_asr.*",
+    "torch.*",
+    "torchaudio.*",
+    "transformers.*",
+]
+ignore_missing_imports = true
+
+# --------------------------------------------------------------------------- #
+# Tests
+# --------------------------------------------------------------------------- #
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+markers = [
+    "spec: a test case transcribed directly from docs/SPELLING-SPEC.md",
+]
+
+[tool.coverage.run]
+source = ["src"]
