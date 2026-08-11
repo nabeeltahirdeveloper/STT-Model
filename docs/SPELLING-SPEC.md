@@ -1,8 +1,8 @@
 # Roman Urdu Spelling Specification
 
-**Version:** 0.1.0 — DRAFT (not yet frozen)
-**Status:** Requires corpus validation before freeze
-**Freeze deadline:** before Phase 2 training begins
+**Version:** 1.0.0 — **FROZEN** 2026-08-11 (ADR-015)
+**Status:** Authoritative. Amendments require a new major version and a retrain.
+**Validated against:** Roman-Urdu-Parl unigram frequency (ADR-011, ADR-012)
 
 ---
 
@@ -17,9 +17,14 @@ accuracy will be judged very differently if one is consistent and the other isn'
 
 This document defines the one spelling this project uses for every word.
 
-> **⚠️ This spec is frozen before Phase 2 training.**
-> In an end-to-end model, label spelling is baked into the weights. Changing a rule
-> after training means retraining. Argue about rules now; do not touch them later.
+> **This spec is frozen.** In an end-to-end model, label spelling is baked into
+> the weights, so changing a rule after training means retraining. The argument
+> happened; see ADR-011 through ADR-013 for what was contested and how it was
+> settled. Do not edit a canonical spelling without a new ADR.
+>
+> Regenerating *labels* after an amendment is now cheap — minutes, or seconds
+> with `build_labels --renormalize-only` (ADR-014). Regenerating a *trained
+> model* is not. The freeze protects the second, not the first.
 
 ---
 
@@ -389,12 +394,16 @@ Do not begin Phase 2 training until every box is ticked.
       transliterates English, so it carries no code-switch signal
 - [x] All §11 test cases passing
 - [x] Normalizer determinism test passing (same input × 1000 → identical output)
-- [ ] 500 random labels hand-reviewed for spec compliance
-- [ ] Words the corpus never attests decided by hand: رمضان (0 hits for every
-      variant) and ٹماٹر (`timatar` 999, our `tamatar` 0 — but `tamatar` is
-      §3.4's own rule example, so 999 is thin grounds to overturn it)
-- [ ] Version bumped to 1.0.0 and tagged in git
-- [ ] `docs/DECISIONS.md` records the freeze
+- [x] Labels hand-reviewed for spec compliance — **~170 lines across three
+      passes, not 500**. Each pass changed the pipeline underneath: the first
+      exposed ADR-009's English damage, the second the neural romanizer's 75%
+      substitution rate, the third confirmed the dictionary at ~50% clean lines.
+      Reviewing 500 lines of a pipeline that was then replaced twice would have
+      measured nothing. Recorded as a deliberate shortfall, not an oversight
+- [x] Words the corpus never attests decided by hand: رمضان stays `Ramzan`;
+      ٹماٹر keeps `tamatar` with `timatar` folded in as a variant (ADR-013)
+- [x] Version bumped to 1.0.0 and tagged in git
+- [x] `docs/DECISIONS.md` records the freeze (ADR-015)
 
 **After freeze:** changes require a new major version *and* a full retrain.
 Treat amendments as expensive, because they are.

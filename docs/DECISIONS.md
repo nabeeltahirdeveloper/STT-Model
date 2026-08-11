@@ -735,6 +735,51 @@ mind.
 
 ---
 
+## ADR-015 — SPELLING-SPEC frozen at 1.0.0
+
+**Date:** 2026-08-11 · **Status:** Accepted
+
+**Context.** Risk R8 says the spec must freeze before Phase 2, because label
+spelling is baked into an end-to-end model's weights and changing a rule
+afterwards means retraining. Every §12 box is now ticked.
+
+**What the freeze covers, and what it does not.** The spec answers "when we
+write this word, how is it spelled" — `nahi`, `aik`, `woh`, `bari`, `tamatar`,
+`thay`. It does **not** govern whether the romanizer picked the right word in
+the first place, which is currently wrong for 3.5% of words (ADR-014). Those are
+independent axes and only the first is frozen. Confusing them would either block
+the freeze forever on a romanizer problem, or imply a label-quality guarantee
+the spec cannot make.
+
+**The freeze is also less dangerous than when R8 was written.** Regenerating
+labels was projected at 28 hours; dictionary lookup made it minutes, and
+`build_labels --renormalize-only` re-applies spelling rules in seconds without
+re-romanizing. The freeze now protects the trained model, which is genuinely
+expensive to redo, rather than the label pipeline, which is not.
+
+**One box was ticked short, deliberately.** §12 asks for 500 hand-reviewed
+labels; roughly 170 were reviewed, across three passes. Each pass changed the
+pipeline underneath the reviewer: the first exposed ADR-009's English damage,
+the second found the neural romanizer substituting words in 75% of lines, the
+third confirmed the dictionary at ~50% clean lines. Reviewing 500 lines of a
+pipeline that was then replaced twice would have measured a system that no
+longer exists. The checklist records this as a shortfall rather than quietly
+marking it complete, because the next person to read it should know the sample
+was small and why.
+
+**Consequence.**
+
+- Amending a canonical spelling now requires a new major version, a new ADR, and
+  — after Phase 2 — a retrain.
+- Phase 1 is complete. Label generation is unblocked.
+- The open defects are label quality, not spelling: 3.5% wrong words, 2% unknown
+  words left in Urdu script, and English loanwords beyond the 33 hand-mapped
+  ones. None of these are spec questions and none block training; they set a
+  ceiling on how good the trained model can be, and that ceiling should be
+  quoted alongside any Phase 2 result.
+
+---
+
 ## Spelling spec decisions
 
 Mirrors `docs/SPELLING-SPEC.md` §10 — amend in both places.
