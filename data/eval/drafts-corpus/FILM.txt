@@ -1,0 +1,131 @@
+# FILM — 24 clips — 3.2 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_008_FILM_0124.WAV]
+#   Ready? چلو
+Ready? Chalo
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_015_FILM_0146.WAV]
+#   یہی سوئی ہے tranquilizer کہتے ہیں
+Yahi sui hai tranquilizer kehte hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_002_FILM_0020.WAV]
+#   patient جاگ رہے ہیں اگر آپ ملنا چاہتی ہیں تو مل سکتی ہیں
+Patient jaag rahay hain agar aap milna chahti hain to mil sakti hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_014_FILM_0145.WAV]
+#   کیا معنی رکھتا ہے گھر تم اوورسیز والوں کے لیے؟ Just wondering.
+Kya maienay rakhta hai ghar tum overseas walon ke liye? Just wondering.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_001_FILM_0018.WAV]
+#   سواری hmm Yes, bend down, yes.
+Sawari Yes, bend down, yes.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0077.WAV]
+#   failure کیا ہوتا ہے؟ ہاں ہاں اور نکالو that's great take out more
+Failure kya hota hai? Haan haan aur nikalo that's great take out more
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0027.WAV]
+#   ہاں ٹھیک ہے، آؤ۔ سب آ جاؤ۔ ثنا، عارض، everyone just come
+Haan theek hai, aao. Sab aa jao. Sana, Aariz, everyone just come
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0071.WAV]
+#   چونکہ اماں، ابا کو elevated رکھنا ہے سیدھا لٹائے
+Chunke amma, abba ko elevated rakhna hai seedha lutaye
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_018_FILM_0158.WAV]
+#   ان کی assistant بھی آ چکی ہیں اور ان کی assistant بھی آ چکی ہیں۔ اچھا اچھا بس بس۔ boss کا mood بے حد خوشگوار لگ رہا ہے۔
+Un ki assistant bhi aa chuki hain aur un ki assistant bhi aa chuki hain. Acha acha bas bas. Boss ka mood be had khushgawar lag raha hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_000_FILM_0001.WAV]
+#   maintain-ment میں کٹائی تھی وہیں تھی۔ وہ کٹائی کراتے ہوئے سمجھ میں نہیں آ رہی تھی۔
+Maintain-ment mein katai thi wahin thi. Woh katai karate hue samajh mein nahi aa rahi thi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_001_FILM_0015.WAV]
+#   بھائی میرے followers کیوں نہیں اور آ رہے؟ میں نے اتنی اچھی تصویریں لگائی ہیں۔ hashtag insomnia
+Bhai mere followers kyun nahi aur aa rahay? Mein ne itni achi tasweeren lagayi hain. Hashtag insomnia
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0038.WAV]
+#   بس کریں؟ ایک دفعہ پھر ختم۔ میں نے کہا یہ لو یہ لو۔ جلدی سے اس کو last والا کرتے ہیں۔ Thank you. رہنے دو۔
+Bas karen? Aik dafaa phir khatam. Mein ne kaha yeh lo yeh lo. Jaldi se is ko last wala karte hain. Thank you. Rehne do.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_016_FILM_0154.WAV]
+#   کالر سیدھے کرتا ہے اور پانی میں اتر کے attack کرتا ہے
+Collar seedhay karta hai aur pani mein utar ke attack karta hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_017_FILM_0155.WAV]
+#   اس میں عمران عباس صاحب کے جتنے transactions ہیں اسے الگ کرو اور office time پہ آیا کرو okay
+Is mein Imran Abbas sahib ke jitne transactions hain usay alag karo aur office time pe aaya karo okay
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_018_FILM_0157.WAV]
+#   لیکن میں روز اسی ٹائم پر آتا ہوں۔ آپ کی اطلاع کے لئے عرض ہے۔ Boss آ چکے ہیں۔
+Lekin mein roz isi time par aata hoon. Aap ki ittila ke liye arz hai. Boss aa chuke hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_013_FILM_0143.WAV]
+#   UV Lamp اور touch control panel کے ساتھ۔ اس کے ساتھ ساتھ ایک، دو یا تین نہیں پورے پانچ brushes کا set بھی حاصل کیجئے۔
+UV Lamp aur touch control panel ke sath. Is ke sath sath aik, do ya teen nahi pooray paanch brushes ka set bhi haasil kijiye.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0032.WAV]
+#   Listen. وہ جو ہماری emails ہیں نا وہ بالکل الگ ہیں۔ وہ بالکل الگ ہیں۔ یہاں تم اور میں اس طرح مطلب یہ نہیں
+Listen. Woh jo hamari emails hain na woh bilkul alag hain. Woh bilkul alag hain. Yahan tum aur mein is tarah matlab yeh nahi
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0033.WAV]
+#   میری problem یہ ہے کہ میں جانتی ہوں ٹائر کس طرح بدلتے ہیں۔ lawyers کا office کہاں ہے؟ bills کہاں جمع کراتے ہیں؟ congestive heart
+Meri problem yeh hai ke mein janti hoon tyre kis tarah badaltay hain. Lawyers ka office kahan hai? Bills kahan jama karate hain? Congestive heart
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_019_FILM_0165.WAV]
+#   بھائی کھائیں گے تو بتائیں گے نا نکل یہاں سے چل Sir کو میری Pepsi بھائی سب کی قسمت ایک جیسی تھوڑی ہوتی ہے میری مثال لیجیے بھائی ایک تو کھلیں گی یہ ماں کا بے پناہ پیار
+Bhai khayen ge to batayen ge na nikal yahan se chal Sir ko meri Pepsi bhai sab ki qismat aik jaisi thori hoti hai meri misaal lijiye bhai aik to khulain gi yeh maa ka be panah pyar
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_016_FILM_0153.WAV]
+#   ہوئے دیکھا ہے۔ میں کیا ہوں؟ منگھوپیر میں رہتا ہوں۔ مگر مچھ اپنے شکار کو غور سے دیکھتا ہے۔ Distance measure کرتا ہے۔
+Hue dekha hai. Mein kya hoon? Manghopir mein rehta hoon. Magar mach apne shikaar ko ghaur se dekhta hai. Distance measure karta hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_008_FILM_0125.WAV]
+#   یہ لو تمہاری باری۔ کرو! Okay, okay, okay, okay. کرو، کرو، کرو! Samiya the verish! Perfect! I mean, it's perfect! Oh my god! With the fur and then the leather jacket! Perfect!
+Yeh lo tumhari baari. Karo! Okay, okay, okay, okay. Karo, karo, karo! Samiya the verish! Perfect! I mean, it's perfect! Oh my god! With the fur and then the leather jacket! Perfect!
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_008_FILM_0120.WAV]
+#   Hi. Oh my god. Wow ایک اور. اب کتنے ہو گئے؟.  I know, I know. میں آؤں گی، میں آؤں گی.  okay?  No no, you carry on. I'm fine. You, you go do your thing. Okay, I'll see you in a bit, all right? Okay, bye.
+Hi. Oh my god. Wow aik aur. Ab kitne ho gaye? I know, I know. Mein aaun gi, mein aaun gi. Okay? No no, you carry on. I'm fine. You, you go do your thing. Okay, I'll see you in a bit, all right? Okay, bye.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_003_FILM_0075.WAV]
+#   مدد؟ Finance big shots اپنی اپنی زندگیوں میں گم میری کیا مدد کرو گی؟۔ یہ بیچ کی اولاد ہی ہے جو زمینیں دیکھ رہی ہے، گھر چلا رہی ہے، دو بچوں کو سنبھال رہی ہے Yes
+Madad? Finance big shots apni apni zindagion mein gum meri kya madad karo gi? Yeh beech ki aulaad hi hai jo zameenen dekh rahi hai, ghar chala rahi hai, do bachon ko sanbhal rahi hai Yes
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_012_FILM_0142.WAV]
+#   تو ہی تو ہے۔ تجھ میں ہی کہیں خدا مجھے دکھے ہے۔ hmmm
+To hi to hai. Tujh mein hi kahin khuda mujhe dikhe hai.

@@ -1,0 +1,127 @@
+# PROSES — 23 clips — 2.9 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0064.wav]
+#   Ford company نے ان کو پیغام بھیجا
+Ford company ne un ko pegham bheja
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0257.wav]
+#   فرمایا میں نے اپنے غصے کو control کیا۔
+Farmaya mein ne apne ghusse ko control kiya.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0065.wav]
+#   ہم اس کو publicity کے لیے اپنے قدیم ماڈلوں کے museum میں رکھیں گے۔
+Hum is ko publicity ke liye apne qadeem modelon ke museum mein rakhen ge.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0084.wav]
+#   پہلی طلاق کی silver jubilee میں راقم الحروف کو بھی شرکت کا اتفاق ہوا۔
+Pehli talaq ki silver jubilee mein raqim ul huroof ko bhi shirkat ka ittefaq hua.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0255.wav]
+#   boy scout کی طرح روزانہ کم از کم ایک نیکی علی الاعلان کرتے۔
+Boy scout ki tarah rozana kam az kam aik neki ali ul elaan karte.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0340.wav]
+#   بیچ بیچ میں yes yes اور please please بھی کہتے جاتے تھے
+Beech beech mein yes yes aur please please bhi kehte jatay they
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0093.wav]
+#   جس کا ایک ثبوت ان کی انیس سو ستائیس model کی Ford car تھی
+Jis ka aik saboot un ki unnees sau satais model ki Ford car thi
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0347.wav]
+#   آخر استاد مرحوم نے بتایا اور English Teacher کھول کر اس کی تصدیق بھی کرا دی
+Aakhir ustaad marhoom ne bataya aur English Teacher khol kar is ki tasdeeq bhi kara di
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0155.wav]
+#   بچے نے ان سب خطابات سے بے نیاز ہو کر ایک alarm clock کی شکل اختیار کر لی
+Bachay ne un sab khitabat se be niaz ho kar aik alarm clock ki shakal ikhtiyar kar li
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0300.wav]
+#   میں نے کہا یہ دھمکی تو پڑوسی کو دہلا سکتی ہے، انگریز General Manager اس سے کیا خوف کھائے گا
+Mein ne kaha yeh dhamki to parosi ko dehla sakti hai, angraiz General Manager is se kya khauf khaye ga
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0066.wav]
+#   اور اس کے بدلے میں سالِ رواں کے model کی بڑی نئی car تمہیں پیش کریں گے
+Aur is ke badlay mein saal e rawan ke model ki barri nayi car tumhen paish karen ge
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0269.wav]
+#   Empress Market سے خود دیکھ بھال کر ناطق و بالغ مرغا خرید کر لاتے۔
+Empress Market se khud dekh bhaal kar natiq o baaligh murgha khareed kar laatay.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0301.wav]
+#   جلا کر بولے تو پھر یہ warning دے دیجئے کہ میں Spanish Civil War میں چلا جاؤں گا۔
+Jala kar bolay to phir yeh warning day dijiye ke mein Spanish Civil War mein chala jaun ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0438.wav]
+#   مگر لنڈا بازار جانے سے پہلے عسکری صاحب نے Government College کا رخ کیا اور مجھے آفتاب احمد خاں سے ملوایا۔
+Magar landa bazaar jaane se pehlay Askari sahib ne Government College ka rukh kiya aur mujhe Aftaab Ahmed Khan se milwaya.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0187.wav]
+#   جب جوانی قریب آئی تو تو نے ہی خیالات میں آزادی دی، خود رائے قائم کرنے کی قوت بخشی۔ Herbert Spencer, Mill کے خیالات دل میں جمنے لگے۔
+Jab jawani qareeb aayi to to ne hi khayalat mein azaadi di, khud raye qaim karne ki quwwat bakhshi. Herbert Spencer, Mill ke khayalat dil mein jamnay lagey.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0295.wav]
+#   خان ایک درخواست انگریزی میں اس مضمون کی لکھ دیجیے کہ مجھے فورا ترقی دے کر مردان کا manager بنا دیا جائے
+Khan aik darkhwast angrezi mein is mazmoon ki likh dijiye ke mujhe foran taraqqi day kar Mardan ka manager bana diya jaye
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0238.wav]
+#   پشتو، ہندکو، پنجابی، فارسی، اردو روانی سے بولتے اور ایک زبان سے دوسری زبان میں اس چابک دستی سے gear بدلتے کہ سننے والے کو خبر بھی نہ ہوتی۔
+Pashto, Hindko, Punjabi, Farsi, Urdu rawani se boltay aur aik zabaan se doosri zabaan mein is chaabak dasti se gear badaltay ke sunnay walay ko khabar bhi na hoti.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0306.wav]
+#   ہم نے ایک نہایت فضیانہ عرضداشت ایک انگلی سے ہجے کر کر کے اس طرح type کی جیسے ملکہ پکھراج اور طاہرہ سید گانا type کرتی ہیں
+Hum ne aik nihayat fazihana arzdasht aik ungli se hijjay kar kar ke is tarah type ki jaisay Malika Pukhraj aur Tahira Syed gana type karti hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0452.wav]
+#   میاں ایم اسلم جیسے تیار ہی بیٹھے تھے، سامعین فراہم ہو چکے تھے، دیر کس بات کی تھی؟ زیر تحریر novel سنانا شروع کر دیا۔
+Miyan M Aslam jaisay tayyar hi baithay they, saamaeen faraham ho chuke they, der kis baat ki thi? Zair e tehreer novel sunana shuru kar diya.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0444.wav]
+#   میں جب یہاں آیا تو شاہد صاحب صحیح و سالم یہاں آ کے بیٹھے تھے۔ اصل میں میرٹھ میں اڑتے اڑتے یہ خبر پہنچی تھی کہ جس special میں شاہد صاحب دلی سے چلے تھے وہ رستے میں پوری کٹ گئی۔
+Mein jab yahan aaya to Shahid sahib sahih o salim yahan aa ke baithay they. Asal mein Meerut mein urrtay urrtay yeh khabar pohanchi thi ke jis special mein Shahid sahib Dilli se chalay they woh raste mein poori kat gayi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0204.wav]
+#   اس دن ایک امریکن کی کتاب میں نکلا کہ to believe in God is to desire his existence and what is more to act as if life existed. لے بھلا حضور ہی فرمائیں ایک طرف تو منطق نے عقل کو باولا کر رکھا ہے۔
+Us din aik American ki kitaab mein nikla ke to believe in God is to desire his existence and what is more to act as if life existed. Le bhala huzoor hi farmayen aik taraf to mantiq ne aqal ko baawla kar rakha hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0482.wav]
+#   گوری رنگت، شریرا بدن، بر میں ململ کا کرتا، ٹانگوں میں پتلی مہری کا پاجامہ، ہاتھ میں چھڑی، open air theatre کے وسیع و عریض اسٹیج پر ٹہلتا، چھڑی گھماتا، دائیں سے بائیں جاتا ہے، بائیں سے دائیں آتا ہے اور یہ شعر پڑھتا ہے۔
+Gori rangat, sharera badan, bar mein malmal ka kurta, tangon mein patli mohri ka pajama, hath mein chhari, open air theatre ke wasi o areez stage par tehelta, chhari ghumata, dayen se baen jata hai, baen se dayen aata hai aur yeh shair parhta hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0481.wav]
+#   ہاں اس زمانے کا ایک شعر یاد آیا، شعر بھی نرالا شاعر بھی نرالا۔ عسکری صاحب اور میں چلتے پھرتے Lawrence Bagh میں جا نکلے۔ وہاں open air theatre میں مشاعرہ ہو رہا تھا۔ ہم نے جب وہاں قدم رکھا تو نقشہ یہ دیکھا کہ اسٹیج پر ایک شاعر چہل قدمی کر رہا ہے۔
+Haan is zamane ka aik shair yaad aaya, shair bhi nirala shayar bhi nirala. Askari sahib aur mein chaltay phirtay Lawrence Bagh mein ja niklay. Wahan open air theatre mein mushaira ho raha tha. Hum ne jab wahan qadam rakha to naqsha yeh dekha ke stage par aik shayar chehal qadmi kar raha hai.

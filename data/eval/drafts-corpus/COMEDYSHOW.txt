@@ -1,0 +1,119 @@
+# COMEDYSHOW — 21 clips — 3.3 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0098.WAV]
+#   شکل سے match کروں تو hmm
+Shakal se match karun to
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0107.WAV]
+#   دیکھیں دیکھیں میں تو ایک character actor ہوں
+Dekhen dekhen mein to aik character actor hoon
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_002_COMEDYSHOW_0046.WAV]
+#   کچھ دوائیں ہیں یا fitness ہے کیا ہے؟
+Kuch duwaein hain ya fitness hai kya hai?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0117.WAV]
+#   اچھا اچھا تو پھر مجھے ایسا لگا چلو let's try
+Acha acha to phir mujhe aisa laga chalo let's try
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0135.WAV]
+#   اپنے ڈراموں میں خود بھی کام کرتے ہیں نا؟ اپنے plays میں کام بھی کرتے ہیں۔
+Apne dramon mein khud bhi kaam karte hain na? Apne plays mein kaam bhi karte hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0122.WAV]
+#   میرے لیے یہ بڑی بات ہے this is achievement
+Mere liye yeh barri baat hai this is achievement
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0134.WAV]
+#   اپنی industry کے ہمارے actor اور سنگروں میں سے کوئی ہیں، کوئی singers میں سے، actors میں سے ہیں۔
+Apni industry ke hamaray actor aur singeron mein se koi hain, koi singers mein se, actors mein se hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0084.WAV]
+#   میرے والد بہت بڑے intellectual تھے فلم making پڑھ کے آئے تھے Hollywood سے جب میں تین سال کی تھی۔
+Mere waalid bohat baray intellectual thay film making parh ke aaye thay Hollywood se jab mein teen saal ki thi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_001_COMEDYSHOW_0039.WAV]
+#   بہت rare ہوتا ہے لیکن وہ کیونکہ anesthesia والوں کے بارے میں تھوڑا مشہور ہوتا ہے۔
+Bohat rare hota hai lekin woh kyunke anesthesia walon ke baray mein thora mashhoor hota hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0083.WAV]
+#   ہماری فیملی میں جو بیسک کہہ لیں کہ ingredient ہے نا وہ میرے parents ہیں۔
+Hamari family mein jo basic ke len ke ingredient hai na woh mere parents hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0074.WAV]
+#   ہاں؟ تو اب تھپڑ مارنے کی کیا ضرورت ہے؟ لیکن میرے سے نہیں مارا جاتا کہ میری صبا، صبا حمید میری friend رکھ رکھ کے مارتی ہے۔ اس کو آتا ہے خوب اچھی طرح۔
+Haan? To ab thapar maarne ki kya zaroorat hai? Lekin mere se nahi mara jata ke meri Saba, Saba Hameed meri friend rakh rakh ke maarti hai. Is ko aata hai khoob achi tarah.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0101.WAV]
+#   نہیں بھئی بات سنیں دیکھ رہی ہے وہ دیکھ رہا ہے ہاں وہ بھی ہے دوسرے اب دیکھیں نا کتنا common ہو گیا ہے کہ جہاں آپ کا دل چاہے آپ یہ use کر سکتے ہیں کہ چار کی اجازت ہے hmm
+Nahi bhai baat sunen dekh rahi hai woh dekh raha hai haan woh bhi hai doosray ab dekhen na kitna common ho gaya hai ke jahan aap ka dil chahay aap yeh use kar sakte hain ke chaar ki ijazat hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0104.WAV]
+#   بھائی وہ جب آ رہی ہوتی ہے نا مجھے ہماری دوست ہیں خوش بخت کہنے لگی وہ سین کھا جاتی ہے۔ کیونکہ وہ نئی ہے اور اتنا اچھا وہ New York سے وہ فلم ول پڑھ کے آئی ہوئی ہے۔
+Bhai woh jab aa rahi hoti hai na mujhe hamari dost hain Khushbakht kehne lagi woh scene kha jati hai. Kyunke woh nayi hai aur itna acha woh New York se woh film wil parh ke aayi hui hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0113.WAV]
+#   نہیں میں بنتی تھی ہیروئین بھی۔ اچھا۔ ہاں میں ایمرجنسی وارڈ میں ہیروئین تھی، میں بہت سے ڈراموں میں ہیروئین تھی۔ مطلب میں ہیروئین looking تو تھی نا۔
+Nahi mein banti thi heroine bhi. Acha. Haan mein emergency ward mein heroine thi, mein bohat se dramon mein heroine thi. Matlab mein heroine looking to thi na.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0126.WAV]
+#   آئے وہ بات نہیں میرے سامنے کرنی تھی آپ نے۔ کیونکہ یہ نہ ہو اس وقت show on air جائے تو چوتھی بھی آ رہی ہو۔
+Aaye woh baat nahi mere samnay karni thi aap ne. Kyunke yeh na ho is waqt show on air jaye to chauthi bhi aa rahi ho.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_001_COMEDYSHOW_0042.WAV]
+#   جی میڈم آپ سے ایک question ہے ماشاءاللہ آپ ہماری امیدوں  زیادہ جوان نظر آ رہی ہیں
+Jee madam aap se aik question hai mashaAllah aap hamari umeedon se ziyada jawan nazar aa rahi hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_001_COMEDYSHOW_0040.WAV]
+#   کہ وہ during anaesthesia ان کی ایک کافی اور چائے کا ایک وہ کپ لازمی لیتے ہیں۔ اچھا۔ تو اس duration کے دوران بعض اوقات patient واپس reverse آ جاتا ہے۔
+Ke woh during anaesthesia un ki aik coffee aur chaye ka aik woh cup laazmi letay hain. Acha. To is duration ke douran baaz auqaat patient wapas reverse aa jata hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0139.WAV]
+#   ہم ایسے کرتے ہیں، میں ایک play میں نے لکھا تھا کچھ دل نے کہا۔ میرے گیارہ serial ہیں، اس میں سے چار ایک شاید Geo پہ چلیں۔
+Hum aisay karte hain, mein aik play mein ne likha tha kuch dil ne kaha. Mere gyara serial hain, is mein se chaar aik shayad Geo pe chalein.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/COMEDYSHOW/audio/SPEAKER_000_COMEDYSHOW_0001.WAV]
+#   پاگل ہوئی پڑی ہے کہ ایک اور retired player جس کو IPL میں میرے خیال میں کسی نے بھی نہیں اٹھانا تھا ہم لے رہے ہیں۔ but خیر characters یہی ہیں نئے players میں مجھے تو کوئی superstars نظر نہیں آرہے یہی ہیں میں تو ابھی بھی کہتا ہوں آفریدی کو بھی ڈال دو انضمام کو بھی ڈال دو PSL کا جو ہے وہ مزہ دوبالا ہو جائے گا۔
+Pagal hui pari hai ke aik aur retired player jis ko IPL mein mere khayaal mein kisi ne bhi nahi uthana tha hum le rahay hain. But kher characters yahi hain naye players mein mujhe to koi superstars nazar nahi aa rahay yahi hain mein to abhi bhi kehta hoon Afridi ko bhi daal do Inzamam ko bhi daal do PSL ka jo hai woh maza dobala ho jaye ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/COMEDYSHOW/audio/SPEAKER_000_COMEDYSHOW_0000.WAV]
+#   کھولی زہر کی گولی Oh my God ڈبل سینچری مطلب دوسری سینچری back to back سینچری ڈیڈی سینچری ڈیڈی گرینڈ ڈیڈی سینچری ہو گئی پچھلی بھی انہوں نے ڈیڈی ماری تھی۔ تھپڑ پتہ نہیں سینچری یہ مار رہا ہے تھپڑ میرے دوست گھمبیر کو پڑ رہے ہیں۔ کیوں پڑ رہے ہیں؟ بہت زیادہ خبریں آ رہی ہیں کہ کھولی اور گھمبیر کی آپس میں بہت زیادہ لڑائی ہو گئی۔ دوسری طرف میکسی جو ہیں انہوں نے بھی انکار کر دیا کہ اس دفعہ کے آئی پی ایل میں نہیں ہوں گا۔ پاکستان میں جو ہے وہ ڈھول کے تھاپ پر رقص ہو رہے ہیں۔ باہر سڑکوں کے اوپر نوجوان نسل جو ہے ناچ رہی ہے سرائیکی ڈانس کر رہی ہے۔ پاگل ہوئی پڑی ہے کہ ایک اور
+Kohli zeher ki goli Oh my God double century matlab doosri century back to back century daddy century daddy grand daddy century ho gayi pichli bhi unhon ne daddy maari thi. Thapar pata nahi century yeh maar raha hai thapar mere dost Gambhir ko par rahay hain. Kyun par rahay hain? Bohat ziyada khabrain aa rahi hain ke Kohli aur Gambhir ki aapas mein bohat ziyada larai ho gayi. Doosri taraf Maxi jo hain unhon ne bhi inkaar kar diya ke is dafaa ke IPL mein nahi hoon ga. Pakistan mein jo hai woh dhol ke thaap par raqs ho rahay hain. Bahar sarkon ke oopar nojawan nasal jo hai naach rahi hai saraiki dance kar rahi hai. Pagal hui pari hai ke aik aur
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/COMEDYSHOW/audio/SPEAKER_000_COMEDYSHOW_0003.WAV]
+#   بنا دی انڈیا نے ایک دفعہ پھر سے۔ پچھلی بار وہ 350 تک پہنچ ہی گئے تھے لیکن اتنی آسانی سے نہیں پہنچے تھے end میں تو ایک بھلجڑیاں اڑا اڑا کے نو وکٹیں تھیں اس کے بعد، مطلب کوئی اتنا convincingly نہیں پہنچے تھے لیکن پھر بھی پہنچ گئے تھے، ڈرا دیا تھا کم سے کم انہوں نے۔ اس دفعہ پھر جو ہے جیسا start ملا تھا انڈیا کو اس لحاظ سے تو میں دیکھ رہا تھا کہ 370 80 90 400 مجھے تو نظر آ رہا تھا۔ آ لیکن انہوں نے بڑا اچھا come back کر لیا۔ کوہلی کو out کیا بس وہی کوہلی صاحب ہی ہیں۔ کوہلی صاحب آج جو ہے وہ century ماری ہے۔ تو ساتھ ساتھ جو میں ہمیشہ روتا ہوں کہ یار تم لوگ صرف ان کے score دیکھ رہے ہوتے ہو۔ تم یہ نہیں دیکھ رہے ہوتے کہ دوسرے end پہ جو کھڑا ہوا ہے وہ چھچھورا کیا score کر رہا ہوتا ہے۔ Ruturaj Gaikwad
+Bana di India ne aik dafaa phir se. Pichli baar woh 350 tak poanch hi gaye thay lekin itni aasani se nahi puhanche thay end mein to aik phuljhariyan ura ura ke nau wickten theen is ke baad, matlab koi itna convincingly nahi puhanche thay lekin phir bhi poanch gaye thay, dara diya tha kam se kam unhon ne. Is dafaa phir jo hai jaisa start mila tha India ko is lehaaz se to mein dekh raha tha ke 370 80 90 400 mujhe to nazar aa raha tha. Aa lekin unhon ne bara acha come back kar liya. Kohli ko out kiya bas wohi Kohli sahib hi hain. Kohli sahib aaj jo hai woh century maari hai. To sath sath jo mein hamesha rota hoon ke yaar tum log sirf un ke score dekh rahay hotay ho. Tum yeh nahi dekh rahay hotay ke doosray end pe jo khara hua hai woh chichora kya score kar raha hota hai. Ruturaj Gaikwad

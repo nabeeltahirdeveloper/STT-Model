@@ -1,0 +1,131 @@
+# ROADSIDE — 24 clips — 2.8 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0030.wav]
+#   But it's fine. کوئی بات نہیں
+But it's fine. Koi baat nahi
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0007.wav]
+#   Two, یہ main office کے پاس ہے
+Two, yeh main office ke paas hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0012.wav]
+#   تو let's go میں آپ کو دکھاتی ہوں
+To let's go mein aap ko dukhati hoon
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0011.wav]
+#   کافی greenery ہے اور کافی بڑی uni ہے یہ۔
+Kaafi greenery hai aur kaafi barri uni hai yeh.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0022.wav]
+#   اور وہاں پہ ہم نے جانا ہے۔ وہاں پہ میں اپنی friend سے ملوں گی۔
+Aur wahan pe hum ne jana hai. Wahan pe mein apni friend se milun gi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0034.wav]
+#   تو تب تک کے لئے آپ ویڈیو دیکھیں میں کھانا لے کے آئی Bye bye
+To tab tak ke liye aap video dekhen mein khana le ke aayi Bye bye
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0033.wav]
+#   اور پھر میں vlog بناتی ہوں اور آپ کو باقی کی ساری چیزیں دکھاتی ہوں۔
+Aur phir mein vlog banati hoon aur aap ko baqi ki saari cheezen dukhati hoon.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0018.wav]
+#   تو یہ سامنے almost Concordia one آ گیا ہے یہ اس کی parking ہے
+To yeh samnay almost Concordia one aa gaya hai yeh is ki parking hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0021.wav]
+#   تو یہ اس کے بالکل سامنے جو آپ کو ایک بلڈنگ ٹائپ نظر آ رہی ہے، وہ ہے Concordia One۔
+To yeh is ke bilkul samnay jo aap ko aik building type nazar aa rahi hai, woh hai Concordia One.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0023.wav]
+#   اور یہاں پہ بہت رش ہوگا۔ I'm sure, کیونکہ رجسٹریشن اور
+Aur yahan pe bohat rush hoga. I'm sure, kyunke registration aur
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0025.wav]
+#   اور یہ under construction بھی نہیں ہے۔ so let's see کہ یہ کیسا ہوتا ہے۔ میں بھی first time جا رہی ہوں۔
+Aur yeh under construction bhi nahi hai. So let's see ke yeh kaisa hota hai. Mein bhi first time ja rahi hoon.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0006.wav]
+#   Okay guys, تو اب ہم آ گئے ہیں seat two جس کو ہم کہتے ہیں Concordia
+Okay guys, to ab hum aa gaye hain seat two jis ko hum kehte hain Concordia
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0010.wav]
+#   یہ C2 under construction تھا اس لیے یہاں پہ زیادہ رش نہیں تھا but اب ہم جائیں گے C2 اور یہ C2 کا راستہ ہے۔
+Yeh C2 under construction tha is liye yahan pe ziyada rush nahi tha but ab hum jayen ge C2 aur yeh C2 ka rasta hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0020.wav]
+#   اور ابھی کیونکہ گرمی ہے تو کوئی آپ کو نظر نہیں آ رہا یہاں پہ but شام میں evening میں کافی رش ہو جاتا ہے یہاں پہ
+Aur abhi kyunke garmi hai to koi aap ko nazar nahi aa raha yahan pe but shaam mein evening mein kaafi rush ho jata hai yahan pe
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0026.wav]
+#   Okay تو یہ ہے stationary shop اور yeah یہ stationary shop تھی.
+Okay to yeh hai stationary shop aur yeah yeh stationary shop thi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0028.wav]
+#   Okay guys, تو یہ Concordia one کے اندر کی ہے اور آپ خود ہی دیکھ سکتے ہیں کہ کتنا rush ہوا ہوا ہے یہاں پہ۔
+Okay guys, to yeh Concordia one ke andar ki hai aur aap khud hi dekh sakte hain ke kitna rush hua hua hai yahan pe.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0015.wav]
+#   directly جاتی ہے library کی طرف main office کی طرف departments کی طرف تو ابھی ہم دوسری side پہ جائیں گے
+Directly jati hai library ki taraf main office ki taraf departments ki taraf to abhi hum doosri side pe jayen ge
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0017.wav]
+#   وہ بھی Concordia one ہی ہے یہاں پے تین Concordia's ہیں ایک Concordia one ایک Concordia two and ایک Concordia three
+Woh bhi Concordia one hi hai yahan pe teen Concordia's hain aik Concordia one aik Concordia two and aik Concordia three
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0036.wav]
+#   کچھ rice ہیں, Chinese rice, بھنڈی, کباب, بریانی, macaronis, چنا چاٹ۔ تو ہم نے fries and بریانی لی ہے۔
+Kuch rice hain, Chinese rice, bhindi, kabaab, biryani, macaronis, chana chaat. To hum ne fries and biryani li hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0014.wav]
+#   Okay guys تو یہ main road آ گئی ہے اور اس کے opposite side پہ ہے C1 اور یہ
+Okay guys to yeh main road aa gayi hai aur is ke opposite side pe hai C1 aur yeh
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0043.wav]
+#   لفٹ کے بالکل ساتھ تو میں نے آپ کو سارا ڈیپارٹمنٹ اوپر سے بھی دکھاتی ہوں۔ یہ اوپر سے اس کا ویو ہے جو کہ بہت خوبصورت ویو ہے۔ I loved it. اور میں آپ کو اندر سے بھی دکھاتی ہوں سارا۔
+Lift ke bilkul sath to mein ne aap ko sara department oopar se bhi dukhati hoon. Yeh oopar se is ka view hai jo ke bohat khoobsurat view hai. I loved it. Aur mein aap ko andar se bhi dukhati hoon sara.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0046.wav]
+#   جو کہ IT, computer science, AI, IS, information security, اس ساری چیزوں کے department ہیں seecs. تو ہم جائیں گے پہلے وہاں اور پھر میں دکھاؤں گی وہ۔
+Jo ke IT, computer science, AI, IS, information security, is saari cheezon ke department hain seecs. To hum jayen ge pehlay wahan aur phir mein dikhaun gi woh.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0005.wav]
+#   السلام علیکم guys, welcome to my channel why not. آج کی اس vlog میں میں جا رہی ہوں اپنی یونی کچھ registrations کرانے and document submission کے لیے. تو میں نے سوچا کہ کیوں نہ ایک vlog بنایا جائے اور آپ کو بھی ساتھ لے کر جایا جائے. تو یہ dress میں نے choose کیا ہے یونی پہننے کے لیے.
+Assalam o alaikum guys, welcome to my channel why not. Aaj ki is vlog mein mein ja rahi hoon apni uni kuch registrations karanay and document submission ke liye. To mein ne socha ke kyun na aik vlog banaya jaye aur aap ko bhi sath le kar jaya jaye. To yeh dress mein ne choose kiya hai uni pehannay ke liye.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0039.wav]
+#   Okay guys تو یہ S3H کا ڈیپارٹمنٹ ہے اور یہ اس کی اینٹرنس ہے۔ یہاں بیسیکلی Social Sciences and Humanities کا ڈیپارٹمنٹ ہے یہ۔ جیسے کہ Economics, Psychology, Sociology اور سب سے زیادہ رش اور مزے کا انوائرمنٹ اسی ڈیپارٹمنٹ میں ہوتا ہے۔
+Okay guys to yeh S3H ka department hai aur yeh is ki entrance hai. Yahan basically Social Sciences and Humanities ka department hai yeh. Jaisay ke Economics, Psychology, Sociology aur sab se ziyada rush aur mazay ka environment isi department mein hota hai.

@@ -1,0 +1,111 @@
+# NEWS — 19 clips — 3.5 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_012_NEWS_0078.WAV]
+#   بسنت جو ہے وہ منائی جائے گی۔ In fact
+Basant jo hai woh manayi jaye gi. In fact
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0170.WAV]
+#   JF-17 Thunder سے متعلق تفصیلات پوچھی گئیں
+JF-17 Thunder se mutaliq tafseelaat poochi gayeen
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_006_NEWS_0041.WAV]
+#   اقدام، عالمی قانون اور اقوام متحدہ کے تقدس کی خلاف ورزی قرار۔ عالمی برادری سے پائیدار funding کی فوری اپیل۔
+Iqdaam, aalmi qanoon aur aqwam mutahidda ke taqaddus ki khilaaf warzi qarar. Aalmi biradari se paidaar funding ki fori apeel.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0166.WAV]
+#   شو میں JF-17 Thunder Block 3, سپر مشاق نمائش کے لیے پیش
+Show mein JF-17 Thunder Block 3, super Mashaaq numaish ke liye paish
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0167.WAV]
+#   دبئی Air Show میں J F 17 Thunder کی دھوم, بھارتی pilots بھی J F 17 Thunder سے مرعوب.
+Dubai Air Show mein JF-17 Thunder ki dhoom, bharti pilots bhi JF-17 Thunder se maroob.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0191.WAV]
+#   رپورٹ میں کہا Tax to GDP تناسب میں کمی بدعنوانی کے خطرات کی علامت ہے۔
+Report mein kaha Tax to GDP tanasub mein kami badunwani ke khatraat ki alamat hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_020_NEWS_0199.WAV]
+#   detect ہوئے ہیں جن کو polio کا مرض ہوا ہے اور ان میں سے ہمارے لیے again
+Detect hue hain jin ko polio ka marz hua hai aur un mein se hamaray liye again
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_020_NEWS_0200.WAV]
+#   شرمندگی کا باعث ہے کہ ان میں سے نو بچے صوبہ سندھ میں ہیں جو affect ہوئے ہیں پولیو سے۔
+Sharmindagi ka baais hai ke un mein se nau bachay sooba Sindh mein hain jo affect hue hain polio se.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_013_NEWS_0095.WAV]
+#   دیکھیے یقیناً cultural activities اور آپ کہتے ہیں کہ مطلب جتنی بھی ہو کم ہو، مجھے تو افسوس یہ ہے کہ ہوتی نہیں ہے۔
+Dekhiye yaqeenan cultural activities aur aap kehte hain ke matlab jitni bhi ho kam ho, mujhe to afsos yeh hai ke hoti nahi hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_005_NEWS_0034.WAV]
+#   phase one ہے لیکن نہ تو یہ کسی حکومت کی فتح ہے، نہ یہ کسی کوئی جماعت کی فتح ہے۔ یہ میں ضرور کہوں گا۔
+Phase one hai lekin na to yeh kisi hukoomat ki fatah hai, na yeh kisi koi jamaat ki fatah hai. Yeh mein zaroor kahun ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_013_NEWS_0107.WAV]
+#   کہ ہم جو غلط چیزیں ہیں ان کو خود ہی اپنے اوپر جو ہے وہ impose کر لیں اور ہم انہیں کہیں کہ جی ہم نے یہ نہیں ہونے دینا۔
+Ke hum jo ghalat cheezein hain un ko khud hi apne oopar jo hai woh impose kar len aur hum inhen kahen ke jee hum ne yeh nahi honay dena.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_011_NEWS_0071.WAV]
+#   اتنا establish ہو گئی ہے کہ لوگ نہیں گڑبڑ کریں گے۔ یا کوئی چڑیا جسے کہتے ہیں نا پر نہیں مارے گی۔ اور دوسری ایک اور چیز مطلب تو جو legislation ہے
+Itna establish ho gayi hai ke log nahi garbar karen ge. Ya koi chirya jisay kehte hain na par nahi maaray gi. Aur doosri aik aur cheez matlab to jo legislation hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0160.WAV]
+#   معرکہ حق کے فاتح Air Chief کی Dubai Air Show میں شرکت۔ Air Chief Marshal ظہیر احمد بابر سدھو کی دوست ملکوں کی فضائی افواج کے سربراہان سے ملاقاتیں۔
+Maarka haq ke faateh Air Chief ki Dubai Air Show mein shirkat. Air Chief Marshal Zaheer Ahmed Babar Sidhu ki dost mulkon ki fazai afwaj ke sarbrahan se mulaqaten.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_007_NEWS_0048.WAV]
+#   کراچی میں اپنوں کے ہاتھوں تین خواتین کا لرزہ خیز قتل، تینوں کو red poison دے کر مارا گیا، گھر کا سربراہ اقبال اور بیٹا مرکزی ملزم، سما خطوط کے اہم کرداروں کو سامنے لے آیا۔
+Karachi mein apnon ke hathon teen khawateen ka larza khaiz qatal, teenon ko red poison day kar mara gaya, ghar ka sarbarah Iqbal aur beta markazi mulzim, Sama khutoot ke ahem kirdaron ko samnay le aaya.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_001_NEWS_0006.WAV]
+#   اسد قیصر کا چھبیسویں اور ستائیسویں آئینی ترمیم سے عدالتی نظام کے مفلوج ہونے کا دعویٰ۔ Executive جج کی مرضی سے فیصلے ہوں گے تو عوام کو انصاف کیسے ملے گا؟ پی ٹی آئی رہنما کا سوال، وکلا سے آئین کے تحفظ کے لیے کھڑے ہونے کی اپیل۔
+Asad Qaisar ka chhabeeswen aur satayeeswen aaini tarmeem se adalti nizaam ke maflooj honay ka daawa. Executive judge ki marzi se faislay hon ge to awam ko insaaf kaisay miley ga? PTI rehnuma ka sawal, wukla se aeen ke tahaffuz ke liye kharray honay ki apeel.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_003_NEWS_0030.WAV]
+#   پاک بحریہ کا ہنگور ڈے 9 دسمبر 1971 کو آبدوز ہنگور نے دشمن کے بحری جہاز ککری کو غرق اور کرپان کو شدید نقصان پہنچا کر بھارت کی بحری برتری کا غرور خاک میں ملایا۔ پاکستان کے بحری محافظوں کا کارنامہ آج بھی دشمن کے ذہنوں پر نقش ہے۔ Chief of Defense Forces Field Marshal آصف منیر کا پیغام۔
+Pak behria ka Hangor day 9 December 1971 ko aabdoz Hangor ne dushman ke behri jahaaz Khukri ko ghark aur Kirpan ko shadeed nuqsaan pouncha kar Bharat ki behri bartari ka ghuroor khaak mein milaya. Pakistan ke behri muhafizon ka karnaama aaj bhi dushman ke zehnon par naqsh hai. Chief of Defense Forces Field Marshal Asif Munir ka pegham.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_004_NEWS_0032.WAV]
+#   اب فیض عبید صاحب آگے بڑھ کے جا رہے ہیں گواہی اور evidences  دو چیزوں کے۔ ایک as a prime minister عمران خان صاحب ان کو کیا ہدایت دیتے تھے۔ اور نو مئی  planning اور execution  شواہد اور گواہی دینے  جا رہے  ہیں۔ چاہے اس میں جج ہے، جنرل ہے، سیاستدان کا دارہکار بہت بڑا ہوتا جا رہا ہے۔
+Ab Faiz Ubaid sahib agay barh ke ja rahay hain gawahi aur evidences do cheezon ke. Aik as a prime minister Imran Khan sahib un ko kya hidayat dete they. Aur 9 May planning aur execution shawahid aur gawahi dainay ja rahay hain. Chahay is mein judge hai, general hai, siyasatdan ka daayrakaar bohat bara hota ja raha hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_003_NEWS_0018.WAV]
+#   پاکستان اور انڈونیشیا کے درمیان تجارت، ثقافت، صحت، تعلیم اور پیشہ ورانہ تربیت سمیت مختلف شعبوں میں تعاون کے ساتھ معاہدے۔ مفاہمت کی یادداشتوں پر دستخط۔ وزیراعظم ہاؤس میں منعقدہ تقریب میں وزیراعظم شہباز شریف اور انڈونیشیا کے صدر پرابوو سوبیانتو موجود تھے۔ وزیراعظم ہاؤس پر مہمان صدر کو guard of honour پیش۔
+Pakistan aur Indonesia ke darmiyan tijarat, saqafat, sehat, taleem aur pesha warana tarbiyat samet mukhtalif shobon mein taawun ke sath muahiday. Mufahmat ki yaddashton par dastakhat. Wazeer e azam house mein munaqida taqreeb mein wazeer e azam Shahbaz Shareef aur Indonesia ke saddar Prabowo Subianto mojood they. Wazeer e azam house par mehman saddar ko guard of honour paish.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_006_NEWS_0043.WAV]
+#   قرض پروگرام on track رکھنا ہے تو بہت کچھ کرنا ہوگا آئی ایم ایف کا پاکستان سے do more کا مطالبہ بدعنوانی روکنے کے لیے سرکاری افسران کے اثاثے online شائع کریں صوبائی اینٹی کرپشن اداروں کو اختیارات دیں شوگر سیکٹر میں اصلاحات کریں عالمی ادارے کی شرائط تارکین وطن کی رقوم پر اخراجات کی لاگت کا جائزہ ایف بی آر کے لیے reforms روڈ میپ کی فوری تیاری پر زور اعلی سرکاری افسران کے اثاثے online شائع کرنے کا نظام تیار اینٹی منی لانڈرنگ کے لیے وفاقی اور صوبائی افسران کے اثاثوں کی جانچ پڑتال بھی ہوگی وفاقی حکومت نے آئی ایم ایف کو آگاہ کر دیا
+Qarz programme on track rakhna hai to bohat kuch karna hoga IMF ka Pakistan se do more ka mutalba badunwani roknay ke liye sarkari afsaran ke asasay online shaya karen soobai anti corruption idaron ko ikhtiyarat den sugar sector mein islahat karen aalmi idaray ki sharait taarkeen watan ki raqoom par akhrajaat ki laagat ka jaiza FBR ke liye reforms road map ki fori tayari par zor aala sarkari afsaran ke asasay online shaya karne ka nizaam tayar anti money laundering ke liye wifaqi aur soobai afsaran ke asason ki jaanch partaal bhi hogi wifaqi hukoomat ne IMF ko aagah kar diya

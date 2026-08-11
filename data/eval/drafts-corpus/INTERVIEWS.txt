@@ -1,0 +1,119 @@
+# INTERVIEWS — 21 clips — 3.1 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0060.WAV]
+#   واحد ستیانی Goal
+Wahid satyani Goal
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0135.WAV]
+#   اور malls ملنا مشکل ہوتا ہے
+Aur malls milna mushkil hota hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0108.WAV]
+#   اور جو فن کاری ہے its again okay
+Aur jo fankaari hai its again okay
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0202.WAV]
+#   آج کل چل رہی ہیں نا میں نے کافی reels دیکھی ہیں
+Aaj kal chal rahi hain na mein ne kaafi reels dekhi hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0063.WAV]
+#   even دوپٹہ a plain سوٹ پہ آپ red پہ پہنیں کے ساتھ
+Even dupatta a plain suit pe aap red pe pehnen ke sath
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0065.WAV]
+#   Okay تو دوپٹے اوڑھ کے میں آرام سے پہنیں گے۔
+Okay to dupattay orh ke mein aaram se pehnen ge.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0138.WAV]
+#   تو آئیے چلتے ہیں next planning پر So جی بالکل
+To aaiye chaltay hain next planning par So jee bilkul
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0243.WAV]
+#   گرمیوں کی شادی کے لئے waterproof والا mascara
+Garmiyon ki shadi ke liye waterproof wala mascara
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0137.WAV]
+#   کیونکہ کیا کریں؟ جب کرنی تو ہے نا، dates وہی fix ہوئی ہوئی ہیں۔
+Kyunke kya karen? Jab karni to hai na, dates wohi fix hui hui hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0057.WAV]
+#   اور یہ گوٹا ہے اور یہ پیچھے دیکھیے block print ہے آگے
+Aur yeh gota hai aur yeh peechay dekhiye block print hai aagay
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0145.WAV]
+#   ایک بندی روز جم جاتی ہے تو پھر ساری طرح کے کپڑے پہن سکتی ہے بندی۔ Seriously
+Aik bandi roz gym jati hai to phir saari tarah ke kapray pehan sakti hai bandi. Seriously
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0064.WAV]
+#   بہت اچھا ہے بھائی۔ ہے نا؟ mix and match کر کے۔ ایک جوڑا ہو گیا۔ ایک منٹ۔ نہیں نہیں نہیں نہیں، ایک ایک کر کے چلیں گے۔
+Bohat acha hai bhai. Hai na? Mix and match kar ke. Aik jora ho gaya. Aik minute. Nahi nahi nahi nahi, aik aik kar ke chalein ge.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0104.WAV]
+#   اور یہ سب کھلے کھلے ہیں۔ Straight cuts ہیں یا پھر A-lines ہیں۔ بالکل، کیونکہ چپکے ہوئے کپڑے نہیں۔
+Aur yeh sab khulay khulay hain. Straight cuts hain ya phir A-lines hain. Bilkul, kyunke chupkay hue kapray nahi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_000_INTERVIEWS_0005.WAV]
+#   Good Morning, پاکستان
+Good Morning, Pakistan
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0100.WAV]
+#   اچھا آئیڈیا ہے کہ ایک تُرپائی کے اندر ایک پتلی سی زنجیر ڈال دی Good idea ہاں تو یہ آپ کا ایک fall بہت اچھا آپ کو ملا۔ ورنہ آپ موٹا کپڑا لگاتے ہیں کہ lining کے نیچے سے لگا۔
+Acha idea hai ke aik turpayi ke andar aik patli si zanjeer daal di Good idea haan to yeh aap ka aik fall bohat acha aap ko mila. Warna aap mota kapra lagatay hain ke lining ke neechay se laga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0080.WAV]
+#   بھاگم دوڑی یہ سب چیزیں ہوتی ہیں جس کی وجہ سے آپ کو already گرمی لگ رہی ہوتی ہے چاہے AC بھی ہو۔ ایک چھوٹے سے break کے بعد ہمارے ساتھ رہیے، Good Morning Pakistan.
+Bhagam dori yeh sab cheezein hoti hain jis ki wajah se aap ko already garmi lag rahi hoti hai chahay AC bhi ho. Aik chhotay se break ke baad hamaray sath rahiye, Good Morning Pakistan.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0092.WAV]
+#   وائٹ ہے آپ اس کے ساتھ گرین بھی پہن سکتے ہیں، وہ والی بات ہے mood پر ہے، pants آپ اس کے ساتھ جیولری آپ آپ کو بڑے جھمکے پہننے ہیں ریڈ آپ contrast دے سکتے ہیں۔ اگر میں پہنوں گی نا یہ اس ٹراوزر کے ساتھ۔
+White hai aap is ke sath green bhi pehan sakte hain, woh wali baat hai mood par hai, pants aap is ke sath jewelry aap aap ko baray jhumkay pehenne hain red aap contrast day sakte hain. Agar mein pehnun gi na yeh is trouser ke sath.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0193.WAV]
+#   گرمیوں کی شادی ہے۔ وہ بھی بہت ضروری ہے۔ اچھا  sometimes کون  colors ہیں ایسے جو آپ کو  ہے کہ تھوڑا سا off لگیں گے اس season
+Garmiyon ki shadi hai. Woh bhi bohat zaroori hai. Acha sometimes kon colors hain aisay jo aap ko hai ke thora sa off lagen ge is season
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0027.WAV]
+#   تو جو فوجی تربیت اگر آپ کی ہے، اگر آپ کے ماں باپ نے آپ کو discipline پالا ہے، ٹائم پہ سونا، ٹائم پہ اٹھنا، ٹائم پہ کھانا، تو پھر automatically آپ ایک اچھے planner ہوں گے۔ آپ misplanning نہیں کریں گے اور زندگی میں نقصان نہیں اٹھائیں گے۔ چاہے وہ sports ہو، چاہے آپ کا career ہو، چاہے آپ کی education ہو یا گھر کا کوئی event ہر چیز planning مانگتی ہے۔ اب آپ یہی لے لیجیے کہ شادی کا سیزن آتا ہے اور ایک دم قیمتیں ہر چیز کی بڑھ جاتی ہیں کیونکہ سب کو پتہ ہے۔ سارے
+To jo fauji tarbiyat agar aap ki hai, agar aap ke maa baap ne aap ko discipline paala hai, time pe sona, time pe uthna, time pe khana, to phir automatically aap aik achay planner hon ge. Aap misplanning nahi karen ge aur zindagi mein nuqsaan nahi uthayen ge. Chahay woh sports ho, chahay aap ka career ho, chahay aap ki education ho ya ghar ka koi event har cheez planning maangti hai. Ab aap yahi le lijiye ke shadi ka season aata hai aur aik dam qeematein har cheez ki barh jati hain kyunke sab ko pata hai. Saaray
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0026.WAV]
+#   پیسے کم ہوتے ہیں اور ایک دم سر پہ اور چیزیں آتی جاتی آتی جاتی۔ ہماری misplanning۔ اس میں بھی ہماری misplanning۔ اسی طرح اگر میں اپ کو travelling کا کہتی ہوں کہ travelling کرنی ہے تو پہلے سے تھوڑی محتاط ہو کے چیزیں رکھ لیں، pack کر لیں۔ وہاں جا کے یاد آتا ہے اے اللہ یہ تو بھول گئے۔ charger بھول گئے، فلانا بھول گئے، یہ بھول گئے۔ کیوں؟ ہماری misplanning وہاں پہ بھی۔ یہ جو ہماری گٹھی میں ڈال دی گئی ہے نا misplanning اب اس کو تھوڑا درست کرنا پڑے گا۔ اور تبھی تو میں کہتی ہوں جو بھی چیزیں فوجیوں کے حوالے ہیں وہ تھوڑی صحیح رہتی ہیں اس کی reason یہ ہے کہ وہ discipline ہوتے ہیں۔ تو جو فوجی تر
+Paisa kam hotay hain aur aik dam sar pe aur cheezein aati jati aati jati. Hamari misplanning. Is mein bhi hamari misplanning. Isi tarah agar mein aap ko travelling ka kehti hoon ke travelling karni hai to pehlay se thori mohtaat ho ke cheezein rakh len, pack kar len. Wahan ja ke yaad aata hai ae Allah yeh to bhool gaye. Charger bhool gaye, falana bhool gaye, yeh bhool gaye. Kyun? Hamari misplanning wahan pe bhi. Yeh jo hamari ghutti mein daal di gayi hai na misplanning ab is ko thora durust karna paray ga. Aur tabhi to mein kehti hoon jo bhi cheezein faujion ke hawalay hain woh thori sahih rehti hain us ki reason yeh hai ke woh discipline hotay hain. To jo fauji tar
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0028.WAV]
+#   بڑھ جاتی ہے کیونکہ سب کو پتا ہے۔ سارے ڈیزائنرز کو پتا ہے کہ کچھ بنا کے  نہیں  تو بھاگم بھاگ ready made جوڑے اٹھانے آئے گی نہ کوئی تو prices کہاں سے کہاں پہنچ جاتی ہے۔ اسی طرح عید کی  shopping بھی  ہے۔ کہ عید کی shopping پر آپ eleventh hour پر جب جائیں گے traffic اور rush کی وجہ آپ کو ایک تو آپ من پسند چیز نہیں ملے گئی اور دوسرا اس کی prices  سب  high ۔ اسی  دعوت، جب دعوت آپ کرتے  ہیں اور اس وقت بھی آپ نے misplanning کی ہے تو نہ آپ مہمانوں کو company دے پاتے ہیں۔ آپ کی
+Barh jati hai kyunke sab ko pata hai. Saaray designers ko pata hai ke kuch bana ke nahi to bhagam bhaag ready made jore uthanay aaye gi na koi to prices kahan se kahan poanch jati hai. Isi tarah Eid ki shopping bhi hai. Ke Eid ki shopping par aap eleventh hour par jab jayen ge traffic aur rush ki wajah aap ko aik to aap man pasand cheez nahi miley gi aur doosra us ki prices sab high. Isi dawat, jab dawat aap karte hain aur us waqt bhi aap ne misplanning ki hai to na aap mehmanon ko company day paate hain. Aap ki

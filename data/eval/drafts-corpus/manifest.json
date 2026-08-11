@@ -1,0 +1,2423 @@
+[
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0098.WAV",
+    "duration_s": 3.0,
+    "corpus_transcript": "شکل سے match کروں تو hmm",
+    "draft": "Shakal se match mein to",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0107.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "دیکھیں دیکھیں میں تو ایک character actor ہوں",
+    "draft": "Dekhen dekhen mein to ek character actor hon",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_002_COMEDYSHOW_0046.WAV",
+    "duration_s": 4.15,
+    "corpus_transcript": "کچھ دوائیں ہیں یا fitness ہے کیا ہے؟",
+    "draft": "Kuch duwaein hain ya fitnes hai kya hai?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0117.WAV",
+    "duration_s": 4.15,
+    "corpus_transcript": "اچھا اچھا تو پھر مجھے ایسا لگا چلو let's try",
+    "draft": "Acha acha to phir mujhe aisa di chalo let's try",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0135.WAV",
+    "duration_s": 4.6,
+    "corpus_transcript": "اپنے ڈراموں میں خود بھی کام کرتے ہیں نا؟ اپنے plays میں کام بھی کرتے ہیں۔",
+    "draft": "Apne deramo mein khud bhi kaam baghaawat hain na? Apne plays mein kaam bhi baghaawat hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0122.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "میرے لیے یہ بڑی بات ہے this is achievement",
+    "draft": "Ne liye ki barri baat hai this is achievement",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0134.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "اپنی industry کے ہمارے actor اور سنگروں میں سے کوئی ہیں، کوئی singers میں سے، actors میں سے ہیں۔",
+    "draft": "Apni industry ke hamaray actor aur sngron mein se ki hain, koi singers mein se, actors mein se hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0084.WAV",
+    "duration_s": 6.51,
+    "corpus_transcript": "میرے والد بہت بڑے intellectual تھے فلم making پڑھ کے آئے تھے Hollywood سے جب میں تین سال کی تھی۔",
+    "draft": "Ne waalid bohot barray intellectual they film making parh ke aeye they Hollywood se jab mein teen saal ki bhi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_001_COMEDYSHOW_0039.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "بہت rare ہوتا ہے لیکن وہ کیونکہ anesthesia والوں کے بارے میں تھوڑا مشہور ہوتا ہے۔",
+    "draft": "Bohot rare hota hai lekin wo kyunkay anesthesia walon ke baray mein sa mashhoor hota hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0083.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "ہماری فیملی میں جو بیسک کہہ لیں کہ ingredient ہے نا وہ میرے parents ہیں۔",
+    "draft": "Hamari family mein jo basic ke len ke ingredient hai na wo ne parents hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0074.WAV",
+    "duration_s": 8.0,
+    "corpus_transcript": "ہاں؟ تو اب تھپڑ مارنے کی کیا ضرورت ہے؟ لیکن میرے سے نہیں مارا جاتا کہ میری صبا، صبا حمید میری friend رکھ رکھ کے مارتی ہے۔ اس کو آتا ہے خوب اچھی طرح۔",
+    "draft": "Haan? To ab thapar maarny ki kya zaroorat hai? Lekin ne se nahin mara jata ke meri Saba, Saba hammeed meri friend bangal bangal ke prnhin hai. Is ko mein hai khoob achi terhan.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0101.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "نہیں بھئی بات سنیں دیکھ رہی ہے وہ دیکھ رہا ہے ہاں وہ بھی ہے دوسرے اب دیکھیں نا کتنا common ہو گیا ہے کہ جہاں آپ کا دل چاہے آپ یہ use کر سکتے ہیں کہ چار کی اجازت ہے hmm",
+    "draft": "Nahin bhae baat sunen dekh rahi hai wo dekh raha hai haan wo bhi hai dosray ab dekhen na kitna common ho gaya hai ke jahan aap ka dil chahay aap ki use kar satke hain ke chaar ki ijazat hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0104.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "بھائی وہ جب آ رہی ہوتی ہے نا مجھے ہماری دوست ہیں خوش بخت کہنے لگی وہ سین کھا جاتی ہے۔ کیونکہ وہ نئی ہے اور اتنا اچھا وہ New York سے وہ فلم ول پڑھ کے آئی ہوئی ہے۔",
+    "draft": "Bhai wo jab aa rahi hoti hai na mujhe hamari dost hain khush bikhat kehnay lagi wo scene kha jati hai. Kyunkay wo nahin hai aur itna acha wo New York se wo film wil parh ke aayi hui hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0113.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "نہیں میں بنتی تھی ہیروئین بھی۔ اچھا۔ ہاں میں ایمرجنسی وارڈ میں ہیروئین تھی، میں بہت سے ڈراموں میں ہیروئین تھی۔ مطلب میں ہیروئین looking تو تھی نا۔",
+    "draft": "Nahin mein banti bhi heroen bhi. Acha. Haan mein emergency ward mein heroen bhi, mein bohot se deramo mein heroen bhi. Matlab mein heroen looking to bhi na.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0126.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "آئے وہ بات نہیں میرے سامنے کرنی تھی آپ نے۔ کیونکہ یہ نہ ہو اس وقت show on air جائے تو چوتھی بھی آ رہی ہو۔",
+    "draft": "Aeye wo baat nahin ne samnay karni bhi aap ne. Kyunkay ki nah ho is waqt show on air jaye to salebi bhi aa rahi ho.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_001_COMEDYSHOW_0042.WAV",
+    "duration_s": 9.11,
+    "corpus_transcript": "جی میڈم آپ سے ایک question ہے ماشاءاللہ آپ ہماری امیدوں  زیادہ جوان نظر آ رہی ہیں",
+    "draft": "Jee maidam aap se ek question hai masha Allah aap hamari ki zyada jawan nazar aa rahi hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_001_COMEDYSHOW_0040.WAV",
+    "duration_s": 9.89,
+    "corpus_transcript": "کہ وہ during anaesthesia ان کی ایک کافی اور چائے کا ایک وہ کپ لازمی لیتے ہیں۔ اچھا۔ تو اس duration کے دوران بعض اوقات patient واپس reverse آ جاتا ہے۔",
+    "draft": "Ke wo during anaesthesia un ki ek kaafi aur chai ka ek wo baal laazmi letay hain. Acha. To is duration ke douran baaz auqaat patient wapas reverse aa jata hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/COMEDYSHOW/audio/SPEAKER_004_COMEDYSHOW_0139.WAV",
+    "duration_s": 9.9,
+    "corpus_transcript": "ہم ایسے کرتے ہیں، میں ایک play میں نے لکھا تھا کچھ دل نے کہا۔ میرے گیارہ serial ہیں، اس میں سے چار ایک شاید Geo پہ چلیں۔",
+    "draft": "Hum aisay baghaawat hain, mein ek play mein ne likha tha kuch dil ne kaha. Ne gayara serial hain, is mein se chaar ek shayad Geo pay chalein.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/COMEDYSHOW/audio/SPEAKER_000_COMEDYSHOW_0001.WAV",
+    "duration_s": 16.0,
+    "corpus_transcript": "پاگل ہوئی پڑی ہے کہ ایک اور retired player جس کو IPL میں میرے خیال میں کسی نے بھی نہیں اٹھانا تھا ہم لے رہے ہیں۔ but خیر characters یہی ہیں نئے players میں مجھے تو کوئی superstars نظر نہیں آرہے یہی ہیں میں تو ابھی بھی کہتا ہوں آفریدی کو بھی ڈال دو انضمام کو بھی ڈال دو PSL کا جو ہے وہ مزہ دوبالا ہو جائے گا۔",
+    "draft": "Pagal hui pari hai ke ek aur retired player jis ko Ipl mein ne khayaal mein kisi ne bhi nahin uthana tha hum le rahay hain. But kher characters yahi hain naye players mein mujhe to ki superstars nazar nahin arhay yahi hain mein to abhi bhi kehta hon afridi ko bhi daal do baz ko bhi daal do PSL ka jo hai wo maza dobala ho jaye ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/COMEDYSHOW/audio/SPEAKER_000_COMEDYSHOW_0000.WAV",
+    "duration_s": 28.0,
+    "corpus_transcript": "کھولی زہر کی گولی Oh my God ڈبل سینچری مطلب دوسری سینچری back to back سینچری ڈیڈی سینچری ڈیڈی گرینڈ ڈیڈی سینچری ہو گئی پچھلی بھی انہوں نے ڈیڈی ماری تھی۔ تھپڑ پتہ نہیں سینچری یہ مار رہا ہے تھپڑ میرے دوست گھمبیر کو پڑ رہے ہیں۔ کیوں پڑ رہے ہیں؟ بہت زیادہ خبریں آ رہی ہیں کہ کھولی اور گھمبیر کی آپس میں بہت زیادہ لڑائی ہو گئی۔ دوسری طرف میکسی جو ہیں انہوں نے بھی انکار کر دیا کہ اس دفعہ کے آئی پی ایل میں نہیں ہوں گا۔ پاکستان میں جو ہے وہ ڈھول کے تھاپ پر رقص ہو رہے ہیں۔ باہر سڑکوں کے اوپر نوجوان نسل جو ہے ناچ رہی ہے سرائیکی ڈانس کر رہی ہے۔ پاگل ہوئی پڑی ہے کہ ایک اور",
+    "draft": "Kholi zeher ki Khan Oh my God double sinchri matlab doosri sinchri back to back sinchri daddy sinchri daddy grand daddy sinchri ho gayi pichli bhi unhon ne daddy maari bhi. Thapar pata nahin sinchri ki jahaaz raha hai thapar ne dost ghambeer ko par rahay hain. Kyun par rahay hain? Bohot zyada khabrain aa rahi hain ke kholi aur ghambeer ki aapas mein bohot zyada larai ho gayi. Doosri taraf mexico jo hain unhon ne bhi inkaar kar diya ke is dafaa ke aayi pi ail mein nahin hon ga. Pakistan mein jo hai wo dhol ke thaap par raqs ho rahay hain. Bahar sarkon ke oopar nojawan nasal jo hai naach rahi hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "COMEDYSHOW",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/COMEDYSHOW/audio/SPEAKER_000_COMEDYSHOW_0003.WAV",
+    "duration_s": 32.0,
+    "corpus_transcript": "بنا دی انڈیا نے ایک دفعہ پھر سے۔ پچھلی بار وہ 350 تک پہنچ ہی گئے تھے لیکن اتنی آسانی سے نہیں پہنچے تھے end میں تو ایک بھلجڑیاں اڑا اڑا کے نو وکٹیں تھیں اس کے بعد، مطلب کوئی اتنا convincingly نہیں پہنچے تھے لیکن پھر بھی پہنچ گئے تھے، ڈرا دیا تھا کم سے کم انہوں نے۔ اس دفعہ پھر جو ہے جیسا start ملا تھا انڈیا کو اس لحاظ سے تو میں دیکھ رہا تھا کہ 370 80 90 400 مجھے تو نظر آ رہا تھا۔ آ لیکن انہوں نے بڑا اچھا come back کر لیا۔ کوہلی کو out کیا بس وہی کوہلی صاحب ہی ہیں۔ کوہلی صاحب آج جو ہے وہ century ماری ہے۔ تو ساتھ ساتھ جو میں ہمیشہ روتا ہوں کہ یار تم لوگ صرف ان کے score دیکھ رہے ہوتے ہو۔ تم یہ نہیں دیکھ رہے ہوتے کہ دوسرے end پہ جو کھڑا ہوا ہے وہ چھچھورا کیا score کر رہا ہوتا ہے۔ Ruturaj Gaikwad",
+    "draft": "Bana di India ne ek dafaa phir se. Pichli baar wo 350 taq poanch hi gaye they lekin itni aasani se nahin puhanche they end mein to ek bhljryan ura ura ke nau wickten theen is ke baad, matlab ki itna convincingly nahin puhanche they lekin phir bhi poanch gaye they, dara diya tha kam se kam unhon nein. Is dafaa phir jo hai jaissa start mila tha India ko is lehaaz se to mein dekh raha tha ke 370 80 90 400 mujhe to nazar aa raha tha. Aa lekin unhon ne bara acha come back kar liya. Kohli ko out kya Dehli wohi kohli sahib hi hain. Kohli sahib aaj jo hai wo century maari hai. To sath sath jo mein hamesha rota hon ke yaar tum log sirf un ke score dekh rahay hotay ho. Tum ki nahin dekh rahay hotay ke dosray end pay jo khara sun - hwa hai wo chichora kya score kar raha hota hai. Ruturaj Gaikwad",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0142.wav",
+    "duration_s": 2.9,
+    "corpus_transcript": "Nice meeting with you. کون سےdepartement میں ہوتی ہے؟",
+    "draft": "Nice meeting with you. Kaun departement mein hoti hai?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0056.wav",
+    "duration_s": 3.0,
+    "corpus_transcript": "اچھا تمہیں میری بات بری لگی؟ I'm sorry",
+    "draft": "Acha ke meri baat buri lagi? I'm sorry",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0121.wav",
+    "duration_s": 4.08,
+    "corpus_transcript": "of course,  ہونا چاہیے تم لوگ کھا کیوں نہیں رہے ہو؟ خوش",
+    "draft": "Of course, hona chahiye tum log kha kyun nahin rahay ho? Khush",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0469.wav",
+    "duration_s": 4.1,
+    "corpus_transcript": "تم بہت creative ہو۔ یہ کیا باقاعدہ سیکھا ہے؟",
+    "draft": "Tum bohot creative ho. Ki kya baqaida seekha hai?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0036.wav",
+    "duration_s": 4.2,
+    "corpus_transcript": "یہی dress designing جو عام طور پہ لڑکیاں کر رہی ہوتی ہیں",
+    "draft": "Yahi dress designing jo aam tor pay larkiyan kar rahi hoti hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0212.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "تو تم نے بتول سے شادی کا کیوں نہیں سوچا؟ اگر تمہاری اس سے اتنی understanding تھی۔",
+    "draft": "To tum ne baitul se shadi ka kyun nahin socha? Agar tumhari is se itni understanding bhi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0074.wav",
+    "duration_s": 5.56,
+    "corpus_transcript": "آپ ابو سے کہیں نا، میری salary میں کچھ تو اضافہ کریں۔ آخر میرے بھی خرچے بڑھ گئے ہیں۔",
+    "draft": "Aap abbu se kahin na, meri salary mein kuch to izafa karen. Aakhir - kaar ne bhi kharchay barh gaye hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0144.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "کافی concentration کا کام ہے۔ ایک ایک second کا حساب کتاب رکھنا پڑتا ہے۔",
+    "draft": "Kaafi concentration ka kaam hai. Ek ek second ka hisaab kitab rakhna parta hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0549.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "امی اگر آپ اس طرح کریں گی تو خود کو کیسے سنبھالیں گی؟ Please اپنا خیال رکیں۔ چلیں کھانا کھائیں۔",
+    "draft": "Ammi agar aap is terhan karen gi to khud ko kaisay sanbhalain gi? Please apna khayaal rakhen. Chalein khana khayen.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0198.wav",
+    "duration_s": 6.18,
+    "corpus_transcript": "تمہارے خیال میں مجھے شادی کے وقت کسی کی مخالفت کو face نہیں کرنا پڑے گا۔",
+    "draft": "Tumahray khayaal mein mujhe shadi ke waqt kisi ki mukhalfat ko face nahin karna parre ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0202.wav",
+    "duration_s": 7.0,
+    "corpus_transcript": "بہت سی expectations جو مجھ سے کی گئی تھیں وہ تمہیں پوری کرنی پڑتی ہوں گی۔ میرے یہاں نہ ہونے کی وجہ سے۔",
+    "draft": "Bohot si expectations jo mujh se ki gayi theen wo ke poori karni padti hon gi. Ne yahan nah honay ki wajah se.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0132.wav",
+    "duration_s": 8.0,
+    "corpus_transcript": "Uncle بس یہیں ہوتا ہوں۔ میں آیا تھا خالہ سے ملاقات ہوئی تھی تو وہ ضد کر رہی تھیں کہ شادی تک میں یہیں ٹھہر جاؤں۔",
+    "draft": "Uncle Dehli yahin hota hon. Mein aaya tha khaala se mulaqaat hui bhi to wo bhaap kar rahi theen ke shadi taq mein yahin thehr jaoon.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0149.wav",
+    "duration_s": 8.0,
+    "corpus_transcript": "modeling اور شہزادے سے تم بھی پٹری سے اتر جاتی ہو۔ اچھا یہ بتاؤ وہ تم office کا جو model بنا رہی تھی اس کا کیا ہوا؟",
+    "draft": "Modeling aur sahebzaade se tum bhi patri se utar jati ho. Acha ki batao wo tum office ka jo model bana rahi bhi is ka kya sun - hwa?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0201.wav",
+    "duration_s": 8.58,
+    "corpus_transcript": "میں نے کبھی سوچا نہیں اس بارے میں۔ ایک بنا بنایا setup مل گیا۔ بس اسے چلا رہا ہوں۔ اگر کوئی گڑبڑ ہوتی بھی ہے تو ابو ہیں سنبھالنے کے لیے۔",
+    "draft": "Mein ne kabhi socha nahin is baray mein. Ek bana banaya setup mil gaya. Dehli usay par raha hon. Agar ki aur hoti bhi hai to abbu hain snbhalne ke liye.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0200.wav",
+    "duration_s": 9.0,
+    "corpus_transcript": "چلو دیکھتے ہیں۔ اچھا تم یہ بتاؤ تم ابو کے ساتھ مل کر کام کر رہے ہو تمہیں اس میں interest ہے بھی یا نہیں؟ بس ایسے ہی",
+    "draft": "Chalo dekhte hain. Acha tum ki batao tum abbu ke sath mil kar kaam kar rahay ho ke is mein interest hai bhi ya nahin? Dehli aisay hi",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0208.wav",
+    "duration_s": 9.0,
+    "corpus_transcript": "کہیں ایسا اس لیے تو نہیں ہے کہ تم صرف اپنی بات کرنا چاہتے ہو۔ تم اچھے listener نہیں ہو۔ سبا سے تمہاری دوستی نہیں ہے۔",
+    "draft": "Kahin aisa is liye to nahin hai ke tum sirf ko baat karna chahtay ho. Tum achay listener nahin ho. Saba se tumhari dosti nahin hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0038.wav",
+    "duration_s": 9.0,
+    "corpus_transcript": "بھائی میں نے تو صرف ایک بات کہی تھی۔ تم اتنی گہرائی میں کیوں چلی جاتی ہو؟ میں تو چاہتا ہوں کہ شادی کے بعد میری بیوی صرف مجھے time دے۔",
+    "draft": "Bhai mein ne to sirf ek baat kahi bhi. Tum itni geherai mein kyun chali jati ho? Mein to chahta hon ke shadi ke baad meri biwi sirf mujhe time day.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0173.wav",
+    "duration_s": 10.0,
+    "corpus_transcript": "میں کوئی  client کہ  نہیں ہوں تمہارا۔ phone appointment set کروں اور round table پے آکے بیٹھ جاو۔ منگیتر ہوں میں ۔  تم یہ سمجھو تب نا۔",
+    "draft": "Mein koi client ke nahin hon tumhara. Phone appointment set mein aur round table pay aake baith jao. Apne hon mein. Tum ki samjhoo tab na.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0087.wav",
+    "duration_s": 10.01,
+    "corpus_transcript": "وہ ٹھیک ہے لیکن اگر عاصم نہ ہوتا نا تو مجبوری تھی۔ لیکن اب تو میں وہاں بالکل set ہو چکا ہوں۔ اب یہاں پر نئے سرے سے سب کچھ شروع کرنا پڑے گا۔",
+    "draft": "Wo theek hai lekin agar asim nah hota na to majaboori bhi. Lekin ab to mein wahan bilkul set ho chuka hon. Ab yahan par naye suray se sab kuch shuru karna parre ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0089.wav",
+    "duration_s": 11.0,
+    "corpus_transcript": "آپ جانتے تو ہیں کہ میں وہاں کیوں ہوں۔ ہمم، میرا مطلب ہے کہ میرا جو کام ہے computer software development کا، اس کا scope وہیں زیادہ ہے۔",
+    "draft": "Aap hi to hain ke mein wahan kyun hon. Mera matlab hai ke mera jo kaam hai computer software development ka, is ka scope par zyada hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_002_DRAMA_0032.wav",
+    "duration_s": 11.7,
+    "corpus_transcript": "ہاں ہاں ویسے آپس کی بات ہے میں صرف business head دیکھتا ہوں۔ کتنی shifts کا کتنا پیسہ آرہا ہے اور بس کبھی اپنے پروگرام بنانے کے بارے میں سوچا ہی نہیں۔ ویسے تمہارا کام بھی کافی خشک سا ہے۔",
+    "draft": "Haan haan waisay aapas ki baat hai mein sirf business head daikhta hon. Kitni shifts ka kitna paisa araha hai aur Dehli kabhi apne programme bananay ke baray mein socha hi nahin. Waisay tumhara kaam bhi kaafi khushk sa hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0021.wav",
+    "duration_s": 12.0,
+    "corpus_transcript": "ایک مہینے کے لیے کیونکہ ابو اس سے زیادہ اگر میں رہا نا تو کافی problem ہو جائے گی۔ You know, shifting لیکن promise اگلی دفعہ جب بھی آؤں گا تو کافی عرصے تک رہوں گا۔",
+    "draft": "Ek mahinay ke liye kyunkay abbu is se zyada agar mein raha na to kaafi problem ho jaye gii. You know, shifting lekin promise agli dafaa jab bhi aon ga to kaafi arsay taq laga ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0017.wav",
+    "duration_s": 13.0,
+    "corpus_transcript": "واہ امی۔ آپ اسی قسم کی باتیں کیا کریں۔ کم از کم آپ کی یہ شکایت تو دور ہو جائے گی کہ ابو اپنا زیادہ وقت office میں گزارتے ہیں۔ اور تم تو خوش ہو نا اپنی engagement سے؟",
+    "draft": "Wah ammi. Aap ISI qisam ki batain kya karen. Kam az kam aap ki ki shikayat to saal ho jaye gi ke abbu apna zyada waqt office mein guzartay hain. Aur tum to khush ho na ko engagement se?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "DRAMA",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0481.wav",
+    "duration_s": 14.0,
+    "corpus_transcript": "اوہ اس کا مطلب تم یہ بات جانتی تھیں۔ تبھی تم نے ایسا کیا۔ صباء کو نقصان ہوا یا نہیں۔ لیکن امی تو ایک tension میں آ گئی ہیں نا۔ دونوں خاندان بکھر گئے ہیں۔",
+    "draft": "Oh is ka matlab tum ki baat janti theen. Tabhi tum ne aisa kya. Stab ko nuqsaan sun - hwa ya nahin. Lekin ammi to ek tension mein aa gayi hain na. Dono khandan bikhar gaye hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_008_FILM_0124.WAV",
+    "duration_s": 2.2,
+    "corpus_transcript": "Ready? چلو",
+    "draft": "Ready? Chalo",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_015_FILM_0146.WAV",
+    "duration_s": 3.8,
+    "corpus_transcript": "یہی سوئی ہے tranquilizer کہتے ہیں",
+    "draft": "Yahi soi hai tranquilizer kehte hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_002_FILM_0020.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "patient جاگ رہے ہیں اگر آپ ملنا چاہتی ہیں تو مل سکتی ہیں",
+    "draft": "Patient jaag rahay hain agar aap milna chahti hain to mil sakti hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_014_FILM_0145.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "کیا معنی رکھتا ہے گھر تم اوورسیز والوں کے لیے؟ Just wondering.",
+    "draft": "Kya maienay rakhta hai mamu tum avorsiz walon ke liye? Just wondering.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_001_FILM_0018.WAV",
+    "duration_s": 4.1,
+    "corpus_transcript": "سواری hmm Yes, bend down, yes.",
+    "draft": "Sawari Yes, bend down, yes.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0077.WAV",
+    "duration_s": 4.63,
+    "corpus_transcript": "failure کیا ہوتا ہے؟ ہاں ہاں اور نکالو that's great take out more",
+    "draft": "Failure kya hota hai? Haan haan aur nikalu that's great take out more",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0027.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "ہاں ٹھیک ہے، آؤ۔ سب آ جاؤ۔ ثنا، عارض، everyone just come",
+    "draft": "Haan theek hai, aao. Sab aa jao. Sana, aariz, everyone just come",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0071.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "چونکہ اماں، ابا کو elevated رکھنا ہے سیدھا لٹائے",
+    "draft": "Chunkay amma, abba ko elevated rakhna hai seedha lutaye",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_018_FILM_0158.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "ان کی assistant بھی آ چکی ہیں اور ان کی assistant بھی آ چکی ہیں۔ اچھا اچھا بس بس۔ boss کا mood بے حد خوشگوار لگ رہا ہے۔",
+    "draft": "Un ki assistant bhi aa chuki hain aur un ki assistant bhi aa chuki hain. Acha acha Dehli Dehli. Boss ka mood be koi Khushgawar lag raha hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_000_FILM_0001.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "maintain-ment میں کٹائی تھی وہیں تھی۔ وہ کٹائی کراتے ہوئے سمجھ میں نہیں آ رہی تھی۔",
+    "draft": "Maintain - ment mein katai bhi par bhi. Wo katai karate hue samajh mein nahin aa rahi bhi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_001_FILM_0015.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "بھائی میرے followers کیوں نہیں اور آ رہے؟ میں نے اتنی اچھی تصویریں لگائی ہیں۔ hashtag insomnia",
+    "draft": "Bhai ne followers kyun nahin aur aa rahay? Mein ne itni achi taswerain mein hain. Hashtag insomnia",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0038.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "بس کریں؟ ایک دفعہ پھر ختم۔ میں نے کہا یہ لو یہ لو۔ جلدی سے اس کو last والا کرتے ہیں۔ Thank you. رہنے دو۔",
+    "draft": "Dehli karen? Ek dafaa phir khatam. Mein ne kaha ki lau ki lau. Jaldi se is ko last wala baghaawat hain. Thank you. Rehne do.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_016_FILM_0154.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "کالر سیدھے کرتا ہے اور پانی میں اتر کے attack کرتا ہے",
+    "draft": "Caller seedhay karta hai aur pani mein utar ke attack karta hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_017_FILM_0155.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "اس میں عمران عباس صاحب کے جتنے transactions ہیں اسے الگ کرو اور office time پہ آیا کرو okay",
+    "draft": "Is mein Imran abbas sahib ke jitne transactions hain usay allag karo aur office time pay aaya karo okay",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_018_FILM_0157.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "لیکن میں روز اسی ٹائم پر آتا ہوں۔ آپ کی اطلاع کے لئے عرض ہے۔ Boss آ چکے ہیں۔",
+    "draft": "Lekin mein roz ISI time par mein hon. Aap ki ittila ke liye arz hai. Boss aa chuke hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_013_FILM_0143.WAV",
+    "duration_s": 8.0,
+    "corpus_transcript": "UV Lamp اور touch control panel کے ساتھ۔ اس کے ساتھ ساتھ ایک، دو یا تین نہیں پورے پانچ brushes کا set بھی حاصل کیجئے۔",
+    "draft": "Uv Lamp aur touch control panel ke sath. Is ke sath sath ek, do ya teen nahin ke paanch brushes ka set bhi haasil kijiyej.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0032.WAV",
+    "duration_s": 8.52,
+    "corpus_transcript": "Listen. وہ جو ہماری emails ہیں نا وہ بالکل الگ ہیں۔ وہ بالکل الگ ہیں۔ یہاں تم اور میں اس طرح مطلب یہ نہیں",
+    "draft": "Listen. Wo jo hamari emails hain na wo bilkul allag hain. Wo bilkul allag hain. Yahan tum aur mein is terhan matlab ki nahin",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/FILM/audio/SPEAKER_003_FILM_0033.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "میری problem یہ ہے کہ میں جانتی ہوں ٹائر کس طرح بدلتے ہیں۔ lawyers کا office کہاں ہے؟ bills کہاں جمع کراتے ہیں؟ congestive heart",
+    "draft": "Meri problem ki hai ke mein janti hon tyre kis terhan bdalty hain. Lawyers ka office kahan hai? Bills kahan jama karate hain? Congestive heart",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_019_FILM_0165.WAV",
+    "duration_s": 10.6,
+    "corpus_transcript": "بھائی کھائیں گے تو بتائیں گے نا نکل یہاں سے چل Sir کو میری Pepsi بھائی سب کی قسمت ایک جیسی تھوڑی ہوتی ہے میری مثال لیجیے بھائی ایک تو کھلیں گی یہ ماں کا بے پناہ پیار",
+    "draft": "Bhai khayen ge to ye ge na nikal yahan se chal Sir ko meri Pepsi bhai sab ki qismat ek jaisi thori hoti hai meri misaal lijiye bhai ek to khulein gi ki maa ka be pana pyar",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_016_FILM_0153.WAV",
+    "duration_s": 10.98,
+    "corpus_transcript": "ہوئے دیکھا ہے۔ میں کیا ہوں؟ منگھوپیر میں رہتا ہوں۔ مگر مچھ اپنے شکار کو غور سے دیکھتا ہے۔ Distance measure کرتا ہے۔",
+    "draft": "Hue dekha hai. Mein kya hon? Ne mein rehta hon. Magar mach apne shikaar ko ghhor se daikhta hai. Distance measure karta hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_008_FILM_0125.WAV",
+    "duration_s": 12.0,
+    "corpus_transcript": "یہ لو تمہاری باری۔ کرو! Okay, okay, okay, okay. کرو، کرو، کرو! Samiya the verish! Perfect! I mean, it's perfect! Oh my god! With the fur and then the leather jacket! Perfect!",
+    "draft": "Ki lau tumhari baari. Karo! Okay, okay, okay, okay. Karo, karo, karo! Samiya the verish! Perfect! I mean, it's perfect! Oh my god! With the fur and then the leather jacket! Perfect!",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_008_FILM_0120.WAV",
+    "duration_s": 15.0,
+    "corpus_transcript": "Hi. Oh my god. Wow ایک اور. اب کتنے ہو گئے؟.  I know, I know. میں آؤں گی، میں آؤں گی.  okay?  No no, you carry on. I'm fine. You, you go do your thing. Okay, I'll see you in a bit, all right? Okay, bye.",
+    "draft": "Hi. Oh my god. Wow ek aur. Ab kitney ho gaye? I know, I know. Mein aon gii, mein aon gi. Okay? Nau nau, you carry on. I'm fine. You, you go do your thing. Okay, I'l see you in a bit, al right? Okay, bye.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_003_FILM_0075.WAV",
+    "duration_s": 20.0,
+    "corpus_transcript": "مدد؟ Finance big shots اپنی اپنی زندگیوں میں گم میری کیا مدد کرو گی؟۔ یہ بیچ کی اولاد ہی ہے جو زمینیں دیکھ رہی ہے، گھر چلا رہی ہے، دو بچوں کو سنبھال رہی ہے Yes",
+    "draft": "Madad? Finance big shots ko ko zindagion mein gum meri kya madad karo gi? Ki beech ki aulaad hi hai jo zameenen dekh rahi hai, mamu par rahi hai, do bachon ko sambhaal rahi hai Yes",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "FILM",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/FILM/audio/SPEAKER_012_FILM_0142.WAV",
+    "duration_s": 20.1,
+    "corpus_transcript": "تو ہی تو ہے۔ تجھ میں ہی کہیں خدا مجھے دکھے ہے۔ hmmm",
+    "draft": "To hi to hai. Tujh mein hi kahin kkhuda mujhe dikhe hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0060.WAV",
+    "duration_s": 2.1,
+    "corpus_transcript": "واحد ستیانی Goal",
+    "draft": "Wahid sathani Goal",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0135.WAV",
+    "duration_s": 3.0,
+    "corpus_transcript": "اور malls ملنا مشکل ہوتا ہے",
+    "draft": "Aur malls milna mushkil hota hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0108.WAV",
+    "duration_s": 3.16,
+    "corpus_transcript": "اور جو فن کاری ہے its again okay",
+    "draft": "Aur jo fun kaari hai its again okay",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0202.WAV",
+    "duration_s": 3.8,
+    "corpus_transcript": "آج کل چل رہی ہیں نا میں نے کافی reels دیکھی ہیں",
+    "draft": "Aaj kal chal rahi hain na mein ne kaafi reels dekhi hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0063.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "even دوپٹہ a plain سوٹ پہ آپ red پہ پہنیں کے ساتھ",
+    "draft": "Even dupatta a plain suit pay aap red pay pehnein ke sath",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0065.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "Okay تو دوپٹے اوڑھ کے میں آرام سے پہنیں گے۔",
+    "draft": "Okay to dupattay ourh ke mein betay se pehnein ge.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0138.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "تو آئیے چلتے ہیں next planning پر So جی بالکل",
+    "draft": "To aayiyae chaltay hain next planning par So jee bilkul",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0243.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "گرمیوں کی شادی کے لئے waterproof والا mascara",
+    "draft": "Garmiyon ki shadi ke liye waterproof wala mascara",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0137.WAV",
+    "duration_s": 4.8,
+    "corpus_transcript": "کیونکہ کیا کریں؟ جب کرنی تو ہے نا، dates وہی fix ہوئی ہوئی ہیں۔",
+    "draft": "Kyunkay kya karen? Jab karni to hai na, dates wohi fix hui hui hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0057.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "اور یہ گوٹا ہے اور یہ پیچھے دیکھیے block print ہے آگے",
+    "draft": "Aur ki gotta hai aur ki peechay dekhieye block print hai agay",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0145.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "ایک بندی روز جم جاتی ہے تو پھر ساری طرح کے کپڑے پہن سکتی ہے بندی۔ Seriously",
+    "draft": "Ek bandi roz jim jati hai to phir saari terhan ke kapray pehan sakti hai bandi. Seriously",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0064.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "بہت اچھا ہے بھائی۔ ہے نا؟ mix and match کر کے۔ ایک جوڑا ہو گیا۔ ایک منٹ۔ نہیں نہیں نہیں نہیں، ایک ایک کر کے چلیں گے۔",
+    "draft": "Bohot acha hai bhai. Hai na? Mix and match kar ke. Ek jora ho gaya. Ek minute. Nahin nahin nahin nahin, ek ek kar ke chalein ge.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0104.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "اور یہ سب کھلے کھلے ہیں۔ Straight cuts ہیں یا پھر A-lines ہیں۔ بالکل، کیونکہ چپکے ہوئے کپڑے نہیں۔",
+    "draft": "Aur ki sab khulay khulay hain. Straight cuts hain ya phir A - lines hain. Bilkul, kyunkay chupkay hue kapray nahin.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_000_INTERVIEWS_0005.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "Good Morning, پاکستان",
+    "draft": "Good Morning, Pakistan",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0100.WAV",
+    "duration_s": 8.0,
+    "corpus_transcript": "اچھا آئیڈیا ہے کہ ایک تُرپائی کے اندر ایک پتلی سی زنجیر ڈال دی Good idea ہاں تو یہ آپ کا ایک fall بہت اچھا آپ کو ملا۔ ورنہ آپ موٹا کپڑا لگاتے ہیں کہ lining کے نیچے سے لگا۔",
+    "draft": "Acha idea hai ke ek t hrpayi ke ya ek patli si zanjeer daal di Good idea haan to ki aap ka ek fal bohot acha aap ko mila. Warna aap mota kapra lagatay hain ke lining ke neechay se di.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0080.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "بھاگم دوڑی یہ سب چیزیں ہوتی ہیں جس کی وجہ سے آپ کو already گرمی لگ رہی ہوتی ہے چاہے AC بھی ہو۔ ایک چھوٹے سے break کے بعد ہمارے ساتھ رہیے، Good Morning Pakistan.",
+    "draft": "Bhagum daari ki sab cheezein hoti hain jis ki wajah se aap ko already garmi lag rahi hoti hai chahay AC bhi ho. Ek chhootey se break ke baad hamaray sath rahiye, Good Morning Pakistan.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0092.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "وائٹ ہے آپ اس کے ساتھ گرین بھی پہن سکتے ہیں، وہ والی بات ہے mood پر ہے، pants آپ اس کے ساتھ جیولری آپ آپ کو بڑے جھمکے پہننے ہیں ریڈ آپ contrast دے سکتے ہیں۔ اگر میں پہنوں گی نا یہ اس ٹراوزر کے ساتھ۔",
+    "draft": "Haal hai aap is ke sath green bhi pehan satke hain, wo wali baat hai mood par hai, pants aap is ke sath jewelry aap aap ko barray jhamkay pahannay hain red aap contrast day satke hain. Agar mein pehnon gi na ki is traozr ke sath.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0193.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "گرمیوں کی شادی ہے۔ وہ بھی بہت ضروری ہے۔ اچھا  sometimes کون  colors ہیں ایسے جو آپ کو  ہے کہ تھوڑا سا off لگیں گے اس season",
+    "draft": "Garmiyon ki shadi hai. Wo bhi bohot zurori hai. Acha sometimes kaun colors hain aisay jo aap ko hai ke sa sa of lagen ge is season",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0027.WAV",
+    "duration_s": 28.0,
+    "corpus_transcript": "تو جو فوجی تربیت اگر آپ کی ہے، اگر آپ کے ماں باپ نے آپ کو discipline پالا ہے، ٹائم پہ سونا، ٹائم پہ اٹھنا، ٹائم پہ کھانا، تو پھر automatically آپ ایک اچھے planner ہوں گے۔ آپ misplanning نہیں کریں گے اور زندگی میں نقصان نہیں اٹھائیں گے۔ چاہے وہ sports ہو، چاہے آپ کا career ہو، چاہے آپ کی education ہو یا گھر کا کوئی event ہر چیز planning مانگتی ہے۔ اب آپ یہی لے لیجیے کہ شادی کا سیزن آتا ہے اور ایک دم قیمتیں ہر چیز کی بڑھ جاتی ہیں کیونکہ سب کو پتہ ہے۔ سارے",
+    "draft": "To jo fouji tarbiyat agar aap ki hai, agar aap ke maa baap ne aap ko discipline paala hai, time pay sona, time pay uthna, time pay khana, to phir automatically aap ek achay planner hon gea. Aap misplanning nahin karen ge aur zindagi mein nuqsaan nahin utthayen gea. Chahay wo sports ho, chahay aap ka career ho, chahay aap ki education ho ya mamu ka ki event har cheez planning maangti hai. Ab aap yahi le lijiye ke shadi ka season mein hai aur ek dam qeematein har cheez ki barh jati hain kyunkay sab ko pata hai. Saaray",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0026.WAV",
+    "duration_s": 29.0,
+    "corpus_transcript": "پیسے کم ہوتے ہیں اور ایک دم سر پہ اور چیزیں آتی جاتی آتی جاتی۔ ہماری misplanning۔ اس میں بھی ہماری misplanning۔ اسی طرح اگر میں اپ کو travelling کا کہتی ہوں کہ travelling کرنی ہے تو پہلے سے تھوڑی محتاط ہو کے چیزیں رکھ لیں، pack کر لیں۔ وہاں جا کے یاد آتا ہے اے اللہ یہ تو بھول گئے۔ charger بھول گئے، فلانا بھول گئے، یہ بھول گئے۔ کیوں؟ ہماری misplanning وہاں پہ بھی۔ یہ جو ہماری گٹھی میں ڈال دی گئی ہے نا misplanning اب اس کو تھوڑا درست کرنا پڑے گا۔ اور تبھی تو میں کہتی ہوں جو بھی چیزیں فوجیوں کے حوالے ہیں وہ تھوڑی صحیح رہتی ہیں اس کی reason یہ ہے کہ وہ discipline ہوتے ہیں۔ تو جو فوجی تر",
+    "draft": "Pesey kam hotay hain aur ek dam wo pay aur cheezein aati jati aati jati. Hamari misplanning. Is mein bhi hamari misplanning. ISI terhan agar mein ke ko travelling ka kahoon hon ke travelling karni hai to pehlay se thori mohtaat ho ke cheezein bangal len, pack kar len. Wahan ja ke yaad mein hai ae Allah ki to bhool gaye. Charger bhool gaye, flana bhool gaye, ki bhool gaye. Kyun? Hamari misplanning wahan pay bhi. Ki jo hamari guthi mein daal di gayi hai na misplanning ab is ko sa durust karna parre ga. Aur tabhi to mein kahoon hon jo bhi cheezein fojion ke hawalay hain wo thori sahi rehti hain is ki reason ki hai ke wo discipline hotay hain. To jo fouji tar",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "INTERVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/INTERVIEWS/audio/SPEAKER_001_INTERVIEWS_0028.WAV",
+    "duration_s": 29.0,
+    "corpus_transcript": "بڑھ جاتی ہے کیونکہ سب کو پتا ہے۔ سارے ڈیزائنرز کو پتا ہے کہ کچھ بنا کے  نہیں  تو بھاگم بھاگ ready made جوڑے اٹھانے آئے گی نہ کوئی تو prices کہاں سے کہاں پہنچ جاتی ہے۔ اسی طرح عید کی  shopping بھی  ہے۔ کہ عید کی shopping پر آپ eleventh hour پر جب جائیں گے traffic اور rush کی وجہ آپ کو ایک تو آپ من پسند چیز نہیں ملے گئی اور دوسرا اس کی prices  سب  high ۔ اسی  دعوت، جب دعوت آپ کرتے  ہیں اور اس وقت بھی آپ نے misplanning کی ہے تو نہ آپ مہمانوں کو company دے پاتے ہیں۔ آپ کی",
+    "draft": "Barh jati hai kyunkay sab ko pata hai. Saaray dizaynrz ko pata hai ke kuch bana ke nahin to bhagum bhaag ready made jore pabandiyan aeye gi nah ki to prices kahan se kahan poanch jati hai. ISI terhan Eid ki shopping bhi hai. Ke Eid ki shopping par aap eleventh hour par jab jayen ge traffic aur rush ki wajah aap ko ek to aap man pasand cheez nahin miley gayi aur dosra is ki prices sab high. ISI dawat, jab dawat aap baghaawat hain aur is waqt bhi aap ne misplanning ki hai to nah aap mehmanon ko company day sun - hwa hain. Aap ki",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_012_NEWS_0078.WAV",
+    "duration_s": 2.8,
+    "corpus_transcript": "بسنت جو ہے وہ منائی جائے گی۔ In fact",
+    "draft": "Bsnt jo hai wo manayi jaye gi. In fact",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0170.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "JF-17 Thunder سے متعلق تفصیلات پوچھی گئیں",
+    "draft": "Jf - 17 Thunder se mutaliq tafseelaat poochi gayeen",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_006_NEWS_0041.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "اقدام، عالمی قانون اور اقوام متحدہ کے تقدس کی خلاف ورزی قرار۔ عالمی برادری سے پائیدار funding کی فوری اپیل۔",
+    "draft": "Iqdaam, aalmi qanoon aur aqwam mutahidda ke taqaddus ki ke warzi qarar. Aalmi sahafi se paidaar funding ki fori uzma.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0166.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "شو میں JF-17 Thunder Block 3, سپر مشاق نمائش کے لیے پیش",
+    "draft": "Show mein Jf - 17 Thunder Block 3, ke Mashaaq numaish ke liye paish",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0167.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "دبئی Air Show میں J F 17 Thunder کی دھوم, بھارتی pilots بھی J F 17 Thunder سے مرعوب.",
+    "draft": "Dubai Air Show mein J F 17 Thunder ki dhoom, mangal pilots bhi J F 17 Thunder se maroob.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0191.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "رپورٹ میں کہا Tax to GDP تناسب میں کمی بدعنوانی کے خطرات کی علامت ہے۔",
+    "draft": "Report mein kaha Tax to Gdp tanasub mein kami wajohaat ke khatraat ki khudmukhtaari hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_020_NEWS_0199.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "detect ہوئے ہیں جن کو polio کا مرض ہوا ہے اور ان میں سے ہمارے لیے again",
+    "draft": "Detect hue hain jin ko polio ka marz sun - hwa hai aur un mein se hamaray liye again",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_020_NEWS_0200.WAV",
+    "duration_s": 7.3,
+    "corpus_transcript": "شرمندگی کا باعث ہے کہ ان میں سے نو بچے صوبہ سندھ میں ہیں جو affect ہوئے ہیں پولیو سے۔",
+    "draft": "Sharmindagi ka baais hai ke un mein se nau bachay sooba Sindh mein hain jo affect hue hain polio se.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_013_NEWS_0095.WAV",
+    "duration_s": 8.0,
+    "corpus_transcript": "دیکھیے یقیناً cultural activities اور آپ کہتے ہیں کہ مطلب جتنی بھی ہو کم ہو، مجھے تو افسوس یہ ہے کہ ہوتی نہیں ہے۔",
+    "draft": "Dekhieye yaqeenan cultural activities aur aap kehte hain ke matlab jitni bhi ho kam ho, mujhe to izhaar ki hai ke hoti nahin hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_005_NEWS_0034.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "phase one ہے لیکن نہ تو یہ کسی حکومت کی فتح ہے، نہ یہ کسی کوئی جماعت کی فتح ہے۔ یہ میں ضرور کہوں گا۔",
+    "draft": "Phase one hai lekin nah to ki kisi hukoomat ki fata hai, nah ki kisi ki jamaat ki fata hai. Ki mein zaroor kaisay ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_013_NEWS_0107.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "کہ ہم جو غلط چیزیں ہیں ان کو خود ہی اپنے اوپر جو ہے وہ impose کر لیں اور ہم انہیں کہیں کہ جی ہم نے یہ نہیں ہونے دینا۔",
+    "draft": "Ke hum jo ghalat cheezein hain un ko khud hi apne oopar jo hai wo impose kar len aur hum inhen kahin ke jee hum ne ki nahin honay dena.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_011_NEWS_0071.WAV",
+    "duration_s": 9.53,
+    "corpus_transcript": "اتنا establish ہو گئی ہے کہ لوگ نہیں گڑبڑ کریں گے۔ یا کوئی چڑیا جسے کہتے ہیں نا پر نہیں مارے گی۔ اور دوسری ایک اور چیز مطلب تو جو legislation ہے",
+    "draft": "Itna establish ho gayi hai ke log nahin aur karen gea. Ya ki chirya jisay kehte hain na par nahin maaray gi. Aur doosri ek aur cheez matlab to jo legislation hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/NEWS/audio/SPEAKER_019_NEWS_0160.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "معرکہ حق کے فاتح Air Chief کی Dubai Air Show میں شرکت۔ Air Chief Marshal ظہیر احمد بابر سدھو کی دوست ملکوں کی فضائی افواج کے سربراہان سے ملاقاتیں۔",
+    "draft": "Maarka haq ke faateh Air Chief ki Dubai Air Show mein shirkat. Air Chief Marshal Zahir Ahmed Babar sdho ki dost mulkon ki par afwaj ke srbrahan se mulakaatein.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_007_NEWS_0048.WAV",
+    "duration_s": 11.0,
+    "corpus_transcript": "کراچی میں اپنوں کے ہاتھوں تین خواتین کا لرزہ خیز قتل، تینوں کو red poison دے کر مارا گیا، گھر کا سربراہ اقبال اور بیٹا مرکزی ملزم، سما خطوط کے اہم کرداروں کو سامنے لے آیا۔",
+    "draft": "Karachi mein abyari ke hathon teen khawateen ka larza khaiz qatal, tenu ko red poison day kar mara gaya, mamu ka sarbara Iqbal aur beta markazi mulzim, sama khutoot ke ahem krdaron ko samnay le aaya.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_001_NEWS_0006.WAV",
+    "duration_s": 13.0,
+    "corpus_transcript": "اسد قیصر کا چھبیسویں اور ستائیسویں آئینی ترمیم سے عدالتی نظام کے مفلوج ہونے کا دعویٰ۔ Executive جج کی مرضی سے فیصلے ہوں گے تو عوام کو انصاف کیسے ملے گا؟ پی ٹی آئی رہنما کا سوال، وکلا سے آئین کے تحفظ کے لیے کھڑے ہونے کی اپیل۔",
+    "draft": "Asad qaisar ka chhbisoyn aur stayisoyn aaeni tarmeem se ne nizaam ke maflooj honay ka daawa. Executive judge ki marzi se faislay hon ge to awam ko insaaf kaisay miley ga? Pi TV aayi rehnuma ka sawal, mein se aeen ke tahaffuz ke liye kharray honay ki uzma.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_003_NEWS_0030.WAV",
+    "duration_s": 18.0,
+    "corpus_transcript": "پاک بحریہ کا ہنگور ڈے 9 دسمبر 1971 کو آبدوز ہنگور نے دشمن کے بحری جہاز ککری کو غرق اور کرپان کو شدید نقصان پہنچا کر بھارت کی بحری برتری کا غرور خاک میں ملایا۔ پاکستان کے بحری محافظوں کا کارنامہ آج بھی دشمن کے ذہنوں پر نقش ہے۔ Chief of Defense Forces Field Marshal آصف منیر کا پیغام۔",
+    "draft": "Pak behria ka hangoor day 9 decemeber 1971 ko mein hangoor ne dushman ke behri jahaaz kakari ko ghark aur sath ko shadeed nuqsaan pouncha kar Bharat ki behri bartari ka ghuroor Karachi mein milaya. Pakistan ke behri muhafizon ka karnaama aaj bhi dushman ke zehnon par naqsh hai. Chief of Defense Forces Field Marshal Asif Munir ka pegham.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_004_NEWS_0032.WAV",
+    "duration_s": 20.0,
+    "corpus_transcript": "اب فیض عبید صاحب آگے بڑھ کے جا رہے ہیں گواہی اور evidences  دو چیزوں کے۔ ایک as a prime minister عمران خان صاحب ان کو کیا ہدایت دیتے تھے۔ اور نو مئی  planning اور execution  شواہد اور گواہی دینے  جا رہے  ہیں۔ چاہے اس میں جج ہے، جنرل ہے، سیاستدان کا دارہکار بہت بڑا ہوتا جا رہا ہے۔",
+    "draft": "Ab Faiz Abaid sahib agay barh ke ja rahay hain gawahi aur evidences do cheezon ke. Ek as a prime minister Imran Khan sahib un ko kya se dete they. Aur nau May planning aur execution shawahid aur gawahi dainay ja rahay hain. Chahay is mein judge hai, general hai, fatima ka jageer bohot bara hota ja raha hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_003_NEWS_0018.WAV",
+    "duration_s": 21.0,
+    "corpus_transcript": "پاکستان اور انڈونیشیا کے درمیان تجارت، ثقافت، صحت، تعلیم اور پیشہ ورانہ تربیت سمیت مختلف شعبوں میں تعاون کے ساتھ معاہدے۔ مفاہمت کی یادداشتوں پر دستخط۔ وزیراعظم ہاؤس میں منعقدہ تقریب میں وزیراعظم شہباز شریف اور انڈونیشیا کے صدر پرابوو سوبیانتو موجود تھے۔ وزیراعظم ہاؤس پر مہمان صدر کو guard of honour پیش۔",
+    "draft": "Pakistan aur Indonesia ke darmain tijarat, Saqafat, sahet, taleem aur pesha warana tarbiyat sameit mukhtalif shobo mein taawun ke sath muahiday. Mafahmat ki yaddashton par dastakhat. Wazeer e azam house mein munaqida taqreeb mein wazeer e azam Shahbaz shareef aur Indonesia ke saddar prabo sobyanto mojood they wazeer e azam guard of honour paish.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "NEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/NEWS/audio/SPEAKER_006_NEWS_0043.WAV",
+    "duration_s": 34.0,
+    "corpus_transcript": "قرض پروگرام on track رکھنا ہے تو بہت کچھ کرنا ہوگا آئی ایم ایف کا پاکستان سے do more کا مطالبہ بدعنوانی روکنے کے لیے سرکاری افسران کے اثاثے online شائع کریں صوبائی اینٹی کرپشن اداروں کو اختیارات دیں شوگر سیکٹر میں اصلاحات کریں عالمی ادارے کی شرائط تارکین وطن کی رقوم پر اخراجات کی لاگت کا جائزہ ایف بی آر کے لیے reforms روڈ میپ کی فوری تیاری پر زور اعلی سرکاری افسران کے اثاثے online شائع کرنے کا نظام تیار اینٹی منی لانڈرنگ کے لیے وفاقی اور صوبائی افسران کے اثاثوں کی جانچ پڑتال بھی ہوگی وفاقی حکومت نے آئی ایم ایف کو آگاہ کر دیا",
+    "draft": "Karzzz programme on track rakhna hai to bohot kuch karna hoga aayi am f ka Pakistan se do more ka ka wajohaat dainay ke liye sarkari se ke asasay online shaya karen sobai anti corruption idaron ko ikhtiyarat den qabza sector mein islahat karen aalmi idaray ki sharait tarkin watan ki raqum par akhrajaat ki laagat ka jaiza f bi are ke liye reforms road mip ki fori tayari par zor Alla sarkari se ke asasay online shaya karne ka nizaam liye anti money laundering ke liye wifaqi aur sobai se ke asason ki jaanch partaal bhi hogi wifaqi hukoomat ne aayi am f ko aaga kar diya",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0069.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "نہیں تو جا سکتے ہیں۔ ایک تو میرے پر تو یہ restriction بھی تھی نا",
+    "draft": "Nahin to ja satke hain. Ek to ne par to ki restriction bhi bhi na",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0122.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "اگر for example آپ نے وہاں سے پی ایچ ڈی نہ کی ہوتی آپ نے",
+    "draft": "Agar for example aap ne wahan se pi kharab d nah ki hoti aap ne",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0126.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "مجھے بتائیں were you alone یا family کے ساتھ تھے آپ؟",
+    "draft": "Mujhe ye were you alone ya family ke sath they aap?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0144.WAV",
+    "duration_s": 4.15,
+    "corpus_transcript": "رولز وغیرہ بھی Interesting مجھے یہ بتائیں کہ",
+    "draft": "Rolz waghera bhi Interesting mujhe ki ye ke",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0072.WAV",
+    "duration_s": 4.41,
+    "corpus_transcript": "ہاں آتا ہے، آتا ہے لیکن ابھی تک وہ اتنا strong نہیں ہے۔",
+    "draft": "Haan mein hai, mein hai lekin abhi taq wo itna strong nahin hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0140.WAV",
+    "duration_s": 5.02,
+    "corpus_transcript": "Could you have afforded like could you afford the entirety of it otherwise اگر اسکالرشپ نہ ملتی؟",
+    "draft": "Could you have afforded like could you afford the entirety of it otherwise agar askalrshp nah mein?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0057.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "I think when I got the scholarship I was single at that time and مجھے خود سے",
+    "draft": "I think when I got the scholarship I was single at that time and mujhe khud se",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0101.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "Tell me about how that sort of happened, why did you decide کہ جی میں UK جا کے کرتی ہوں۔",
+    "draft": "Tel mein about how that sort of happened, why did you decide ke jee mein UK ja ke karti hon.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0111.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "Right. But for a lot of people obviously جب وہ پڑھائی کے لیے جاتے ہیں۔ I was speaking to a few people recently اور وہ",
+    "draft": "Right. But for a lot of people obviously jab wo parhai ke liye atay hain. I was speaking to a few people recently aur wo",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0137.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "I can't afford it. Um, you know, وہ تو پتا نہیں کیسا کلچر ہوگا کیا ہوگا",
+    "draft": "I can't afford it. You know, wo to pata nahin kaisa culture hoga kya hoga",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0155.WAV",
+    "duration_s": 6.4,
+    "corpus_transcript": "and اس میں صرف میں انسٹیٹیوشن کی بات نہیں کروں گا I also want to understand جو سٹوڈنٹ لیول کے اوپر",
+    "draft": "And is mein sirf mein institution ki baat nahin mein ga I also want to understand jo stodnt level ke oopar",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0130.WAV",
+    "duration_s": 6.51,
+    "corpus_transcript": "تو مجھے پہلی دفعہ پتہ لگا کہ یار رینٹ بھی دینا ہوتا ہے تو یہ بھی کرنا ہوتا ہے۔ It's an entirely different lifestyle, right? Because",
+    "draft": "To mujhe pehli dafaa pata di ke yaar rent bhi dena hota hai to ki bhi karna hota hai. It's an entirely different lifestyle, right? Because",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0128.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "وہاں پر تو you will be probably you want in a hostel like apartment or something something like you had to manage your",
+    "draft": "Wahan par to you wil be probably you want in a hostel like apartment aur something something like you had to manage your",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0146.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "and you know تو بڑے کیپٹلز میں دنیا میں وہاں پہ ظاہر ہے کہ زیادہ cutting edge کام ہو رہا ہوگا۔",
+    "draft": "And you know to barray kiptlz mein ne mein wahan pay zahir hai ke zyada cutting edge kaam ho raha hoga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0150.WAV",
+    "duration_s": 7.35,
+    "corpus_transcript": "اتنا strong نہیں ہے۔ Interesting. You've been working with the alumni network quite uh regularly.",
+    "draft": "Itna strong nahin hai. Interesting. You've been working with the alumni network quite regularly.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0082.WAV",
+    "duration_s": 7.84,
+    "corpus_transcript": "میں تھوڑا سا conversation کو start کروں گا just want to understand I mean you've been teaching at the university for three years",
+    "draft": "Mein sa sa conversation ko start mein ga just want to understand I mean you've been teaching at the university for thri years",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0147.WAV",
+    "duration_s": 7.9,
+    "corpus_transcript": "عمومی پہلا تو یہ ہے کہ what compelled you to come back? and دوسرا یہ کہ do you ever regret coming back?",
+    "draft": "Umomi pehla to ki hai ke what compelled you to come back? And dosra ki ke do you ever regret coming back?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0098.WAV",
+    "duration_s": 8.0,
+    "corpus_transcript": "ہاں ہم نے ڈالرز ہم نے کمانے ہیں، باہر والوں سے کام کرنا ہے تو پھر وہ English میں ہی کرنا ہے۔ کافی دفعہ جو ہے وہ freelancers ہوتے ہیں جو کہ",
+    "draft": "Haan hum ne dollars hum ne kamanay hain, bahar walon se kaam karna hai to phir wo English mein hi karna hai. Kaafi dafaa jo hai wo freelancers hotay hain jo ke",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0120.WAV",
+    "duration_s": 8.6,
+    "corpus_transcript": "جو آپ کے یہ پانچ سال تھے، اگر میں آپ سے پوچھوں کہ the doctor Sonia who had gone to the UK and the one who came back کیا ڈفرنس آیا تھا ان میں؟",
+    "draft": "Jo aap ke ki paanch saal they, agar mein aap se pouchon ke the doctor Sonia who had gone to the UK and the one who came back kya refrences aaya tha un mein?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0044.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "تو I also found کہ وہ جو ایک پاکستان کا جو image دنیا میں بن چکا ہے نا، تو یہ بھی بتانا چاہیے کہ پاکستان یہ بھی ہے۔",
+    "draft": "To I also found ke wo jo ek Pakistan ka jo image ne mein ban chuka hai na to ki bhi batana chahiye ke Pakistan ki bhi hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0086.WAV",
+    "duration_s": 9.0,
+    "corpus_transcript": "ایک بچہ آتا ہے وہ سیکھنا ہی نہیں چاہ رہا English. Right? میں literature کی بات نہیں کر رہا، میں functional English کی بات کر رہا ہوں۔",
+    "draft": "Ek bacha mein hai wo seekhna hi nahin pairo raha English. Right? Mein literature ki baat nahin kar raha, mein functional English ki baat kar raha hon.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0159.WAV",
+    "duration_s": 9.95,
+    "corpus_transcript": "اب وہ جو پچیس لاکھ بچہ ہے جو کہ high school graduate کر رہا ہے، اس کے پاس جو total higher education کی سیٹیں available ہیں نا، میں ابھی quality کی ہم",
+    "draft": "Ab wo jo pachees laakh bacha hai jo ke high school graduate kar raha hai, is ke paas jo total higher education ki sitin available hain na, mein abhi quality ki hum",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0051.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "اچھا مجھے نا مینٹورنگ ہی ایسی کی گئی تھی میری یونیورسٹی میں بھی ام کہ ہمیشہ اپنے کمفرٹ زون سے نکلنا۔ If you want to grow, just come out of your comfort zone.",
+    "draft": "Acha mujhe na mintorng hi aisi ki gayi bhi meri university mein bhi ke hamesha apne kmfrt zone se se. If you want to grow, just come out of your comfort zone.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0087.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "um اور آپ نے اس کو پیار سے سمجھانا ہے کہ بھائی تمہیں English کے کیا فوائد ہیں، کیا روحانی عظمتیں ہیں۔ تو how would you approach this conversation?",
+    "draft": "Aur aap ne is ko pyar se samjhaana hai ke bhai ke English ke kya fawaid hain, kya Rohani azmatain hain. To how would you approach this conversation?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0105.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "اب اس میں ایک آپ کے general بچے آئے ہوئے ہیں جو standard entry test پہ آئے ہوئے ہیں۔ کچھ بچے ہیں جو scholarship پہ آئے ہوئے ہیں وہ underdeveloped area سے آئے ہوئے ہوتے تھے۔",
+    "draft": "Ab is mein ek aap ke general bachay aeye hue hain jo standard entry test pay aeye hue hain. Kuch bachay hain jo scholarship pay aeye hue hain wo underdeveloped area se aeye hue hotay they.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PODCAST",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0131.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "I feel like real life میں آپ تبھی آتے ہیں۔ پاکستان میں بھی بہت سارے لوگ کرتے ہیں۔ you know چھوٹے ٹاؤن سے بڑے شہر میں آکے education کے لیے آتے ہیں۔ پھر jobs پہ لگ جاتے ہیں۔",
+    "draft": "I feel like real life mein aap tabhi se hain. Pakistan mein bhi bohot saaray log baghaawat hain. You know chhootey Model se barray shehar mein aake education ke liye se hain. Phir jobs pay lag atay hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "POETRY",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/POETRY/audio/SPEAKER_002_POETRY_0073.wav",
+    "duration_s": 8.0,
+    "corpus_transcript": "اس کا مجھے آج تک نقصان یہ ہوا کہ آج تک اپنی صحیح تاریخ پیدائش معلوم نہیں ہوئی passport اور visa کا form بھرتے ہوئے بڑی دشواری ہوتی ہے",
+    "draft": "Is ka mujhe aaj taq nuqsaan ye sun - hwa ke aaj taq apni sahi tareekh paidaiesh maloom nahin hui passport aur visa ka form bhartay hue barri aur hoti hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "POETRY",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/POETRY/audio/SPEAKER_002_POETRY_0042.wav",
+    "duration_s": 8.11,
+    "corpus_transcript": "میرے عزیز دوست عزیز الحسن نے New York سے اپنا مجموعہ کلام متاع عزیز مجھے تحفے میں بھیجا۔",
+    "draft": "Ne Aziz dost Aziz Al ne New York se apna majmoa kalaam mata Aziz mujhe America mein bheja.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "POETRY",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/POETRY/audio/SPEAKER_002_POETRY_0079.wav",
+    "duration_s": 11.0,
+    "corpus_transcript": "میرے کپڑے بہت عمدہ تھے سفید ریشم کا کرتا لٹھے کا پاجامہ سنہری brocade کی شیروانی سر پر گوٹا لگی چاند تارے والی ٹوپی گلے میں تازہ پھولوں کے ہار",
+    "draft": "Ne kapray bohot umda they safaid resham ka karta lathay ka pajama sunehri brocade ki Khan wo par gotta lagi chaand tarre wali topi gilaay mein taaza phoolon ke haar",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0064.wav",
+    "duration_s": 2.2,
+    "corpus_transcript": "Ford company نے ان کو پیغام بھیجا",
+    "draft": "Ford company ne un ko pegham bheja",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0257.wav",
+    "duration_s": 2.2,
+    "corpus_transcript": "فرمایا میں نے اپنے غصے کو control کیا۔",
+    "draft": "Farmaya mein ne apne ghusse ko control kya.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0065.wav",
+    "duration_s": 4.3,
+    "corpus_transcript": "ہم اس کو publicity کے لیے اپنے قدیم ماڈلوں کے museum میں رکھیں گے۔",
+    "draft": "Hum is ko publicity ke liye apne qadeem madlon ke museum mein rakhen ge.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0084.wav",
+    "duration_s": 4.3,
+    "corpus_transcript": "پہلی طلاق کی silver jubilee میں راقم الحروف کو بھی شرکت کا اتفاق ہوا۔",
+    "draft": "Pehli Talaq ki silver jubili mein Raqum alhrof ko bhi shirkat ka se sun - hwa.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0255.wav",
+    "duration_s": 4.54,
+    "corpus_transcript": "boy scout کی طرح روزانہ کم از کم ایک نیکی علی الاعلان کرتے۔",
+    "draft": "Boy scout ki terhan rozana kam az kam ek neki Ali al - elaan karte.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0340.wav",
+    "duration_s": 4.63,
+    "corpus_transcript": "بیچ بیچ میں yes yes اور please please بھی کہتے جاتے تھے",
+    "draft": "Beech beech mein yes yes aur please please bhi kehte atay they",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0093.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "جس کا ایک ثبوت ان کی انیس سو ستائیس model کی Ford car تھی",
+    "draft": "Jis ka ek saboot un ki Anees sipahi satais model ki Ford car bhi",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0347.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "آخر استاد مرحوم نے بتایا اور English Teacher کھول کر اس کی تصدیق بھی کرا دی",
+    "draft": "Aakhir - kaar ustaad marhoom ne bataya aur English Teacher khol kar is ki tasdeeq bhi kara di",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0155.wav",
+    "duration_s": 5.1,
+    "corpus_transcript": "بچے نے ان سب خطابات سے بے نیاز ہو کر ایک alarm clock کی شکل اختیار کر لی",
+    "draft": "Bachay ne un sab ke se be niaz ho kar ek alarm clock ki shakal ikhtiyar kar li",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0300.wav",
+    "duration_s": 5.7,
+    "corpus_transcript": "میں نے کہا یہ دھمکی تو پڑوسی کو دہلا سکتی ہے، انگریز General Manager اس سے کیا خوف کھائے گا",
+    "draft": "Mein ne kaha ki dhamki to parosi ko shehar sakti hai, angraiz General Manager is se kya phail khaye ga",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0066.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "اور اس کے بدلے میں سالِ رواں کے model کی بڑی نئی car تمہیں پیش کریں گے",
+    "draft": "Aur is ke badlay mein saal mein mein ke model ki barri nahin car ke paish karen ge",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0269.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "Empress Market سے خود دیکھ بھال کر ناطق و بالغ مرغا خرید کر لاتے۔",
+    "draft": "Empres Market se khud dekh bhaal kar Natiq o baaligh murga khareed kar laatay.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0301.wav",
+    "duration_s": 6.2,
+    "corpus_transcript": "جلا کر بولے تو پھر یہ warning دے دیجئے کہ میں Spanish Civil War میں چلا جاؤں گا۔",
+    "draft": "Jala kar bolay to phir ki warning day dijiye ke mein Spanish Civil War mein par jaoon ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0438.wav",
+    "duration_s": 8.48,
+    "corpus_transcript": "مگر لنڈا بازار جانے سے پہلے عسکری صاحب نے Government College کا رخ کیا اور مجھے آفتاب احمد خاں سے ملوایا۔",
+    "draft": "Magar lnda bazaar jaane se pehlay askari sahib ne Government College ka rukh kya aur mujhe aftaab Ahmed Ahmed se milwaya.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0187.wav",
+    "duration_s": 9.0,
+    "corpus_transcript": "جب جوانی قریب آئی تو تو نے ہی خیالات میں آزادی دی، خود رائے قائم کرنے کی قوت بخشی۔ Herbert Spencer, Mill کے خیالات دل میں جمنے لگے۔",
+    "draft": "Jab jawani se aayi to to ne hi khayalat mein azaadi di, khud raye qaim karne ki qowat bakhsh. Herbert Spencer, Mil ke khayalat dil mein jamnay lagey.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0295.wav",
+    "duration_s": 9.95,
+    "corpus_transcript": "خان ایک درخواست انگریزی میں اس مضمون کی لکھ دیجیے کہ مجھے فورا ترقی دے کر مردان کا manager بنا دیا جائے",
+    "draft": "Khan ek darkhwast angrezi mein is mazmoon ki likh degiye ke mujhe foran taraqqi day kar mardan ka manager bana diya jaye",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/PROSES/audio/SPEAKER_000_PROSES_0238.wav",
+    "duration_s": 10.0,
+    "corpus_transcript": "پشتو، ہندکو، پنجابی، فارسی، اردو روانی سے بولتے اور ایک زبان سے دوسری زبان میں اس چابک دستی سے gear بدلتے کہ سننے والے کو خبر بھی نہ ہوتی۔",
+    "draft": "Pashto, hindko, punjabi, farsi, Urdu ravani se boltay aur ek zabaan se doosri zabaan mein is chaabak dasti se gear bdalty ke suneney walay ko khabar bhi nah hoti.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0306.wav",
+    "duration_s": 10.3,
+    "corpus_transcript": "ہم نے ایک نہایت فضیانہ عرضداشت ایک انگلی سے ہجے کر کر کے اس طرح type کی جیسے ملکہ پکھراج اور طاہرہ سید گانا type کرتی ہیں",
+    "draft": "Hum ne ek nihayat fatihana arzdasht ek ungli se kisi kar kar ke is terhan type ki jaisay malka pukhraj aur Tahira syed gana type karti hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0452.wav",
+    "duration_s": 10.51,
+    "corpus_transcript": "میاں ایم اسلم جیسے تیار ہی بیٹھے تھے، سامعین فراہم ہو چکے تھے، دیر کس بات کی تھی؟ زیر تحریر novel سنانا شروع کر دیا۔",
+    "draft": "Miyan am aslam jaisay liye hi baithy they, samaeen faraham ho chuke they, der kis baat ki bhi? Zair tehreer novel sunana shuru kar diya.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0444.wav",
+    "duration_s": 12.0,
+    "corpus_transcript": "میں جب یہاں آیا تو شاہد صاحب صحیح و سالم یہاں آ کے بیٹھے تھے۔ اصل میں میرٹھ میں اڑتے اڑتے یہ خبر پہنچی تھی کہ جس special میں شاہد صاحب دلی سے چلے تھے وہ رستے میں پوری کٹ گئی۔",
+    "draft": "Mein jab yahan aaya to Shahid sahib sahi o salim yahan aa ke baithy they. Asal mein mirth mein urrtay urrtay ki khabar pohanchi bhi ke jis special mein Shahid sahib dili se chalay they wo raste mein poori kat gayi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0204.wav",
+    "duration_s": 14.0,
+    "corpus_transcript": "اس دن ایک امریکن کی کتاب میں نکلا کہ to believe in God is to desire his existence and what is more to act as if life existed. لے بھلا حضور ہی فرمائیں ایک طرف تو منطق نے عقل کو باولا کر رکھا ہے۔",
+    "draft": "Is din ek american ki kitab mein nikla ke to believe in God is to desire his existence and what is more to act as if life existed. Le bhala huzoor hi farmaen ek taraf to mantaq ne aqal ko bavla kar rakha hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0482.wav",
+    "duration_s": 15.0,
+    "corpus_transcript": "گوری رنگت، شریرا بدن، بر میں ململ کا کرتا، ٹانگوں میں پتلی مہری کا پاجامہ، ہاتھ میں چھڑی، open air theatre کے وسیع و عریض اسٹیج پر ٹہلتا، چھڑی گھماتا، دائیں سے بائیں جاتا ہے، بائیں سے دائیں آتا ہے اور یہ شعر پڑھتا ہے۔",
+    "draft": "Gori rangat, to badan, Bar mein malmal ka karta, tangon mein patli Mehri ka pajama, ke mein chhari, open air theatre ke wasi o Areez stage par tehelta, chhari ghumata, dayen se baen jata hai, baen se dayen mein hai aur ki shair parhta hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "PROSES",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/PROSES/audio/SPEAKER_000_PROSES_0481.wav",
+    "duration_s": 16.36,
+    "corpus_transcript": "ہاں اس زمانے کا ایک شعر یاد آیا، شعر بھی نرالا شاعر بھی نرالا۔ عسکری صاحب اور میں چلتے پھرتے Lawrence Bagh میں جا نکلے۔ وہاں open air theatre میں مشاعرہ ہو رہا تھا۔ ہم نے جب وہاں قدم رکھا تو نقشہ یہ دیکھا کہ اسٹیج پر ایک شاعر چہل قدمی کر رہا ہے۔",
+    "draft": "Haan is zamane ka ek shair yaad aaya, shair bhi nirala shayar bhi nirala. Askari sahib aur mein chaltay phirtay Lawrence Bagh mein ja niklay. Wahan open air theatre mein namaz ho raha tha. Hum ne jab wahan rakha rakha to naqsha ki dekha ke stage par ek shayar chehal qadmi kar raha hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0552.wav",
+    "duration_s": 2.0,
+    "corpus_transcript": "اچھا all very good very good",
+    "draft": "Acha al very good very good",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0547.wav",
+    "duration_s": 2.81,
+    "corpus_transcript": "اچھا صرف acting امم",
+    "draft": "Acha sirf acting mnh",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0438.wav",
+    "duration_s": 3.0,
+    "corpus_transcript": "کہ جلنے سے actual شعلے سے نہیں ہوا",
+    "draft": "Ke julne se actual sholay se nahin hawa",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0171.wav",
+    "duration_s": 3.5,
+    "corpus_transcript": "آپ کی نظر میں is it because it's genderless?",
+    "draft": "Aap ki nazar mein is it because it's genderles?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0321.wav",
+    "duration_s": 3.7,
+    "corpus_transcript": "YouTube کے چھ pages تک آپ نہیں آتے۔",
+    "draft": "Youtube ke chhay pages taq aap nahin se.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0357.wav",
+    "duration_s": 4.0,
+    "corpus_transcript": "ہاں Okay ہاں ہمارے نہیں آ رہے کوئی وہاں کوئی نہیں بہت ہاں ایسے کیسے",
+    "draft": "Haan Okay haan hamaray nahin aa rahay ki wahan ki nahin bohot haan aisay kaisay",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0550.wav",
+    "duration_s": 4.0,
+    "corpus_transcript": "لیکن آہ جو اس script نے آپ کو دے دیا نا",
+    "draft": "Lekin jo is script ne aap ko day diya na",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0598.wav",
+    "duration_s": 4.15,
+    "corpus_transcript": "ہاں آہ میرا اپنا بھی ایک channel ہے ویسے پتا ہے آپ کو؟",
+    "draft": "Haan mera apna bhi ek channel hai waisay pata hai aap ko?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0434.wav",
+    "duration_s": 4.16,
+    "corpus_transcript": "ارے یار ایک شعر تھوڑی favorite ہوتا ہے بہت um",
+    "draft": "Arrey yaar ek shair thori favorite hota hai bohot",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0398.wav",
+    "duration_s": 4.2,
+    "corpus_transcript": "جو protagonist ہے جو کہہ رہی ہے جو متکلم ہے وہ تو female ہے",
+    "draft": "Jo protagonist hai jo ke rahi hai jo mutkalam hai wo to female hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0315.wav",
+    "duration_s": 4.26,
+    "corpus_transcript": "آپ نے بھی دیکھا ہوگا کہ sometimes things are",
+    "draft": "Aap ne bhi dekha hoga ke sometimes things are",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0299.wav",
+    "duration_s": 4.59,
+    "corpus_transcript": "Sir آپ Pakistan میں تو ڈرامے کرتے نہیں ہیں Bollywood میں آپ ڈرامے کر رہے ہیں",
+    "draft": "Sir aap Pakistan mein to daramay baghaawat nahin hain Bollywood mein aap daramay kar rahay hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0209.wav",
+    "duration_s": 4.71,
+    "corpus_transcript": "So that's Pakistan's problem نا کہ ہمیں ایک unified theory چاہیے",
+    "draft": "So that's Pakistan's problem na ke hamein ek unified theory chahiye",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0283.wav",
+    "duration_s": 4.86,
+    "corpus_transcript": "is considered a great writer. میری نظر میں نے ان کا بہت زیادہ کام نہیں دیکھا",
+    "draft": "Is considered a great writer. Meri nazar mein ne un ka bohot zyada kaam nahin dekha",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0220.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "but not like خیر I mean in a world where you have Tagore",
+    "draft": "But not like kher I mean in a world where you have Tagore",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0228.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "Do you feel like کہ accessibility اور depth",
+    "draft": "Do you feel like ke accessibility aur depth",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0281.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "اچھا اس کو دوسری طرف سے لیتے ہیں۔ دوسری طرف سے اس سے discussion کرتے ہیں۔",
+    "draft": "Acha is ko doosri taraf se letay hain. Doosri taraf se is se discussion baghaawat hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0285.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "A lot of my argument is کہ اس طرح لوگ نارمل بات کرتے ہیں",
+    "draft": "A lot of my argument is ke is terhan log normal baat baghaawat hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0318.wav",
+    "duration_s": 5.2,
+    "corpus_transcript": "ہاں and sometimes you also take the bastardization of the form جس طرح آپ، آپ بات کر رہے ہیں۔",
+    "draft": "Haan and sometimes you also take the bastardization of the form jis terhan aap, aap baat kar rahay hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0292.wav",
+    "duration_s": 5.21,
+    "corpus_transcript": "End of the day آپ جاتے جائیں تو آپ اس کو good versus evil میں",
+    "draft": "End of the day aap atay jayen to aap is ko good versus evil mein",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0302.wav",
+    "duration_s": 5.7,
+    "corpus_transcript": "مجھے جو کئی لوگ کہتے ہیں آپ ایسی سنجیدہ پوڈکاسٹ میں جوک کرتے ہیں Shakespeare",
+    "draft": "Mujhe jo kayi log kehte hain aap aisi zyada numeral mein jok baghaawat hain Shakespeare",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0167.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "But اب مسئلہ یہ ہے نا اب social media پہ کوئی آ جائے گا یہ کہہ رہا ہے وہ سمجھا دے گا ان کو کیا کہہ رہا ہے",
+    "draft": "But ab masla ki hai na ab social media pay ki aa jaye ga ki ke raha hai wo daur day ga un ko kya ke raha hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0196.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "I guess it's a inaccessibility of language also. اب جو آج کل اگر کوئی شعر لکھ رہے ہیں",
+    "draft": "I gues it's a inaccessibility of language also. Ab jo aaj kal agar ki shair likh rahay hain",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0227.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "تو ان کو شاہ رخ خان بننا ہوتا ہے۔ تو پہلے سمسٹر میں تو they're just their only dreams are like کہ میں",
+    "draft": "To un ko Sha rukh Khan ban - na hota hai. To pehlay semester mein to they're just their only dreams are like ke mein",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0229.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "یہ opposite ہیں کیونکہ ہو سکتا ہے کہ اب فیض صاحب ہیں۔",
+    "draft": "Ki opposite hain kyunkay ho sakta hai ke ab Faiz sahib hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0231.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "Sir یہ جالب لے لیں۔ جالب تو بالکل ایسی ہے کہ جیسے سڑک پہ کوئی بات کر رہا ہے۔",
+    "draft": "Sir ki jalib le len. Jalib to bilkul aisi hai ke jaisay darya pay ki baat kar raha hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0252.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "چلیں میں آپ سے وہی پھر سوال پوچھ لیتا ہوں جو مجھ سے ہر first year پوچھتا ہے",
+    "draft": "Chalein mein aap se wohi phir sawal pooch laita hon jo mujh se har first year puchta hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0259.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "But کل کو کوئی technique میں مسئلہ آیا تو آپ کو بھی نہیں پتہ ہوگا میرا مسئلہ ہے کیا",
+    "draft": "But kal ko ki technique mein masla aaya to aap ko bhi nahin pata hoga mera masla hai kya",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0289.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "ایک نارمل چل رہا ہے سب نارمل بات کر رہے ہیں like میں وہ چائے لینے آؤں۔ شرط کی تو خدا ابے بھائی وہ چائے",
+    "draft": "Ek normal chal raha hai sab normal baat kar rahay hain like mein wo chai lainay aon. Shart ki to kkhuda abay bhai wo chai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0329.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "اچھا اسی دن پھر کسی TikToker کی ویڈیو leak ہو گئی۔ وہی page، عیدی تو اب ملی ہے ہمیں",
+    "draft": "Acha ISI din phir kisi Tiktoker ki video leak ho gayi. Wohi page, aidi to ab mili hai hamein",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0396.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "نہیں اہ ہمارے ہاں پہلے جو شاعری ہوتی تھی اس میں protagonist female تھی۔",
+    "draft": "Nahin ah hamaray haan pehlay jo shairi hoti bhi is mein protagonist female bhi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0433.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "تو وہ film making دیکھ کے میں نے Napa میں admission لیا تو انہوں نے تین مہینے سکھائی تین سال میں",
+    "draft": "To wo film making dekh ke mein ne Napa mein admission liya to unhon ne teen mahinay aur teen saal mein",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0479.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "سارا foreign cinema کا اس سے کچھ شوق چڑھ گیا تھا سب طرح کی فلمیں دیکھنے کا",
+    "draft": "Sara foreign cinema ka is se kuch shoq charh gaya tha sab terhan ki filme dekhnay ka",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0499.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "یار greatness آپ greatness کس کو کہہ رہے ہیں شاعری میں؟ کس بات کو کہیں گے greatness?",
+    "draft": "Yar greatnes aap greatnes kis ko ke rahay hain shairi mein? Kis baat ko kahin ge greatnes?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0570.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "Overall مثال کے طور پر ایک بات ہے آپ کو ٹینس کھیلنا ہے آپ کو ٹینس کھیلنا پڑے گا اور آپ کو ٹینس دیکھنا پڑے گا۔",
+    "draft": "Overal misaal ke tor par ek baat hai aap ko tennis khelna hai aap ko tennis khelna parre ga aur aap ko tennis dekhna parre ga.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "Podcast2",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0400.wav",
+    "duration_s": 6.01,
+    "corpus_transcript": "جب پہلا اشتہار آیا تھا ناپا کا تو ہم میں first batch کا حصہ تھا۔",
+    "draft": "Jab pehla ishtihar aaya tha naapa ka to hum mein first batch ka hissa tha.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0030.wav",
+    "duration_s": 2.05,
+    "corpus_transcript": "But it's fine. کوئی بات نہیں",
+    "draft": "But it's fine. Ki baat nahin",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0007.wav",
+    "duration_s": 2.76,
+    "corpus_transcript": "Two, یہ main office کے پاس ہے",
+    "draft": "Two, ki mein office ke paas hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0012.wav",
+    "duration_s": 3.0,
+    "corpus_transcript": "تو let's go میں آپ کو دکھاتی ہوں",
+    "draft": "To let's go mein aap ko dukhati hon",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0011.wav",
+    "duration_s": 3.1,
+    "corpus_transcript": "کافی greenery ہے اور کافی بڑی uni ہے یہ۔",
+    "draft": "Kaafi greenery hai aur kaafi barri uni hai ki.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0022.wav",
+    "duration_s": 3.1,
+    "corpus_transcript": "اور وہاں پہ ہم نے جانا ہے۔ وہاں پہ میں اپنی friend سے ملوں گی۔",
+    "draft": "Aur wahan pay hum ne jana hai. Wahan pay mein ko friend se milon gi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0034.wav",
+    "duration_s": 3.36,
+    "corpus_transcript": "تو تب تک کے لئے آپ ویڈیو دیکھیں میں کھانا لے کے آئی Bye bye",
+    "draft": "To tab taq ke liye aap video dekhen mein khana le ke aayi Bye bye",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0033.wav",
+    "duration_s": 3.65,
+    "corpus_transcript": "اور پھر میں vlog بناتی ہوں اور آپ کو باقی کی ساری چیزیں دکھاتی ہوں۔",
+    "draft": "Aur phir mein vlog banati hon aur aap ko baqi ki saari cheezein dukhati hon.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0018.wav",
+    "duration_s": 4.0,
+    "corpus_transcript": "تو یہ سامنے almost Concordia one آ گیا ہے یہ اس کی parking ہے",
+    "draft": "To ki samnay almost Concordia one aa gaya hai ki is ki parking hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0021.wav",
+    "duration_s": 4.08,
+    "corpus_transcript": "تو یہ اس کے بالکل سامنے جو آپ کو ایک بلڈنگ ٹائپ نظر آ رہی ہے، وہ ہے Concordia One۔",
+    "draft": "To ki is ke bilkul samnay jo aap ko ek building type nazar aa rahi hai, wo hai Concordia One.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0023.wav",
+    "duration_s": 4.41,
+    "corpus_transcript": "اور یہاں پہ بہت رش ہوگا۔ I'm sure, کیونکہ رجسٹریشن اور",
+    "draft": "Aur yahan pay bohot rush hoga. I'm sure, kyunkay registration aur",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0025.wav",
+    "duration_s": 4.51,
+    "corpus_transcript": "اور یہ under construction بھی نہیں ہے۔ so let's see کہ یہ کیسا ہوتا ہے۔ میں بھی first time جا رہی ہوں۔",
+    "draft": "Aur ki under construction bhi nahin hai. So let's see ke ki kaisa hota hai. Mein bhi first time ja rahi hon.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0006.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "Okay guys, تو اب ہم آ گئے ہیں seat two جس کو ہم کہتے ہیں Concordia",
+    "draft": "Okay guys, to ab hum aa gaye hain seat two jis ko hum kehte hain Concordia",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0010.wav",
+    "duration_s": 7.0,
+    "corpus_transcript": "یہ C2 under construction تھا اس لیے یہاں پہ زیادہ رش نہیں تھا but اب ہم جائیں گے C2 اور یہ C2 کا راستہ ہے۔",
+    "draft": "Ki C 2 under construction tha is liye yahan pay zyada rush nahin tha but ab hum jayen ge C 2 aur ki C 2 ka rasta hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0020.wav",
+    "duration_s": 7.0,
+    "corpus_transcript": "اور ابھی کیونکہ گرمی ہے تو کوئی آپ کو نظر نہیں آ رہا یہاں پہ but شام میں evening میں کافی رش ہو جاتا ہے یہاں پہ",
+    "draft": "Aur abhi kyunkay garmi hai to ki aap ko nazar nahin aa raha yahan pay but shaam mein evening mein kaafi rush ho jata hai yahan pay",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0026.wav",
+    "duration_s": 7.0,
+    "corpus_transcript": "Okay تو یہ ہے stationary shop اور yeah یہ stationary shop تھی.",
+    "draft": "Okay to ki hai stationary shop aur yea ki stationary shop bhi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0028.wav",
+    "duration_s": 7.0,
+    "corpus_transcript": "Okay guys, تو یہ Concordia one کے اندر کی ہے اور آپ خود ہی دیکھ سکتے ہیں کہ کتنا rush ہوا ہوا ہے یہاں پہ۔",
+    "draft": "Okay guys, to ki Concordia one ke ya ki hai aur aap khud hi dekh satke hain ke kitna rush sun - hwa hawa hai yahan pay.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0015.wav",
+    "duration_s": 7.1,
+    "corpus_transcript": "directly جاتی ہے library کی طرف main office کی طرف departments کی طرف تو ابھی ہم دوسری side پہ جائیں گے",
+    "draft": "Directly jati hai library ki taraf mein office ki taraf departments ki taraf to abhi hum doosri side pay jayen ge",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0017.wav",
+    "duration_s": 7.35,
+    "corpus_transcript": "وہ بھی Concordia one ہی ہے یہاں پے تین Concordia's ہیں ایک Concordia one ایک Concordia two and ایک Concordia three",
+    "draft": "Wo bhi Concordia one hi hai yahan pay teen Concordia's hain ek Concordia one ek Concordia two and ek Concordia thri",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0036.wav",
+    "duration_s": 10.18,
+    "corpus_transcript": "کچھ rice ہیں, Chinese rice, بھنڈی, کباب, بریانی, macaronis, چنا چاٹ۔ تو ہم نے fries and بریانی لی ہے۔",
+    "draft": "Kuch rice hain, Chinese rice, bhndi, kabaab, beryani, macaronis, liye chaat. To hum ne fries and beryani li hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0014.wav",
+    "duration_s": 11.0,
+    "corpus_transcript": "Okay guys تو یہ main road آ گئی ہے اور اس کے opposite side پہ ہے C1 اور یہ",
+    "draft": "Okay guys to ki main road aa gayi hai aur is ke opposite side pay hai C 1 aur ki",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0043.wav",
+    "duration_s": 13.0,
+    "corpus_transcript": "لفٹ کے بالکل ساتھ تو میں نے آپ کو سارا ڈیپارٹمنٹ اوپر سے بھی دکھاتی ہوں۔ یہ اوپر سے اس کا ویو ہے جو کہ بہت خوبصورت ویو ہے۔ I loved it. اور میں آپ کو اندر سے بھی دکھاتی ہوں سارا۔",
+    "draft": "Lift ke bilkul sath to mein ne aap ko sara department oopar se bhi dukhati hon. Ki oopar se is ka view hai jo ke bohot khobsorat view hai. I loved it. Aur mein aap ko ya se bhi dukhati hon sara.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0046.wav",
+    "duration_s": 13.0,
+    "corpus_transcript": "جو کہ IT, computer science, AI, IS, information security, اس ساری چیزوں کے department ہیں seecs. تو ہم جائیں گے پہلے وہاں اور پھر میں دکھاؤں گی وہ۔",
+    "draft": "Jo ke It, computer science, Ai, Is, information security, is saari cheezon ke department hain seecs. To hum jayen ge pehlay wahan aur phir mein dukhao gi wo.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0005.wav",
+    "duration_s": 14.0,
+    "corpus_transcript": "السلام علیکم guys, welcome to my channel why not. آج کی اس vlog میں میں جا رہی ہوں اپنی یونی کچھ registrations کرانے and document submission کے لیے. تو میں نے سوچا کہ کیوں نہ ایک vlog بنایا جائے اور آپ کو بھی ساتھ لے کر جایا جائے. تو یہ dress میں نے choose کیا ہے یونی پہننے کے لیے.",
+    "draft": "Salam alaikum guys, welcome to my channel why not. Aaj ki is vlog mein mein ja rahi hon ko yoni kuch registrations karanay and document submission ke liye. To mein ne socha ke kyun nah ek vlog banaya jaye aur aap ko bhi sath le kar jaya jaye. To ki dress mein ne choose kya hai yoni pahannay ke liye.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "ROADSIDE",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/ROADSIDE/audio/SPEAKER_002_ROADSIDE_INTERVIEW_0039.wav",
+    "duration_s": 18.0,
+    "corpus_transcript": "Okay guys تو یہ S3H کا ڈیپارٹمنٹ ہے اور یہ اس کی اینٹرنس ہے۔ یہاں بیسیکلی Social Sciences and Humanities کا ڈیپارٹمنٹ ہے یہ۔ جیسے کہ Economics, Psychology, Sociology اور سب سے زیادہ رش اور مزے کا انوائرمنٹ اسی ڈیپارٹمنٹ میں ہوتا ہے۔",
+    "draft": "Okay guys to ki S 3 H ka department hai aur ki is ki antrns hai. Yahan bisiklya Social Sciences and Humanities ka department hai ki. Jaisay ke Economics, Psychology, Sociology aur sab se zyada rush aur mazay ka anwarmnt ISI department mein hota hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0020.wav",
+    "duration_s": 2.26,
+    "corpus_transcript": "تو ہم اس کو بھی پہلے کیا کریں گے؟ settle کریں گے۔",
+    "draft": "To hum is ko bhi pehlay kya karen ge? Settle karein ge.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0014.wav",
+    "duration_s": 2.31,
+    "corpus_transcript": "I will try کہ تھوڑا nose پہ بھی لگے۔",
+    "draft": "I wil try ke sa nose pay bhi lagey.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0008.wav",
+    "duration_s": 2.45,
+    "corpus_transcript": "آپ کو پتہ ہے میں glow کی دیوانی ہوں۔",
+    "draft": "Aap ko pata hai mein glow ki dewaani hon.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0015.wav",
+    "duration_s": 2.98,
+    "corpus_transcript": "میں کیوں base lock کرنے کا بول رہی ہوں آپ میری آنکھ دیکھیں",
+    "draft": "Mein kyun base lock karne ka bol rahi hon aap meri aankh dekhen",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0006.wav",
+    "duration_s": 3.0,
+    "corpus_transcript": "آپ دیکھ سکتے ہو کہ جیسے ہی میں نے apply کیا ہے میرے face پہ ایک",
+    "draft": "Aap dekh satke ho ke jaisay hi mein ne apply kya hai ne face pay ek",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0024.wav",
+    "duration_s": 3.0,
+    "corpus_transcript": "اور آج کا جو میرا eye makeup ہے وہ تھوڑا سا different ہوگا",
+    "draft": "Aur aaj ka jo mera eye makeup hai wo sa sa different hoga",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0007.wav",
+    "duration_s": 3.12,
+    "corpus_transcript": "یہ دیکھیں ابھی میں نے کوئی بھی highlighter نہیں لگایا لیکن پھر بھی میرا face glow کر رہا ہے",
+    "draft": "Ki dekhen abhi mein ne ki bhi highlighter nahin lagaya lekin phir bhi mera face glow kar raha hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0022.wav",
+    "duration_s": 4.15,
+    "corpus_transcript": "natural look بھی رکھنی ہے نا تو اس کے لیے lens ضروری ہوتے ہیں تو میں پہلے lens wear کر لوں گی",
+    "draft": "Natural look bhi rakhni hai na to is ke liye lens zurori hotay hain to mein pehlay lens wear kar se gi",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0027.wav",
+    "duration_s": 4.82,
+    "corpus_transcript": "اور ہم اس سے پوری eye سے اس طرح اس طرح سے کریں گے۔ کبھی کبھی local",
+    "draft": "Aur hum is se poori eye se is terhan is terhan se karen ge. Kabhi kabhi local",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0030.wav",
+    "duration_s": 5.0,
+    "corpus_transcript": "moisturizing کرنے کے بعد میں لگا رہی ہوں یہ illuminator kind strobe cream",
+    "draft": "Moisturizing karne ke baad mein di rahi hon ki illuminator kind strobe cream",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0021.wav",
+    "duration_s": 5.2,
+    "corpus_transcript": "اس کو سیٹ کریں گے۔ okay guys تو میں نے جو اپنی بیس ہے جو فاؤنڈیشن ہے جہاں تک مجھے تھا",
+    "draft": "Is ko jari karen ge. Okay guys to mein ne jo ko bees hai jo foundation hai jahan taq mujhe tha",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0031.wav",
+    "duration_s": 6.0,
+    "corpus_transcript": "نکل اؤ اور یہ میری پراڈکٹ نہ ختم ہوئی ہوئی ہے کیونکہ یہ میری نا most favorite products ہیں اور وہ میں اتنا لگاتی ہوں کہ وہ",
+    "draft": "Nikal California aur ki meri pradkt nah khatam hui hui hai kyunkay ki meri na most favorite products hain aur wo mein itna lagati hon ke wo",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0023.wav",
+    "duration_s": 8.0,
+    "corpus_transcript": "میں نے اس کو fully lock کر لیا ہے۔ اگر کوئی اور ایک آدھی جگہ رہ جائے تو دیکھ لیں گے۔ اب ہم لوگ start کریں گے اپنا eye makeup which is most important thing.",
+    "draft": "Mein ne is ko fully lock kar liya hai. Agar ki aur ek aadhi jagah reh jaye to dekh len gea. Ab hum log start karen ge apna eye makeup which is most important thing.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0025.wav",
+    "duration_s": 8.4,
+    "corpus_transcript": "میں use کروں گی یہ Huda Beauty کی Empowered palette. اس کے shades مجھے بہت اچھے لگتے ہیں. so سب سے پہلے ہم لوگ use کریں گے the lightest shade.",
+    "draft": "Mein use mein gi ki Huda Beauty ki Empowered palette. Is ke shades mujhe bohot achay lagtay hain. So sab se pehlay hum log use karen ge the lightest shade.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0010.wav",
+    "duration_s": 9.0,
+    "corpus_transcript": "تو بھئی بہت ہی محنت مشقت کرنے کے بعد مجھے یہ بھی مل گیا یہ میری اماں کا ہے جو میں چوری کر کے لائی ہوں۔ آپ کے پاس جب makeup نہیں نا ہوتا تو آپ اسی طریقے سے ہی ادھار ادھور مانگ کے makeup کرتے ہیں۔",
+    "draft": "To bhae bohot hi mehnat mushaqqat karne ke baad mujhe ki bhi mil gaya ki meri amma ka hai jo mein chori kar ke layi hon. Aap ke paas jab makeup nahin na hota to aap ISI tareeqay se hi udhaar kisi maang ke makeup baghaawat hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0013.wav",
+    "duration_s": 9.0,
+    "corpus_transcript": "different طرح کا glow آ گیا جو کہ بہت ضروری ہوتا ہے for the makeup so اپنی neck پہ بھی apply کریں Okay guys تو میں نا lens پہننا بھول گئی تھی مجھے تھوڑی سی",
+    "draft": "Different terhan ka glow aa gaya jo ke bohot zurori hota hai for the makeup so apni neck pay bhi apply karen Okay guys to mein na lens pehnana bhool gayi bhi mujhe thori si",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0009.wav",
+    "duration_s": 9.12,
+    "corpus_transcript": "میک اپ کے اندر گلو ہو میں اب کیا ہی کہوں۔ I can die for this type of glow. اب ہم لوگ کیا کریں گے as we know اب مجھے please",
+    "draft": "Ree ke ke ya director ho mein ab kya hi kaisay. I can die for this type of glow. Ab hum log kya karen ge as we know ab mujhe please",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0028.wav",
+    "duration_s": 9.29,
+    "corpus_transcript": "Okay guys, تو میں لینز اپلائی کرکے آچکی ہوئی ہوں۔ آپ کو میری شکل سے لگ رہا ہوگا کہ میں کسی سے لڑ کے آئی ہوں اور رو کے آئی ہوں، تو ایسا بالکل نہیں ہے۔ جب آپ لینز لگاتے ہو تو آپ کی حالت ایسی ہی ہو جاتی ہے، ٹھیک ہے؟",
+    "draft": "Okay guys, to mein lance apply karkay aa hui hon. Aap ko meri shakal se lag raha hoga ke mein kisi se lar ke aayi hon aur ro ke aayi hon to aisa bilkul nahin hai. Jab aap lance lagatay ho to aap ki haalat aisi hi ho jati hai, theek hai?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0011.wav",
+    "duration_s": 12.75,
+    "corpus_transcript": "تو اب مجھے as you know کہ مجھے dewy face چاہیے تو میں صرف اپنے under eyes اور اوپر lock کروں گی اپنی base کو باقی سارا as it is چھوڑ دوں گی۔ بس try کروں گی کہ ہاتھ ہوتھ نہ لگاؤں جس سے وہ میری base transfer ہو جائے، ٹھیک ہے؟",
+    "draft": "To ab mujhe as you know ke mujhe dewy face chahiye to mein sirf apne under eyes aur oopar lock mein gi ko base ko baqi sara as it is chore dun gi. Dehli try mein gi ke ke hoth nah take jis se wo meri base transfer ho jaye, theek hai?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0039.wav",
+    "duration_s": 14.0,
+    "corpus_transcript": "دیکھ رہے ہیں، ٹھیک ہے؟ میں نے اس کو اچھے سے بلینڈ کر لیا ہے۔ Tada! This is my glowy dewy look. میرا دل تو کہہ رہا ہے میں ایسے ہی چلی جاؤں، لیکن تھوڑا سا فارمل ہونا پڑے گا because سب تیار ہو کے آ رہے ہیں تو ان کے بیچ آپ کو پھیکا پھیکا نہیں لگنا ہے۔ اب اس کے بعد میں یوز کروں گی۔",
+    "draft": "Dekh rahay hain, theek hai? Mein ne is ko achay se blind kar liya hai. Tada! This is my glowy dewy look. Mera dil to ke raha hai mein aisay hi chali jaoon, lekin sa sa forml hona parre ga because sab liye ho ke aa rahay hain to un ke beech aap ko pheeka pheeka nahin lagna hai. Ab is ke baad mein use mein gi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0043.wav",
+    "duration_s": 14.0,
+    "corpus_transcript": "Hello everyone, this is me Hira Faisal and welcome to my YouTube channel. Basically, it's a makeup tutorial تو جیسا کہ میں نے آپ کو بولا تھا کہ میرے جب ایونٹس آئیں گے شادی کے جب میں کبھی تیار ہوں گی تو میں آپ کے ساتھ اس look کا tutorial بھی share کروں گی تو آج میں اپنی بہن کی",
+    "draft": "Hello everyone, this is mein Hira Faisal and welcome to my Youtube channel. Basically, it's a makeup tutorial to jaissa ke mein ne aap ko mein tha ke ne jab events ayen ge shadi ke jab mein kabhi liye hon gi to mein aap ke sath is look ka tutorial bhi share mein gi to aaj mein ko behan ki",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0052.wav",
+    "duration_s": 16.59,
+    "corpus_transcript": "ڈھولکی والے دن کا جو میک اپ ہے اپنا وہ خود کرنے والی ہوں تو سوچا آپ کے ساتھ بھی شیئر کر دوں۔ so let's get started. so guys, سب سے پہلے میں اپنا میک اپ، میک اپ کہہ رہی ہوں، اپنا فیس ہائیڈریٹ کروں گی اور میں کوشش کروں گی کہ جو جو پروڈکٹ یوز کروں وہ آپ کو ساتھ ساتھ دکھاؤں۔ سب سے پہلے میں یہ والی پروڈکٹ ہے یوز کر رہی ہوں for ہائیڈریشن۔",
+    "draft": "Dholki walay din ka jo ree ke hai apna wo khud karne wali hon to socha aap ke sath bhi hai kar dun. So let's get started. So guys, sab se pehlay mein apna ree ke, ree ke ke rahi hon, apna Facebook hydrate mein gi aur mein koshish mein gi ke jo jo numeral use mein wo aap ko sath sath dukhao. Sab se pehlay mein ki wali numeral hai use kar rahi hon for hydrishn.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0053.wav",
+    "duration_s": 22.62,
+    "corpus_transcript": "جہاں جہاں پہ آپ کو لگ رہا ہے کہ تھوڑا بہت آپ کی pigmentation ہے آپ وہاں پہ apply کر سکتے ہو ٹھیک ہے؟ میں پورے face پہ کر دوں گی یہ کہتے کہتے concealer لگانے کی tip یہ ہے کہ اس کو تھوڑی دیر لگا رہنے دیں like ایک منٹ کا stay دیں اس کو اور پھر دیکھیے گا اور ہاں don't merge اس کو just آپ نے settle کرنا ہے merge نہیں کرنا mix نہیں کرنا بس اس کو آپ نے dab dab dab dab dab کرنا ہے۔",
+    "draft": "Jahan jahan pay aap ko lag raha hai ke sa bohot aap ki pigmentation hai aap wahan pay apply kar satke ho theek hai? Mein ke face pay kar dun gi ki kehte kehte concealer ne ki tip ki hai ke is ko thori der di rehne den like ek minute ka stay den is ko aur phir dekhieye ga aur haan don't merge is ko just aap ne settle karna hai merge nahin karna mix nahin karna Dehli is ko aap ne dab dab dab dab dab karna hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "VLOG",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0029.wav",
+    "duration_s": 25.51,
+    "corpus_transcript": "اب ہم لوگ لگائیں گے اور ہاں آپ کو ایک بڑی نیوز تو دی ہی نہیں کہ جب میں ابھی last time trip پر دبئی گئی تھی تو میرا جو makeup bag تھا وہ وہیں پہ ہی رہ گیا۔ تو آپ سوچ سکتے ہیں میری درد کا اندازہ کہ جب آپ کا favourite makeup آپ کے پاس نہ ہو تو آپ کو نا makeup کرنے میں نا بڑی مشکل ہوتی ہے۔ تو میرے ساتھ بھی یہی ہوا نا لیکن ابھی میں نے نا ساری کچھ آپ ہی کی products چرائی ہیں کچھ اپنی میرے پاس stock میں پہلے ہی پڑی ہوئی تھیں۔ بس تو میں انہی سے ہی makeup کر رہی ہوں اب اس کے بعد",
+    "draft": "Ab hum log lagayen ge aur haan aap ko ek barri news to di hi nahin ke jab mein abhi last time trip par Dubai gayi bhi to mera jo makeup bag tha wo par pay hi reh gaya. To aap soch satke hain meri dard ka andaza ke jab aap ka favourite makeup aap ke paas nah ho to aap ko na makeup karne mein na barri mushkil hoti hai. To ne sath bhi yahi sun - hwa na lekin abhi mein ne na saari kuch aap hi ki products churaie hain kuch ko ne paas stock mein pehlay hi pari hui theen. Dehli to mein unhi se hi makeup kar rahi hon ab is ke baad",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0000.WAV",
+    "duration_s": 2.0,
+    "corpus_transcript": "آپ کے weekends کیسے گزرے ہیں؟",
+    "draft": "Aap ke weekends kaisay guzray hain?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0005.WAV",
+    "duration_s": 3.0,
+    "corpus_transcript": "Hmm سب سے controversial پارٹ ہے بھلے نہ بھی ہو۔",
+    "draft": "Sab se controversial ko hai par nah bhi ho.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0024.WAV",
+    "duration_s": 3.0,
+    "corpus_transcript": "Anyway, جی, تو یہ تو ایک بات ہو گئی۔",
+    "draft": "Anyway, jee, to ki to ek baat ho gayi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0002.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "ہم Monday پورا دن rest کرتے ہیں ہاں Monday کو free",
+    "draft": "Hum Monday poora din rest baghaawat hain haan Monday ko fri",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0030.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "میں نے کل مائیکرو نیڈلنگ کا second round کرایا۔ Oh",
+    "draft": "Mein ne kal microsoft nidlng ka second round karaya. Oh",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0038.WAV",
+    "duration_s": 4.0,
+    "corpus_transcript": "کہ آپ blindly don't jump into anything read up on",
+    "draft": "Ke aap blindly don't jump into anything read up on",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0019.WAV",
+    "duration_s": 4.2,
+    "corpus_transcript": "he has said that میرا کوئی اس میں ہاتھ ہی نہیں ہے",
+    "draft": "Hai has said that mera ki is mein ke hi nahin hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0022.WAV",
+    "duration_s": 4.8,
+    "corpus_transcript": "And Fawad was wearing polka dot socks. کیسا لگا آپ کو؟",
+    "draft": "And Fawad was wearing polka dot socks. Kaisa di aap ko?",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0032.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "texture skin کا maintain کرنے کے لیے میں نے micro needling کی ہے",
+    "draft": "Texture skin ka maintain karne ke liye mein ne micro needling ki hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0035.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "on your luck or your relationship or your clicking with that doctor. پہلی بات تو یہ",
+    "draft": "On your luck aur your relationship aur your clicking with that doctor. Pehli baat to ki",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0039.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "سر misinformation کو بھی آپکو analyze کرنے کا طریقہ آنا چاہیے کہ یار",
+    "draft": "Wo misinformation ko bhi aapko analyze karne ka tareeqa utar chahiye ke yaar",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0040.WAV",
+    "duration_s": 5.0,
+    "corpus_transcript": "آنا چاہیے۔ Exactly۔ تو decipher کریں اور educated آہ وہ کریں decisions۔",
+    "draft": "Utar chahiye. Exactly. To decipher karen aur educated wo karen decisions.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0029.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "اور جناب حسن آپ کو تھوڑی میری redness لگ رہی ہے چہرے پہ؟ شاید نہیں لگ رہی۔",
+    "draft": "Aur janab husn aap ko thori meri rednes lag rahi hai chehray pay? Shayad nahin lag rahi.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0036.WAV",
+    "duration_s": 6.0,
+    "corpus_transcript": "But وہ ڈاکٹر پے آ جاتا ہے نا کہ میری diagnosis ٹھیک ہے تو میں کہوں گی بڑا اچھا ڈاکٹر ہے۔",
+    "draft": "But wo dr pay aa jata hai na ke meri diagnosis theek hai to mein kaisay gi bara acha dr hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0017.WAV",
+    "duration_s": 6.91,
+    "corpus_transcript": "But ریفرنس تو وہی تھا نا۔ ریفرنس تو وہی تھا اور جب لوگوں نے کلپس لگائیں تو صبا کی تصویر بھی لگائی۔ and then the people of course took it",
+    "draft": "But refrences to wohi tha na. Refrences to wohi tha aur jab logon ne ki lagayen to Saba ki tasweer bhi mein. And then the people of course took it",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0001.WAV",
+    "duration_s": 7.0,
+    "corpus_transcript": "آرام سے ہی گزر گیا weekend۔ سنڈے evening کافی dismal سی ہوتی ہے، وہ پتا ہے کل منڈے ہے، نہ کہ ہم کوئی schedule چلتے ہیں۔",
+    "draft": "Betay se hi guzar gaya weekend. Ke evening kaafi dismal si hoti hai, wo pata hai kal monday hai, nah ke hum ki schedule chaltay hain.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0027.WAV",
+    "duration_s": 8.0,
+    "corpus_transcript": "show goes well it's been announced for december but یہ nomination کا جو process ہے یہ تو کوئی بہت ہی کوئی unique ہے unique ترین ہے",
+    "draft": "Show goes wel it's been announced for december but ki nomination ka jo process hai ki to ki bohot hi ki unique hai unique tareen hai",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "short",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0037.WAV",
+    "duration_s": 10.0,
+    "corpus_transcript": "اور کسی کا دوسری چیز ہے کہ جب آپ کچھ کرانے جائےتو well informed ہو کے جائے ۔ آج کل تو اتنی information available ہے۔",
+    "draft": "Aur kisi ka doosri cheez hai ke jab aap kuch karanay jaye wel informed ho ke jaye. Aaj kal to itni information available hai.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0004.WAV",
+    "duration_s": 12.0,
+    "corpus_transcript": "نہیں مجھے تو یہ ہو رہا ہے کہ بہت سے ہمارے آرٹسٹ جو ہیں وہ انٹرویو دینے سے اس لیے گھبرا رہے ہیں اور صحیح گھبرا رہے ہیں مجھے لگتا ہے کہ جو انٹرویو کا سب سے contentious part ہوتا ہے نا",
+    "draft": "Nahin mujhe to ki ho raha hai ke bohot se hamaray artist jo hain wo interview dainay se is liye ghabra rahay hain aur sahi ghabra rahay hain mujhe lagta hai ke jo interview ka sab se contentious part hota hai na",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0006.WAV",
+    "duration_s": 13.0,
+    "corpus_transcript": "تو اس کو out of context لے جا کے headlines بن جاتی ہیں and then they become sort of embarrassed and answerable for that one line and so they say بہتر ہے انٹرویو نہ دو and they say this کہ یار کوئی نہ کوئی ہم بات ایسی کر دیں گے جو out of context جا کے اس کا",
+    "draft": "To is ko out of context le ja ke headlines ban jati hain and then they become sort of embarrassed and answerable for that one line and so they se behtar hai interview nah do and they se this ke yaar ki nah ki hum baat aisi kar den ge jo out of context ja ke is ka",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0010.WAV",
+    "duration_s": 15.0,
+    "corpus_transcript": "ہر ہوسٹ کا اپنا ایک فلیور، ایک جانرا ایک ہوتا ہے and it's nice to شو کا ہوتا ہے شو کا ایک جانرا ہوتا ہے and it's nice to have the artist in your genre as opposed to you going and being part of a promotion.",
+    "draft": "Har host ka apna ek flyor, ek janra ek hota hai and it's nice to show ka hota hai show ka ek janra hota hai and it's nice to have the artist in your genre as opposed to you going and being part of a promotion.",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0009.WAV",
+    "duration_s": 18.0,
+    "corpus_transcript": "دنیا میں میرا خیال ہے ویسٹرن ورلڈ میں اب نہیں ہوتے۔ ام آپ نے اتنے سارے ایوننگ شوز کی، ٹاک شوز کی بات کی۔ جب بھی کسی فلم کی پروموشن ہوتی ہے تو آرٹسٹ ان کے ہی شوز پہ جاتا ہے۔ ایسا نہیں ہوتا کہ وہ آ کے ایک جگہ پہ اکٹھے ہوتے ہیں اور ٹک ٹک کر کے because",
+    "draft": "Ne mein mera khayaal hai western world mein ab nahin hotay. Aap ne itnay saaray evening ka ki to shows ka ki baat ki. Jab bhi kisi ki ki promoshn hoti hai to artist un ke hi ka pay jata hai. Aisa nahin hota ke wo aa ke ek jagah pay tamam hotay hain aur tik tik kar ke because",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0008.WAV",
+    "duration_s": 29.0,
+    "corpus_transcript": "کانورسیشن کرنا یا جس طرح لوگ ایکسپیکٹ کر رہے تھے کہ جی کوئی بڑی کوئی بڑی کوئی کانورسیشن ہوگی وہ کرنا بڑا مشکل ہوتا ہے۔ I'm sure اگر ہمارے پاس وقت ہوتا، ہم اپنے اسٹوڈیو میں بیٹھے ہوتے، ہم ان دونوں کا انٹرویو کرتے تو بہت ساری intelligent, intelligent یا deeper یا meaningful conversations ہوتیں لیکن آپ ایک ٹائم سلاٹ میں کیا ہی کر سکتے ہو؟ تو پہلی بات تو یہ کہ I want to put it out there for all publicists and all PR people who are arranging or organizing or brainstorming promotions, junkets are a bad idea. دنیا میں میرا خیال ہے West میں",
+    "draft": "Kanornsishn karna ya jis terhan loge expres kar rahay they ke jee ki barri ki barri ki kanornsishn hogi wo karna bara mushkil hota hai. I'm sure agar hamaray paas waqt hota, hum apne studio mein baithy hotay, hum un dono ka interview baghaawat to bohot saari intelligent, intelligent ya deeper ya meaningful conversations hoten lekin aap ek time slat mein kya hi kar satke ho? To pehli baat to ki ke I want to put it out there for al publicists and al Pr people who are arranging aur organizing aur brainstorming promotions, junkets are a bad idea. Ne mein mera khayaal hai West mein",
+    "reference_status": "draft-uncorrected"
+  },
+  {
+    "category": "YOUTUBEREVIEWS",
+    "length": "long",
+    "audio": "data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0007.WAV",
+    "duration_s": 35.0,
+    "corpus_transcript": "میں اس میں add کرنا چاہوں گی کہ جیسے کہ آپ کو بہت اچھی طرح پتہ ہے میں ان junkets کی fan نہیں ہوں۔ میں یہ جو media junket ہوتے ہیں فلم کی promotion کے لیے یا ڈرامے کی promotion کے لیے I'm not a fan of these junkets because ایک تو آپ کے پاس time بہت کم ہوتا ہے۔ plus ایک set لگا ہوتا ہے جس پہ different seating arrangements ہوتے ہیں۔ تو آپ نے بس cookie cutter طریقے سے جو artist ہے وہ ایک طرف جاتا ہے، timer ہوتا ہے پندرہ منٹ، بیس منٹ، ٹک دوسری طرف، پندرہ منٹ، بیس منٹ، ٹک تیسری طرف۔ تو وہ energy create کرنا یا کوئی meaningful conversation کرنا یا جس طرح لوگ",
+    "draft": "Mein is mein ad karna chahoon gi ke jaisay ke aap ko bohot achi terhan pata hai mein un junkets ki fan nahin hon. Mein ki jo media junket hotay hain ki ki promotion ke liye ya daramay ki promotion ke liye I'm not a fan of these junkets because ek to aap ke paas time bohot kam hota hai. Plus ek set di hota hai jis pay different seating arrangements hotay hain. To aap ne Dehli cookie cutter tareeqay se jo artist hai wo ek taraf jata hai, timer hota hai pandra minute, bees minute, tik doosri taraf, pandra minute, bees minute, tik teesri taraf. To wo energy create karna ya ki meaningful conversation karna ya jis terhan log",
+    "reference_status": "draft-uncorrected"
+  }
+]

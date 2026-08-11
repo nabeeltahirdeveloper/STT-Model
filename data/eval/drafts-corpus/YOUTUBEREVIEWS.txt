@@ -1,0 +1,131 @@
+# YOUTUBEREVIEWS — 24 clips — 3.6 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0000.WAV]
+#   آپ کے weekends کیسے گزرے ہیں؟
+Aap ke weekends kaisay guzray hain?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0005.WAV]
+#   Hmm سب سے controversial پارٹ ہے بھلے نہ بھی ہو۔
+Sab se controversial part hai bhalay na bhi ho.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0024.WAV]
+#   Anyway, جی, تو یہ تو ایک بات ہو گئی۔
+Anyway, jee, to yeh to aik baat ho gayi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0002.WAV]
+#   ہم Monday پورا دن rest کرتے ہیں ہاں Monday کو free
+Hum Monday poora din rest karte hain haan Monday ko free
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0030.WAV]
+#   میں نے کل مائیکرو نیڈلنگ کا second round کرایا۔ Oh
+Mein ne kal micro needling ka second round karaya. Oh
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0038.WAV]
+#   کہ آپ blindly don't jump into anything read up on
+Ke aap blindly don't jump into anything read up on
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0019.WAV]
+#   he has said that میرا کوئی اس میں ہاتھ ہی نہیں ہے
+He has said that mera koi is mein hath hi nahi hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0022.WAV]
+#   And Fawad was wearing polka dot socks. کیسا لگا آپ کو؟
+And Fawad was wearing polka dot socks. Kaisa laga aap ko?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0032.WAV]
+#   texture skin کا maintain کرنے کے لیے میں نے micro needling کی ہے
+Texture skin ka maintain karne ke liye mein ne micro needling ki hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0035.WAV]
+#   on your luck or your relationship or your clicking with that doctor. پہلی بات تو یہ
+On your luck or your relationship or your clicking with that doctor. Pehli baat to yeh
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0039.WAV]
+#   سر misinformation کو بھی آپکو analyze کرنے کا طریقہ آنا چاہیے کہ یار
+Sir misinformation ko bhi aapko analyze karne ka tareeqa aana chahiye ke yaar
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0040.WAV]
+#   آنا چاہیے۔ Exactly۔ تو decipher کریں اور educated آہ وہ کریں decisions۔
+Aana chahiye. Exactly. To decipher karen aur educated woh karen decisions.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0029.WAV]
+#   اور جناب حسن آپ کو تھوڑی میری redness لگ رہی ہے چہرے پہ؟ شاید نہیں لگ رہی۔
+Aur janab Hasan aap ko thori meri redness lag rahi hai chehray pe? Shayad nahi lag rahi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0036.WAV]
+#   But وہ ڈاکٹر پے آ جاتا ہے نا کہ میری diagnosis ٹھیک ہے تو میں کہوں گی بڑا اچھا ڈاکٹر ہے۔
+But woh doctor pe aa jata hai na ke meri diagnosis theek hai to mein kahun gi bara acha doctor hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0017.WAV]
+#   But ریفرنس تو وہی تھا نا۔ ریفرنس تو وہی تھا اور جب لوگوں نے کلپس لگائیں تو صبا کی تصویر بھی لگائی۔ and then the people of course took it
+But reference to wohi tha na. Reference to wohi tha aur jab logon ne clips lagayen to Saba ki tasweer bhi lagayi. And then the people of course took it
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0001.WAV]
+#   آرام سے ہی گزر گیا weekend۔ سنڈے evening کافی dismal سی ہوتی ہے، وہ پتا ہے کل منڈے ہے، نہ کہ ہم کوئی schedule چلتے ہیں۔
+Aaram se hi guzar gaya weekend. Sunday evening kaafi dismal si hoti hai, woh pata hai kal Monday hai, na ke hum koi schedule chaltay hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0027.WAV]
+#   show goes well it's been announced for december but یہ nomination کا جو process ہے یہ تو کوئی بہت ہی کوئی unique ہے unique ترین ہے
+Show goes well it's been announced for December but yeh nomination ka jo process hai yeh to koi bohat hi koi unique hai unique tareen hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0037.WAV]
+#   اور کسی کا دوسری چیز ہے کہ جب آپ کچھ کرانے جائےتو well informed ہو کے جائے ۔ آج کل تو اتنی information available ہے۔
+Aur kisi ka doosri cheez hai ke jab aap kuch karanay jaye well informed ho ke jaye. Aaj kal to itni information available hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0004.WAV]
+#   نہیں مجھے تو یہ ہو رہا ہے کہ بہت سے ہمارے آرٹسٹ جو ہیں وہ انٹرویو دینے سے اس لیے گھبرا رہے ہیں اور صحیح گھبرا رہے ہیں مجھے لگتا ہے کہ جو انٹرویو کا سب سے contentious part ہوتا ہے نا
+Nahi mujhe to yeh ho raha hai ke bohat se hamaray artist jo hain woh interview denay se is liye ghabra rahay hain aur sahih ghabra rahay hain mujhe lagta hai ke jo interview ka sab se contentious part hota hai na
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0006.WAV]
+#   تو اس کو out of context لے جا کے headlines بن جاتی ہیں and then they become sort of embarrassed and answerable for that one line and so they say بہتر ہے انٹرویو نہ دو and they say this کہ یار کوئی نہ کوئی ہم بات ایسی کر دیں گے جو out of context جا کے اس کا
+To is ko out of context le ja ke headlines ban jati hain and then they become sort of embarrassed and answerable for that one line and so they say behtar hai interview na do and they say this ke yaar koi na koi hum baat aisi kar den ge jo out of context ja ke is ka
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0010.WAV]
+#   ہر ہوسٹ کا اپنا ایک فلیور، ایک جانرا ایک ہوتا ہے and it's nice to شو کا ہوتا ہے شو کا ایک جانرا ہوتا ہے and it's nice to have the artist in your genre as opposed to you going and being part of a promotion.
+Har host ka apna aik flavor, aik genre aik hota hai and it's nice to show ka hota hai show ka aik genre hota hai and it's nice to have the artist in your genre as opposed to you going and being part of a promotion.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0009.WAV]
+#   دنیا میں میرا خیال ہے ویسٹرن ورلڈ میں اب نہیں ہوتے۔ ام آپ نے اتنے سارے ایوننگ شوز کی، ٹاک شوز کی بات کی۔ جب بھی کسی فلم کی پروموشن ہوتی ہے تو آرٹسٹ ان کے ہی شوز پہ جاتا ہے۔ ایسا نہیں ہوتا کہ وہ آ کے ایک جگہ پہ اکٹھے ہوتے ہیں اور ٹک ٹک کر کے because
+Dunya mein mera khayal hai western world mein ab nahi hotay. Aap ne itnay saaray evening shows ki, talk shows ki baat ki. Jab bhi kisi film ki promotion hoti hai to artist un ke hi shows pe jata hai. Aisa nahi hota ke woh aa ke aik jagah pe ikathay hotay hain aur tik tik kar ke because
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0008.WAV]
+#   کانورسیشن کرنا یا جس طرح لوگ ایکسپیکٹ کر رہے تھے کہ جی کوئی بڑی کوئی بڑی کوئی کانورسیشن ہوگی وہ کرنا بڑا مشکل ہوتا ہے۔ I'm sure اگر ہمارے پاس وقت ہوتا، ہم اپنے اسٹوڈیو میں بیٹھے ہوتے، ہم ان دونوں کا انٹرویو کرتے تو بہت ساری intelligent, intelligent یا deeper یا meaningful conversations ہوتیں لیکن آپ ایک ٹائم سلاٹ میں کیا ہی کر سکتے ہو؟ تو پہلی بات تو یہ کہ I want to put it out there for all publicists and all PR people who are arranging or organizing or brainstorming promotions, junkets are a bad idea. دنیا میں میرا خیال ہے West میں
+Conversation karna ya jis tarah log expect kar rahay thay ke jee koi barri koi barri koi conversation hogi woh karna bara mushkil hota hai. I'm sure agar hamaray paas waqt hota, hum apne studio mein baithy hotay, hum un dono ka interview karte to bohat saari intelligent, intelligent ya deeper ya meaningful conversations hoten lekin aap aik time slot mein kya hi kar sakte ho? To pehli baat to yeh ke I want to put it out there for all publicists and all PR people who are arranging or organizing or brainstorming promotions, junkets are a bad idea. Dunya mein mera khayal hai West mein
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/YOUTUBEREVIEWS/audio/SPEAKER_000_YOUTUBEREVIEWS_0007.WAV]
+#   میں اس میں add کرنا چاہوں گی کہ جیسے کہ آپ کو بہت اچھی طرح پتہ ہے میں ان junkets کی fan نہیں ہوں۔ میں یہ جو media junket ہوتے ہیں فلم کی promotion کے لیے یا ڈرامے کی promotion کے لیے I'm not a fan of these junkets because ایک تو آپ کے پاس time بہت کم ہوتا ہے۔ plus ایک set لگا ہوتا ہے جس پہ different seating arrangements ہوتے ہیں۔ تو آپ نے بس cookie cutter طریقے سے جو artist ہے وہ ایک طرف جاتا ہے، timer ہوتا ہے پندرہ منٹ، بیس منٹ، ٹک دوسری طرف، پندرہ منٹ، بیس منٹ، ٹک تیسری طرف۔ تو وہ energy create کرنا یا کوئی meaningful conversation کرنا یا جس طرح لوگ
+Mein is mein add karna chahun gi ke jaisay ke aap ko bohat achi tarah pata hai mein un junkets ki fan nahi hoon. Mein yeh jo media junket hotay hain film ki promotion ke liye ya dramay ki promotion ke liye I'm not a fan of these junkets because aik to aap ke paas time bohat kam hota hai. Plus aik set laga hota hai jis pe different seating arrangements hotay hain. To aap ne bas cookie cutter tareeqay se jo artist hai woh aik taraf jata hai, timer hota hai pandra minute, bees minute, tik doosri taraf, pandra minute, bees minute, tik teesri taraf. To woh energy create karna ya koi meaningful conversation karna ya jis tarah log

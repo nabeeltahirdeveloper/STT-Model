@@ -1,0 +1,131 @@
+# DRAMA — 24 clips — 3.1 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0142.wav]
+#   Nice meeting with you. کون سےdepartement میں ہوتی ہے؟
+Nice meeting with you. Kaun se department mein hoti hai?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0056.wav]
+#   اچھا تمہیں میری بات بری لگی؟ I'm sorry
+Acha tumhein meri baat buri lagi? I'm sorry
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0121.wav]
+#   of course,  ہونا چاہیے تم لوگ کھا کیوں نہیں رہے ہو؟ خوش
+Of course, hona chahiye tum log kha kyun nahin rahay ho? Khush
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0469.wav]
+#   تم بہت creative ہو۔ یہ کیا باقاعدہ سیکھا ہے؟
+Tum bohot creative ho. Ye kya baqaida seekha hai?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0036.wav]
+#   یہی dress designing جو عام طور پہ لڑکیاں کر رہی ہوتی ہیں
+Yahi dress designing jo aam tor pe larkiyan kar rahi hoti hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0212.wav]
+#   تو تم نے بتول سے شادی کا کیوں نہیں سوچا؟ اگر تمہاری اس سے اتنی understanding تھی۔
+To tum ne Batool se shadi ka kyun nahin socha? Agar tumhari is se itni understanding thi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0074.wav]
+#   آپ ابو سے کہیں نا، میری salary میں کچھ تو اضافہ کریں۔ آخر میرے بھی خرچے بڑھ گئے ہیں۔
+Aap abbu se kahen na, meri salary mein kuch to izafa karen. Aakhir mere bhi kharchay barh gaye hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0144.wav]
+#   کافی concentration کا کام ہے۔ ایک ایک second کا حساب کتاب رکھنا پڑتا ہے۔
+Kaafi concentration ka kaam hai. Ek ek second ka hisaab kitab rakhna parta hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0549.wav]
+#   امی اگر آپ اس طرح کریں گی تو خود کو کیسے سنبھالیں گی؟ Please اپنا خیال رکیں۔ چلیں کھانا کھائیں۔
+Ammi agar aap is tarah karen gi to khud ko kaisay sanbhalain gi? Please apna khayaal rakhen. Chalein khana khayen.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0198.wav]
+#   تمہارے خیال میں مجھے شادی کے وقت کسی کی مخالفت کو face نہیں کرنا پڑے گا۔
+Tumharay khayaal mein mujhe shadi ke waqt kisi ki mukhalfat ko face nahin karna paray ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0202.wav]
+#   بہت سی expectations جو مجھ سے کی گئی تھیں وہ تمہیں پوری کرنی پڑتی ہوں گی۔ میرے یہاں نہ ہونے کی وجہ سے۔
+Bohot si expectations jo mujh se ki gayi theen wo tumhein poori karni parti hon gi. Mere yahan na honay ki wajah se.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0132.wav]
+#   Uncle بس یہیں ہوتا ہوں۔ میں آیا تھا خالہ سے ملاقات ہوئی تھی تو وہ ضد کر رہی تھیں کہ شادی تک میں یہیں ٹھہر جاؤں۔
+Uncle bas yahin hota hun. Mein aaya tha khaala se mulaqaat hui thi to wo zid kar rahi theen ke shadi tak mein yahin thehar jaun.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0149.wav]
+#   modeling اور شہزادے سے تم بھی پٹری سے اتر جاتی ہو۔ اچھا یہ بتاؤ وہ تم office کا جو model بنا رہی تھی اس کا کیا ہوا؟
+Modeling aur shehzade se tum bhi patri se utar jati ho. Acha ye batao wo tum office ka jo model bana rahi thi us ka kya hua?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0201.wav]
+#   میں نے کبھی سوچا نہیں اس بارے میں۔ ایک بنا بنایا setup مل گیا۔ بس اسے چلا رہا ہوں۔ اگر کوئی گڑبڑ ہوتی بھی ہے تو ابو ہیں سنبھالنے کے لیے۔
+Mein ne kabhi socha nahin is baare mein. Ek bana banaya setup mil gaya. Bas usay chala raha hun. Agar koi garbar hoti bhi hai to abbu hain sanbhalne ke liye.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0200.wav]
+#   چلو دیکھتے ہیں۔ اچھا تم یہ بتاؤ تم ابو کے ساتھ مل کر کام کر رہے ہو تمہیں اس میں interest ہے بھی یا نہیں؟ بس ایسے ہی
+Chalo dekhte hain. Acha tum ye batao tum abbu ke sath mil kar kaam kar rahay ho tumhein is mein interest hai bhi ya nahin? Bas aisay hi
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_001_DRAMA_0208.wav]
+#   کہیں ایسا اس لیے تو نہیں ہے کہ تم صرف اپنی بات کرنا چاہتے ہو۔ تم اچھے listener نہیں ہو۔ سبا سے تمہاری دوستی نہیں ہے۔
+Kahin aisa is liye to nahin hai ke tum sirf apni baat karna chahtay ho. Tum achay listener nahin ho. Saba se tumhari dosti nahin hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0038.wav]
+#   بھائی میں نے تو صرف ایک بات کہی تھی۔ تم اتنی گہرائی میں کیوں چلی جاتی ہو؟ میں تو چاہتا ہوں کہ شادی کے بعد میری بیوی صرف مجھے time دے۔
+Bhai mein ne to sirf ek baat kahi thi. Tum itni geherai mein kyun chali jati ho? Mein to chahta hun ke shadi ke baad meri biwi sirf mujhe time day.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/DRAMA/audio/SPEAKER_002_DRAMA_0173.wav]
+#   میں کوئی  client کہ  نہیں ہوں تمہارا۔ phone appointment set کروں اور round table پے آکے بیٹھ جاو۔ منگیتر ہوں میں ۔  تم یہ سمجھو تب نا۔
+Mein koi client to nahin hun tumhara. Phone appointment set karun aur round table pe aake baith jaun. Mangetar hun mein. Tum ye samjho tab na.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0087.wav]
+#   وہ ٹھیک ہے لیکن اگر عاصم نہ ہوتا نا تو مجبوری تھی۔ لیکن اب تو میں وہاں بالکل set ہو چکا ہوں۔ اب یہاں پر نئے سرے سے سب کچھ شروع کرنا پڑے گا۔
+Wo theek hai lekin agar Asim na hota na to majboori thi. Lekin ab to mein wahan bilkul set ho chuka hun. Ab yahan par naye siray se sab kuch shuru karna paray ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0089.wav]
+#   آپ جانتے تو ہیں کہ میں وہاں کیوں ہوں۔ ہمم، میرا مطلب ہے کہ میرا جو کام ہے computer software development کا، اس کا scope وہیں زیادہ ہے۔
+Aap jante to hain ke mein wahan kyun hun. Mera matlab hai ke mera jo kaam hai computer software development ka, us ka scope wahin zyada hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_002_DRAMA_0032.wav]
+#   ہاں ہاں ویسے آپس کی بات ہے میں صرف business head دیکھتا ہوں۔ کتنی shifts کا کتنا پیسہ آرہا ہے اور بس کبھی اپنے پروگرام بنانے کے بارے میں سوچا ہی نہیں۔ ویسے تمہارا کام بھی کافی خشک سا ہے۔
+Haan haan waisay aapas ki baat hai mein sirf business head dekhta hun. Kitni shifts ka kitna paisa aa raha hai aur bas kabhi apne programme bananay ke baare mein socha hi nahin. Waisay tumhara kaam bhi kaafi khushk sa hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0021.wav]
+#   ایک مہینے کے لیے کیونکہ ابو اس سے زیادہ اگر میں رہا نا تو کافی problem ہو جائے گی۔ You know, shifting لیکن promise اگلی دفعہ جب بھی آؤں گا تو کافی عرصے تک رہوں گا۔
+Ek mahinay ke liye kyunke abbu is se zyada agar mein raha na to kaafi problem ho jaye gi. You know, shifting lekin promise agli dafaa jab bhi aaun ga to kaafi arsay tak rahun ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0017.wav]
+#   واہ امی۔ آپ اسی قسم کی باتیں کیا کریں۔ کم از کم آپ کی یہ شکایت تو دور ہو جائے گی کہ ابو اپنا زیادہ وقت office میں گزارتے ہیں۔ اور تم تو خوش ہو نا اپنی engagement سے؟
+Wah ammi. Aap ISI qisam ki baaten kya karen. Kam az kam aap ki ye shikayat to door ho jaye gi ke abbu apna zyada waqt office mein guzartay hain. Aur tum to khush ho na apni engagement se?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/DRAMA/audio/SPEAKER_001_DRAMA_0481.wav]
+#   اوہ اس کا مطلب تم یہ بات جانتی تھیں۔ تبھی تم نے ایسا کیا۔ صباء کو نقصان ہوا یا نہیں۔ لیکن امی تو ایک tension میں آ گئی ہیں نا۔ دونوں خاندان بکھر گئے ہیں۔
+Oh is ka matlab tum ye baat janti theen. Tabhi tum ne aisa kiya. Saba ko nuqsaan hua ya nahin. Lekin ammi to ek tension mein aa gayi hain na. Dono khandan bikhar gaye hain.

@@ -1,0 +1,179 @@
+# Podcast2 — 36 clips — 3.0 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0552.wav]
+#   اچھا all very good very good
+Acha all very good very good
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0547.wav]
+#   اچھا صرف acting امم
+Acha sirf acting
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0438.wav]
+#   کہ جلنے سے actual شعلے سے نہیں ہوا
+Ke jalnay se actual sholay se nahi hua
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0171.wav]
+#   آپ کی نظر میں is it because it's genderless?
+Aap ki nazar mein is it because it's genderless?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0321.wav]
+#   YouTube کے چھ pages تک آپ نہیں آتے۔
+YouTube ke chhe pages tak aap nahi aatay.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0357.wav]
+#   ہاں Okay ہاں ہمارے نہیں آ رہے کوئی وہاں کوئی نہیں بہت ہاں ایسے کیسے
+Haan Okay haan hamaray nahi aa rahay koi wahan koi nahi bohat haan aisay kaisay
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0550.wav]
+#   لیکن آہ جو اس script نے آپ کو دے دیا نا
+Lekin jo is script ne aap ko day diya na
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0598.wav]
+#   ہاں آہ میرا اپنا بھی ایک channel ہے ویسے پتا ہے آپ کو؟
+Haan mera apna bhi aik channel hai waisay pata hai aap ko?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0434.wav]
+#   ارے یار ایک شعر تھوڑی favorite ہوتا ہے بہت um
+Aray yaar aik shair thori favorite hota hai bohat
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0398.wav]
+#   جو protagonist ہے جو کہہ رہی ہے جو متکلم ہے وہ تو female ہے
+Jo protagonist hai jo ke rahi hai jo mutakallim hai woh to female hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0315.wav]
+#   آپ نے بھی دیکھا ہوگا کہ sometimes things are
+Aap ne bhi dekha hoga ke sometimes things are
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0299.wav]
+#   Sir آپ Pakistan میں تو ڈرامے کرتے نہیں ہیں Bollywood میں آپ ڈرامے کر رہے ہیں
+Sir aap Pakistan mein to dramay karte nahi hain Bollywood mein aap dramay kar rahay hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0209.wav]
+#   So that's Pakistan's problem نا کہ ہمیں ایک unified theory چاہیے
+So that's Pakistan's problem na ke hamein aik unified theory chahiye
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0283.wav]
+#   is considered a great writer. میری نظر میں نے ان کا بہت زیادہ کام نہیں دیکھا
+Is considered a great writer. Meri nazar mein ne un ka bohat ziyada kaam nahi dekha
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0220.wav]
+#   but not like خیر I mean in a world where you have Tagore
+But not like khair I mean in a world where you have Tagore
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0228.wav]
+#   Do you feel like کہ accessibility اور depth
+Do you feel like ke accessibility aur depth
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0281.wav]
+#   اچھا اس کو دوسری طرف سے لیتے ہیں۔ دوسری طرف سے اس سے discussion کرتے ہیں۔
+Acha is ko doosri taraf se letay hain. Doosri taraf se is se discussion karte hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0285.wav]
+#   A lot of my argument is کہ اس طرح لوگ نارمل بات کرتے ہیں
+A lot of my argument is ke is tarah log normal baat karte hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0318.wav]
+#   ہاں and sometimes you also take the bastardization of the form جس طرح آپ، آپ بات کر رہے ہیں۔
+Haan and sometimes you also take the bastardization of the form jis tarah aap, aap baat kar rahay hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0292.wav]
+#   End of the day آپ جاتے جائیں تو آپ اس کو good versus evil میں
+End of the day aap jatay jayen to aap is ko good versus evil mein
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0302.wav]
+#   مجھے جو کئی لوگ کہتے ہیں آپ ایسی سنجیدہ پوڈکاسٹ میں جوک کرتے ہیں Shakespeare
+Mujhe jo kayi log kehte hain aap aisi sanjeeda podcast mein joke karte hain Shakespeare
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0167.wav]
+#   But اب مسئلہ یہ ہے نا اب social media پہ کوئی آ جائے گا یہ کہہ رہا ہے وہ سمجھا دے گا ان کو کیا کہہ رہا ہے
+But ab masla yeh hai na ab social media pe koi aa jaye ga yeh ke raha hai woh samjha day ga un ko kya ke raha hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0196.wav]
+#   I guess it's a inaccessibility of language also. اب جو آج کل اگر کوئی شعر لکھ رہے ہیں
+I guess it's a inaccessibility of language also. Ab jo aaj kal agar koi shair likh rahay hain
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0227.wav]
+#   تو ان کو شاہ رخ خان بننا ہوتا ہے۔ تو پہلے سمسٹر میں تو they're just their only dreams are like کہ میں
+To un ko Shah Rukh Khan banna hota hai. To pehlay semester mein to they're just their only dreams are like ke mein
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0229.wav]
+#   یہ opposite ہیں کیونکہ ہو سکتا ہے کہ اب فیض صاحب ہیں۔
+Yeh opposite hain kyunke ho sakta hai ke ab Faiz sahib hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0231.wav]
+#   Sir یہ جالب لے لیں۔ جالب تو بالکل ایسی ہے کہ جیسے سڑک پہ کوئی بات کر رہا ہے۔
+Sir yeh Jalib le len. Jalib to bilkul aisi hai ke jaisay sarak pe koi baat kar raha hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0252.wav]
+#   چلیں میں آپ سے وہی پھر سوال پوچھ لیتا ہوں جو مجھ سے ہر first year پوچھتا ہے
+Chalen mein aap se wohi phir sawal pooch leta hoon jo mujh se har first year poochta hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0259.wav]
+#   But کل کو کوئی technique میں مسئلہ آیا تو آپ کو بھی نہیں پتہ ہوگا میرا مسئلہ ہے کیا
+But kal ko koi technique mein masla aaya to aap ko bhi nahi pata hoga mera masla hai kya
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0289.wav]
+#   ایک نارمل چل رہا ہے سب نارمل بات کر رہے ہیں like میں وہ چائے لینے آؤں۔ شرط کی تو خدا ابے بھائی وہ چائے
+Aik normal chal raha hai sab normal baat kar rahay hain like mein woh chaye lenay aaun. Shart ki to khuda abay bhai woh chaye
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0329.wav]
+#   اچھا اسی دن پھر کسی TikToker کی ویڈیو leak ہو گئی۔ وہی page، عیدی تو اب ملی ہے ہمیں
+Acha usi din phir kisi TikToker ki video leak ho gayi. Wohi page, eidi to ab mili hai hamen
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0396.wav]
+#   نہیں اہ ہمارے ہاں پہلے جو شاعری ہوتی تھی اس میں protagonist female تھی۔
+Nahi hamaray haan pehlay jo shairi hoti thi is mein protagonist female thi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0433.wav]
+#   تو وہ film making دیکھ کے میں نے Napa میں admission لیا تو انہوں نے تین مہینے سکھائی تین سال میں
+To woh film making dekh ke mein ne Napa mein admission liya to unhon ne teen mahinay sikhayi teen saal mein
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0479.wav]
+#   سارا foreign cinema کا اس سے کچھ شوق چڑھ گیا تھا سب طرح کی فلمیں دیکھنے کا
+Sara foreign cinema ka is se kuch shoq charh gaya tha sab tarah ki filmen dekhnay ka
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0499.wav]
+#   یار greatness آپ greatness کس کو کہہ رہے ہیں شاعری میں؟ کس بات کو کہیں گے greatness?
+Yaar greatness aap greatness kis ko ke rahay hain shairi mein? Kis baat ko kahen ge greatness?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0570.wav]
+#   Overall مثال کے طور پر ایک بات ہے آپ کو ٹینس کھیلنا ہے آپ کو ٹینس کھیلنا پڑے گا اور آپ کو ٹینس دیکھنا پڑے گا۔
+Overall misaal ke taur par aik baat hai aap ko tennis khelna hai aap ko tennis khelna parre ga aur aap ko tennis dekhna parre ga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_003_Podcast_0400.wav]
+#   جب پہلا اشتہار آیا تھا ناپا کا تو ہم میں first batch کا حصہ تھا۔
+Jab pehla ishtihar aaya tha Napa ka to hum mein first batch ka hissa tha.

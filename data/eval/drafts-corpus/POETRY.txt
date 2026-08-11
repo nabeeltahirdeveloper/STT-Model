@@ -1,0 +1,47 @@
+# POETRY — 3 clips — 0.5 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/POETRY/audio/SPEAKER_002_POETRY_0073.wav]
+#   اس کا مجھے آج تک نقصان یہ ہوا کہ آج تک اپنی صحیح تاریخ پیدائش معلوم نہیں ہوئی passport اور visa کا form بھرتے ہوئے بڑی دشواری ہوتی ہے
+Is ka mujhe aaj tak nuqsaan yeh hua ke aaj tak apni sahih tareekh paidaish maloom nahi hui passport aur visa ka form bhartay hue barri dushwari hoti hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/POETRY/audio/SPEAKER_002_POETRY_0042.wav]
+#   میرے عزیز دوست عزیز الحسن نے New York سے اپنا مجموعہ کلام متاع عزیز مجھے تحفے میں بھیجا۔
+Mere azeez dost Aziz ul Hasan ne New York se apna majmoa kalaam Mata e Aziz mujhe tohfay mein bheja.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/POETRY/audio/SPEAKER_002_POETRY_0079.wav]
+#   میرے کپڑے بہت عمدہ تھے سفید ریشم کا کرتا لٹھے کا پاجامہ سنہری brocade کی شیروانی سر پر گوٹا لگی چاند تارے والی ٹوپی گلے میں تازہ پھولوں کے ہار
+Mere kapray bohat umda they safaid resham ka kurta lathay ka pajama sunehri brocade ki sherwani sar par gota lagi chaand taray wali topi galay mein taaza phoolon ke haar

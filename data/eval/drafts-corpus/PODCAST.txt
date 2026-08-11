@@ -1,0 +1,139 @@
+# PODCAST — 26 clips — 3.1 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0069.WAV]
+#   نہیں تو جا سکتے ہیں۔ ایک تو میرے پر تو یہ restriction بھی تھی نا
+Nahi to ja sakte hain. Aik to mere par to yeh restriction bhi thi na
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0122.WAV]
+#   اگر for example آپ نے وہاں سے پی ایچ ڈی نہ کی ہوتی آپ نے
+Agar for example aap ne wahan se PhD na ki hoti aap ne
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0126.WAV]
+#   مجھے بتائیں were you alone یا family کے ساتھ تھے آپ؟
+Mujhe batayen were you alone ya family ke sath they aap?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0144.WAV]
+#   رولز وغیرہ بھی Interesting مجھے یہ بتائیں کہ
+Rules waghera bhi Interesting mujhe yeh batayen ke
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0072.WAV]
+#   ہاں آتا ہے، آتا ہے لیکن ابھی تک وہ اتنا strong نہیں ہے۔
+Haan aata hai, aata hai lekin abhi tak woh itna strong nahi hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0140.WAV]
+#   Could you have afforded like could you afford the entirety of it otherwise اگر اسکالرشپ نہ ملتی؟
+Could you have afforded like could you afford the entirety of it otherwise agar scholarship na milti?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0057.WAV]
+#   I think when I got the scholarship I was single at that time and مجھے خود سے
+I think when I got the scholarship I was single at that time and mujhe khud se
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0101.WAV]
+#   Tell me about how that sort of happened, why did you decide کہ جی میں UK جا کے کرتی ہوں۔
+Tell me about how that sort of happened, why did you decide ke jee mein UK ja ke karti hoon.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0111.WAV]
+#   Right. But for a lot of people obviously جب وہ پڑھائی کے لیے جاتے ہیں۔ I was speaking to a few people recently اور وہ
+Right. But for a lot of people obviously jab woh parhai ke liye jatay hain. I was speaking to a few people recently aur woh
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0137.WAV]
+#   I can't afford it. Um, you know, وہ تو پتا نہیں کیسا کلچر ہوگا کیا ہوگا
+I can't afford it. You know, woh to pata nahi kaisa culture hoga kya hoga
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0155.WAV]
+#   and اس میں صرف میں انسٹیٹیوشن کی بات نہیں کروں گا I also want to understand جو سٹوڈنٹ لیول کے اوپر
+And is mein sirf mein institution ki baat nahi karun ga I also want to understand jo student level ke oopar
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0130.WAV]
+#   تو مجھے پہلی دفعہ پتہ لگا کہ یار رینٹ بھی دینا ہوتا ہے تو یہ بھی کرنا ہوتا ہے۔ It's an entirely different lifestyle, right? Because
+To mujhe pehli dafaa pata laga ke yaar rent bhi dena hota hai to yeh bhi karna hota hai. It's an entirely different lifestyle, right? Because
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0128.WAV]
+#   وہاں پر تو you will be probably you want in a hostel like apartment or something something like you had to manage your
+Wahan par to you will be probably you want in a hostel like apartment or something something like you had to manage your
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0146.WAV]
+#   and you know تو بڑے کیپٹلز میں دنیا میں وہاں پہ ظاہر ہے کہ زیادہ cutting edge کام ہو رہا ہوگا۔
+And you know to baray capitals mein dunya mein wahan pe zahir hai ke ziyada cutting edge kaam ho raha hoga.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0150.WAV]
+#   اتنا strong نہیں ہے۔ Interesting. You've been working with the alumni network quite uh regularly.
+Itna strong nahi hai. Interesting. You've been working with the alumni network quite regularly.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0082.WAV]
+#   میں تھوڑا سا conversation کو start کروں گا just want to understand I mean you've been teaching at the university for three years
+Mein thora sa conversation ko start karun ga just want to understand I mean you've been teaching at the university for three years
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0147.WAV]
+#   عمومی پہلا تو یہ ہے کہ what compelled you to come back? and دوسرا یہ کہ do you ever regret coming back?
+Umoomi pehla to yeh hai ke what compelled you to come back? And doosra yeh ke do you ever regret coming back?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0098.WAV]
+#   ہاں ہم نے ڈالرز ہم نے کمانے ہیں، باہر والوں سے کام کرنا ہے تو پھر وہ English میں ہی کرنا ہے۔ کافی دفعہ جو ہے وہ freelancers ہوتے ہیں جو کہ
+Haan hum ne dollars hum ne kamanay hain, bahar walon se kaam karna hai to phir woh English mein hi karna hai. Kaafi dafaa jo hai woh freelancers hotay hain jo ke
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0120.WAV]
+#   جو آپ کے یہ پانچ سال تھے، اگر میں آپ سے پوچھوں کہ the doctor Sonia who had gone to the UK and the one who came back کیا ڈفرنس آیا تھا ان میں؟
+Jo aap ke yeh paanch saal they, agar mein aap se poochun ke the doctor Sonia who had gone to the UK and the one who came back kya difference aaya tha un mein?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0044.WAV]
+#   تو I also found کہ وہ جو ایک پاکستان کا جو image دنیا میں بن چکا ہے نا، تو یہ بھی بتانا چاہیے کہ پاکستان یہ بھی ہے۔
+To I also found ke woh jo aik Pakistan ka jo image dunya mein ban chuka hai na, to yeh bhi batana chahiye ke Pakistan yeh bhi hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0086.WAV]
+#   ایک بچہ آتا ہے وہ سیکھنا ہی نہیں چاہ رہا English. Right? میں literature کی بات نہیں کر رہا، میں functional English کی بات کر رہا ہوں۔
+Aik bacha aata hai woh seekhna hi nahi chah raha English. Right? Mein literature ki baat nahi kar raha, mein functional English ki baat kar raha hoon.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0159.WAV]
+#   اب وہ جو پچیس لاکھ بچہ ہے جو کہ high school graduate کر رہا ہے، اس کے پاس جو total higher education کی سیٹیں available ہیں نا، میں ابھی quality کی ہم
+Ab woh jo pachees laakh bacha hai jo ke high school graduate kar raha hai, us ke paas jo total higher education ki seaten available hain na, mein abhi quality ki hum
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_000_PODCAST_0051.WAV]
+#   اچھا مجھے نا مینٹورنگ ہی ایسی کی گئی تھی میری یونیورسٹی میں بھی ام کہ ہمیشہ اپنے کمفرٹ زون سے نکلنا۔ If you want to grow, just come out of your comfort zone.
+Acha mujhe na mentoring hi aisi ki gayi thi meri university mein bhi ke hamesha apne comfort zone se nikalna. If you want to grow, just come out of your comfort zone.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0087.WAV]
+#   um اور آپ نے اس کو پیار سے سمجھانا ہے کہ بھائی تمہیں English کے کیا فوائد ہیں، کیا روحانی عظمتیں ہیں۔ تو how would you approach this conversation?
+Aur aap ne us ko pyar se samjhana hai ke bhai tumhen English ke kya fawaid hain, kya rohani azmaten hain. To how would you approach this conversation?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0105.WAV]
+#   اب اس میں ایک آپ کے general بچے آئے ہوئے ہیں جو standard entry test پہ آئے ہوئے ہیں۔ کچھ بچے ہیں جو scholarship پہ آئے ہوئے ہیں وہ underdeveloped area سے آئے ہوئے ہوتے تھے۔
+Ab is mein aik aap ke general bachay aaye hue hain jo standard entry test pe aaye hue hain. Kuch bachay hain jo scholarship pe aaye hue hain woh underdeveloped area se aaye hue hotay they.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/PODCAST/audio/SPEAKER_001_PODCAST_0131.WAV]
+#   I feel like real life میں آپ تبھی آتے ہیں۔ پاکستان میں بھی بہت سارے لوگ کرتے ہیں۔ you know چھوٹے ٹاؤن سے بڑے شہر میں آکے education کے لیے آتے ہیں۔ پھر jobs پہ لگ جاتے ہیں۔
+I feel like real life mein aap tabhi aatay hain. Pakistan mein bhi bohat saaray log karte hain. You know chhotay town se baray shehar mein aake education ke liye aatay hain. Phir jobs pe lag jatay hain.

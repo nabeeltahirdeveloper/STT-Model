@@ -1,0 +1,131 @@
+# VLOG — 24 clips — 3.4 min of audio
+#
+# HOW TO CORRECT
+#   Edit the plain lines only. Lines starting with # are the corpus transcript
+#   (human-verified Urdu) — leave them alone, they are your reference for what
+#   was actually said. The [path] line above each pair is the audio to play.
+#
+# WHAT YOU ARE FIXING
+#   The WORDS are already correct — a human verified them. You are only fixing
+#   how they are SPELLED in Latin letters. If a word sounds right but is spelled
+#   oddly, fix the spelling. If a word is simply wrong, fix it and put  ??  at
+#   the end of the line so we can count how often the corpus itself is wrong.
+#
+# THE RULES (docs/SPELLING-SPEC.md)
+#   English stays English:  meeting, percent, anesthesia — never mitting.
+#   One word, one spelling, everywhere in this file and every other file.
+#   Plain ASCII. No accents. No capitals mid-word.
+#   Capital at sentence start and for names (Karachi, Ahmed, Pakistan).
+#   Drop umm/uhh. Keep acha, matlab, yaani, bas.
+#   Numbers: 0–10 as words (teen), 11+ as digits (500 rupay).
+#   Canonical forms: hai, hain, nahin, mein, ye, wo, ke, kya, bohot, acha
+#
+# KNOWN MACHINE HABITS — these are observed, not hypothetical. Hunt for them.
+#   1. ENGLISH RE-SPELLED PHONETICALLY — the worst error, fix every one.
+#        fitness -> "fitnes"      percent -> "parsent"
+#      If the # line has a Latin-script word, the draft must copy it EXACTLY.
+#   2. DROPPED VOWELS in names and rarer words.
+#        بسنت -> "Bsnt"  should be  Basant
+#   3. WRONG WORD SUBSTITUTED — the draft is fluent but says something else.
+#        "کروں" -> "mein"  should be  karun
+#      This is why you read the # line. Fluent output is not correct output.
+#   4. ACRONYMS AND NUMBERS mangled by spacing/case.
+#        JF-17 -> "Jf - 17"  should be  JF-17
+#   5. Trailing punctuation and filler (hmm, umm) silently dropped — fine,
+#      leave them dropped, but make sure a real word was not dropped with them.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0020.wav]
+#   تو ہم اس کو بھی پہلے کیا کریں گے؟ settle کریں گے۔
+To hum is ko bhi pehlay kya karen ge? Settle karen ge.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0014.wav]
+#   I will try کہ تھوڑا nose پہ بھی لگے۔
+I will try ke thora nose pe bhi lagey.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0008.wav]
+#   آپ کو پتہ ہے میں glow کی دیوانی ہوں۔
+Aap ko pata hai mein glow ki dewaani hoon.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0015.wav]
+#   میں کیوں base lock کرنے کا بول رہی ہوں آپ میری آنکھ دیکھیں
+Mein kyun base lock karne ka bol rahi hoon aap meri aankh dekhen
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0006.wav]
+#   آپ دیکھ سکتے ہو کہ جیسے ہی میں نے apply کیا ہے میرے face پہ ایک
+Aap dekh sakte ho ke jaisay hi mein ne apply kiya hai mere face pe aik
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0024.wav]
+#   اور آج کا جو میرا eye makeup ہے وہ تھوڑا سا different ہوگا
+Aur aaj ka jo mera eye makeup hai woh thora sa different hoga
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0007.wav]
+#   یہ دیکھیں ابھی میں نے کوئی بھی highlighter نہیں لگایا لیکن پھر بھی میرا face glow کر رہا ہے
+Yeh dekhen abhi mein ne koi bhi highlighter nahi lagaya lekin phir bhi mera face glow kar raha hai
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0022.wav]
+#   natural look بھی رکھنی ہے نا تو اس کے لیے lens ضروری ہوتے ہیں تو میں پہلے lens wear کر لوں گی
+Natural look bhi rakhni hai na to is ke liye lens zaroori hotay hain to mein pehlay lens wear kar lun gi
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0027.wav]
+#   اور ہم اس سے پوری eye سے اس طرح اس طرح سے کریں گے۔ کبھی کبھی local
+Aur hum is se poori eye se is tarah is tarah se karen ge. Kabhi kabhi local
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0030.wav]
+#   moisturizing کرنے کے بعد میں لگا رہی ہوں یہ illuminator kind strobe cream
+Moisturizing karne ke baad mein laga rahi hoon yeh illuminator kind strobe cream
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0021.wav]
+#   اس کو سیٹ کریں گے۔ okay guys تو میں نے جو اپنی بیس ہے جو فاؤنڈیشن ہے جہاں تک مجھے تھا
+Is ko set karen ge. Okay guys to mein ne jo apni base hai jo foundation hai jahan tak mujhe tha
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0031.wav]
+#   نکل اؤ اور یہ میری پراڈکٹ نہ ختم ہوئی ہوئی ہے کیونکہ یہ میری نا most favorite products ہیں اور وہ میں اتنا لگاتی ہوں کہ وہ
+Nikal aao aur yeh meri product na khatam hui hui hai kyunke yeh meri na most favorite products hain aur woh mein itna lagati hoon ke woh
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0023.wav]
+#   میں نے اس کو fully lock کر لیا ہے۔ اگر کوئی اور ایک آدھی جگہ رہ جائے تو دیکھ لیں گے۔ اب ہم لوگ start کریں گے اپنا eye makeup which is most important thing.
+Mein ne is ko fully lock kar liya hai. Agar koi aur aik aadhi jagah reh jaye to dekh len ge. Ab hum log start karen ge apna eye makeup which is most important thing.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0025.wav]
+#   میں use کروں گی یہ Huda Beauty کی Empowered palette. اس کے shades مجھے بہت اچھے لگتے ہیں. so سب سے پہلے ہم لوگ use کریں گے the lightest shade.
+Mein use karun gi yeh Huda Beauty ki Empowered palette. Is ke shades mujhe bohat achay lagtay hain. So sab se pehlay hum log use karen ge the lightest shade.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0010.wav]
+#   تو بھئی بہت ہی محنت مشقت کرنے کے بعد مجھے یہ بھی مل گیا یہ میری اماں کا ہے جو میں چوری کر کے لائی ہوں۔ آپ کے پاس جب makeup نہیں نا ہوتا تو آپ اسی طریقے سے ہی ادھار ادھور مانگ کے makeup کرتے ہیں۔
+To bhai bohat hi mehnat mushaqqat karne ke baad mujhe yeh bhi mil gaya yeh meri amma ka hai jo mein chori kar ke layi hoon. Aap ke paas jab makeup nahi na hota to aap isi tareeqay se hi udhaar udhoor maang ke makeup karte hain.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0013.wav]
+#   different طرح کا glow آ گیا جو کہ بہت ضروری ہوتا ہے for the makeup so اپنی neck پہ بھی apply کریں Okay guys تو میں نا lens پہننا بھول گئی تھی مجھے تھوڑی سی
+Different tarah ka glow aa gaya jo ke bohat zaroori hota hai for the makeup so apni neck pe bhi apply karen Okay guys to mein na lens pehnna bhool gayi thi mujhe thori si
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0009.wav]
+#   میک اپ کے اندر گلو ہو میں اب کیا ہی کہوں۔ I can die for this type of glow. اب ہم لوگ کیا کریں گے as we know اب مجھے please
+Makeup ke andar glow ho mein ab kya hi kahun. I can die for this type of glow. Ab hum log kya karen ge as we know ab mujhe please
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/short/VLOG/audio/SPEAKER_002_VLOG_0028.wav]
+#   Okay guys, تو میں لینز اپلائی کرکے آچکی ہوئی ہوں۔ آپ کو میری شکل سے لگ رہا ہوگا کہ میں کسی سے لڑ کے آئی ہوں اور رو کے آئی ہوں، تو ایسا بالکل نہیں ہے۔ جب آپ لینز لگاتے ہو تو آپ کی حالت ایسی ہی ہو جاتی ہے، ٹھیک ہے؟
+Okay guys, to mein lens apply karkay aachuki hui hoon. Aap ko meri shakal se lag raha hoga ke mein kisi se lar ke aayi hoon aur ro ke aayi hoon, to aisa bilkul nahi hai. Jab aap lens lagatay ho to aap ki haalat aisi hi ho jati hai, theek hai?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0011.wav]
+#   تو اب مجھے as you know کہ مجھے dewy face چاہیے تو میں صرف اپنے under eyes اور اوپر lock کروں گی اپنی base کو باقی سارا as it is چھوڑ دوں گی۔ بس try کروں گی کہ ہاتھ ہوتھ نہ لگاؤں جس سے وہ میری base transfer ہو جائے، ٹھیک ہے؟
+To ab mujhe as you know ke mujhe dewy face chahiye to mein sirf apne under eyes aur oopar lock karun gi apni base ko baqi saara as it is chor dun gi. Bas try karun gi ke hath hoth na lagaun jis se woh meri base transfer ho jaye, theek hai?
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0039.wav]
+#   دیکھ رہے ہیں، ٹھیک ہے؟ میں نے اس کو اچھے سے بلینڈ کر لیا ہے۔ Tada! This is my glowy dewy look. میرا دل تو کہہ رہا ہے میں ایسے ہی چلی جاؤں، لیکن تھوڑا سا فارمل ہونا پڑے گا because سب تیار ہو کے آ رہے ہیں تو ان کے بیچ آپ کو پھیکا پھیکا نہیں لگنا ہے۔ اب اس کے بعد میں یوز کروں گی۔
+Dekh rahay hain, theek hai? Mein ne is ko achay se blend kar liya hai. Tada! This is my glowy dewy look. Mera dil to ke raha hai mein aisay hi chali jaun, lekin thora sa formal hona parre ga because sab tayyar ho ke aa rahay hain to un ke beech aap ko pheeka pheeka nahi lagna hai. Ab is ke baad mein use karun gi.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0043.wav]
+#   Hello everyone, this is me Hira Faisal and welcome to my YouTube channel. Basically, it's a makeup tutorial تو جیسا کہ میں نے آپ کو بولا تھا کہ میرے جب ایونٹس آئیں گے شادی کے جب میں کبھی تیار ہوں گی تو میں آپ کے ساتھ اس look کا tutorial بھی share کروں گی تو آج میں اپنی بہن کی
+Hello everyone, this is me Hira Faisal and welcome to my YouTube channel. Basically, it's a makeup tutorial to jaisa ke mein ne aap ko bola tha ke mere jab events aayen ge shadi ke jab mein kabhi tayyar hoon gi to mein aap ke sath is look ka tutorial bhi share karun gi to aaj mein apni behan ki
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0052.wav]
+#   ڈھولکی والے دن کا جو میک اپ ہے اپنا وہ خود کرنے والی ہوں تو سوچا آپ کے ساتھ بھی شیئر کر دوں۔ so let's get started. so guys, سب سے پہلے میں اپنا میک اپ، میک اپ کہہ رہی ہوں، اپنا فیس ہائیڈریٹ کروں گی اور میں کوشش کروں گی کہ جو جو پروڈکٹ یوز کروں وہ آپ کو ساتھ ساتھ دکھاؤں۔ سب سے پہلے میں یہ والی پروڈکٹ ہے یوز کر رہی ہوں for ہائیڈریشن۔
+Dholki walay din ka jo makeup hai apna woh khud karne wali hoon to socha aap ke sath bhi share kar dun. So let's get started. So guys, sab se pehlay mein apna makeup, makeup ke rahi hoon, apna face hydrate karun gi aur mein koshish karun gi ke jo jo product use karun woh aap ko sath sath dikhaun. Sab se pehlay mein yeh wali product hai use kar rahi hoon for hydration.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0053.wav]
+#   جہاں جہاں پہ آپ کو لگ رہا ہے کہ تھوڑا بہت آپ کی pigmentation ہے آپ وہاں پہ apply کر سکتے ہو ٹھیک ہے؟ میں پورے face پہ کر دوں گی یہ کہتے کہتے concealer لگانے کی tip یہ ہے کہ اس کو تھوڑی دیر لگا رہنے دیں like ایک منٹ کا stay دیں اس کو اور پھر دیکھیے گا اور ہاں don't merge اس کو just آپ نے settle کرنا ہے merge نہیں کرنا mix نہیں کرنا بس اس کو آپ نے dab dab dab dab dab کرنا ہے۔
+Jahan jahan pe aap ko lag raha hai ke thora bohat aap ki pigmentation hai aap wahan pe apply kar sakte ho theek hai? Mein pooray face pe kar dun gi yeh kehte kehte concealer laganay ki tip yeh hai ke is ko thori der laga rehne den like aik minute ka stay den is ko aur phir dekhiye ga aur haan don't merge is ko just aap ne settle karna hai merge nahi karna mix nahi karna bas is ko aap ne dab dab dab dab dab karna hai.
+
+[data/raw/urduspeech/benchmark/US-benchmark-CS/long/VLOG/audio/SPEAKER_002_VLOG_0029.wav]
+#   اب ہم لوگ لگائیں گے اور ہاں آپ کو ایک بڑی نیوز تو دی ہی نہیں کہ جب میں ابھی last time trip پر دبئی گئی تھی تو میرا جو makeup bag تھا وہ وہیں پہ ہی رہ گیا۔ تو آپ سوچ سکتے ہیں میری درد کا اندازہ کہ جب آپ کا favourite makeup آپ کے پاس نہ ہو تو آپ کو نا makeup کرنے میں نا بڑی مشکل ہوتی ہے۔ تو میرے ساتھ بھی یہی ہوا نا لیکن ابھی میں نے نا ساری کچھ آپ ہی کی products چرائی ہیں کچھ اپنی میرے پاس stock میں پہلے ہی پڑی ہوئی تھیں۔ بس تو میں انہی سے ہی makeup کر رہی ہوں اب اس کے بعد
+Ab hum log lagayen ge aur haan aap ko aik barri news to di hi nahi ke jab mein abhi last time trip par Dubai gayi thi to mera jo makeup bag tha woh wahin pe hi reh gaya. To aap soch sakte hain meri dard ka andaza ke jab aap ka favourite makeup aap ke paas na ho to aap ko na makeup karne mein na barri mushkil hoti hai. To mere sath bhi yahi hua na lekin abhi mein ne na saari kuch aap hi ki products churayi hain kuch apni mere paas stock mein pehlay hi pari hui theen. Bas to mein unhi se hi makeup kar rahi hoon ab is ke baad
