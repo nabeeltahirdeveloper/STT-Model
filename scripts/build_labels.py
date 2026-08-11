@@ -8,14 +8,21 @@
 its work when a terminal closes will not be run to completion. Output is JSONL,
 appended in batches, and a re-run skips every `audio_id` already present.
 
-**Romanization and normalization are separated on purpose.** Romanizing is slow
-(a neural model, minutes per hundred utterances) and does not depend on the
-spelling spec. Normalizing is fast and depends on it entirely. So this writes
-the romanized form *and* the normalized form, and `--renormalize` recomputes
-only the second from the stored first. A spec change after the freeze therefore
-costs seconds rather than another overnight run -- which matters, because
-SPELLING-SPEC §12 warns that post-freeze amendments are expensive and this is
-the part that would have made them so.
+Romanization is dictionary lookup (ADR-014), not the neural model it replaced.
+That model answered every input and was wrong about 8% of words -- fluently,
+with real Urdu words, which no automatic check can catch. A lookup table fails
+by not knowing a word instead, and `usable` below records that.
+
+**Rows whose romanization is incomplete are written with `usable: false`.** They
+are kept rather than dropped so the rate is visible and reviewable, but they
+must be filtered out before training: a label containing Urdu script teaches
+the model to emit Urdu script.
+
+Romanization and normalization are stored separately because they have opposite
+cost profiles -- lookup is fast and spec-independent, normalizing is fast and
+depends on the spec entirely. `--renormalize-only` recomputes the second from
+the stored first, so a post-freeze spec change costs seconds (SPELLING-SPEC
+§12).
 
 Eval clips are excluded by `audio_id`; the script refuses to run without the
 eval manifest (CLAUDE.md constraint 5).
@@ -27,9 +34,10 @@ import json
 import time
 from pathlib import Path
 
-from scripts.romanize_via_opencut import romanize
 from src.labeling.lexicon import Lexicon
 from src.labeling.normalize import Normalizer
+from src.labeling.transliterate import load as load_translit
+from src.labeling.transliterate import romanize
 
 CORPUS = Path("data/raw/urduspeech/corpus")
 EVAL_MANIFEST = Path("data/eval/manifest.jsonl")
@@ -147,27 +155,24 @@ def main(
         return
 
     normalizer = Normalizer(Lexicon.load())
+    table = load_translit()
     started = time.time()
     with destination.open("a", encoding="utf-8") as handle:
         for start in range(0, len(pending), batch):
             chunk = pending[start : start + batch]
-            print(
-                f"batch {start // batch + 1}/{-(-len(pending) // batch)} "
-                f"({len(chunk)} utterances) — the romanizer prints its own "
-                f"progress below; a batch takes a few minutes",
-                flush=True,
-            )
-            romanized = romanize([str(row["urdu"]) for row in chunk])
-            for row, roman in zip(chunk, romanized, strict=True):
-                row["roman"] = roman
-                row["label"] = normalizer.normalize_text(roman)
+            for row in chunk:
+                result = romanize(str(row["urdu"]), table)
+                row["roman"] = result.text
+                row["label"] = normalizer.normalize_text(result.text)
+                row["usable"] = result.complete
+                row["unknown"] = list(result.unknown)
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
             handle.flush()
             done = start + len(chunk)
-            rate = (time.time() - started) / done
+            rate = (time.time() - started) / max(done, 1)
             print(
                 f"  {done:,}/{len(pending):,} done · "
-                f"{rate * (len(pending) - done) / 60:.0f} min left",
+                f"{rate * (len(pending) - done) / 60:.1f} min left",
                 flush=True,
             )
 

@@ -646,6 +646,72 @@ map them onto Urdu.
 
 ---
 
+## ADR-014 — Roman-Urdu-Parl is 83% misaligned; romanize by dictionary
+
+**Date:** 2026-08-11 · **Status:** Accepted
+
+**Context.** A human reviewer marked 45 of 60 generated labels bad — a 75% line
+error rate — and the failures were not spelling but meaning: `یہ` ("this")
+became `ki`, `میرے` ("my") became `ne`, `دل` became `shayar`, `بچانا` became
+`daman`. All fluent, all real Urdu words, none catchable by an automatic check.
+Risk R5 predicted exactly this and the mitigation was "QA sample every batch".
+The QA worked; the pipeline did not.
+
+**Root cause: the parallel corpus is not parallel.** Roman-Urdu-Parl's two files
+have identical line counts (6,365,808), which is what makes the defect
+survivable — they *look* aligned. Probing with `یہ`, whose correct
+romanizations are known independently from SPELLING-SPEC §8, shows only 17 of
+100 file regions align: roughly 16–21% and 89–99%. Across the whole file `یہ`
+maps to `ki` 634,695 times against `yeh` 144,059, because a shifted window lands
+on whatever word is frequent at that offset.
+
+**This was nearly missed.** A spot-check of four sentence pairs showed perfect
+alignment and was taken as confirmation. Those four fell in the aligned
+minority. Sampling four successes says nothing about a corpus; the probe now
+scans every line and reports per-region scores.
+
+**Decision.** Romanize Urdu script by dictionary lookup
+(`src/labeling/transliterate.py`), built only from the aligned regions
+(`scripts/build_translit_dict.py`, 30,591 entries). The neural path is retired
+for label generation.
+
+**Reasoning.**
+
+- **A dictionary cannot hallucinate.** It emits only spellings a human actually
+  wrote for that word. The neural model answered every input, including
+  `shayar` for `دل`, and a confident wrong answer cannot be filtered downstream
+  — a missing one can.
+- Measured against the 269-line human-corrected eval set: wrong words **8.0% →
+  4.1%**, CER **7.6% → 5.4%**, lines with no wrong word **29% → 57%**.
+- It is also roughly a thousand times faster. 300 utterances took seconds
+  against minutes; the projected 28-hour label run becomes minutes, which makes
+  regenerating labels after a spec change cheap rather than an overnight commit.
+- English is untouched by construction: only tokens containing Urdu characters
+  are looked up, so §5.1 is enforced by the shape of the code rather than by a
+  rule that could be got wrong.
+
+**Consequence.**
+
+- **ADR-011 is unaffected.** Those spelling decisions came from unigram counts
+  on the Roman side alone, which involve no alignment. `nahi`, `aik`, `woh`,
+  `yeh` all stand. Only the alignment-derived work was contaminated.
+- `data/lexicon/transliteration.tsv` is a build artifact but is version
+  controlled: it is the difference between reproducible labels and labels that
+  depend on which corpus revision someone happened to download.
+  `tests/test_transliterate.py` pins the words that regress first if it is ever
+  rebuilt from the whole corpus.
+- **2.0% of words are still unknown** and are left in Urdu script, reported per
+  row. Because utterances average ~66 words, that concentrates into 57% of lines
+  carrying at least one — so a per-line "usable" flag is too blunt a filter and
+  the unknown *rate* is what training should threshold on.
+- **English written in Urdu script remains unsolved and is now the largest
+  defect**: `ایکٹرز` → `ayktrz`, `ہیروئین` → `heroen`, `وائس اوور` →
+  `wise over`. The dictionary reproduces whatever the corpus did, and the corpus
+  transliterated loanwords phonetically. This needs a loanword map from Urdu
+  spellings back to English orthography — the next piece of work.
+
+---
+
 ## Spelling spec decisions
 
 Mirrors `docs/SPELLING-SPEC.md` §10 — amend in both places.

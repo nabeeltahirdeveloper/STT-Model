@@ -10,6 +10,12 @@ repos:
       - id: check-toml
       - id: check-added-large-files
         args: [--maxkb=512]
+        # The transliteration dictionary is 543 KB of data, not a stray binary.
+        # It is version controlled on purpose (ADR-014): it is the difference
+        # between reproducible labels and labels that depend on which corpus
+        # revision someone happened to download. Raising the global limit would
+        # let real accidents through, so it is exempted by name instead.
+        exclude: ^data/lexicon/transliteration\.tsv$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.6
