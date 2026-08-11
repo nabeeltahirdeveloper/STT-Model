@@ -166,12 +166,35 @@ Keep this section accurate. If you add or rename a command, update it in the sam
 
 ## Current status
 
-**Phase 0 — verify and baseline.** Nothing is trained yet. Blocking items:
+**Phase 0 is complete (ADR-008, ADR-010). Nothing is trained yet.**
 
-1. Confirm UrduSpeech is downloadable and its license permits commercial use
-2. Build the 30–60 min eval set from real target content
-3. Baseline stock Qwen3-ASR-1.7B on it
-4. Test whether the forced aligner handles Roman Urdu with `language="English"`
-5. Produce the acoustic-vs-orthographic error breakdown
+| | |
+|---|---|
+| Eval set | `data/eval/reference.txt` — 269 utterances, 35.4 min, 12 categories, human-corrected |
+| Baseline CER | **27.9%** after romanization (75.8% raw — stock output is Devanagari). ADR-011 respelling moved this from 26.7%; the model did not change |
+| English preserved | **41.9%**, against a > 90% target |
+| Error split | 58.1% acoustic · 39.8% orthographic · 2.1% code-switch |
+| Timing | §4.4 **strategy 1** — direct alignment works, 46 ms median. No Urdu-script bridge |
 
-Items 1 and 4 gate everything downstream. Do them first.
+**Phase 1 — labels and the spelling spec.** In order:
+
+1. ~~Extract frequency-ranked vocab from Roman-Urdu-Parl~~ — done (ADR-011).
+   19 canonical spellings were wrong and are now corpus-backed.
+2. Resolve what is left before the freeze: the ⚠️ rows still in §8, 4 `UNSEEN`
+   rows, 1 near-tie, and **the ADR-009 homographs, which frequency did not
+   settle** — the corpus code-switches, so a count for `no` cannot separate
+   English from Urdu نو.
+3. Freeze `SPELLING-SPEC.md` (risk R8 — churn after training is expensive).
+4. Generate training labels; QA 500 samples.
+
+Read ADR-009 before touching `src/labeling/`. Respelling of unknown tokens is
+**disabled**: `english.txt` holds 418 words against the 676 distinct English
+words in 35 minutes of real audio, and the rule fallback was corrupting English
+it did not recognise. Four spec tests are strict `xfail` pointing at that ADR.
+
+Two things that gate quality more than model size:
+
+- **38% of errors are orthographic.** They are fixed in the romanizer and
+  lexicon, not with more training data. Measure before assuming otherwise.
+- **The eval set is benchmark audio, not target content** (R6, ADR-008). Treat
+  26.7% as optimistic and build a real-content set before quoting it externally.

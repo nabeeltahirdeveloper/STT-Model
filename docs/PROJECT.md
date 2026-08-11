@@ -380,14 +380,14 @@ measured yet.** It is the first thing to produce.
 ## 8. Roadmap
 
 ### Phase 0 — Verify & baseline (week 1)
-- [ ] Download UrduSpeech; confirm size, license, integrity → **gate on R1**
-- [ ] Build 30–60 min eval set from real target content
-- [ ] Run stock `Qwen3-ASR-1.7B` on it → baseline numbers
-- [ ] Test forced aligner on Roman Urdu with `language="English"` → resolve §4.4
-- [ ] Produce the error breakdown from §6.3
+- [x] Download UrduSpeech; confirm size, license, integrity → **gate on R1** (ADR-008, CC-BY-4.0)
+- [x] Build 30–60 min eval set — 35.4 min, 269 utterances (ADR-008). *Benchmark audio, not target content: see R6*
+- [x] Run stock `Qwen3-ASR-1.7B` on it → CER 27.9% after romanization (ADR-010, respelled ADR-011)
+- [x] Test forced aligner on Roman Urdu with `language="English"` → strategy 1, 46 ms median (ADR-010)
+- [x] Produce the error breakdown from §6.3 → 58.1 acoustic / 39.8 orthographic / 2.1 code-switch (ADR-010)
 
 ### Phase 1 — Labels & spelling spec (weeks 2–3)
-- [ ] Extract frequency-ranked vocab from Roman-Urdu-Parl
+- [x] Extract frequency-ranked vocab from Roman-Urdu-Parl → 19 rows overturned (ADR-011)
 - [ ] Write `SPELLING-SPEC.md`; **freeze it**
 - [ ] Build romanize + normalize pipeline
 - [ ] Generate Phase 1 training labels; QA 500 samples
