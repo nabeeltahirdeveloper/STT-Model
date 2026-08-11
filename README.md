@@ -14,13 +14,30 @@ decision — see [`docs/PROJECT.md`](docs/PROJECT.md) §3.
 
 ## Status
 
-**Phase 0 — verify and baseline.** Nothing is trained yet. Two gates block
-everything downstream:
+**Phase 0 is complete. Nothing is trained yet.** Both gates that blocked
+everything downstream are resolved:
 
-| Gate | Question | Command |
+| Gate | Answer |
+|---|---|
+| R1 — corpus usable? | Yes. UrduSpeech is CC-BY-4.0, commercial use with attribution (ADR-008) |
+| §4.4 — does alignment work on Roman Urdu? | Yes. Direct alignment, 46 ms median. No Urdu-script bridge needed (ADR-010) |
+
+Measured against the held-out set (269 utterances, 35.4 min, 12 categories):
+
+| | Stock model | Target |
 |---|---|---|
-| R1 | Is the UrduSpeech corpus actually downloadable and commercially usable? | `python -m scripts.verify_data` |
-| §4.4 | Does forced alignment work on Roman Urdu text? | `python -m scripts.test_aligner` |
+| CER after romanization | **27.9%** | < 12% |
+| English words preserved | **41.9%** | > 90% |
+| Errors: acoustic / orthographic / code-switch | 58.1 / 39.8 / 2.1 | — |
+
+Stock output is **Devanagari**, not Roman, and destroys nine English words in
+ten — the measured case for fine-tuning rather than an inherited one.
+
+Roughly two-fifths of the errors are orthographic, meaning they are fixed in the
+lexicon rather than with more training data.
+
+**Phase 1 — labels and the spelling spec** is in progress. See
+[`docs/RUNBOOK.md`](docs/RUNBOOK.md).
 
 ---
 
@@ -64,7 +81,9 @@ Transcribe something:
 ./run.sh transcribe path/to/video.mp4 --out out/
 ```
 
-Run `./run.sh help` for the full command list.
+Run `./run.sh help` for the full command list, and
+[`docs/RUNBOOK.md`](docs/RUNBOOK.md) for every pipeline step in the order it
+happens — environment, data, lexicon, eval set, baseline, labels, training.
 
 ---
 
@@ -76,6 +95,7 @@ Run `./run.sh help` for the full command list.
 | Python | 3.12 — pinned in `.python-version`; uv installs it for you |
 | ffmpeg | required (audio extraction) |
 | GPU | NVIDIA, ≥16 GB VRAM for inference, ≥40 GB for training |
+| Apple Silicon | inference and label generation only — full fine-tuning needs ~12.5 GB of optimizer state before activations, so a 16 GB Mac cannot run it |
 | Disk | ~150 GB (corpora + checkpoints) |
 
 Training is not viable on CPU. Inference on `Qwen3-ASR-0.6B` will run on modest
@@ -128,6 +148,7 @@ Full detail in [`docs/PROJECT.md`](docs/PROJECT.md) §4.
 
 | Doc | What it covers |
 |---|---|
+| [`docs/RUNBOOK.md`](docs/RUNBOOK.md) | **What to type** — setup and every pipeline step, in order |
 | [`CLAUDE.md`](CLAUDE.md) | Agent operating brief — constraints, conventions, commands |
 | [`docs/PROJECT.md`](docs/PROJECT.md) | Full spec — scope, problem, solution, architecture, risks, roadmap |
 | [`docs/SPELLING-SPEC.md`](docs/SPELLING-SPEC.md) | Canonical Roman Urdu orthography |
