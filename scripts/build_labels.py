@@ -24,6 +24,7 @@ eval manifest (CLAUDE.md constraint 5).
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 
 from scripts.romanize_via_opencut import romanize
@@ -115,7 +116,7 @@ def renormalize(out: Path) -> None:
 def main(
     split: str = "",
     limit: int = 0,
-    batch: int = 200,
+    batch: int = 500,
     min_confidence: float = 0.0,
     out: str = str(OUT),
     corpus: str = str(CORPUS),
@@ -146,9 +147,16 @@ def main(
         return
 
     normalizer = Normalizer(Lexicon.load())
+    started = time.time()
     with destination.open("a", encoding="utf-8") as handle:
         for start in range(0, len(pending), batch):
             chunk = pending[start : start + batch]
+            print(
+                f"batch {start // batch + 1}/{-(-len(pending) // batch)} "
+                f"({len(chunk)} utterances) — the romanizer prints its own "
+                f"progress below; a batch takes a few minutes",
+                flush=True,
+            )
             romanized = romanize([str(row["urdu"]) for row in chunk])
             for row, roman in zip(chunk, romanized, strict=True):
                 row["roman"] = roman
@@ -156,7 +164,12 @@ def main(
                 handle.write(json.dumps(row, ensure_ascii=False) + "\n")
             handle.flush()
             done = start + len(chunk)
-            print(f"  {done:,}/{len(pending):,}", flush=True)
+            rate = (time.time() - started) / done
+            print(
+                f"  {done:,}/{len(pending):,} done · "
+                f"{rate * (len(pending) - done) / 60:.0f} min left",
+                flush=True,
+            )
 
     print(f"\n-> {destination}")
 

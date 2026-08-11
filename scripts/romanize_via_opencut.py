@@ -151,18 +151,22 @@ def romanize(segments: list[str], opencut_api: Path = OPENCUT_API) -> list[str]:
     if not request["urdu"] and not request["devanagari"]:
         return list(segments)
 
+    # stdout is captured because it carries the JSON result; stderr is NOT,
+    # so the worker's per-chunk progress reaches the terminal live. Capturing
+    # both made a 40-minute run look like a hung process, which is how a job
+    # that is working fine gets killed.
     result = subprocess.run(  # noqa: S603
         ["uv", "run", "--group", "tts", "python", "-c", _WORKER],
         cwd=opencut_api,
         input=json.dumps(request),
-        capture_output=True,
+        stdout=subprocess.PIPE,
         text=True,
         check=False,
     )
     if result.returncode != 0:
         raise RuntimeError(
-            f"OpenCut romanizer failed (exit {result.returncode}).\n"
-            f"cwd={opencut_api}\n{result.stderr[-1500:]}"
+            f"OpenCut romanizer failed (exit {result.returncode}). "
+            f"Its error output is above this message.\ncwd={opencut_api}"
         )
 
     romanized = json.loads(result.stdout)
