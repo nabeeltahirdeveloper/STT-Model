@@ -16,10 +16,11 @@
 token	default	context
 # `main` is English in "main road" and Urdu میں ("I") everywhere else.
 # Contexts are nouns that only ever follow the English adjective.
-main	urdu	road,gate,door,street,entrance,menu,screen,branch,campus,switch,server,highway,line,course
+main	urdu	road,gate,door,street,entrance,exit,menu,screen,branch,campus,switch,server,highway,line,course,office,building,hall,block,reason,point,idea,topic,issue,focus,purpose,character,event,stage,camera,thing
 # `sale` — SPELLING-SPEC §5.4's own example. Resolved as always-English: the
 # Urdu homograph is coarse slang that will not appear in captioned content.
 sale	english	-
 # `record` is English as both noun and verb, including in "record kar lo"
 # (SPELLING-SPEC §11 case 4). No Urdu reading.
 record	english	-
+to	urdu	go,going,want,wants,wanted,need,needs,have,has,had,able,try,trying,like,talk,talking,speak,due,according,related,compared,used,back

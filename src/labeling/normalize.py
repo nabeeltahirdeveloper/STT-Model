@@ -54,7 +54,12 @@ _FINAL_EE = re.compile(r"ee$")
 _WORD = r"[A-Za-zÀ-ɏ']+"
 _NUMBER = r"\d[\d,.]*"
 _PUNCT = r"[.,!?;:—-]"
-_TOKEN_RE = re.compile(rf"{_NUMBER}|{_WORD}|{_PUNCT}")
+# Model numbers, building codes and hyphenated compounds are single tokens.
+# Splitting them was silent damage: `JF-17` became `JF - 17`, which the rule
+# fallback then re-cased to `Jf - 17`, and `C2`/`S3H` became `C 2`/`S 3 H`.
+# Must precede _WORD and _NUMBER in the alternation, or those match the pieces.
+_CODE = r"[A-Za-z]+(?:-[A-Za-z0-9]+)+|[A-Za-z]+\d+[A-Za-z0-9]*"
+_TOKEN_RE = re.compile(rf"{_CODE}|{_NUMBER}|{_WORD}|{_PUNCT}")
 
 _SENTENCE_END = frozenset({".", "!", "?"})
 _ATTACHING_PUNCT = frozenset({".", ",", "!", "?", ";", ":"})
@@ -83,38 +88,38 @@ def detokenize(tokens: list[str]) -> str:
 
 
 def apply_rules(token: str) -> str:
-    """Rule fallback for tokens the lexicon has never seen (SPELLING-SPEC §3-§4).
+    """Rule fallback for tokens the lexicon has never seen (SPELLING-SPEC §1.2).
 
-    Conservative on purpose. These rules only remove notation the spec forbids;
-    they never guess at a respelling, because a wrong guess here is
-    indistinguishable from an ASR error downstream.
+    **Respelling is disabled here (ADR-009).** The spec's §3.4/§4.3/§4.4 rules
+    still stand as orthography; what does not stand is applying them to a token
+    *because nothing else claimed it*. This function only ever sees unknown
+    tokens, and `english.txt` holds 393 words against the 676 distinct English
+    words in 35 minutes of real code-switched audio -- so "unknown" means
+    "probably English we have not listed yet" far more often than it means
+    "Roman Urdu variant".
+
+    Measured on the eval set before this change, the three respelling rules
+    fired 28 times and were wrong 28 times: `three` -> `thri`, `fitness` ->
+    `fitnes`, `off` -> `of`, `Shah` -> `Sha`, `panah` -> `pana`. Several
+    produced a *different valid word* rather than a misspelling, which nothing
+    downstream can detect.
+
+    So the only surviving rule is the one that cannot invent a word: §1.2
+    diacritic stripping. Everything else waits until `english.txt` is grown and
+    the homograph set is resolved against frequency data, at which point
+    `FINAL_H_KEPT`, `_FINAL_EE` and `_DOUBLE_FINAL` below can be re-enabled
+    behind a "this token is known Roman Urdu" check.
     """
-    # §1.2 -- plain ASCII only. Strip diacritics rather than transliterating them.
+    # A token carrying a digit or an internal hyphen is a code, not a word:
+    # `JF-17`, `C2`, `S3H`, `A-lines`.
+    if any(ch.isdigit() for ch in token) or "-" in token:
+        return token
+
+    # §1.2 -- plain ASCII only. Strip diacritics rather than transliterating
+    # them. Safe because it removes notation the spec forbids without choosing
+    # between two spellings: `ṭamāṭar` has exactly one ASCII form, `tamatar`.
     decomposed = unicodedata.normalize("NFD", token)
-    ascii_only = "".join(ch for ch in decomposed if not unicodedata.combining(ch))
-
-    # §3.4 -- ITRANS-style capitals mark retroflexes (`TamaTar`, `baRa`). The spec
-    # collapses retroflexes to their dental counterparts and bans capitals as
-    # phonetic markers, so internal capitals go. A *leading* capital is far more
-    # likely to be a proper noun (§6) than a retroflex marker, so it survives.
-    head, tail = ascii_only[:1], ascii_only[1:]
-    word = head + tail.lower()
-
-    if word.lower() in FINAL_H_KEPT:
-        return word
-
-    lowered = word.lower()
-    if _FINAL_EE.search(lowered) and len(lowered) > 3:
-        # §4.3 -- word-final long i is `i`, not `ee`: kabhee -> kabhi.
-        return word[:-2] + "i"
-    if lowered.endswith("ah") and len(lowered) > 3:
-        # §4.4 -- word-final -ah -> -a: zyadah -> zyada.
-        return word[:-1]
-    if _DOUBLE_FINAL.search(lowered):
-        # §4.4 -- a doubled final consonant is a typing habit: wapass -> wapas.
-        return word[:-1]
-
-    return word
+    return "".join(ch for ch in decomposed if not unicodedata.combining(ch))
 
 
 class Normalizer:
@@ -191,12 +196,18 @@ class Normalizer:
         # reason: no later rule may ever get a chance to respell an English word.
         if key in lexicon.english:
             return Token(token, TokenKind.ENGLISH)
-        if token.upper() in lexicon.acronyms:
-            return Token(token.upper(), TokenKind.ACRONYM)  # §5.3
         if key in lexicon.canonical:
             return Token(lexicon.canonical[key], TokenKind.URDU)  # §8, exact match
         if key in lexicon.variants:
             return Token(lexicon.variants[key], TokenKind.URDU)  # known misspelling
+        # §5.3 -- acronyms are checked *after* the Roman Urdu lexicon, not before.
+        # Upper-casing on a case-insensitive match turned `isi` (اسی, "this very")
+        # into the agency `ISI` on every occurrence in the eval set. A word the
+        # spelling lexicon already knows is that word, whatever it looks like
+        # upper-cased; only tokens the lexicon has no reading for may become
+        # acronyms.
+        if token.upper() in lexicon.acronyms:
+            return Token(token.upper(), TokenKind.ACRONYM)
 
         self._unknown.add(key)
         return Token(apply_rules(token), TokenKind.URDU)
