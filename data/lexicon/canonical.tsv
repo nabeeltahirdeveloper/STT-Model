@@ -8,42 +8,49 @@
 # (SPELLING-SPEC §2, §12). Until `scripts/build_lexicon.py` has run, every
 # spelling here is a hypothesis.
 #
-# Two variants listed in SPELLING-SPEC §8 are deliberately NOT reproduced here:
-# `the` and `they` as variants of تھے. Both are common English words, and
-# mapping them would respell English — which outranks §8 (ADR-001, ADR-006).
+# Variants listed in SPELLING-SPEC §8 that are deliberately NOT reproduced here,
+# because they are common English words and mapping them would respell English —
+# which outranks §8 (ADR-001, ADR-006, ADR-009):
+#
+#   تھے  the, they      ہے  he       میں  me
+#   سے   say            اور  or       نو  no
+#
+# §8 lists these as *observed* variants: a fact about how people type, not an
+# instruction to rewrite them. `main` is the exception that proves the rule — it
+# stays, because ambiguous.tsv resolves it by context instead of rewriting it.
 
 # --- SPELLING-SPEC §8 seed table -------------------------------------------
 urdu	canonical	variants
-ہے	hai	hei,he,hae
+ہے	hai	hae,hei
 ہیں	hain	hein,hen
 تھا	tha	thaa
 تھی	thi	thee
 تھے	thay	-
-نہیں	nahin	nahi,nai,nhi
-میں	mein	main,mai,me
-کیا	kya	kia,keya
+نہیں	nahi	nahin,nai,nhi
+میں	mein	mai,main
+کیا	kya	keya,kia
 کا	ka	-
 کی	ki	kee
 کے	ke	kay
 کو	ko	-
-سے	se	say
+سے	se	-
 پر	par	per
 تک	tak	-
-اور	aur	or,aor
-یہ	ye	yeh,yh
-وہ	wo	woh,wh
-کہ	ke	keh,k
-بہت	bohot	bahut,bohat,buhat
-اچھا	acha	achha,achcha
+اور	aur	aor
+یہ	yeh	ye,yh
+وہ	woh	wh,wo
+کہ	ke	k
+بہت	bohat	bahut,bohot,buhat
+اچھا	acha	achcha,achha
 کرنا	karna	krna
 ہونا	hona	-
 جانا	jana	jaana
-آنا	ana	aana
+آنا	aana	ana
 دینا	dena	daina
 لینا	lena	laina
 ابھی	abhi	abhee
 کبھی	kabhi	kabhee
-زیادہ	zyada	ziyada,zyadah
+زیادہ	ziyada	zyada,zyadah
 تھوڑا	thora	thoda,thodha
 صرف	sirf	serf
 ضرور	zaroor	zarur,zroor
@@ -59,7 +66,7 @@ urdu	canonical	variants
 کرتا	karta	krta
 کرتی	karti	krti
 کرتے	karte	krte
-ہوں	hun	hoon,hu,hoo
+ہوں	hoon	hoo,hu,hun
 ہو	ho	-
 ہوتا	hota	-
 ہوتی	hoti	-
@@ -68,7 +75,7 @@ urdu	canonical	variants
 رہی	rahi	rhi
 رہے	rahe	rhe
 گیا	gaya	gya
-گئی	gayi	gyi,gai
+گئی	gayi	gai,gyi
 گئے	gaye	gye
 دیا	diya	dya
 لیا	liya	lya
@@ -83,21 +90,22 @@ urdu	canonical	variants
 لگ	lag	-
 سمجھ	samajh	samjh
 سوچ	soch	-
-جانتا	janta	jaanta
-پتہ	pata	pta,patah
+جانتا	jaanta	janta
+پتہ	pata	patah,pta
 چاہیے	chahiye	chahiay,chahye
 سکتا	sakta	-
 سکتی	sakti	-
 سکتے	sakte	-
 
 # --- Pronouns, particles, connectives --------------------------------------
+اسی	isi	-
 ہم	hum	hm
 تم	tum	-
 آپ	aap	ap
 مجھے	mujhe	mujhay,mujy
-تمہیں	tumhein	tumhen
+تمہیں	tumhen	tumhein
 انہیں	unhein	unhen
-ہمیں	humein	humen
+ہمیں	hamein	humein,humen
 میرا	mera	-
 تیرا	tera	-
 اس کا	uska	-
@@ -107,10 +115,10 @@ urdu	canonical	variants
 ان کا	unka	-
 جو	jo	-
 کس	kis	-
-کون	kaun	kon
-کیوں	kyun	kyu,kion
+کون	kon	kaun
+کیوں	kyun	kion,kyu
 کہاں	kahan	kahaan
-کیسے	kaise	kese
+کیسے	kaisay	kaise,kese
 کب	kab	-
 اب	ab	-
 تو	to	tou
@@ -131,7 +139,7 @@ urdu	canonical	variants
 وہاں	wahan	wahaan
 پھر	phir	fir
 بس	bas	-
-یعنی	yaani	yani,yeni
+یعنی	yani	yaani,yeni
 
 # --- Common nouns and adjectives -------------------------------------------
 آج	aaj	aj
@@ -142,31 +150,34 @@ urdu	canonical	variants
 صبح	subah	subha
 شام	shaam	sham
 سال	saal	sal
-مہینہ	mahina	maheena
+مہینہ	maheena	mahina
 گھر	ghar	-
 کام	kaam	-
 بات	baat	-
 لوگ	log	-
 پانی	pani	paani
 کھانا	khana	khaana
-چائے	chai	chaye
+چائے	chaye	chai
 پیسہ	paisa	paise
 روپے	rupay	rupaye,rupye
-کتاب	kitab	kitaab
+کتاب	kitaab	kitab
 دوست	dost	-
 بھائی	bhai	bhaai
-بہن	behen	behn
+بہن	behan	behen,behn
 والد	walid	-
 زندگی	zindagi	zindgi
 قسمت	qismat	kismat
 غلط	ghalat	galat
-ٹھیک	theek	thik,teek
-صحیح	sahi	sahih
-سچ	sach	such
+ٹھیک	theek	teek,thik
+صحیح	sahih	sahi
+سچ	sach	-
 جھوٹ	jhoot	jhut
 خوش	khush	khsuh
-بڑا	bara	barra,bada
-چھوٹا	chhota	chota,chhoota
+بڑا	bara	bada,barra
+بڑی	barri	bari,barree
+بڑے	baray	barray
+بارے	baare	-
+چھوٹا	chhota	chhoota,chota
 نیا	naya	-
 پرانا	purana	puraana
 ٹماٹر	tamatar	tamaatar,tamater
@@ -177,17 +188,17 @@ urdu	canonical	variants
 
 # --- Numbers 0-10 (SPELLING-SPEC §6: written as words) ---------------------
 صفر	sifar	-
-ایک	ek	aik,ik
+ایک	aik	ek,ik
 دو	do	-
 تین	teen	-
 چار	chaar	char
-پانچ	paanch	panch,paanj
-چھ	chhay	chay,che
+پانچ	paanch	paanj,panch
+چھ	chay	che,chhay
 سات	saat	sat
 آٹھ	aath	ath
-نو	nau	no
+نو	nau	-
 دس	das	dus
-بجے	baje	bajay
+بجے	bajay	baje
 
 # --- Proper nouns (SPELLING-SPEC §6: always capitalised) -------------------
 کراچی	Karachi	-

@@ -139,8 +139,10 @@ nobody types that way and it looks broken in subtitles.
 | Word-final | write `n` | میں → `mein`, نہیں → `nahin` |
 | Medial | write `n` | چاند → `chand` |
 
-> **⚠️ CONTESTED — validate against corpus.** `nahin` vs `nahi` and `mein` vs
-> `main` are close in real usage. Resolve with frequency data before freeze.
+> **Resolved against corpus (ADR-011).** Not close at all, and not consistent:
+> `nahi` beats `nahin` 901,811 : 260, while `mein` beats `main` 2,765,083 : 639.
+> The same final nasal is dropped in one word and kept in the other, so this is
+> a per-word fact carried by the lexicon, not a letter rule.
 
 ---
 
@@ -253,8 +255,14 @@ For captions, transcribe meaningful fillers and drop noise.
 
 ## 8. Seed lexicon — high-frequency words
 
-Canonical spelling for the most common tokens. **Validate every row against
-corpus frequency before freeze.** Rows marked ⚠️ are known-contested.
+Canonical spelling for the most common tokens.
+
+- **✔** resolved against Roman-Urdu-Parl frequency (ADR-011, ADR-012).
+- **⛔** resolved *against* the corpus, on purpose. The corpus spelling is a
+  common English word and §5.1 outranks §8. Recorded so the override is not
+  mistaken later for an oversight.
+- **⚠️** still contested; blocks the freeze (§12).
+- Rows with no mark were never contested.
 
 | Urdu | Canonical | Rejected variants | |
 |---|---|---|---|
@@ -262,38 +270,38 @@ corpus frequency before freeze.** Rows marked ⚠️ are known-contested.
 | ہیں | `hain` | hein, hen | |
 | تھا | `tha` | thaa | |
 | تھی | `thi` | thee | |
-| تھے | `thay` | the, they | ⚠️ |
-| نہیں | `nahin` | nahi, nai, nhi | ⚠️ |
-| میں | `mein` | main, mai, me | ⚠️ |
+| تھے | `thay` | the, they | ⛔ |
+| نہیں | `nahi` | nahin, nai, nhi | ✔ |
+| میں | `mein` | main, mai, me | ✔ |
 | کیا | `kya` | kia, keya | |
 | کا | `ka` | — | |
 | کی | `ki` | kee | |
-| کے | `ke` | kay | ⚠️ |
+| کے | `ke` | kay | ✔ |
 | کو | `ko` | — | |
 | سے | `se` | say | |
 | پر | `par` | per | |
 | تک | `tak` | — | |
 | اور | `aur` | or, aor | |
-| یہ | `ye` | yeh, yh | ⚠️ |
-| وہ | `wo` | woh, wh | ⚠️ |
-| کہ | `ke` | keh, k | ⚠️ |
-| بہت | `bohot` | bahut, bohat, buhat | ⚠️ |
-| اچھا | `acha` | achha, achcha | ⚠️ |
+| یہ | `yeh` | ye, yh | ✔ |
+| وہ | `woh` | wo, wh | ✔ |
+| کہ | `ke` | k | ✔ |
+| بہت | `bohat` | bohot, bahut, buhat | ✔ |
+| اچھا | `acha` | achha, achcha | ✔ |
 | کرنا | `karna` | — | |
 | ہونا | `hona` | — | |
 | جانا | `jana` | jaana | |
-| آنا | `ana` | aana | ⚠️ |
+| آنا | `aana` | ana | ✔ |
 | دینا | `dena` | daina | |
 | لینا | `lena` | laina | |
 | ابھی | `abhi` | abhee | |
 | کبھی | `kabhi` | kabhee | |
-| زیادہ | `zyada` | ziyada, zyadah | |
-| تھوڑا | `thora` | thoda, thodha | ⚠️ |
+| زیادہ | `ziyada` | zyada, zyadah | ✔ |
+| تھوڑا | `thora` | thoda, thodha | ✔ |
 | صرف | `sirf` | serf | |
 | ضرور | `zaroor` | zarur, zaroor | |
 | مطلب | `matlab` | matlub | |
 | بالکل | `bilkul` | bilkool, bilqul | |
-| شکریہ | `shukriya` | shukria | ⚠️ |
+| شکریہ | `shukriya` | shukria | ✔ |
 | اللہ | `Allah` | — | |
 | پاکستان | `Pakistan` | — | |
 
@@ -338,6 +346,11 @@ Amendments go here with reasoning. Append only.
 | 2026-08-06 | §3.2 | Keep `q` separate from `k` | `qismat` dominant in real usage |
 | 2026-08-06 | §4.3 | Word-final long i → `i` not `ee` | Shorter, matches common typing |
 | 2026-08-06 | §5.1 | English keeps English spelling | Core architectural requirement |
+| 2026-08-10 | §8 | 19 canonical rows replaced by corpus-preferred spellings | §2 — frequency beats a hand-written guess. `nahi` outnumbers `nahin` 3,468:1, `aik` beats `ek` 67:1 (ADR-011) |
+| 2026-08-10 | §3.5 | Word-final nun ghunna is **per-word**, not a blanket rule | The corpus keeps the `n` in `mein` (2.7M) and drops it in `nahi` (902k). Real writing is inconsistent here; the lexicon carries it word by word |
+| 2026-08-10 | §8 | تھے stays `thay` **against** the corpus | Corpus writes it `they` 179,481× and `thay` 0×, but `they` is an English word. §5.1 outranks §8 (ADR-012) |
+| 2026-08-10 | §8 | `humein`→`hamein`, `behen`→`behan`, `kaise`→`kaisay` | Our spellings had 0 corpus hits; the attested forms have 60,603 / 15,750 / 52,463 (ADR-012) |
+| 2026-08-10 | §8 | `keh` removed as a variant of `ke` | Its 59,337 hits are the کہہ / kehna / kehta family ("to say"), a different word from کہ ("that") (ADR-012) |
 
 ---
 
@@ -364,13 +377,22 @@ Every row is an integration test in `tests/test_spelling_spec.py`.
 
 Do not begin Phase 2 training until every box is ticked.
 
-- [ ] Frequency lexicon built from Roman-Urdu-Parl (top 5,000)
-- [ ] Every ⚠️ row in §8 resolved against frequency data
-- [ ] `data/lexicon/canonical.tsv` populated and version-controlled
-- [ ] `data/lexicon/english.txt` populated
-- [ ] All §11 test cases passing
-- [ ] Normalizer determinism test passing (same input × 1000 → identical output)
+- [x] Frequency lexicon built from Roman-Urdu-Parl (`docs/lexicon-frequency.tsv`, ADR-011)
+- [x] Every ⚠️ row in §8 resolved against frequency data (ADR-011, ADR-012)
+- [x] `data/lexicon/canonical.tsv` populated and version-controlled
+- [x] `data/lexicon/english.txt` populated — 3,343 words mined from
+      code-switched UrduSpeech transcripts. Coverage of English in the eval
+      audio: 99% (was 12%) (ADR-013)
+- [x] English/Roman-Urdu homographs given principled defaults (ADR-013).
+      `he`, `me`, `or`, `say`, `no`, `such` are English; `to` is context-decided
+      in ambiguous.tsv. Roman-Urdu-Parl could not settle these — its Urdu side
+      transliterates English, so it carries no code-switch signal
+- [x] All §11 test cases passing
+- [x] Normalizer determinism test passing (same input × 1000 → identical output)
 - [ ] 500 random labels hand-reviewed for spec compliance
+- [ ] Words the corpus never attests decided by hand: رمضان (0 hits for every
+      variant) and ٹماٹر (`timatar` 999, our `tamatar` 0 — but `tamatar` is
+      §3.4's own rule example, so 999 is thin grounds to overturn it)
 - [ ] Version bumped to 1.0.0 and tagged in git
 - [ ] `docs/DECISIONS.md` records the freeze
 

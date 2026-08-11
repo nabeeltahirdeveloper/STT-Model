@@ -13,7 +13,6 @@ CNN
 SMS
 GPS
 ATM
-PIN
 CNG
 LPG
 AC
@@ -28,7 +27,6 @@ NADRA
 PIA
 ISI
 FIA
-NAB
 HEC
 WAPDA
 KESC
@@ -38,11 +36,9 @@ PCB
 PSX
 
 # International
-UN
 UK
 USA
 EU
-WHO
 IMF
 NGO
 
@@ -56,7 +52,6 @@ API
 CEO
 CFO
 HR
-IT
 PhD
 MBA
 BSc

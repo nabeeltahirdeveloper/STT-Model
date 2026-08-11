@@ -11,29 +11,39 @@ import pytest
 from src.labeling.lexicon import AmbiguousEntry, Lexicon, LexiconError
 
 # docs/SPELLING-SPEC.md §8, illustrative table. Every row must be in the TSV.
+#
+# Variants that are also common English words are omitted here, because the TSV
+# deliberately does not carry them: mapping `he`, `me`, `say`, `or`, `no`, `the`
+# or `they` onto an Urdu spelling respells English, which outranks §8 (ADR-001,
+# ADR-006, ADR-009). §8 lists them as *observed* variants; that is a fact about
+# how people type, not an instruction to rewrite them. تھے is absent from this
+# table for the same reason its variants are absent from the TSV.
 SPEC_SECTION_8 = [
-    ("hai", ["hei", "he", "hae"]),
+    ("hai", ["hei", "hae"]),
     ("hain", ["hein", "hen"]),
     ("tha", ["thaa"]),
     ("thi", ["thee"]),
-    ("nahin", ["nahi", "nai", "nhi"]),
+    ("nahi", ["nahin", "nai", "nhi"]),
     ("kya", ["kia", "keya"]),
     ("ki", ["kee"]),
-    ("ke", ["kay", "keh", "k"]),
-    ("se", ["say"]),
+    # `keh` deliberately absent: 59,337 corpus hits belong to the کہہ /
+    # kehna / kehta family ("to say"), not to کہ ("that"). Mapping it onto
+    # `ke` merges two words, the same homograph error as baray/baare.
+    ("ke", ["kay", "k"]),
+    ("se", []),
     ("par", ["per"]),
-    ("aur", ["or", "aor"]),
-    ("ye", ["yeh", "yh"]),
-    ("wo", ["woh", "wh"]),
-    ("bohot", ["bahut", "bohat", "buhat"]),
+    ("aur", ["aor"]),
+    ("yeh", ["ye", "yh"]),
+    ("woh", ["wo", "wh"]),
+    ("bohat", ["bahut", "bohot", "buhat"]),
     ("acha", ["achha", "achcha"]),
     ("jana", ["jaana"]),
-    ("ana", ["aana"]),
+    ("aana", ["ana"]),
     ("dena", ["daina"]),
     ("lena", ["laina"]),
     ("abhi", ["abhee"]),
     ("kabhi", ["kabhee"]),
-    ("zyada", ["ziyada", "zyadah"]),
+    ("ziyada", ["zyada", "zyadah"]),
     ("thora", ["thoda", "thodha"]),
     ("sirf", ["serf"]),
     ("matlab", ["matlub"]),
@@ -72,10 +82,17 @@ def test_no_token_is_both_canonical_and_a_variant(lexicon: Lexicon) -> None:
     assert not set(lexicon.variants) & set(lexicon.canonical)
 
 
-def test_the_and_they_are_not_mapped_away_from_english(lexicon: Lexicon) -> None:
-    """ADR-006 — SPELLING-SPEC §8 lists both as variants of تھے; English wins."""
-    assert "the" not in lexicon.variants
-    assert "they" not in lexicon.variants
+@pytest.mark.parametrize("word", ["the", "they", "he", "me", "say", "or", "no"])
+def test_english_words_are_not_mapped_away_from_english(lexicon: Lexicon, word: str) -> None:
+    """ADR-006 — §8 lists these as Roman Urdu variants; English wins anyway.
+
+    `the`/`they` were excluded from the start. The other five were not, and each
+    corrupted the eval set: `he` -> `Hai`, `me` -> `mein`, `say` -> `se`,
+    `or` -> `aur`, and worst, English "no" -> `nau`, the Urdu numeral nine.
+    A token may only be claimed for Urdu via `ambiguous.tsv`, where the reading
+    is decided by context rather than by a blanket rewrite.
+    """
+    assert word not in lexicon.variants or word in lexicon.ambiguous
 
 
 def test_acronyms_are_uppercase(lexicon: Lexicon) -> None:
@@ -88,8 +105,8 @@ def test_english_lexicon_is_lowercase(lexicon: Lexicon) -> None:
 
 
 def test_canonical_form_lookup_is_case_insensitive(lexicon: Lexicon) -> None:
-    assert lexicon.canonical_form("NAHI") == "nahin"
-    assert lexicon.canonical_form("Yeh") == "ye"
+    assert lexicon.canonical_form("NAHI") == "nahi"
+    assert lexicon.canonical_form("Yeh") == "yeh"
     assert lexicon.canonical_form("zzqxwv") is None
 
 
