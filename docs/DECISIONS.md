@@ -704,11 +704,34 @@ for label generation.
   row. Because utterances average ~66 words, that concentrates into 57% of lines
   carrying at least one — so a per-line "usable" flag is too blunt a filter and
   the unknown *rate* is what training should threshold on.
-- **English written in Urdu script remains unsolved and is now the largest
-  defect**: `ایکٹرز` → `ayktrz`, `ہیروئین` → `heroen`, `وائس اوور` →
-  `wise over`. The dictionary reproduces whatever the corpus did, and the corpus
-  transliterated loanwords phonetically. This needs a loanword map from Urdu
-  spellings back to English orthography — the next piece of work.
+- **English written in Urdu script remains unsolved**: `ایکٹرز` → `ayktrz`,
+  `ہیروئین` → `heroen`, `وائس اوور` → `wise over`. The dictionary reproduces
+  whatever the corpus did, and the corpus transliterated loanwords phonetically.
+
+**Attempted and rejected: automatic loanword detection by sound.** The idea was
+to reduce both the dictionary's Roman forms and `english.txt` to a coarse
+phonetic key — folding c/k/q, s/z, i/e/y — and propose a match as a loanword. It
+produced 9,550 candidates and they were mostly wrong: `آبشار` (waterfall) →
+"bushra", `آبا` → "baby", and `کلاک` (clock) → "click". Dropping vowels to make
+`ayktrz` collide with `actors` also makes `aaba` collide with `baby`. A
+candidate list that wrong costs more to review than it saves, so the script was
+deleted rather than left as tempting dead code.
+
+**Sizing it properly first.** Measured on the eval set, English the human wrote
+that was *not* Latin in the source runs to about 1–2% of words — the raw figure
+of 4% is inflated because `english.txt` now contains `is`, `us`, `they`, `day`,
+which are also common Roman Urdu words. That is small enough that a hand-built
+list of the commonest loanwords (`century`, `minute`, `department`, `film`,
+`heroine`, `interview`, `makeup`, `rush`) would cover most of it, and a native
+speaker builds that faster and far more accurately than a phonetic heuristic.
+
+**A side effect of ADR-013 to keep in view.** Mining `english.txt` from
+code-switched speech pulled in short words that are also Roman Urdu: `is` (اس),
+`us`, `they`, `day`, `main`. Output is unharmed — the normalizer leaves both
+readings alone, and `main` is still resolved by context — but they inflate the
+denominator of `english_preservation` and they broke the loanword measurement
+above. Any future metric that counts "English words" should be read with that in
+mind.
 
 ---
 
