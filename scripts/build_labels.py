@@ -50,10 +50,16 @@ def _eval_ids() -> set[str]:
             f"{EVAL_MANIFEST} not found. Refusing to build labels without the "
             f"eval exclusion list (CLAUDE.md constraint 5)."
         )
+    # Compare on the audio *filename*. The earlier version compared file stems
+    # against the corpus's `audio_id`, which is a different key space entirely
+    # (and is sometimes just a category name like `COMEDY_SHOW`), so the check
+    # could never have matched. It happened not to matter -- eval clips live
+    # under benchmark/ and labels come from corpus/ -- but a guard that cannot
+    # fire is not a guard.
     ids: set[str] = set()
     for line in EVAL_MANIFEST.read_text(encoding="utf-8").splitlines():
         row = json.loads(line)
-        ids.add(Path(str(row["audio"])).stem)
+        ids.add(Path(str(row["audio"])).name.lower())
     return ids
 
 
@@ -82,7 +88,10 @@ def load_corpus(root: Path, split: str, min_confidence: float) -> list[dict[str,
                 continue
             rows.append(
                 {
-                    "audio_id": str(row.get("audio_id") or row.get("Audio_Clip") or ""),
+                    # Audio_Clip is the actual filename; audio_id is not unique
+                    # and is sometimes a category name.
+                    "audio_clip": str(row.get("Audio_Clip") or ""),
+                    "audio": str(path.parent / "audio" / str(row.get("Audio_Clip") or "")),
                     "split": row_split,
                     "category": row.get("Audio_category"),
                     "duration_s": row.get("Duration_seconds"),
@@ -97,7 +106,7 @@ def _done_ids(out: Path) -> set[str]:
     if not out.exists():
         return set()
     return {
-        str(json.loads(line)["audio_id"])
+        str(json.loads(line)["audio_clip"])
         for line in out.read_text(encoding="utf-8").splitlines()
         if line.strip()
     }
@@ -144,7 +153,7 @@ def main(
     pending = [
         row
         for row in rows
-        if str(row["audio_id"]) not in already and str(row["audio_id"]) not in excluded
+        if str(row["audio_clip"]) not in already and str(row["audio_clip"]).lower() not in excluded
     ]
     if limit:
         pending = pending[:limit]

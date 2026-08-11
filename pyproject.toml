@@ -41,6 +41,9 @@ align = [
 cuda = [
     "flash-attn; sys_platform == 'linux'",
 ]
+train = [
+    "peft>=0.14",
+]
 
 # PEP 735. Dev tooling is not a feature of the package, so it does not belong in
 # optional-dependencies -- a consumer installing `roman-urdu-captions[dev]`
@@ -53,6 +56,10 @@ dev = [
     "pytest-cov",
     "pre-commit",
     "types-pyyaml",
+]
+labels = [
+    "indic-transliteration>=2.3.82",
+    "sentencepiece>=0.2.2",
 ]
 
 [tool.hatch.build.targets.wheel]

@@ -780,6 +780,42 @@ was small and why.
 
 ---
 
+## ADR-016 — LoRA on Apple Silicon, as an experiment only
+
+**Date:** 2026-08-11 · **Status:** Accepted · Deviates from ADR-003 knowingly
+
+**Context.** ADR-003 and CLAUDE.md constraint 6 make full fine-tuning the
+default and forbid LoRA without an A/B against it. There is no rented GPU box
+available, and full fine-tuning ~780M parameters needs roughly 12.5 GB of
+optimizer state before activations, against 16 GB shared with macOS. **The A/B
+that constraint 6 requires cannot be run on the only hardware there is.**
+
+**Decision.** Run LoRA locally on MPS (`scripts/train.py`), explicitly as an
+experiment, and record that its results cannot settle the question ADR-003
+answers.
+
+**Reasoning.** The experiment is worth running for something other than what
+LoRA-vs-FFT would tell us. Stock Qwen3-ASR emits Devanagari (ADR-010). If a
+small adapter shifts output toward Roman, that validates the *label pipeline* —
+the expensive artifact — using a cheap and disposable one. It also exercises the
+training path end to end, which is where the unknown-unknowns live.
+
+**Consequence.**
+
+- **Numbers from this run must not be compared with the 27.9% baseline as though
+  they measured the same thing.** The baseline is stock 1.7B; this is an adapted
+  0.6B on ~20 hours of a 90-hour set. A convenient local result is exactly how a
+  project talks itself into the weaker method *because* the hardware could not
+  test the claim, and ADR-003 exists to prevent that.
+- ADR-003 is **not** superseded. Full fine-tuning remains the production
+  default, and the A/B is still owed before LoRA ships in anything.
+- Training data is a 20-hour subset, not the 90 hours generated: US-CS audio is
+  56 GB against 29 GB free. `scripts/select_training_subset.py` picks it by
+  category spread and clip length rather than taking a head slice.
+- `peft` added under the `train` extra, Apache-2.0.
+
+---
+
 ## Spelling spec decisions
 
 Mirrors `docs/SPELLING-SPEC.md` §10 — amend in both places.
@@ -831,6 +867,7 @@ Added at Phase 0 scaffolding (2026-08-06):
 | types-pyyaml | Apache-2.0 | ✅ | dev only |
 | uv | MIT / Apache-2.0 (dual) | ✅ | Dependency + interpreter management (ADR-007). A tool, not a linked dependency |
 | flash-attn | BSD-3-Clause | ✅ | `cuda` extra, Linux-only; needs `no-build-isolation` |
+| peft | Apache-2.0 | ✅ | `train` extra. LoRA for the local MPS experiment only (ADR-016) |
 
 No copyleft dependency has been added. `jiwer` was **not** added: CER and SN-WER
 are short pure functions and an extra dependency for edit distance is not worth
