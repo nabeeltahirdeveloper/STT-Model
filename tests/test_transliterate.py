@@ -122,3 +122,43 @@ class TestShippedDictionary:
         """A Roman side containing Urdu means the source rows were not parallel."""
         bad = [u for u, r in load().items() if any("؀" <= c <= "ۿ" for c in r)]
         assert not bad, f"{len(bad)} entries romanize to Urdu script, e.g. {bad[:5]}"
+
+
+class TestLoanwords:
+    """English borrowed into Urdu script (ADR-014).
+
+    The corpus romanized these phonetically, so the dictionary alone emits
+    `ayktrz` for `ایکٹرز`. §5.1 requires English orthography, and the hand-built
+    map is what supplies it.
+    """
+
+    LOANS = {"ایکٹرز": "actors", "ہیروئین": "heroine", "وائس اوور": "voice over"}
+
+    def test_loanword_beats_the_corpus_spelling(self) -> None:
+        table = {"ایکٹرز": "ayktrz", "اچھے": "achay"}
+        assert romanize("ایکٹرز اچھے", table, self.LOANS).text == "actors achay"
+
+    def test_multi_word_loanword(self) -> None:
+        """`وائس اوور` must be matched as a phrase, before tokenizing."""
+        assert romanize("وائس اوور", {}, self.LOANS).text == "voice over"
+
+    def test_english_casing_is_preserved(self) -> None:
+        """`PhD` must not be lower-cased on the way through."""
+        assert romanize("پی", {}, {"پی": "PhD"}).text == "PhD"
+
+    def test_loanwords_are_optional(self) -> None:
+        assert romanize("ایکٹرز", {"ایکٹرز": "ayktrz"}).text == "ayktrz"
+
+    def test_a_loanword_is_not_reported_unknown(self) -> None:
+        result = romanize("ایکٹرز", {}, self.LOANS)
+        assert result.complete and not result.unknown
+
+
+def test_shipped_loanwords_load() -> None:
+    from src.labeling.transliterate import load_loanwords
+
+    loans = load_loanwords()
+    assert len(loans) >= 20
+    assert all(
+        not any("؀" <= c <= "ۿ" for c in v) for v in loans.values()
+    ), "a loanword maps to Urdu script; the English column is wrong"

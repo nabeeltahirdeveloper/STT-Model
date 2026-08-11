@@ -37,7 +37,7 @@ from pathlib import Path
 from src.labeling.lexicon import Lexicon
 from src.labeling.normalize import Normalizer
 from src.labeling.transliterate import load as load_translit
-from src.labeling.transliterate import romanize
+from src.labeling.transliterate import load_loanwords, romanize
 
 CORPUS = Path("data/raw/urduspeech/corpus")
 EVAL_MANIFEST = Path("data/eval/manifest.jsonl")
@@ -156,12 +156,13 @@ def main(
 
     normalizer = Normalizer(Lexicon.load())
     table = load_translit()
+    loans = load_loanwords()
     started = time.time()
     with destination.open("a", encoding="utf-8") as handle:
         for start in range(0, len(pending), batch):
             chunk = pending[start : start + batch]
             for row in chunk:
-                result = romanize(str(row["urdu"]), table)
+                result = romanize(str(row["urdu"]), table, loans)
                 row["roman"] = result.text
                 row["label"] = normalizer.normalize_text(result.text)
                 row["usable"] = result.complete

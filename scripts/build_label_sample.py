@@ -31,7 +31,7 @@ from pathlib import Path
 from src.labeling.lexicon import Lexicon
 from src.labeling.normalize import Normalizer
 from src.labeling.transliterate import load as load_translit
-from src.labeling.transliterate import romanize
+from src.labeling.transliterate import load_loanwords, romanize
 
 BENCHMARK = Path("data/raw/urduspeech/benchmark/US-benchmark-CS")
 EVAL_MANIFEST = Path("data/eval/manifest.jsonl")
@@ -94,7 +94,8 @@ def main(count: int = 500, out: str = str(OUT), seed: int = 20260810) -> None:
     print(f"romanizing {len(chosen)} ...", flush=True)
     normalizer = Normalizer(Lexicon.load())
     table = load_translit()
-    labels = [normalizer.normalize_text(romanize(r["urdu"], table).text) for r in chosen]
+    loans = load_loanwords()
+    labels = [normalizer.normalize_text(romanize(r["urdu"], table, loans).text) for r in chosen]
 
     # Group by the rule most worth checking on each line, so a reviewer sees
     # like with like. A line can only appear once; the first bucket it matches
