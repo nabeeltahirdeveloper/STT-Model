@@ -172,7 +172,7 @@ cmd_lexicon() {
 cmd_transcribe() {
   [[ $# -ge 1 ]] || die "usage: ./run.sh transcribe <video-file> [--out DIR]"
   step "Transcribing: $1"
-  run uv run python -m src.api.pipeline --input "$@"
+  run uv run python -m src.api.pipeline "$@"
   ok "done"
 }
 

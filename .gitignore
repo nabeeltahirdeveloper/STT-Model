@@ -61,3 +61,6 @@ mlruns/
 .DS_Store
 .idea/
 *.swp
+
+*.zip
+test_*.py
