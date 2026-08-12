@@ -84,6 +84,8 @@ def main(
     rank: int = 16,
     limit: int = 0,
     save_every: int = 500,
+    max_minutes: float = 0.0,
+    resume: str = "",
 ) -> None:
     """Train a LoRA adapter on MPS and save it.
 
@@ -165,7 +167,22 @@ def main(
 
     destination = Path(out)
     destination.mkdir(parents=True, exist_ok=True)
-    started = time.time()
+
+    # Colab free tier disconnects at roughly four hours, and an unfinished run
+    # that saved nothing is worth exactly zero. Stopping on a clock rather than
+    # on an epoch boundary means the adapter always exists when time runs out.
+    if resume and Path(resume).exists():
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model.get_base_model(), resume, is_trainable=True)
+        model.to(device)
+        model.train()
+        print(f"resumed from {resume}", flush=True)
+
+    deadline = (
+        started_at + max_minutes * 60 if (started_at := time.time()) and max_minutes else None
+    )
+    started = started_at
     seen = 0
     running = 0.0
 
@@ -239,6 +256,15 @@ def main(
                 running = 0.0
                 if step % save_every == 0:
                     model.save_pretrained(destination)
+
+                if deadline and time.time() >= deadline:
+                    model.save_pretrained(destination)
+                    print(
+                        f"\nstopped at {max_minutes:.0f} min (step {step}/{steps}); "
+                        f"adapter saved. Re-run with --resume {destination} to continue.",
+                        flush=True,
+                    )
+                    return
 
     model.save_pretrained(destination)
     print(f"\nadapter saved -> {destination}")
