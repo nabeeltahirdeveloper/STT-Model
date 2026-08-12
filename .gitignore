@@ -64,3 +64,28 @@ mlruns/
 
 *.zip
 test_*.py
+
+# --- Credentials ----------------------------------------------------------
+# The repository is public. Nothing here has ever contained a secret and it
+# must stay that way, so the patterns are broad rather than minimal.
+.env
+.env.*
+*.env
+secrets.*
+credentials.*
+*token*.json
+*token*.txt
+*.pem
+*.key
+*.p12
+id_rsa*
+service-account*.json
+.huggingface/
+.hf_token
+
+# --- Colab ----------------------------------------------------------------
+# A .ipynb stores its OUTPUT cells. A printed token, a sample of the eval set
+# or a stack trace with a path is saved into the file and committed with it.
+# Clear all outputs before committing a notebook.
+notebooks/**/.ipynb_checkpoints/
+notebooks/**/*-checkpoint.ipynb
