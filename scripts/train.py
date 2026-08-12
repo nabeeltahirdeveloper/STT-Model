@@ -119,6 +119,23 @@ def main(
     processor = Qwen3ASRProcessor.from_pretrained(base)
     model = Qwen3ASRForConditionalGeneration.from_pretrained(base, dtype=torch.float32)
 
+    # Training inputs must match what inference produces, or the model is
+    # optimized for a format it will never be asked for. Read from the package
+    # source rather than assumed:
+    #
+    #   input  = processor.apply_chat_template(msgs, add_generation_prompt=True)
+    #   output = "language {Lang}<asr_text>{transcript}"   (parse_asr_output)
+    #
+    # Feeding the bare transcript, as this script first did, taught the model to
+    # start mid-sentence from a prompt it had never seen and to omit the tag the
+    # parser needs. Its output then could not be parsed at all.
+    messages = [
+        {"role": "user", "content": [{"type": "audio", "audio": ""}, {"type": "text", "text": ""}]}
+    ]
+    prompt = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
+    prompt_len = len(processor.tokenizer(prompt, add_special_tokens=False).input_ids)
+    print(f"prompt: {prompt_len} tokens · {prompt[:60]!r}", flush=True)
+
     # Attention projections only. The audio encoder is left frozen: the acoustic
     # problem is not what these labels teach, and adapting it would cost memory
     # that batch-size-1 training does not have spare.
@@ -156,27 +173,25 @@ def main(
             if rate != 16_000:
                 waveform = torchaudio.functional.resample(waveform, rate, 16_000)
 
+            # The tag is what parse_asr_output looks for. Urdu is not a
+            # supported language (constraint 7), and "language None<asr_text>"
+            # is read as empty audio, so the label carries no language claim --
+            # only the separator the parser needs.
+            target = f"<asr_text>{sample.text}"
             batch = processor(
                 audio=waveform.squeeze(0).numpy(),
-                text=sample.text,
+                text=prompt + target,
                 sampling_rate=16_000,
                 return_tensors="pt",
             )
             batch = {k: v.to(device) for k, v in batch.items() if hasattr(v, "to")}
 
-            # Loss on the transcript only. Cloning input_ids wholesale trains
-            # the model to predict its own prompt as well as the speech, and it
-            # learns to: the first adapter emitted "language Hindi ..." -- the
-            # decoding prefix -- as if it were transcribed audio, and burned
-            # half its output budget doing so.
-            #
-            # The prompt precedes the target, so masking everything but the
-            # final `len(target)` tokens leaves loss on the transcript alone.
-            target = processor.tokenizer(sample.text, add_special_tokens=False).input_ids
+            # Loss on the target only. The prompt is now genuinely present in
+            # input_ids, so masking it is genuinely required -- unlike the
+            # earlier version of this code, where input_ids held nothing but
+            # the transcript and the mask was a no-op that silently did nothing.
             labels = batch["input_ids"].clone()
-            span = min(len(target), labels.shape[1])
-            if span < labels.shape[1]:
-                labels[:, :-span] = -100
+            labels[:, :prompt_len] = -100
             batch["labels"] = labels
 
             loss = model.get_base_model().thinker(**batch).loss / accumulate
