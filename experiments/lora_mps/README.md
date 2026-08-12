@@ -42,35 +42,57 @@ rises in a longer run it wants investigating before the result is trusted.
 
 ## Result
 
-**Yes — the labels teach Roman output.** Script mix over 8 eval clips:
+**The labels teach Roman output. The adapter is nevertheless worse than doing
+nothing.**
+
+Scored on the same 12 eval clips, same base model, same reference:
+
+| | CER |
+|---|---|
+| Stock 0.6B + our romanizer | **34.9%** |
+| Adapter 0.6B | **64.1%** |
+
+Script mix, over 8 clips:
 
 | | Latin | Devanagari |
 |---|---|---|
 | Stock | 5.7% | 94.3% |
-| **Adapter** | **48.3%** | 51.7% |
+| Adapter | 100% | 0% |
 | Reference | 100% | 0% |
 
-37 minutes on 13.5 hours moved Latin share from 5.7% to 48.3%. The question
-this experiment existed to answer is answered: the label pipeline works.
+Output length matches the reference within 2% (474 words against 466), so this
+is real transcription and not a collapse. The output also uses `aik`, `woh`,
+`bohat`, `nahi` -- the canonical forms chosen in ADR-011 and ADR-012. The model
+learned this project's orthography.
 
-## Bug found: the decoding prefix leaks into the output
+**And it is still nearly twice as wrong as not training at all.**
 
-Some outputs begin `language Hindi super stars nazar nahi aaya...` — and
-`language Hindi` is the prompt, not speech. The model learned to emit its own
-prefix.
+## The mistake this experiment records
 
-Cause, in `scripts/train.py`:
+Script mix was reported as the headline for three runs. It measures the
+alphabet, not whether the words are right, and a model producing fluent Roman
+nonsense scores 100% on it. CER -- the metric the product is judged on -- was
+not measured until the fourth attempt, and it showed the opposite of what the
+script number implied.
 
-```python
-batch["labels"] = batch["input_ids"].clone()
-```
+The warning was visible and ignored: training loss fell to 4.4 by step 71 and
+then rose steadily to ~5.3 by step 866, under a decaying schedule. A rising
+training loss means the run is not converging. That was the moment to stop and
+measure accuracy; instead it was written up as an "open concern" underneath a
+success headline.
 
-Loss is computed over every token, prompt included, so the model is trained to
-predict the prompt as well as the transcript. The prompt span must be masked to
-`-100` so loss falls only on the label text. This also explains the two `nan`
-losses and one output collapsing into repetition: the model is optimizing two
-objectives at once.
+**Rule for any successor: measure CER on a dozen clips before and after. Never
+let a proxy metric stand in for the one that matters.**
 
-**So 48.3% understates what these labels can do.** Half the model's output
-budget is being spent reproducing a prefix it should never emit. Re-run after
-the masking fix before drawing any conclusion about how far the labels get.
+## What this cost, and what it bought
+
+Three runs of 37, 53 and 99 minutes. One durable finding -- the labels teach
+Roman output and our orthography -- which the *first* run already established.
+Everything after it produced no new knowledge that a 48-second train-and-
+generate check would not have surfaced faster.
+
+Probable cause of the regression: the run never converged. Learning rate 1e-4 at
+rank 16 is likely too high; 2e-5 with warmup is the obvious next setting. But
+the open question -- *does training on these labels produce a better model* --
+is the one ADR-003 says needs full fine-tuning on real hardware, and constraint
+6 requires that A/B regardless. This machine cannot answer it.
