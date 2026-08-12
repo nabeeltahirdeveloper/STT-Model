@@ -128,7 +128,6 @@ def main(
         lora_dropout=0.05,
         bias="none",
         target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
-        task_type="CAUSAL_LM",
     )
     model = get_peft_model(model, peft_config)
     model.print_trainable_parameters()
@@ -168,7 +167,7 @@ def main(
             # taught to emit exactly what the normalizer produced.
             batch["labels"] = batch["input_ids"].clone()
 
-            loss = model(**batch).loss / accumulate
+            loss = model.get_base_model().thinker(**batch).loss / accumulate
             loss.backward()
             running += loss.item() * accumulate
             seen += 1
