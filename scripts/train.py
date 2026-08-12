@@ -117,7 +117,11 @@ def main(
     device = torch.device("mps")
     print(f"loading {base} ...", flush=True)
     processor = Qwen3ASRProcessor.from_pretrained(base)
-    model = Qwen3ASRForConditionalGeneration.from_pretrained(base, dtype=torch.float32)
+    # float16 halves the weights (3.1 GB -> 1.6 GB). At float32 the working set
+    # reached 24 GB on a 16 GB machine, so macOS swapped and the run went from
+    # 35 to 59 minutes -- bound by SSD rather than GPU. LoRA parameters stay
+    # float32 for stable updates; peft handles that.
+    model = Qwen3ASRForConditionalGeneration.from_pretrained(base, dtype=torch.float16)
 
     # Training inputs must match what inference produces, or the model is
     # optimized for a format it will never be asked for. Read from the package
@@ -184,7 +188,19 @@ def main(
                 sampling_rate=16_000,
                 return_tensors="pt",
             )
-            batch = {k: v.to(device) for k, v in batch.items() if hasattr(v, "to")}
+            # Audio features arrive float32; the model is float16. Inference
+            # does the same cast (`inputs.to(model.dtype)`), so training must
+            # too or the first conv layer rejects the input. Integer tensors --
+            # input_ids, masks -- must keep their dtype.
+            batch = {
+                key: (
+                    value.to(device, dtype=model.dtype)
+                    if value.is_floating_point()
+                    else value.to(device)
+                )
+                for key, value in batch.items()
+                if hasattr(value, "to")
+            }
 
             # Loss on the target only. The prompt is now genuinely present in
             # input_ids, so masking it is genuinely required -- unlike the
@@ -198,6 +214,12 @@ def main(
             loss.backward()
             running += loss.item() * accumulate
             seen += 1
+
+            # MPS keeps freed blocks in its cache, so a long run accumulates
+            # allocations until the machine swaps. Releasing periodically costs
+            # a little throughput and prevents that.
+            if seen % 50 == 0:
+                torch.mps.empty_cache()
 
             if seen % accumulate == 0:
                 torch.nn.utils.clip_grad_norm_(
