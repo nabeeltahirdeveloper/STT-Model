@@ -138,6 +138,7 @@ def main(
     out: str = str(OUT),
     corpus: str = str(CORPUS),
     renormalize_only: bool = False,
+    rebuild: bool = False,
 ) -> None:
     """Romanize and normalize corpus transcripts into training labels."""
     destination = Path(out)
@@ -146,6 +147,15 @@ def main(
     if renormalize_only:
         renormalize(destination)
         return
+
+    # Resume skips rows already present, which is right for an interrupted run
+    # and wrong after a lexicon edit: every row is present, so nothing is
+    # regenerated and the new words silently have no effect. Adding vocabulary
+    # then re-running looks like it worked -- it completes instantly -- and the
+    # numbers do not move.
+    if rebuild and destination.exists():
+        destination.unlink()
+        print("--rebuild: discarded existing labels")
 
     excluded = _eval_ids()
     rows = load_corpus(Path(corpus), split, min_confidence)
@@ -160,7 +170,11 @@ def main(
 
     print(f"{len(rows):,} rows in scope · {len(already):,} already done · {len(pending):,} to do")
     if not pending:
-        print("nothing to do")
+        print(
+            "\nNothing to do — every row is already in the output.\n"
+            "If you edited the lexicon or loanwords and expected changes, this is\n"
+            "the trap: resume skipped them all. Re-run with --rebuild."
+        )
         return
 
     normalizer = Normalizer(Lexicon.load())

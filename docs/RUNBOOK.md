@@ -191,8 +191,16 @@ Reading the scorecard:
 uv run python -m scripts.build_labels --split US-CS   # ~3 seconds for 29,749
 ```
 
-Seconds, not the 28 hours the neural romanizer needed (ADR-014). Resumable
-anyway: re-running skips what is done.
+Seconds, not the 28 hours the neural romanizer needed (ADR-014).
+
+**After editing the lexicon or `loanwords.tsv`, use `--rebuild`:**
+
+```bash
+uv run python -m scripts.build_labels --split US-CS --rebuild
+```
+
+Without it, resume skips every row that already exists — so the run completes
+instantly, reports success, and your new words have no effect.
 
 Each row carries `unknown` (Urdu words the dictionary did not know) and
 `usable`. About 2% of words are unknown; because utterances average ~66 words
