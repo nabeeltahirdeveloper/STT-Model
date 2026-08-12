@@ -92,7 +92,15 @@ and retraining (`SPELLING-SPEC.md` §12, risk R8).
 ```bash
 # Count the corpus and check every canonical spelling against real usage
 uv run python -m scripts.build_lexicon              # ~4 min, writes docs/lexicon-frequency.tsv
+
+# Rebuild the Urdu -> Roman dictionary (only if the corpus changes)
+uv run python -m scripts.build_translit_dict        # ~10 min
 ```
+
+> **Never rebuild the dictionary from the whole corpus.** 83% of Roman-Urdu-Parl
+> is misaligned between its two files and the script detects and discards it
+> (ADR-014). `tests/test_transliterate.py` pins the words that regress first if
+> that guard is ever removed.
 
 Reading the output: `AGREES` means our spelling matches usage; `CORPUS
 DISAGREES` means it loses and §2 says the corpus wins; `NEAR-TIE` within 15%
@@ -180,15 +188,16 @@ Reading the scorecard:
 ## 6. Training labels
 
 ```bash
-# Small batch first — ~2 h, enough to eyeball the output
-uv run python -m scripts.build_labels --split US-CS --limit 2000
-
-# The real run — ~28 h for 29,749 code-switched utterances
-uv run python -m scripts.build_labels --split US-CS
+uv run python -m scripts.build_labels --split US-CS   # ~3 seconds for 29,749
 ```
 
-Resumable: Ctrl-C, re-run the same command, it skips what is done. Use `screen`
-or `tmux` so closing the terminal does not kill it.
+Seconds, not the 28 hours the neural romanizer needed (ADR-014). Resumable
+anyway: re-running skips what is done.
+
+Each row carries `unknown` (Urdu words the dictionary did not know) and
+`usable`. About 2% of words are unknown; because utterances average ~66 words
+that lands on a third of lines, so filter on the unknown *rate*, not on
+`usable`.
 
 After a spelling-spec change, **do not re-romanize**:
 
@@ -236,15 +245,37 @@ uv run python -m scripts.test_aligner --clips data/eval/alignment
 
 ## 8. Training
 
-Not on this machine — see §1. On a rented box:
+**Production path — a rented GPU box.** Full fine-tuning is the default and
+`src/training/finetune.py` is still a stub.
 
 ```bash
 uv sync --all-extras                      # includes the cuda extra on Linux
 uv run python -m src.training.finetune --config configs/phase1.yaml
 ```
 
-Order: prove the recipe on `Qwen3-ASR-0.6B` first, then scale to `1.7B`. Full
-fine-tuning is the default; LoRA needs an A/B against it first (constraint 6).
+Prove the recipe on `Qwen3-ASR-0.6B` before scaling to `1.7B`.
+
+**Local path — LoRA on Apple Silicon, an experiment only (ADR-016).**
+Constraint 6 requires an A/B against full fine-tuning and that A/B cannot run on
+16 GB, so results here validate the *pipeline*, not the method. Do not quote
+them against the 27.9% baseline.
+
+```bash
+# 1. Choose a subset — the full US-CS audio is 56 GB
+uv run python -m scripts.select_training_subset --hours 20
+
+# 2. Fetch exactly those clips (a directory download pulls all 56 GB)
+uv run python -m scripts.fetch_training_audio --manifest data/labels/train-subset.jsonl
+
+# 3. Train — ~40 min for 20 h on an M4
+uv run python -m scripts.train
+
+# 4. Did output move from Devanagari toward Roman?
+uv run python -m experiments.lora_mps.evaluate_adapter --clips 8
+```
+
+The headline for step 4 is the **script mix**, not CER: CER against a Roman
+reference cannot separate "wrong word" from "right word, wrong alphabet".
 
 ---
 

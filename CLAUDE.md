@@ -176,21 +176,19 @@ Keep this section accurate. If you add or rename a command, update it in the sam
 | Error split | 58.1% acoustic · 39.8% orthographic · 2.1% code-switch |
 | Timing | §4.4 **strategy 1** — direct alignment works, 46 ms median. No Urdu-script bridge |
 
-**Phase 1 — labels and the spelling spec.** In order:
+**Phase 1 is complete.** `SPELLING-SPEC.md` is frozen at 1.0.0 (ADR-015) and
+`data/labels/labels.jsonl` holds 29,749 labels covering 90 h.
 
-1. ~~Extract frequency-ranked vocab from Roman-Urdu-Parl~~ — done (ADR-011).
-   19 canonical spellings were wrong and are now corpus-backed.
-2. Resolve what is left before the freeze: the ⚠️ rows still in §8, 4 `UNSEEN`
-   rows, 1 near-tie, and **the ADR-009 homographs, which frequency did not
-   settle** — the corpus code-switches, so a count for `no` cannot separate
-   English from Urdu نو.
-3. Freeze `SPELLING-SPEC.md` (risk R8 — churn after training is expensive).
-4. Generate training labels; QA 500 samples.
+| | |
+|---|---|
+| Romanization | dictionary lookup, not neural (ADR-014). 83% of Roman-Urdu-Parl is misaligned; the dictionary is built from the rest |
+| Label quality | ~3.5% of words are the wrong word, ~2% unknown. Inherited from the corpus — training cannot fix labels |
+| First training run | LoRA on MPS shifted output from 5.7% to 48.3% Latin. The labels teach Roman (ADR-016) |
 
-Read ADR-009 before touching `src/labeling/`. Respelling of unknown tokens is
-**disabled**: `english.txt` holds 418 words against the 676 distinct English
-words in 35 minutes of real audio, and the rule fallback was corrupting English
-it did not recognise. Four spec tests are strict `xfail` pointing at that ADR.
+**Phase 2 — training.** Full fine-tuning on a rented GPU is the production path
+and `src/training/finetune.py` is still a stub. `scripts/train.py` is the local
+LoRA experiment and is **not** a substitute: constraint 6's A/B cannot run on
+16 GB, so its numbers validate the pipeline, not the method.
 
 Two things that gate quality more than model size:
 
