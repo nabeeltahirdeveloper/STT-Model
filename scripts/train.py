@@ -163,9 +163,21 @@ def main(
                 return_tensors="pt",
             )
             batch = {k: v.to(device) for k, v in batch.items() if hasattr(v, "to")}
-            # Loss is computed against the label text itself: the model is being
-            # taught to emit exactly what the normalizer produced.
-            batch["labels"] = batch["input_ids"].clone()
+
+            # Loss on the transcript only. Cloning input_ids wholesale trains
+            # the model to predict its own prompt as well as the speech, and it
+            # learns to: the first adapter emitted "language Hindi ..." -- the
+            # decoding prefix -- as if it were transcribed audio, and burned
+            # half its output budget doing so.
+            #
+            # The prompt precedes the target, so masking everything but the
+            # final `len(target)` tokens leaves loss on the transcript alone.
+            target = processor.tokenizer(sample.text, add_special_tokens=False).input_ids
+            labels = batch["input_ids"].clone()
+            span = min(len(target), labels.shape[1])
+            if span < labels.shape[1]:
+                labels[:, :-span] = -100
+            batch["labels"] = labels
 
             loss = model.get_base_model().thinker(**batch).loss / accumulate
             loss.backward()
