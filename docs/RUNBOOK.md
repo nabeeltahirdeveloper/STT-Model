@@ -63,9 +63,7 @@ Large downloads are listed with their size so you can decide when to run them.
 
 ```bash
 # Eval + label transcripts — small, needed for everything
-uv run --with huggingface_hub huggingface-cli download ASLP-lab/UrduSpeech \
-  --repo-type dataset --include "corpus/**/*_final_transcription.jsonl" \
-  --local-dir data/raw/urduspeech                                    # 31 MB
+uv run python -m scripts.download_transcripts --corpus-transcripts     # 31 MB
 
 # Spelling frequency corpus — needed to rebuild the lexicon
 uv run --with huggingface_hub huggingface-cli download Mavkif/Roman-Urdu-Parl-split \
