@@ -45,6 +45,11 @@ cuda = [
 ]
 train = [
     "peft>=0.14",
+    # 8-bit Adam: optimizer state 6.2 GB -> 1.6 GB, which is what lets full
+    # fine-tuning fit on a 16 GB T4 instead of forcing LoRA (ADR-003).
+    # Linux-only, like flash-attn -- there is no CUDA on macOS.
+    "bitsandbytes>=0.45; sys_platform == 'linux'",
+    "accelerate>=1.0",
 ]
 
 # PEP 735. Dev tooling is not a feature of the package, so it does not belong in

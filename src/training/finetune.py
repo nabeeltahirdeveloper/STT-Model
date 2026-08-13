@@ -159,6 +159,7 @@ def main(
     print(f"trainable params: {trainable:,}  (full fine-tune, not LoRA)")
 
     optimizer = AdamW8bit(model.parameters(), lr=learning_rate)
+    print("optimizer created", flush=True)
     steps = math.ceil(len(samples) * epochs / accumulate)
     scheduler = torch.optim.lr_scheduler.OneCycleLR(
         optimizer,
@@ -187,7 +188,9 @@ def main(
     seen, running = 0, 0.0
 
     for _epoch in range(epochs):
+        print(f"Starting epoch {_epoch}", flush=True)
         for sample in samples:
+            print(f"Loading {sample.audio}", flush=True)
             waveform, rate = torchaudio.load(sample.audio)
             if waveform.shape[0] > 1:
                 waveform = waveform.mean(dim=0, keepdim=True)

@@ -2394,6 +2394,8 @@ cuda = [
     { name = "flash-attn", marker = "sys_platform == 'linux'" },
 ]
 train = [
+    { name = "accelerate" },
+    { name = "bitsandbytes", marker = "sys_platform == 'linux'" },
     { name = "peft" },
 ]
 
@@ -2414,7 +2416,9 @@ labels = [
 [package.metadata]
 requires-dist = [
     { name = "accelerate", marker = "extra == 'cuda'" },
+    { name = "accelerate", marker = "extra == 'train'", specifier = ">=1.0" },
     { name = "bitsandbytes", marker = "sys_platform == 'linux' and extra == 'cuda'" },
+    { name = "bitsandbytes", marker = "sys_platform == 'linux' and extra == 'train'", specifier = ">=0.45" },
     { name = "demucs", marker = "extra == 'align'" },
     { name = "fastapi" },
     { name = "flash-attn", marker = "sys_platform == 'linux' and extra == 'cuda'" },
