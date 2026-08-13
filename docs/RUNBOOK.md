@@ -63,17 +63,17 @@ Large downloads are listed with their size so you can decide when to run them.
 
 ```bash
 # Eval + label transcripts — small, needed for everything
-uv run --with huggingface_hub hf download ASLP-lab/UrduSpeech \
+uv run --with huggingface_hub huggingface-cli download ASLP-lab/UrduSpeech \
   --repo-type dataset --include "corpus/**/*_final_transcription.jsonl" \
   --local-dir data/raw/urduspeech                                    # 31 MB
 
 # Spelling frequency corpus — needed to rebuild the lexicon
-uv run --with huggingface_hub hf download Mavkif/Roman-Urdu-Parl-split \
+uv run --with huggingface_hub huggingface-cli download Mavkif/Roman-Urdu-Parl-split \
   --repo-type dataset --include "original_data/roman-urdu.txt" \
   --local-dir data/raw/roman-urdu-parl                               # 455 MB
 
 # ASR model — needed for baselines and inference
-uv run --with huggingface_hub hf download Qwen/Qwen3-ASR-1.7B        # 4.4 GB
+uv run --with huggingface_hub huggingface-cli download Qwen/Qwen3-ASR-1.7B        # 4.4 GB
 
 # Audio for training — only needed on the training box, not here
 # corpus/US-CS is 56 GB. Do not download it to a 78 GB laptop.
