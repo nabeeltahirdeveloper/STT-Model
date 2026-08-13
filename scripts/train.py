@@ -186,11 +186,13 @@ def main(
     seen = 0
     running = 0.0
 
+    from src.training.finetune import load_audio
+
     for epoch in range(epochs):
         for sample in samples:
-            waveform, rate = torchaudio.load(sample.audio)
-            if waveform.shape[0] > 1:
-                waveform = waveform.mean(dim=0, keepdim=True)
+            # Shared with finetune.py: torchaudio.load routes through TorchCodec
+            # since 2.11 and is not usable without it.
+            waveform, rate = load_audio(sample.audio)
             if rate != 16_000:
                 waveform = torchaudio.functional.resample(waveform, rate, 16_000)
 

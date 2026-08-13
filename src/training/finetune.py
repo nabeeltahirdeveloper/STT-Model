@@ -43,6 +43,10 @@ import math
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:  # torch is imported inside the functions that need it
+    import torch
 
 MANIFEST = Path("data/labels/train-subset.jsonl")
 OUT = Path("out/finetuned")
@@ -54,6 +58,31 @@ class Sample:
     audio: Path
     text: str
     seconds: float
+
+
+def load_audio(path: Path) -> tuple[torch.Tensor, int]:
+    """Read one clip as mono float32, shaped (1, samples).
+
+    soundfile rather than `torchaudio.load`, which since torchaudio 2.11
+    delegates to TorchCodec -- an extra dependency that pulls in an ffmpeg
+    toolchain and was absent on Colab, so the first training step of the session
+    died on the import. soundfile is already present via librosa, reads the
+    16-bit PCM WAV this corpus ships, and needs no codec chain.
+
+    `torchaudio.functional.resample` is unaffected: it is pure tensor maths and
+    is still what does the resampling at the call site.
+    """
+    # Imported here, not at module scope, to match the rest of this file: the
+    # heavy imports stay inside the functions that need them so `--help` and the
+    # manifest checks do not pay for loading torch.
+    import soundfile
+    import torch
+
+    data, rate = soundfile.read(str(path), dtype="float32", always_2d=True)
+    waveform = torch.from_numpy(data).T  # soundfile gives (samples, channels)
+    if waveform.shape[0] > 1:
+        waveform = waveform.mean(dim=0, keepdim=True)
+    return waveform, int(rate)
 
 
 def load_manifest(path: Path, max_seconds: float, limit: int) -> list[Sample]:
@@ -190,10 +219,7 @@ def main(
     for _epoch in range(epochs):
         print(f"Starting epoch {_epoch}", flush=True)
         for sample in samples:
-            print(f"Loading {sample.audio}", flush=True)
-            waveform, rate = torchaudio.load(sample.audio)
-            if waveform.shape[0] > 1:
-                waveform = waveform.mean(dim=0, keepdim=True)
+            waveform, rate = load_audio(sample.audio)
             if rate != 16_000:
                 waveform = torchaudio.functional.resample(waveform, rate, 16_000)
 

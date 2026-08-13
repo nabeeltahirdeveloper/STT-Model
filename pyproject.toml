@@ -145,6 +145,7 @@ module = [
     "bitsandbytes.*",
     "torch.*",
     "torchaudio.*",
+    "soundfile.*",
     "transformers.*",
 ]
 ignore_missing_imports = true
