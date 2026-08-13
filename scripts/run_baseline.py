@@ -49,11 +49,17 @@ def main(
     out_dir: str = str(OUT),
     batch_size: int = 8,
     limit: int = 0,
+    romanize_output: bool = True,
 ) -> None:
     """Transcribe every eval clip, then romanize the result.
 
     Args:
         limit: stop after this many clips, for a quick smoke run. 0 means all.
+        romanize_output: run the Devanagari->Roman converter over the output.
+            True for a stock model, which emits Devanagari (ADR-010). **False
+            for a fine-tuned one**, whose whole purpose is to emit Roman
+            already -- passing its output through the converter a second time
+            would rewrite correct Roman rather than measure it.
     """
     warnings.filterwarnings("ignore")
     from qwen_asr import Qwen3ASRModel
@@ -89,6 +95,11 @@ def main(
         _write(destination / "baseline-raw.txt", raw)
 
     print(f"\ntranscribed in {(time.time() - started) / 60:.1f} min", flush=True)
+
+    if not romanize_output:
+        print(f"\nraw output kept as the prediction -> {destination / 'baseline-raw.txt'}")
+        print("(--no-romanize-output: this model is expected to emit Roman itself)")
+        return
 
     print("romanizing (Devanagari -> Roman, English left alone) ...", flush=True)
     from scripts.romanize_via_opencut import romanize
