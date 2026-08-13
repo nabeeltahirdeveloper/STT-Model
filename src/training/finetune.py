@@ -85,6 +85,38 @@ def load_audio(path: Path) -> tuple[torch.Tensor, int]:
     return waveform, int(rate)
 
 
+def sanitize_generation_config(config: object) -> list[str]:
+    """Reset sampling settings that transformers refuses to save. Returns changes.
+
+    Qwen3-ASR ships a generation_config.json carrying `temperature=1e-06`
+    alongside `do_sample=False`. Since 4.5x, `save_pretrained` validates that
+    config strictly and raises, so a run trains to completion and then cannot
+    write its own checkpoint -- the failure lands at the end, where it costs the
+    whole session rather than a minute.
+
+    Greedy decoding never reads these values, so resetting them to the defaults
+    transformers considers unset changes no behaviour. Fixing this at save time
+    rather than at load keeps the loaded model identical to the published one.
+    """
+    unset = {
+        "temperature": 1.0,
+        "top_p": 1.0,
+        "top_k": 50,
+        "typical_p": 1.0,
+        "epsilon_cutoff": 0.0,
+        "eta_cutoff": 0.0,
+    }
+    if getattr(config, "do_sample", False):
+        return []
+    changed = []
+    for name, default in unset.items():
+        current = getattr(config, name, default)
+        if current != default:
+            changed.append(f"{name}={current!r}")
+            setattr(config, name, default)
+    return changed
+
+
 def load_manifest(path: Path, max_seconds: float, limit: int) -> list[Sample]:
     """Rows whose audio is present, short enough, and whose label is complete."""
     samples: list[Sample] = []
@@ -201,6 +233,8 @@ def main(
     destination.mkdir(parents=True, exist_ok=True)
 
     def save(note: str) -> None:
+        if changes := sanitize_generation_config(model.generation_config):
+            print(f"  generation_config reset to defaults: {', '.join(changes)}", flush=True)
         model.save_pretrained(destination)
         processor.save_pretrained(destination)
         if hf_repo:
