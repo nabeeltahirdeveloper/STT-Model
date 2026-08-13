@@ -67,3 +67,44 @@ def test_reports_every_offending_field_at_once() -> None:
     assert any("temperature" in c for c in changed)
     assert any("top_p" in c for c in changed)
     config.validate(strict=True)
+
+
+class TestChoosePrecision:
+    """bfloat16 has no tensor-core path before Ampere (sm_80).
+
+    The first full run trained on a T4 -- Turing, sm_75 -- in bf16, which works
+    but never touches the fast path. It held 7.1 GB of 15 GB and ran at the
+    speed that implies.
+    """
+
+    def test_turing_t4_gets_fp16(self) -> None:
+        from src.training.finetune import choose_precision
+
+        assert choose_precision(7, 5) == "fp16"
+
+    def test_ampere_a100_gets_bf16(self) -> None:
+        from src.training.finetune import choose_precision
+
+        assert choose_precision(8, 0) == "bf16"
+
+    def test_hopper_gets_bf16(self) -> None:
+        from src.training.finetune import choose_precision
+
+        assert choose_precision(9, 0) == "bf16"
+
+    def test_volta_v100_gets_fp16(self) -> None:
+        from src.training.finetune import choose_precision
+
+        assert choose_precision(7, 0) == "fp16"
+
+    @pytest.mark.parametrize("requested", ["fp16", "bf16", "fp32"])
+    def test_an_explicit_request_overrides_the_hardware(self, requested: str) -> None:
+        from src.training.finetune import choose_precision
+
+        assert choose_precision(7, 5, requested) == requested
+
+    def test_a_typo_is_rejected_rather_than_silently_defaulted(self) -> None:
+        from src.training.finetune import choose_precision
+
+        with pytest.raises(ValueError, match="precision must be"):
+            choose_precision(7, 5, "float16")

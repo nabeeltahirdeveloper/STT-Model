@@ -20,6 +20,14 @@ Fitting ~780M trainable parameters in a 16 GB T4:
     ------------------------------------
                                  ~10-12 GB
 
+The first full run measured 7.1 GB of 15 GB in use, so that estimate is
+conservative and there is real headroom on a T4. Two knobs spend it:
+`--no-checkpointing` returns the third of step time that recomputing
+activations costs, and `--precision fp16` reaches Turing's tensor cores, which
+bf16 cannot before sm_80. Neither is the default, because an OOM or a diverged
+loss halfway through a four-hour session costs more than the speed is worth --
+raise them against a known-good run and watch the peak-memory column.
+
 `bitsandbytes` supplies the 8-bit optimizer and gradient checkpointing trades
 compute for activation memory. Both are CUDA-only, which is why this cannot run
 on Apple Silicon and `scripts/train.py` exists separately.
@@ -83,6 +91,24 @@ def load_audio(path: Path) -> tuple[torch.Tensor, int]:
     if waveform.shape[0] > 1:
         waveform = waveform.mean(dim=0, keepdim=True)
     return waveform, int(rate)
+
+
+def choose_precision(major: int, minor: int, requested: str = "auto") -> str:
+    """Pick the training dtype for a GPU of the given compute capability.
+
+    bfloat16 has no tensor-core path before Ampere (sm_80). On the T4 this
+    project trains on -- Turing, sm_75 -- a bf16 run therefore works while
+    leaving the fast path unused, which is why the first full run held only
+    7.1 GB of 15 GB and no more speed than that implies. float16 does hit
+    Turing's tensor cores, at the cost of needing loss scaling.
+
+    Returns "fp16", "bf16" or "fp32"; `requested` overrides the choice.
+    """
+    if requested != "auto":
+        if requested not in {"fp16", "bf16", "fp32"}:
+            raise ValueError(f"precision must be auto, fp16, bf16 or fp32, not {requested!r}")
+        return requested
+    return "bf16" if (major, minor) >= (8, 0) else "fp16"
 
 
 def sanitize_generation_config(config: object) -> list[str]:
@@ -150,6 +176,13 @@ def main(
     epochs: int = 1,
     learning_rate: float = 2e-5,
     accumulate: int = 16,
+    # bf16, not auto. bf16 is what the first successful full run used, and pure
+    # float16 training keeps no float32 master weights, so it is the less
+    # forgiving of the two -- a change to make deliberately, measured against a
+    # known-good run, rather than inherited by anyone who omits the flag.
+    # `--precision auto` selects fp16 on Turing, where bf16 has no tensor cores.
+    precision: str = "bf16",
+    checkpointing: bool = True,
     max_seconds: float = 20.0,
     limit: int = 0,
     max_minutes: float = 0.0,
@@ -200,7 +233,16 @@ def main(
     source = resume if resume and Path(resume).exists() else base
     print(f"loading {source} ...", flush=True)
     processor = Qwen3ASRProcessor.from_pretrained(base)
-    model = Qwen3ASRForConditionalGeneration.from_pretrained(source, dtype=torch.bfloat16)
+
+    major, minor = torch.cuda.get_device_capability(0)
+    chosen = choose_precision(major, minor, precision)
+    dtypes = {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}
+    print(
+        f"compute capability {major}.{minor} · precision {chosen}"
+        f"{' (bf16 has no tensor cores before sm_80)' if chosen == 'fp16' else ''}",
+        flush=True,
+    )
+    model = Qwen3ASRForConditionalGeneration.from_pretrained(source, dtype=dtypes[chosen])
 
     # Verified in scripts/train.py against the package source: input_ids from
     # processor(text=...) contains ONLY what is passed, so the chat template has
@@ -212,12 +254,23 @@ def main(
     prompt_len = len(processor.tokenizer(prompt, add_special_tokens=False).input_ids)
     print(f"prompt: {prompt_len} tokens", flush=True)
 
-    model.gradient_checkpointing_enable()
-    model.config.use_cache = False  # incompatible with checkpointing
+    # Gradient checkpointing recomputes activations instead of storing them:
+    # roughly a third of the step time, bought back as memory. The first full
+    # run peaked at 7.1 GB of 15 GB, so on a T4 there is headroom to turn it
+    # off -- but a longer clip costs more activation memory than a short one,
+    # and the cost of guessing wrong is an OOM partway through a session.
+    if checkpointing:
+        model.gradient_checkpointing_enable()
+        model.config.use_cache = False  # incompatible with checkpointing
     model.to(device)
     model.train()
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print(f"trainable params: {trainable:,}  (full fine-tune, not LoRA)")
+
+    # float16 gradients underflow to zero without scaling. bfloat16 carries
+    # float32's exponent range and needs none, so the scaler is enabled only
+    # where it is load-bearing.
+    scaler = torch.amp.GradScaler("cuda", enabled=chosen == "fp16")
 
     optimizer = AdamW8bit(model.parameters(), lr=learning_rate)
     print("optimizer created", flush=True)
@@ -277,19 +330,24 @@ def main(
             batch["labels"] = labels
 
             loss = model.thinker(**batch).loss / accumulate
-            loss.backward()
+            scaler.scale(loss).backward()
             running += loss.item() * accumulate
             seen += 1
 
             if seen % accumulate == 0:
+                # Gradients must be unscaled before the norm is measured, or
+                # the clip threshold means whatever the scale happens to be.
+                scaler.unscale_(optimizer)
                 torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-                optimizer.step()
+                scaler.step(optimizer)
+                scaler.update()
                 scheduler.step()
                 optimizer.zero_grad(set_to_none=True)
                 step = seen // accumulate
                 elapsed = time.time() - started
                 print(
                     f"  step {step}/{steps} loss {running / accumulate:.4f} · "
+                    f"{torch.cuda.max_memory_allocated() / 1e9:.1f} GB peak · "
                     f"{(len(samples) * epochs - seen) * elapsed / seen / 60:.0f} min left",
                     flush=True,
                 )
