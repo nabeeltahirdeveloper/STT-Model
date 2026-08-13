@@ -48,14 +48,27 @@ def main(
         print("nothing to do")
         return
 
+    import concurrent.futures
+
     failed: list[str] = []
-    for index, name in enumerate(wanted, start=1):
+
+    def download_one(name: str) -> str | None:
         try:
             hf_hub_download(repo, name, repo_type="dataset", local_dir=str(root))
+            return None
         except Exception as error:  # noqa: BLE001 - one bad clip must not end the run
-            failed.append(f"{name}: {type(error).__name__}")
-        if index % 250 == 0 or index == len(wanted):
-            print(f"  {index:,}/{len(wanted):,}", flush=True)
+            return f"{name}: {type(error).__name__}"
+
+    done_count = 0
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
+        futures = {executor.submit(download_one, n): n for n in wanted}
+        for future in concurrent.futures.as_completed(futures):
+            done_count += 1
+            if done_count % 50 == 0 or done_count == len(wanted):
+                print(f"  {done_count:,}/{len(wanted):,}", flush=True)
+            err = future.result()
+            if err:
+                failed.append(err)
 
     # local_dir keeps a .cache of metadata beside the files; it is not needed
     # once the download is complete and it doubles the disk cost.
