@@ -2395,6 +2395,7 @@ train = [
     { name = "accelerate" },
     { name = "bitsandbytes", marker = "sys_platform == 'linux'" },
     { name = "peft" },
+    { name = "torchaudio" },
 ]
 
 [package.dev-dependencies]
@@ -2426,6 +2427,7 @@ requires-dist = [
     { name = "qwen-asr" },
     { name = "torch" },
     { name = "torchaudio", marker = "extra == 'align'" },
+    { name = "torchaudio", marker = "extra == 'train'" },
     { name = "transformers" },
     { name = "typer" },
     { name = "uvicorn" },

@@ -43,6 +43,10 @@ cuda = [
 ]
 train = [
     "peft>=0.14",
+    # finetune.py loads and resamples clips with torchaudio. It is also in the
+    # align extra, but training does not imply alignment -- syncing only
+    # --extra train left it absent and the smoke test died on the import.
+    "torchaudio",
     # 8-bit Adam: optimizer state 6.2 GB -> 1.6 GB, which is what lets full
     # fine-tuning fit on a 16 GB T4 instead of forcing LoRA (ADR-003).
     # Linux-only, like flash-attn -- there is no CUDA on macOS.

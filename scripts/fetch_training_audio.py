@@ -14,18 +14,64 @@ interrupted download costs only what it had not yet reached.
 from __future__ import annotations
 
 import json
+import random
+import time
 from pathlib import Path
 
 MANIFEST = Path("data/labels/train-subset.jsonl")
 LOCAL = Path("data/raw/urduspeech")
+
+# The Hub throttles by request rate, and a clip is a single small file, so
+# concurrency buys throughput right up to the point where it stops buying
+# anything: 16 workers over 13,470 clips returned 11,910 HTTP failures in 169
+# seconds -- roughly 80 requests a second, answered with 429s. Eight is below
+# the point where the Hub pushes back, and the retry below absorbs the rest.
+WORKERS = 8
+RETRIES = 5
+
+
+def _fetch_with_retry(
+    download: object,
+    repo: str,
+    name: str,
+    root: Path,
+    retries: int,
+    sleep: object = time.sleep,
+    jitter: object = random.random,
+) -> str | None:
+    """Download one clip, backing off on failure. Returns an error, or None.
+
+    Rate limiting is transient by definition, so a failed clip is retried rather
+    than recorded: the earlier version treated a 429 as permanent and lost 88%
+    of the download to it. Backoff is exponential with jitter, because 8 threads
+    retrying in lockstep reproduce the burst that caused the throttling.
+    """
+    delay = 1.0
+    for attempt in range(retries):
+        try:
+            download(repo, name, repo_type="dataset", local_dir=str(root))  # type: ignore[operator]
+        except Exception as error:  # noqa: BLE001 - one bad clip must not end the run
+            if attempt == retries - 1:
+                # The status code is the whole diagnosis -- 429 means slow down,
+                # 401 means the token is wrong, 404 means the manifest is stale.
+                # Recording only the exception type hid that distinction once.
+                return f"{name}: {type(error).__name__}: {str(error).splitlines()[0][:160]}"
+            sleep(delay + jitter())  # type: ignore[operator]
+            delay *= 2
+        else:
+            return None
+    return None
 
 
 def main(
     manifest: str = str(MANIFEST),
     local_dir: str = str(LOCAL),
     repo: str = "ASLP-lab/UrduSpeech",
+    workers: int = WORKERS,
+    retries: int = RETRIES,
 ) -> None:
     """Fetch every clip the manifest references that is not already local."""
+    import concurrent.futures
     import shutil
 
     from huggingface_hub import hf_hub_download
@@ -43,29 +89,30 @@ def main(
 
     hours = sum(float(r.get("duration_s") or 0) for r in rows) / 3600
     print(f"{len(rows):,} clips in the manifest ({hours:.1f} h)")
-    print(f"{len(wanted):,} to download; the rest are already on disk\n")
+    print(f"{len(wanted):,} to download; the rest are already on disk")
+    print(f"{workers} workers, {retries} attempts each\n")
     if not wanted:
         print("nothing to do")
         return
 
-    import concurrent.futures
-
     failed: list[str] = []
-
-    def download_one(name: str) -> str | None:
-        try:
-            hf_hub_download(repo, name, repo_type="dataset", local_dir=str(root))
-            return None
-        except Exception as error:  # noqa: BLE001 - one bad clip must not end the run
-            return f"{name}: {type(error).__name__}"
-
     done_count = 0
-    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
-        futures = {executor.submit(download_one, n): n for n in wanted}
+    started = time.time()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = [
+            executor.submit(_fetch_with_retry, hf_hub_download, repo, name, root, retries)
+            for name in wanted
+        ]
         for future in concurrent.futures.as_completed(futures):
             done_count += 1
-            if done_count % 50 == 0 or done_count == len(wanted):
-                print(f"  {done_count:,}/{len(wanted):,}", flush=True)
+            if done_count % 250 == 0 or done_count == len(wanted):
+                rate = done_count / max(time.time() - started, 1e-9)
+                left = (len(wanted) - done_count) / max(rate, 1e-9) / 60
+                print(
+                    f"  {done_count:,}/{len(wanted):,}"
+                    f" · {len(failed):,} failed · {left:.0f} min left",
+                    flush=True,
+                )
             err = future.result()
             if err:
                 failed.append(err)
@@ -74,11 +121,17 @@ def main(
     # once the download is complete and it doubles the disk cost.
     shutil.rmtree(root / ".cache", ignore_errors=True)
 
-    print(f"\ndone. {len(wanted) - len(failed):,} fetched, {len(failed)} failed")
+    fetched = len(wanted) - len(failed)
+    print(f"\ndone. {fetched:,} fetched, {len(failed):,} failed")
     for line in failed[:10]:
         print(f"  {line}")
+
     if failed:
-        print("Re-run to retry the failures; existing files are skipped.")
+        print("\nRe-run to retry the failures; existing files are skipped.")
+        # A partial download used to exit 0, so the run continued and the
+        # shortfall surfaced later as an unexplained error from the training
+        # script. Exit non-zero so the failure is attributed where it happened.
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":  # pragma: no cover
