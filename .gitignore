@@ -63,7 +63,11 @@ mlruns/
 *.swp
 
 *.zip
-test_*.py
+
+# Scratch test scripts dropped at the repo root. Anchored, because unanchored
+# this matched tests/test_*.py too and silently refused every new test file --
+# the suite in tests/ survives only by predating the rule.
+/test_*.py
 
 # --- Credentials ----------------------------------------------------------
 # The repository is public. Nothing here has ever contained a secret and it
