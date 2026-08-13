@@ -159,6 +159,6 @@ def test_shipped_loanwords_load() -> None:
 
     loans = load_loanwords()
     assert len(loans) >= 20
-    assert all(
-        not any("؀" <= c <= "ۿ" for c in v) for v in loans.values()
-    ), "a loanword maps to Urdu script; the English column is wrong"
+    assert all(not any("؀" <= c <= "ۿ" for c in v) for v in loans.values()), (
+        "a loanword maps to Urdu script; the English column is wrong"
+    )

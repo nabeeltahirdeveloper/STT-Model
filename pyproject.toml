@@ -114,6 +114,10 @@ known-first-party = ["src", "scripts", "tests"]
 # Tests assert on literal spelling pairs; long table rows are more readable unwrapped.
 "tests/*" = ["E501"]
 
+# A notebook cell imports what it needs, where it needs it -- torch must not be
+# imported before the cell that checks a GPU exists. E402 assumes a module.
+"notebooks/*.ipynb" = ["E402"]
+
 # --------------------------------------------------------------------------- #
 # Types
 # --------------------------------------------------------------------------- #
