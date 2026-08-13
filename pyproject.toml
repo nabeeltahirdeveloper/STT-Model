@@ -40,8 +40,6 @@ align = [
 # torch exists, then again so flash-attn can build against it.
 cuda = [
     "flash-attn; sys_platform == 'linux'",
-    "bitsandbytes; sys_platform == 'linux'",
-    "accelerate",
 ]
 train = [
     "peft>=0.14",
