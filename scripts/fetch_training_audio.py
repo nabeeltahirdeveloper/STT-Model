@@ -21,6 +21,24 @@ from pathlib import Path
 MANIFEST = Path("data/labels/train-subset.jsonl")
 LOCAL = Path("data/raw/urduspeech")
 
+# The corpus has `PODCAST/` and `Podcast/` as separate directories, which cannot
+# both exist on a case-insensitive filesystem. The eval set was built on macOS,
+# where the second one was written as `Podcast2/`, and the manifest recorded
+# that -- so the local path is right and the *repository* path is not. 36 of the
+# 269 eval clips 404 on Linux without this. The manifest is not rewritten
+# because data/eval/ is frozen (constraint 5); the divergence is resolved here,
+# where it arises.
+REPO_ALIASES = {"/Podcast2/": "/Podcast/"}
+
+
+def repo_path(local_relative: str) -> str:
+    """Map a local path to the path the Hub actually serves."""
+    for local, remote in REPO_ALIASES.items():
+        if local in local_relative:
+            return local_relative.replace(local, remote)
+    return local_relative
+
+
 # The Hub throttles by request rate, and a clip is a single small file, so
 # concurrency buys throughput right up to the point where it stops buying
 # anything: 16 workers over 13,470 clips returned 11,910 HTTP failures in 169
@@ -46,10 +64,19 @@ def _fetch_with_retry(
     of the download to it. Backoff is exponential with jitter, because 8 threads
     retrying in lockstep reproduce the burst that caused the throttling.
     """
+    remote = repo_path(name)
     delay = 1.0
     for attempt in range(retries):
         try:
-            download(repo, name, repo_type="dataset", local_dir=str(root))  # type: ignore[operator]
+            download(repo, remote, repo_type="dataset", local_dir=str(root))  # type: ignore[operator]
+            # local_dir writes the file under its *repository* path. Where that
+            # differs from the manifest's path, move it to where the manifest
+            # says, or every later `audio.exists()` check fails on a file that
+            # was in fact downloaded.
+            if remote != name:
+                destination = root / name
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                (root / remote).replace(destination)
         except Exception as error:  # noqa: BLE001 - one bad clip must not end the run
             if attempt == retries - 1:
                 # The status code is the whole diagnosis -- 429 means slow down,

@@ -93,3 +93,52 @@ def test_a_multiline_error_is_collapsed_to_one_line() -> None:
     assert err is not None
     assert "\n" not in err
     assert "429" in err
+
+
+class TestRepoPathAliases:
+    """`PODCAST/` and `Podcast/` cannot coexist on a case-insensitive filesystem.
+
+    The eval set was built on macOS, where the second was written as
+    `Podcast2/`, and the manifest recorded that. The local path is therefore
+    correct and the repository path is not: 36 of the 269 eval clips 404 on
+    Linux without the alias. data/eval/ is frozen (constraint 5), so the
+    divergence is resolved in the fetcher rather than by rewriting the manifest.
+    """
+
+    def test_podcast2_maps_to_the_directory_the_hub_serves(self) -> None:
+        from scripts.fetch_training_audio import repo_path
+
+        local = "benchmark/US-benchmark-CS/short/Podcast2/audio/SPEAKER_002_Podcast_0167.wav"
+        assert repo_path(local) == (
+            "benchmark/US-benchmark-CS/short/Podcast/audio/SPEAKER_002_Podcast_0167.wav"
+        )
+
+    def test_unrelated_paths_are_untouched(self) -> None:
+        from scripts.fetch_training_audio import repo_path
+
+        path = "corpus/US-CS/short/drama/audio/SPEAKER_1216_DRAMA_011503.wav"
+        assert repo_path(path) == path
+
+    def test_the_uppercase_podcast_directory_is_not_rewritten(self) -> None:
+        """`PODCAST/` is a real, distinct directory. Only `Podcast2/` is local."""
+        from scripts.fetch_training_audio import repo_path
+
+        path = "benchmark/US-benchmark-CS/long/PODCAST/audio/SPEAKER_000_PODCAST_0002.WAV"
+        assert repo_path(path) == path
+
+    def test_a_downloaded_alias_is_moved_to_the_manifest_path(self, tmp_path) -> None:  # type: ignore[no-untyped-def]
+        """Downloading is not enough: local_dir writes under the *repo* path."""
+        from scripts.fetch_training_audio import _fetch_with_retry
+
+        local = "benchmark/US-benchmark-CS/short/Podcast2/audio/a.wav"
+        remote = "benchmark/US-benchmark-CS/short/Podcast/audio/a.wav"
+
+        def fake_download(repo, name, repo_type, local_dir):  # type: ignore[no-untyped-def]
+            assert name == remote, f"asked the Hub for {name}"
+            written = tmp_path / name
+            written.parent.mkdir(parents=True, exist_ok=True)
+            written.write_bytes(b"audio")
+
+        assert _fetch_with_retry(fake_download, "r", local, tmp_path, 1) is None
+        assert (tmp_path / local).exists(), "file must land where the manifest expects it"
+        assert not (tmp_path / remote).exists(), "and must not be left at the repo path"
