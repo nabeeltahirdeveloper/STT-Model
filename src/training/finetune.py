@@ -421,7 +421,13 @@ def main(
                         **inputs, max_new_tokens=180, do_sample=False
                     )
                 new = generated[0][inputs["input_ids"].shape[-1] :]
-                text_out = processor.tokenizer.decode(new, skip_special_tokens=True).strip()
+                raw_out = processor.tokenizer.decode(new, skip_special_tokens=True)
+                # Inference emits "language {Lang}<asr_text>{transcript}" and
+                # parse_asr_output keeps only what follows the tag. Comparing the
+                # raw string against a bare label counts the prefix as error and
+                # inflates every ratio -- the first probe read 11.5x on a clip
+                # whose prefix was most of the difference.
+                text_out = raw_out.split("<asr_text>")[-1].strip()
                 ratio = len(text_out) / max(len(sample.text), 1)
                 flag = "  <-- RUNAWAY" if ratio > 2.0 else ""
                 print(f"    label({len(sample.text):>4}): {sample.text[:90]}", flush=True)
