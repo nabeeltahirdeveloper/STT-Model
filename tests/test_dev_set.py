@@ -128,10 +128,18 @@ def test_selection_targets_the_median_label_length_not_the_shortest() -> None:
     as 133%: a real run reported 49.9% then 170.6% while loss, p(eos) and the
     sample transcripts were all steady. The eval set medians ~99 characters.
     """
+    # A realistic spread, 5 to 185 characters, median 95.
     rows = _rows(90)
     for i, row in enumerate(rows):
-        row["label"] = "x" * (5 if i % 3 == 0 else 100 if i % 3 == 1 else 50)
+        row["label"] = "x" * (5 + i * 2)
     chosen = select(rows, 9, 1.0, 20.0, 0.02)
-    lengths = [len(str(r["label"])) for r in chosen]
-    assert sum(lengths) / len(lengths) > 30, f"picked short clips: {lengths}"
-    assert 5 not in lengths, "the shortest clips must not dominate"
+    lengths = sorted(len(str(r["label"])) for r in chosen)
+
+    median = 5 + (len(rows) // 2) * 2
+    average = sum(lengths) / len(lengths)
+    assert abs(average - median) < 20, f"selection is not centred on {median}: {lengths}"
+
+    # And the contrast with what the first version did.
+    shortest_nine = sorted(5 + i * 2 for i in range(9))
+    assert lengths != shortest_nine, "this is shortest-first, the bug being fixed"
+    assert min(lengths) > max(shortest_nine), f"short clips still dominate: {lengths}"
