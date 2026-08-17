@@ -50,6 +50,7 @@ def main(
     batch_size: int = 8,
     limit: int = 0,
     romanize_output: bool = True,
+    device: str = "auto",
 ) -> None:
     """Transcribe every eval clip, then romanize the result.
 
@@ -70,8 +71,26 @@ def main(
     audio_minutes = sum(float(row["duration_s"]) for row in rows) / 60
     print(f"{len(rows)} clips · {audio_minutes:.1f} min", flush=True)
 
-    print(f"loading {model_id} ...", flush=True)
-    model = Qwen3ASRModel.from_pretrained(model_id)
+    # from_pretrained leaves the model wherever transformers puts it, which is
+    # the CPU. A T4 run showed 0.0 GB of 15 GB in use and took hours; the card
+    # was never asked to do anything. device_map is forwarded to
+    # AutoModel.from_pretrained, so placement has to be requested explicitly.
+    import torch
+
+    if device == "auto":
+        device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else "mps"
+            if torch.backends.mps.is_available()
+            else "cpu"
+        )
+    # bfloat16 is what the checkpoint ships, and it is fine on CUDA. MPS support
+    # for it is patchy, so Apple Silicon gets float16 instead -- same size, and
+    # inference does not need bf16's exponent range.
+    dtype = torch.float16 if device == "mps" else torch.bfloat16
+    print(f"loading {model_id} on {device} ({dtype}) ...", flush=True)
+    model = Qwen3ASRModel.from_pretrained(model_id, device_map=device, dtype=dtype)
 
     destination = Path(out_dir)
     raw: list[str] = []
