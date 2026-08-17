@@ -85,10 +85,16 @@ def main(
             if torch.backends.mps.is_available()
             else "cpu"
         )
-    # bfloat16 is what the checkpoint ships, and it is fine on CUDA. MPS support
-    # for it is patchy, so Apple Silicon gets float16 instead -- same size, and
-    # inference does not need bf16's exponent range.
-    dtype = torch.float16 if device == "mps" else torch.bfloat16
+    # float16 unless the GPU has native bfloat16, which starts at Ampere
+    # (sm_80). A T4 is Turing: bf16 there is emulated, and the upcast blew 15.4
+    # of 15.6 GB on a 0.6B model, OOMing after two clips. MPS support for bf16
+    # is patchy for the same practical reason. Inference does not need bf16's
+    # exponent range, so fp16 is both smaller and the faster path.
+    dtype = torch.float16
+    if device == "cuda":
+        major, minor = torch.cuda.get_device_capability(0)
+        if (major, minor) >= (8, 0):
+            dtype = torch.bfloat16
     print(f"loading {model_id} on {device} ({dtype}) ...", flush=True)
     model = Qwen3ASRModel.from_pretrained(model_id, device_map=device, dtype=dtype)
 
