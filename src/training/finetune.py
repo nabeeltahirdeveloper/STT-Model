@@ -381,16 +381,25 @@ def main(
         tell: the broken checkpoint ran 1.76x its reference on average and 27x
         on one clip.
 
-        Wrapped in try/except because a diagnostic must never be what ends a
-        four-hour session -- if generation fails, training carries on.
+        Nothing here may end a run. That guarantee was claimed once and was
+        false: reading the cache flag sat *outside* the try, and it raised on
+        the first probe of a real session, killing the rehearsal it existed to
+        protect. Every statement now sits inside the guard, including the
+        setup.
         """
         if not probes:
             return
-        cache_was = model.config.use_cache
+        cache_was = False
         try:
+            # getattr, not attribute access: Qwen3ASRConfig does not define
+            # use_cache, and the training path only ever *assigns* it -- inside
+            # the `if checkpointing` branch, which --no-checkpointing skips.
+            cache_was = getattr(model.config, "use_cache", False)
             model.eval()
             # Generation needs the KV cache that gradient checkpointing disables.
             model.config.use_cache = True
+            if hasattr(model, "thinker"):
+                model.thinker.config.use_cache = True
             print(f"  --- probe at step {step} " + "-" * 30, flush=True)
             for sample in probes:
                 wave, rate_in = load_audio(sample.audio)
@@ -425,7 +434,13 @@ def main(
                 flush=True,
             )
         finally:
-            model.config.use_cache = cache_was
+            # A cleanup that raises would defeat the whole point.
+            try:
+                model.config.use_cache = cache_was
+                if hasattr(model, "thinker"):
+                    model.thinker.config.use_cache = cache_was
+            except Exception:  # noqa: BLE001, S110 - restoring a flag is best-effort
+                pass
             model.train()
 
     started = time.time()
