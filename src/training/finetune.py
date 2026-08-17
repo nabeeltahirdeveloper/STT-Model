@@ -312,7 +312,13 @@ def main(
 
             batch = processor(
                 audio=waveform.squeeze(0).numpy(),
-                text=prompt + f"<asr_text>{sample.text}",
+                # The EOS token is the only thing that teaches the model where a
+                # transcription ends. Without it the first checkpoint transcribed
+                # correctly and then repeated itself to the 512-token ceiling --
+                # "Good Morning, Pakistan" came back 27 times, and predictions ran
+                # 2.6x the reference length. CER read 91.3% on a model whose actual
+                # transcriptions were good.
+                text=prompt + f"<asr_text>{sample.text}" + processor.tokenizer.eos_token,
                 sampling_rate=16_000,
                 return_tensors="pt",
             )
