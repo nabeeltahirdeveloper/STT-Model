@@ -372,6 +372,8 @@ def main(
             )
             print(f"  pushed -> {hf_repo} ({note})", flush=True)
 
+    eos_id = processor.tokenizer.eos_token_id
+
     def probe(step: int) -> None:
         """Transcribe two held-out clips and print them beside their labels.
 
@@ -417,8 +419,18 @@ def main(
                     if hasattr(v, "to")
                 }
                 with torch.no_grad():
+                    # eos_token_id must be passed explicitly. generate() is
+                    # called on the thinker submodule, which does not inherit
+                    # the wrapper's generation_config, so without this it runs
+                    # to max_new_tokens whatever the model wants -- the probe
+                    # showed a "Humanity" tail at step 50 while p(eos) was
+                    # 0.899, i.e. the model was stopping and the probe was not.
                     generated = model.thinker.generate(
-                        **inputs, max_new_tokens=180, do_sample=False
+                        **inputs,
+                        max_new_tokens=180,
+                        do_sample=False,
+                        eos_token_id=eos_id,
+                        pad_token_id=eos_id,
                     )
                 new = generated[0][inputs["input_ids"].shape[-1] :]
                 raw_out = processor.tokenizer.decode(new, skip_special_tokens=True)
@@ -452,7 +464,6 @@ def main(
     started = time.time()
     deadline = started + max_minutes * 60 if max_minutes else None
     seen, running, running_eos = 0, 0.0, 0.0
-    eos_id = processor.tokenizer.eos_token_id
 
     for _epoch in range(epochs):
         print(f"Starting epoch {_epoch}", flush=True)
