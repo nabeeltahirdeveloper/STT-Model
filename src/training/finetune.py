@@ -111,6 +111,36 @@ def choose_precision(major: int, minor: int, requested: str = "auto") -> str:
     return "bf16" if (major, minor) >= (8, 0) else "fp16"
 
 
+def eos_confidence(logits: torch.Tensor, labels: torch.Tensor, eos_id: int) -> float:
+    """Probability the model assigns to EOS where EOS is the correct answer.
+
+    Loss is not enough. The first full run drove loss from 13.56 to 0.35 while
+    learning to reproduce audio padding, and nothing in the curve said so; the
+    damage was only visible once the model generated. This is the cheapest
+    signal that would have caught it, computed from the forward pass the loss
+    already needs.
+
+    A model learning to stop drives this toward 1.0. The broken run would have
+    sat near zero all the way through, because EOS was never in its targets and
+    the scaffolding it was scored on continued rather than terminated.
+
+    Returns 0.0 when the batch has no EOS target, rather than raising -- a
+    diagnostic must never be the thing that ends a four-hour run.
+    """
+    import torch
+
+    with torch.no_grad():
+        positions = (labels == eos_id).nonzero()
+        if positions.numel() == 0:
+            return 0.0
+        row, column = int(positions[-1][0]), int(positions[-1][1])
+        # Next-token prediction: position i-1 predicts the token at i.
+        if column == 0:
+            return 0.0
+        probabilities = torch.softmax(logits[row, column - 1].float(), dim=-1)
+        return float(probabilities[eos_id])
+
+
 def mask_prompt(input_ids: torch.Tensor, marker_id: int) -> torch.Tensor:
     """Return labels scoring only the transcript: everything after `marker_id`.
 
@@ -226,6 +256,7 @@ def main(
     resume: str = "",
     hf_repo: str = "",
     push_every: int = 400,
+    probe_every: int = 50,
     warmup: int = 50,
 ) -> None:
     """Full fine-tune and save. Push to a private HF repo if one is given.
@@ -250,6 +281,8 @@ def main(
         ) from error
 
     samples = load_manifest(Path(manifest), max_seconds, limit)
+    # Held out of training so the probe reports generalisation, not recall.
+    probes, samples = samples[:2], samples[2:]
     if not samples:
         raise SystemExit(
             f"no usable rows in {manifest}. Fetch the audio first:\n"
@@ -339,9 +372,66 @@ def main(
             )
             print(f"  pushed -> {hf_repo} ({note})", flush=True)
 
+    def probe(step: int) -> None:
+        """Transcribe two held-out clips and print them beside their labels.
+
+        The signal loss cannot give. A run can drive loss down while learning
+        to continue rather than stop, and the only way to see that is to make
+        the model generate and look at the length it produces. `chars` is the
+        tell: the broken checkpoint ran 1.76x its reference on average and 27x
+        on one clip.
+
+        Wrapped in try/except because a diagnostic must never be what ends a
+        four-hour session -- if generation fails, training carries on.
+        """
+        if not probes:
+            return
+        cache_was = model.config.use_cache
+        try:
+            model.eval()
+            # Generation needs the KV cache that gradient checkpointing disables.
+            model.config.use_cache = True
+            print(f"  --- probe at step {step} " + "-" * 30, flush=True)
+            for sample in probes:
+                wave, rate_in = load_audio(sample.audio)
+                if rate_in != 16_000:
+                    wave = torchaudio.functional.resample(wave, rate_in, 16_000)
+                inputs = processor(
+                    audio=wave.squeeze(0).numpy(),
+                    text=prompt,
+                    sampling_rate=16_000,
+                    return_tensors="pt",
+                )
+                inputs = {
+                    k: (v.to(device, dtype=model.dtype) if v.is_floating_point() else v.to(device))
+                    for k, v in inputs.items()
+                    if hasattr(v, "to")
+                }
+                with torch.no_grad():
+                    generated = model.thinker.generate(
+                        **inputs, max_new_tokens=180, do_sample=False
+                    )
+                new = generated[0][inputs["input_ids"].shape[-1] :]
+                text_out = processor.tokenizer.decode(new, skip_special_tokens=True).strip()
+                ratio = len(text_out) / max(len(sample.text), 1)
+                flag = "  <-- RUNAWAY" if ratio > 2.0 else ""
+                print(f"    label({len(sample.text):>4}): {sample.text[:90]}", flush=True)
+                print(f"    model({len(text_out):>4}): {text_out[:90]}", flush=True)
+                print(f"    chars {ratio:.2f}x{flag}", flush=True)
+            print("  " + "-" * 46, flush=True)
+        except Exception as error:  # noqa: BLE001 - never let a probe end a run
+            print(
+                f"  probe failed ({type(error).__name__}: {error}) -- training continues",
+                flush=True,
+            )
+        finally:
+            model.config.use_cache = cache_was
+            model.train()
+
     started = time.time()
     deadline = started + max_minutes * 60 if max_minutes else None
-    seen, running = 0, 0.0
+    seen, running, running_eos = 0, 0.0, 0.0
+    eos_id = processor.tokenizer.eos_token_id
 
     for _epoch in range(epochs):
         print(f"Starting epoch {_epoch}", flush=True)
@@ -373,9 +463,11 @@ def main(
             }
             batch["labels"] = mask_prompt(batch["input_ids"], asr_text_id)
 
-            loss = model.thinker(**batch).loss / accumulate
+            outputs = model.thinker(**batch)
+            loss = outputs.loss / accumulate
             scaler.scale(loss).backward()
             running += loss.item() * accumulate
+            running_eos += eos_confidence(outputs.logits, batch["labels"], eos_id)
             seen += 1
 
             if seen % accumulate == 0:
@@ -391,12 +483,15 @@ def main(
                 elapsed = time.time() - started
                 print(
                     f"  step {step}/{steps} loss {running / accumulate:.4f} · "
+                    f"p(eos) {running_eos / accumulate:.3f} · "
                     f"{torch.cuda.max_memory_allocated() / 1e9:.1f} GB peak · "
                     f"{(len(samples) * epochs - seen) * elapsed / seen / 60:.0f} min left",
                     flush=True,
                 )
-                running = 0.0
+                running, running_eos = 0.0, 0.0
 
+                if probe_every and step % probe_every == 0:
+                    probe(step)
                 if step % push_every == 0:
                     save(f"step {step}")
                 if deadline and time.time() >= deadline:
