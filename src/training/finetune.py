@@ -257,6 +257,9 @@ def main(
     hf_repo: str = "",
     push_every: int = 400,
     probe_every: int = 50,
+    dev_manifest: str = "",
+    dev_every: int = 150,
+    dev_clips: int = 25,
     warmup: int = 50,
 ) -> None:
     """Full fine-tune and save. Push to a private HF repo if one is given.
@@ -283,6 +286,12 @@ def main(
     samples = load_manifest(Path(manifest), max_seconds, limit)
     # Held out of training so the probe reports generalisation, not recall.
     probes, samples = samples[:2], samples[2:]
+    # Held-out clips for the mid-run CER. A separate manifest, never data/eval/:
+    # a number watched during training shapes decisions, and a benchmark used
+    # that way is no longer held out (constraint 5).
+    dev_samples = load_manifest(Path(dev_manifest), max_seconds, dev_clips) if dev_manifest else []
+    if dev_samples:
+        print(f"dev set: {len(dev_samples)} held-out clips, scored every {dev_every} steps")
     if not samples:
         raise SystemExit(
             f"no usable rows in {manifest}. Fetch the audio first:\n"
@@ -374,6 +383,81 @@ def main(
 
     eos_id = processor.tokenizer.eos_token_id
 
+    def transcribe(sample: Sample) -> str:
+        """Generate one transcript the way inference will read it.
+
+        Shared by the probe and the dev-CER pass so the two cannot drift apart.
+        Strips the `language {Lang}<asr_text>` prefix, exactly as
+        `parse_asr_output` does -- scoring the raw string would charge the model
+        for the prefix it is supposed to emit.
+        """
+        wave, rate_in = load_audio(sample.audio)
+        if rate_in != 16_000:
+            wave = torchaudio.functional.resample(wave, rate_in, 16_000)
+        inputs = processor(
+            audio=wave.squeeze(0).numpy(), text=prompt, sampling_rate=16_000, return_tensors="pt"
+        )
+        inputs = {
+            k: (v.to(device, dtype=model.dtype) if v.is_floating_point() else v.to(device))
+            for k, v in inputs.items()
+            if hasattr(v, "to")
+        }
+        with torch.no_grad():
+            generated = model.thinker.generate(
+                **inputs,
+                max_new_tokens=180,
+                do_sample=False,
+                eos_token_id=eos_id,
+                pad_token_id=eos_id,
+            )
+        new = generated[0][inputs["input_ids"].shape[-1] :]
+        raw = processor.tokenizer.decode(new, skip_special_tokens=True)
+        return str(raw).split("<asr_text>")[-1].strip()
+
+    def dev_cer(step: int) -> None:
+        """Score CER on held-out clips, mid-run, with the gate's own code.
+
+        The point of the whole exercise. Every failure so far was found after
+        the session, because the only real metric was computed after the
+        session: loss, script mix, p(eos) and character ratios each read
+        healthy for a model that was getting worse. This measures the goal while
+        there is still time to stop.
+
+        `src.eval.metrics.cer` is imported rather than reimplemented -- a
+        mid-training number computed by different logic would be one more proxy.
+        """
+        if not dev_samples:
+            return
+        from src.eval.metrics import cer
+
+        try:
+            model.eval()
+            cache_was = getattr(model.config, "use_cache", False)
+            model.config.use_cache = True
+            if hasattr(model, "thinker"):
+                model.thinker.config.use_cache = True
+            errors = total = 0
+            for sample in dev_samples:
+                score = cer(sample.text, transcribe(sample))
+                errors += score.errors
+                total += score.total
+            rate = errors / total if total else 0.0
+            print(
+                f"  >>> step {step}: dev CER {rate:.1%} on {len(dev_samples)} held-out clips"
+                f"  (target < 34.9%, the stock baseline)",
+                flush=True,
+            )
+        except Exception as error:  # noqa: BLE001 - never end a run over a metric
+            print(f"  dev CER failed ({type(error).__name__}: {error})", flush=True)
+        finally:
+            try:
+                model.config.use_cache = cache_was
+                if hasattr(model, "thinker"):
+                    model.thinker.config.use_cache = cache_was
+            except Exception:  # noqa: BLE001, S110 - best effort
+                pass
+            model.train()
+
     def probe(step: int) -> None:
         """Transcribe two held-out clips and print them beside their labels.
 
@@ -404,42 +488,7 @@ def main(
                 model.thinker.config.use_cache = True
             print(f"  --- probe at step {step} " + "-" * 30, flush=True)
             for sample in probes:
-                wave, rate_in = load_audio(sample.audio)
-                if rate_in != 16_000:
-                    wave = torchaudio.functional.resample(wave, rate_in, 16_000)
-                inputs = processor(
-                    audio=wave.squeeze(0).numpy(),
-                    text=prompt,
-                    sampling_rate=16_000,
-                    return_tensors="pt",
-                )
-                inputs = {
-                    k: (v.to(device, dtype=model.dtype) if v.is_floating_point() else v.to(device))
-                    for k, v in inputs.items()
-                    if hasattr(v, "to")
-                }
-                with torch.no_grad():
-                    # eos_token_id must be passed explicitly. generate() is
-                    # called on the thinker submodule, which does not inherit
-                    # the wrapper's generation_config, so without this it runs
-                    # to max_new_tokens whatever the model wants -- the probe
-                    # showed a "Humanity" tail at step 50 while p(eos) was
-                    # 0.899, i.e. the model was stopping and the probe was not.
-                    generated = model.thinker.generate(
-                        **inputs,
-                        max_new_tokens=180,
-                        do_sample=False,
-                        eos_token_id=eos_id,
-                        pad_token_id=eos_id,
-                    )
-                new = generated[0][inputs["input_ids"].shape[-1] :]
-                raw_out = processor.tokenizer.decode(new, skip_special_tokens=True)
-                # Inference emits "language {Lang}<asr_text>{transcript}" and
-                # parse_asr_output keeps only what follows the tag. Comparing the
-                # raw string against a bare label counts the prefix as error and
-                # inflates every ratio -- the first probe read 11.5x on a clip
-                # whose prefix was most of the difference.
-                text_out = raw_out.split("<asr_text>")[-1].strip()
+                text_out = transcribe(sample)
                 ratio = len(text_out) / max(len(sample.text), 1)
                 flag = "  <-- RUNAWAY" if ratio > 2.0 else ""
                 print(f"    label({len(sample.text):>4}): {sample.text[:90]}", flush=True)
@@ -524,6 +573,8 @@ def main(
 
                 if probe_every and step % probe_every == 0:
                     probe(step)
+                if dev_every and step % dev_every == 0:
+                    dev_cer(step)
                 if step % push_every == 0:
                     save(f"step {step}")
                 if deadline and time.time() >= deadline:

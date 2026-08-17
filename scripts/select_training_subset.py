@@ -36,9 +36,27 @@ def main(
     min_seconds: float = 1.0,
     labels: str = str(LABELS),
     out: str = str(OUT),
+    exclude: str = "",
 ) -> None:
-    """Write the subset manifest and print the command to fetch its audio."""
+    """Write the subset manifest and print the command to fetch its audio.
+
+    Args:
+        exclude: a manifest whose clips must not appear here. Used to keep the
+            dev set out of training -- a dev CER measured on memorised audio
+            reports recall, not generalisation, and would read far better than
+            the model deserves.
+    """
     rows = [json.loads(line) for line in Path(labels).read_text(encoding="utf-8").splitlines()]
+
+    if exclude:
+        excluded = {
+            json.loads(line)["audio"]
+            for line in Path(exclude).read_text(encoding="utf-8").splitlines()
+            if line.strip()
+        }
+        before = len(rows)
+        rows = [row for row in rows if row["audio"] not in excluded]
+        print(f"excluded {before - len(rows):,} clips held out in {exclude}")
 
     eligible = []
     for row in rows:
