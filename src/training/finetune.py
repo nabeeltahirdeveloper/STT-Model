@@ -141,7 +141,12 @@ def eos_confidence(logits: torch.Tensor, labels: torch.Tensor, eos_id: int) -> f
         return float(probabilities[eos_id])
 
 
-def mask_prompt(input_ids: torch.Tensor, turn_id: int, tail: int) -> torch.Tensor:
+def mask_prompt(
+    input_ids: torch.Tensor,
+    turn_id: int,
+    tail: int,
+    attention_mask: torch.Tensor | None = None,
+) -> torch.Tensor:
     """Score everything the model must generate; mask everything it is given.
 
     The boundary is the end of the chat prompt -- the last `<|im_start|>` plus
@@ -171,15 +176,28 @@ def mask_prompt(input_ids: torch.Tensor, turn_id: int, tail: int) -> torch.Tenso
             wrong and every label in the batch would be garbage.
     """
 
-    positions = (input_ids == turn_id).nonzero()
-    if positions.numel() == 0:
-        raise ValueError(
-            f"turn marker {turn_id} (<|im_start|>) not found in input_ids -- "
-            "the training target is malformed and nothing would be scored correctly"
-        )
-    labels = input_ids.clone()
-    labels[..., : int(positions[-1][-1]) + tail] = -100
-    return labels
+    rows = input_ids if input_ids.dim() == 2 else input_ids.unsqueeze(0)
+    labels = rows.clone()
+    for index, row in enumerate(rows):
+        # Per row, not once for the batch. Taking the last marker across the
+        # whole tensor and applying that column to every row is correct only
+        # when every prompt is the same length -- which it is at batch size 1
+        # and never after that, because audio expansion differs per clip. It
+        # masked a short row's transcript and scored a long row's padding.
+        found = (row == turn_id).nonzero()
+        if found.numel() == 0:
+            raise ValueError(
+                f"turn marker {turn_id} (<|im_start|>) not found in row {index} -- "
+                "the training target is malformed and nothing would be scored correctly"
+            )
+        labels[index, : int(found[-1]) + tail] = -100
+    if attention_mask is not None:
+        # Right-padding is not speech. Scoring it teaches the model to predict
+        # pad tokens after the transcript, which is the runaway failure again by
+        # another route. Harmless at batch size 1, where nothing is padded.
+        mask = attention_mask if attention_mask.dim() == 2 else attention_mask.unsqueeze(0)
+        labels[mask == 0] = -100
+    return labels if input_ids.dim() == 2 else labels.squeeze(0)
 
 
 def sanitize_generation_config(config: object) -> list[str]:
@@ -556,7 +574,9 @@ def main(
                 for key, value in batch.items()
                 if hasattr(value, "to")
             }
-            batch["labels"] = mask_prompt(batch["input_ids"], turn_id, prompt_tail)
+            batch["labels"] = mask_prompt(
+                batch["input_ids"], turn_id, prompt_tail, batch.get("attention_mask")
+            )
 
             outputs = model.thinker(**batch)
             loss = outputs.loss / accumulate
