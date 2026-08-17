@@ -141,40 +141,44 @@ def eos_confidence(logits: torch.Tensor, labels: torch.Tensor, eos_id: int) -> f
         return float(probabilities[eos_id])
 
 
-def mask_prompt(input_ids: torch.Tensor, marker_id: int) -> torch.Tensor:
-    """Return labels scoring only the transcript: everything after `marker_id`.
+def mask_prompt(input_ids: torch.Tensor, turn_id: int, tail: int) -> torch.Tensor:
+    """Score everything the model must generate; mask everything it is given.
 
-    The mask cannot be a fixed length. `processor(text=...)` expands the single
-    `<|audio_pad|>` placeholder in the chat template into one token per audio
-    frame, so the prompt inside `input_ids` is far longer than the prompt
-    *string* -- and its length varies with clip duration.
+    The boundary is the end of the chat prompt -- the last `<|im_start|>` plus
+    the `assistant\\n` that follows it -- and both earlier attempts put it
+    somewhere else, in opposite directions.
 
-    The first run masked a constant 16, the length of the un-expanded template.
-    Everything past that was scored, so the model was trained to predict the
-    audio padding and the chat scaffolding as if it were speech, including the
-    `<|im_end|><|im_start|>assistant` that opens a new turn. It learned to do
-    exactly that: transcribe, then start again. One clip came back as
-    "Good Morning, Pakistan" 27 times.
+    A fixed length of 16 was the first. `processor(text=...)` expands the single
+    `<|audio_pad|>` into one token per audio frame, so the real prompt is longer
+    than the prompt string and varies with clip duration. Everything past 16 was
+    scored, so the model learned to predict audio padding and the
+    `<|im_end|><|im_start|>assistant` that opens a new turn -- and did exactly
+    that, repeating "Good Morning, Pakistan" 27 times. CER 91.3%.
 
-    `<asr_text>` is a single token and the last thing before the transcript, so
-    it is the anchor. Everything up to and including it is masked out.
+    Masking through `<asr_text>` was the second, and it overcorrected. The
+    scored target became the transcript alone, so nothing ever taught the model
+    to emit `<asr_text>` from the bare prompt inference actually sends. By step
+    200 it had lost the base model's ability to start at all and emitted EOS
+    immediately, transcribing nothing.
+
+    Anchoring on the turn marker keeps the padding masked and the tag scored:
+    the model learns to start, transcribe, and stop. `tail` is measured from
+    the prompt once by the caller, and is unaffected by audio expansion because
+    the expansion happens before this marker.
 
     Raises:
         ValueError: if the marker is absent, which means the target was built
             wrong and every label in the batch would be garbage.
     """
 
-    positions = (input_ids == marker_id).nonzero()
+    positions = (input_ids == turn_id).nonzero()
     if positions.numel() == 0:
         raise ValueError(
-            f"marker token {marker_id} (<asr_text>) not found in input_ids -- "
+            f"turn marker {turn_id} (<|im_start|>) not found in input_ids -- "
             "the training target is malformed and nothing would be scored correctly"
         )
     labels = input_ids.clone()
-    # The last occurrence: a transcript could conceivably contain the literal
-    # text, and the boundary is the final one before the target begins.
-    cut = int(positions[-1][-1]) + 1
-    labels[..., :cut] = -100
+    labels[..., : int(positions[-1][-1]) + tail] = -100
     return labels
 
 
@@ -330,11 +334,21 @@ def main(
         {"role": "user", "content": [{"type": "audio", "audio": ""}, {"type": "text", "text": ""}]}
     ]
     prompt = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
-    # Anchor the loss mask on a token, not a length -- see mask_prompt().
-    asr_text_id = processor.tokenizer.convert_tokens_to_ids("<asr_text>")
-    if asr_text_id is None or asr_text_id == processor.tokenizer.unk_token_id:
-        raise SystemExit("<asr_text> is not a token in this tokenizer; cannot mask the prompt")
-    print(f"loss masked up to <asr_text> (token {asr_text_id})", flush=True)
+    # The loss boundary is the end of the chat prompt. Anchor on the last
+    # <|im_start|> and measure how many tokens follow it *in the prompt* --
+    # `<|im_start|>assistant\n`, three tokens. That offset is constant, and
+    # unaffected by the audio expansion, which happens earlier in the sequence.
+    turn_id = processor.tokenizer.convert_tokens_to_ids("<|im_start|>")
+    prompt_ids = processor.tokenizer(prompt, add_special_tokens=False).input_ids
+    turn_positions = [i for i, token in enumerate(prompt_ids) if token == turn_id]
+    if not turn_positions:
+        raise SystemExit("<|im_start|> absent from the chat prompt; cannot locate the boundary")
+    prompt_tail = len(prompt_ids) - turn_positions[-1]
+    print(
+        f"loss masked through the prompt: last <|im_start|> + {prompt_tail} tokens "
+        f"({processor.tokenizer.decode(prompt_ids[turn_positions[-1] :])!r})",
+        flush=True,
+    )
 
     # Gradient checkpointing recomputes activations instead of storing them:
     # roughly a third of the step time, bought back as memory. The first full
@@ -542,7 +556,7 @@ def main(
                 for key, value in batch.items()
                 if hasattr(value, "to")
             }
-            batch["labels"] = mask_prompt(batch["input_ids"], asr_text_id)
+            batch["labels"] = mask_prompt(batch["input_ids"], turn_id, prompt_tail)
 
             outputs = model.thinker(**batch)
             loss = outputs.loss / accumulate
