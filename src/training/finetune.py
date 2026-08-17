@@ -111,6 +111,43 @@ def choose_precision(major: int, minor: int, requested: str = "auto") -> str:
     return "bf16" if (major, minor) >= (8, 0) else "fp16"
 
 
+def mask_prompt(input_ids: torch.Tensor, marker_id: int) -> torch.Tensor:
+    """Return labels scoring only the transcript: everything after `marker_id`.
+
+    The mask cannot be a fixed length. `processor(text=...)` expands the single
+    `<|audio_pad|>` placeholder in the chat template into one token per audio
+    frame, so the prompt inside `input_ids` is far longer than the prompt
+    *string* -- and its length varies with clip duration.
+
+    The first run masked a constant 16, the length of the un-expanded template.
+    Everything past that was scored, so the model was trained to predict the
+    audio padding and the chat scaffolding as if it were speech, including the
+    `<|im_end|><|im_start|>assistant` that opens a new turn. It learned to do
+    exactly that: transcribe, then start again. One clip came back as
+    "Good Morning, Pakistan" 27 times.
+
+    `<asr_text>` is a single token and the last thing before the transcript, so
+    it is the anchor. Everything up to and including it is masked out.
+
+    Raises:
+        ValueError: if the marker is absent, which means the target was built
+            wrong and every label in the batch would be garbage.
+    """
+
+    positions = (input_ids == marker_id).nonzero()
+    if positions.numel() == 0:
+        raise ValueError(
+            f"marker token {marker_id} (<asr_text>) not found in input_ids -- "
+            "the training target is malformed and nothing would be scored correctly"
+        )
+    labels = input_ids.clone()
+    # The last occurrence: a transcript could conceivably contain the literal
+    # text, and the boundary is the final one before the target begins.
+    cut = int(positions[-1][-1]) + 1
+    labels[..., :cut] = -100
+    return labels
+
+
 def sanitize_generation_config(config: object) -> list[str]:
     """Reset sampling settings that transformers refuses to save. Returns changes.
 
@@ -251,8 +288,11 @@ def main(
         {"role": "user", "content": [{"type": "audio", "audio": ""}, {"type": "text", "text": ""}]}
     ]
     prompt = processor.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
-    prompt_len = len(processor.tokenizer(prompt, add_special_tokens=False).input_ids)
-    print(f"prompt: {prompt_len} tokens", flush=True)
+    # Anchor the loss mask on a token, not a length -- see mask_prompt().
+    asr_text_id = processor.tokenizer.convert_tokens_to_ids("<asr_text>")
+    if asr_text_id is None or asr_text_id == processor.tokenizer.unk_token_id:
+        raise SystemExit("<asr_text> is not a token in this tokenizer; cannot mask the prompt")
+    print(f"loss masked up to <asr_text> (token {asr_text_id})", flush=True)
 
     # Gradient checkpointing recomputes activations instead of storing them:
     # roughly a third of the step time, bought back as memory. The first full
@@ -331,9 +371,7 @@ def main(
                 for key, value in batch.items()
                 if hasattr(value, "to")
             }
-            labels = batch["input_ids"].clone()
-            labels[:, :prompt_len] = -100  # loss on the transcript only
-            batch["labels"] = labels
+            batch["labels"] = mask_prompt(batch["input_ids"], asr_text_id)
 
             loss = model.thinker(**batch).loss / accumulate
             scaler.scale(loss).backward()
