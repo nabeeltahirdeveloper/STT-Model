@@ -37,11 +37,17 @@ def select(
     max_seconds: float,
     max_unknown: float,
 ) -> list[dict[str, object]]:
-    """Round-robin across categories, shortest clips first.
+    """Round-robin across categories, clips nearest the median duration first.
 
-    Shortest-first is deliberate: a dev pass runs many times per session, so its
-    cost has to stay small, and short clips also make a runaway easy to see --
-    a 3-second clip returning 400 characters is unambiguous.
+    Not shortest-first, which the first version did to keep the pass cheap. CER
+    is errors divided by reference characters, so on a 12-character label two
+    stray words read as 133% and the metric swings uselessly: a real run
+    reported 49.9% then 170.6% while loss, p(eos) and the sample transcripts
+    were all steady. The eval set averages 130 characters per clip, so a dev set
+    of 16-character clips was not measuring the same thing at all.
+
+    Selecting around the median keeps the pass affordable while making the
+    number comparable to the gate it is meant to predict.
     """
     eligible = []
     for row in rows:
@@ -58,8 +64,11 @@ def select(
     by_category: dict[str, list[dict[str, object]]] = defaultdict(list)
     for row in eligible:
         by_category[str(row.get("category") or "?")].append(row)
+    # Nearest the median label length, not shortest: see the docstring.
+    lengths = sorted(len(str(row.get("label", ""))) for row in eligible)
+    median = lengths[len(lengths) // 2] if lengths else 0
     for bucket in by_category.values():
-        bucket.sort(key=lambda r: float(r.get("duration_s") or 0))
+        bucket.sort(key=lambda r: abs(len(str(r.get("label", ""))) - median))
 
     chosen: list[dict[str, object]] = []
     categories = sorted(by_category)
@@ -77,7 +86,7 @@ def main(
     labels: str = str(LABELS),
     out: str = str(OUT),
     min_seconds: float = 1.0,
-    max_seconds: float = 12.0,
+    max_seconds: float = 20.0,
     max_unknown: float = 0.02,
 ) -> None:
     """Write the dev manifest and say how to exclude it from training."""

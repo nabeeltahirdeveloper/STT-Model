@@ -118,3 +118,20 @@ def test_the_real_dev_set_does_not_overlap_training() -> None:
         f"{len(overlap)} dev clips are in training -- rebuild the subset with "
         "--exclude data/labels/dev-set.jsonl"
     )
+
+
+def test_selection_targets_the_median_label_length_not_the_shortest() -> None:
+    """A dev CER on tiny references is not comparable to the gate it predicts.
+
+    The first version took shortest-first to keep the pass cheap. CER is errors
+    over reference characters, so on a 12-character label two stray words read
+    as 133%: a real run reported 49.9% then 170.6% while loss, p(eos) and the
+    sample transcripts were all steady. The eval set medians ~99 characters.
+    """
+    rows = _rows(90)
+    for i, row in enumerate(rows):
+        row["label"] = "x" * (5 if i % 3 == 0 else 100 if i % 3 == 1 else 50)
+    chosen = select(rows, 9, 1.0, 20.0, 0.02)
+    lengths = [len(str(r["label"])) for r in chosen]
+    assert sum(lengths) / len(lengths) > 30, f"picked short clips: {lengths}"
+    assert 5 not in lengths, "the shortest clips must not dominate"
