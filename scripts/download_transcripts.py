@@ -6,7 +6,7 @@ from huggingface_hub import HfApi, hf_hub_download
 def download_files(repo_id: str, files: list[str], local_dir: str):
     print(f"Found {len(files)} files to download.")
     for i, f in enumerate(files):
-        print(f"[{i+1}/{len(files)}] Downloading {f}")
+        print(f"[{i + 1}/{len(files)}] Downloading {f}")
         hf_hub_download(repo_id=repo_id, repo_type="dataset", filename=f, local_dir=local_dir)
     print("Download complete.")
 

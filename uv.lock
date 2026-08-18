@@ -2389,12 +2389,13 @@ align = [
     { name = "torchaudio" },
 ]
 cuda = [
-    { name = "accelerate" },
-    { name = "bitsandbytes", marker = "sys_platform == 'linux'" },
     { name = "flash-attn", marker = "sys_platform == 'linux'" },
 ]
 train = [
+    { name = "accelerate" },
+    { name = "bitsandbytes", marker = "sys_platform == 'linux'" },
     { name = "peft" },
+    { name = "torchaudio" },
 ]
 
 [package.dev-dependencies]
@@ -2413,8 +2414,8 @@ labels = [
 
 [package.metadata]
 requires-dist = [
-    { name = "accelerate", marker = "extra == 'cuda'" },
-    { name = "bitsandbytes", marker = "sys_platform == 'linux' and extra == 'cuda'" },
+    { name = "accelerate", marker = "extra == 'train'", specifier = ">=1.0" },
+    { name = "bitsandbytes", marker = "sys_platform == 'linux' and extra == 'train'", specifier = ">=0.45" },
     { name = "demucs", marker = "extra == 'align'" },
     { name = "fastapi" },
     { name = "flash-attn", marker = "sys_platform == 'linux' and extra == 'cuda'" },
@@ -2426,6 +2427,7 @@ requires-dist = [
     { name = "qwen-asr" },
     { name = "torch" },
     { name = "torchaudio", marker = "extra == 'align'" },
+    { name = "torchaudio", marker = "extra == 'train'" },
     { name = "transformers" },
     { name = "typer" },
     { name = "uvicorn" },

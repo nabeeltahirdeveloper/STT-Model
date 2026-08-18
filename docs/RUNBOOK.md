@@ -315,3 +315,11 @@ See §5.
 | `docs/SPELLING-SPEC.md` | How is a word spelled? |
 | `docs/DECISIONS.md` | Why was that decided, and what was tried and failed? |
 | `CLAUDE.md` | Constraints and conventions for agents |
+
+---
+
+## Training
+
+See **docs/TRAINING.md** — setup, data pipeline, every flag, the hard rules,
+and troubleshooting. Short version: `./run.sh data` → `./run.sh rehearse` →
+`./run.sh train` → `./run.sh eval`.

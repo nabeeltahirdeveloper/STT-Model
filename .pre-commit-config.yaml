@@ -18,7 +18,7 @@ repos:
         exclude: ^data/lexicon/transliteration\.tsv$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.6
+    rev: v0.16.1
     hooks:
       - id: ruff
         args: [--fix]

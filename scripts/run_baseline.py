@@ -49,11 +49,18 @@ def main(
     out_dir: str = str(OUT),
     batch_size: int = 8,
     limit: int = 0,
+    romanize_output: bool = True,
+    device: str = "auto",
 ) -> None:
     """Transcribe every eval clip, then romanize the result.
 
     Args:
         limit: stop after this many clips, for a quick smoke run. 0 means all.
+        romanize_output: run the Devanagari->Roman converter over the output.
+            True for a stock model, which emits Devanagari (ADR-010). **False
+            for a fine-tuned one**, whose whole purpose is to emit Roman
+            already -- passing its output through the converter a second time
+            would rewrite correct Roman rather than measure it.
     """
     warnings.filterwarnings("ignore")
     from qwen_asr import Qwen3ASRModel
@@ -64,8 +71,32 @@ def main(
     audio_minutes = sum(float(row["duration_s"]) for row in rows) / 60
     print(f"{len(rows)} clips · {audio_minutes:.1f} min", flush=True)
 
-    print(f"loading {model_id} ...", flush=True)
-    model = Qwen3ASRModel.from_pretrained(model_id)
+    # from_pretrained leaves the model wherever transformers puts it, which is
+    # the CPU. A T4 run showed 0.0 GB of 15 GB in use and took hours; the card
+    # was never asked to do anything. device_map is forwarded to
+    # AutoModel.from_pretrained, so placement has to be requested explicitly.
+    import torch
+
+    if device == "auto":
+        device = (
+            "cuda"
+            if torch.cuda.is_available()
+            else "mps"
+            if torch.backends.mps.is_available()
+            else "cpu"
+        )
+    # float16 unless the GPU has native bfloat16, which starts at Ampere
+    # (sm_80). A T4 is Turing: bf16 there is emulated, and the upcast blew 15.4
+    # of 15.6 GB on a 0.6B model, OOMing after two clips. MPS support for bf16
+    # is patchy for the same practical reason. Inference does not need bf16's
+    # exponent range, so fp16 is both smaller and the faster path.
+    dtype = torch.float16
+    if device == "cuda":
+        major, minor = torch.cuda.get_device_capability(0)
+        if (major, minor) >= (8, 0):
+            dtype = torch.bfloat16
+    print(f"loading {model_id} on {device} ({dtype}) ...", flush=True)
+    model = Qwen3ASRModel.from_pretrained(model_id, device_map=device, dtype=dtype)
 
     destination = Path(out_dir)
     raw: list[str] = []
@@ -89,6 +120,11 @@ def main(
         _write(destination / "baseline-raw.txt", raw)
 
     print(f"\ntranscribed in {(time.time() - started) / 60:.1f} min", flush=True)
+
+    if not romanize_output:
+        print(f"\nraw output kept as the prediction -> {destination / 'baseline-raw.txt'}")
+        print("(--no-romanize-output: this model is expected to emit Roman itself)")
+        return
 
     print("romanizing (Devanagari -> Roman, English left alone) ...", flush=True)
     from scripts.romanize_via_opencut import romanize

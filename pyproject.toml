@@ -40,11 +40,18 @@ align = [
 # torch exists, then again so flash-attn can build against it.
 cuda = [
     "flash-attn; sys_platform == 'linux'",
-    "bitsandbytes; sys_platform == 'linux'",
-    "accelerate",
 ]
 train = [
     "peft>=0.14",
+    # finetune.py loads and resamples clips with torchaudio. It is also in the
+    # align extra, but training does not imply alignment -- syncing only
+    # --extra train left it absent and the smoke test died on the import.
+    "torchaudio",
+    # 8-bit Adam: optimizer state 6.2 GB -> 1.6 GB, which is what lets full
+    # fine-tuning fit on a 16 GB T4 instead of forcing LoRA (ADR-003).
+    # Linux-only, like flash-attn -- there is no CUDA on macOS.
+    "bitsandbytes>=0.45; sys_platform == 'linux'",
+    "accelerate>=1.0",
 ]
 
 # PEP 735. Dev tooling is not a feature of the package, so it does not belong in
@@ -111,6 +118,10 @@ known-first-party = ["src", "scripts", "tests"]
 # Tests assert on literal spelling pairs; long table rows are more readable unwrapped.
 "tests/*" = ["E501"]
 
+# A notebook cell imports what it needs, where it needs it -- torch must not be
+# imported before the cell that checks a GPU exists. E402 assumes a module.
+"notebooks/*.ipynb" = ["E402"]
+
 # --------------------------------------------------------------------------- #
 # Types
 # --------------------------------------------------------------------------- #
@@ -134,6 +145,7 @@ module = [
     "bitsandbytes.*",
     "torch.*",
     "torchaudio.*",
+    "soundfile.*",
     "transformers.*",
 ]
 ignore_missing_imports = true

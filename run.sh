@@ -176,22 +176,82 @@ cmd_transcribe() {
   ok "done"
 }
 
-cmd_train() {
-  local config="${1:-configs/phase1.yaml}"
-  [[ -f "$config" ]] || die "config not found: $config"
-  step "Training with $config"
-  warn "verify data/eval/ is NOT in the training manifest before proceeding"
-  run uv run python -m src.training.finetune --config "$config"
-  ok "training complete"
+# Build every manifest the training run needs, in the one order that is
+# correct: the dev set must exist before the subset, so the subset can exclude
+# it. A dev CER measured on memorised audio reports recall, not generalisation.
+cmd_data() {
+  local hours="${1:-20}"
+  step "Transcripts"
+  run uv run python -m scripts.download_transcripts --corpus-transcripts
+  step "Labels"
+  run uv run python -m scripts.build_labels --split US-CS
+  step "Dev set (held out of training)"
+  run uv run python -m scripts.build_dev_set --clips 150
+  step "Training subset: ${hours} h, excluding the dev set"
+  run uv run python -m scripts.select_training_subset --hours "$hours" \
+      --exclude data/labels/dev-set.jsonl
+  step "Audio (one archive, not 13,470 requests)"
+  run uv run python -m scripts.fetch_training_audio \
+      --manifest data/labels/train-subset.jsonl \
+      --archive "${AUDIO_ARCHIVE:-MubeenAmjad205/roman-urdu-captions-audio}"
+  ok "data ready -- now run ./run.sh rehearse"
 }
 
+# Four minutes that exercise every line the real run executes, generation
+# included. Two bugs cost full sessions because the old rehearsal only trained.
+cmd_rehearse() {
+  local base="${BASE:-Qwen/Qwen3-ASR-0.6B}"
+  step "Rehearsal on ~20 clips with $base"
+  run uv run python -m scripts.select_training_subset --hours 0.05 \
+      --out data/labels/rehearsal.jsonl
+  run uv run python -m scripts.fetch_training_audio \
+      --manifest data/labels/rehearsal.jsonl
+  run uv run python -m src.training.finetune \
+      --manifest data/labels/rehearsal.jsonl --base "$base" \
+      --limit 22 --accumulate 4 --probe-every 5 --out out/rehearsal
+  ok "read the GB peak, p(eos) and probe output before training for real"
+  warn "the rehearsal uses the SHORTEST clips -- the real run will use more memory"
+}
+
+cmd_train() {
+  local base="${BASE:-Qwen/Qwen3-ASR-0.6B}"
+  local out="${OUT:-out/finetuned}"
+  [[ -f data/labels/train-subset.jsonl ]] || die "no manifest -- run ./run.sh data first"
+  step "Full fine-tune: $base -> $out"
+  warn "data/eval/ must never appear in the training manifest (constraint 5)"
+  local extra=()
+  [[ -n "${HF_REPO:-}" ]] && extra+=(--hf-repo "$HF_REPO" --push-every 300)
+  [[ -n "${MAX_MINUTES:-}" ]] && extra+=(--max-minutes "$MAX_MINUTES")
+  [[ -n "${RESUME:-}" ]] && extra+=(--resume "$RESUME")
+  run uv run python -m src.training.finetune \
+      --base "$base" --out "$out" \
+      --dev-manifest data/labels/dev-set.jsonl --dev-every 150 \
+      "${extra[@]}" "$@"
+  ok "training complete -- now run ./run.sh eval"
+}
+
+# Transcribe the 269-clip benchmark, then score it. Both halves: a fresh clone
+# has the references but not the audio, and scoring predictions that were never
+# generated is the failure this command exists to prevent.
 cmd_eval() {
-  step "Evaluating"
-  run uv run python -m src.eval.score \
-    --pred "${1:-out/predictions.txt}" \
-    --ref  "${2:-data/eval/reference.txt}" \
-    --metrics cer,sn-wer,normalized-wer,english-preservation
-  ok "evaluation complete"
+  local model="${OUT:-out/finetuned}"
+  local preds="out/preds"
+  [[ -d "$model" || "$model" == */* ]] || die "no model at $model -- set OUT=<dir|hf-id>"
+
+  step "Eval audio (gitignored, so a fresh clone lacks it)"
+  run uv run python -m scripts.fetch_training_audio --manifest data/eval/manifest.jsonl
+
+  step "Transcribing 269 clips with $model"
+  # --no-romanize-output: a fine-tuned model already emits Roman. Sending it
+  # through the Devanagari converter again rewrites correct spellings and
+  # measures the converter. Omit the flag only for the stock-model baseline.
+  run uv run python -m scripts.run_baseline \
+      --model-id "$model" --out-dir "$preds" --no-romanize-output \
+      --device "${DEVICE:-cuda}" --batch-size "${BATCH:-4}"
+
+  step "Scoring"
+  run uv run python -m src.eval.score --pred "$preds/baseline-raw.txt"
+  ok "34.9% is the baseline to beat -- stock 0.6B plus our romanizer"
 }
 
 cmd_serve() {
@@ -254,9 +314,13 @@ ${C_BOLD}QUALITY${C_RESET}
 ${C_BOLD}PIPELINE${C_RESET}
   ${C_GREEN}lexicon${C_RESET}      Build frequency lexicon from Roman-Urdu-Parl
   ${C_GREEN}transcribe${C_RESET}   Transcribe a video file
-  ${C_GREEN}train${C_RESET}        Fine-tune  (default configs/phase1.yaml)
-  ${C_GREEN}eval${C_RESET}         Score predictions (CER, SN-WER, ...)
   ${C_GREEN}serve${C_RESET}        Start vLLM inference server
+
+${C_BOLD}TRAINING${C_RESET}  (in this order -- see ${C_BOLD}docs/TRAINING.md${C_RESET})
+  ${C_GREEN}data${C_RESET} [hours]  Transcripts, labels, dev set, subset, audio  (default 20 h)
+  ${C_GREEN}rehearse${C_RESET}     4-minute dry run: train AND generate. ${C_BOLD}Always do this first${C_RESET}
+  ${C_GREEN}train${C_RESET}        Full fine-tune with mid-run CER on held-out clips
+  ${C_GREEN}eval${C_RESET}         Score against the 269-clip benchmark (CER, SN-WER)
 
 ${C_BOLD}MISC${C_RESET}
   ${C_GREEN}clean${C_RESET}        Remove caches and build artefacts
@@ -265,6 +329,14 @@ ${C_BOLD}MISC${C_RESET}
 ${C_BOLD}ENVIRONMENT${C_RESET}
   MODEL=<hf-id>   override serving model
   PORT=<n>        override serving port
+  BASE=<hf-id>    model to fine-tune       (default Qwen/Qwen3-ASR-0.6B)
+  OUT=<dir>       checkpoint directory     (default out/finetuned)
+  HF_REPO=<id>    push checkpoints here during the run
+  MAX_MINUTES=<n> time-box; saves and exits cleanly
+  RESUME=<dir>    continue from a checkpoint
+  DEVICE=<dev>    eval device: cuda | mps | cpu   (default cuda)
+  BATCH=<n>       eval batch size; lower if OOM   (default 4)
+  HF_TOKEN=<tok>  required: the corpus is a gated dataset
   NO_COLOR=1      disable coloured output
   MAX_JOBS=<n>    limit flash-attn build parallelism (use 4 if <96GB RAM)
 
@@ -272,6 +344,18 @@ ${C_BOLD}NOTES${C_RESET}
   Dependencies are managed with uv. Every command runs through ${C_BOLD}uv run${C_RESET},
   which syncs the environment on demand — there is no venv to activate.
   Use ${C_BOLD}uv add${C_RESET} / ${C_BOLD}uv add --dev${C_RESET} to change dependencies, then commit uv.lock.
+
+${C_BOLD}FIRST TIME TRAINING?${C_RESET}
+  Read ${C_BOLD}docs/TRAINING.md${C_RESET}. The short version:
+
+    export HF_TOKEN=hf_...
+    ./run.sh setup && ./run.sh check
+    ./run.sh data 20
+    ./run.sh rehearse            ${C_DIM}# read GB peak before going further${C_RESET}
+    MAX_MINUTES=180 ./run.sh train
+    ./run.sh eval
+
+  ${C_BOLD}Never${C_RESET} train on data/eval/. ${C_BOLD}Never${C_RESET} quote raw WER alone. ${C_BOLD}Always${C_RESET} rehearse first.
 EOF
 }
 
@@ -289,6 +373,8 @@ main() {
     check)       cmd_check "$@" ;;
     lexicon)     cmd_lexicon "$@" ;;
     transcribe)  cmd_transcribe "$@" ;;
+    data)        cmd_data "$@" ;;
+    rehearse)    cmd_rehearse "$@" ;;
     train)       cmd_train "$@" ;;
     eval)        cmd_eval "$@" ;;
     serve)       cmd_serve "$@" ;;
