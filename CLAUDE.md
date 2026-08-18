@@ -185,14 +185,41 @@ Keep this section accurate. If you add or rename a command, update it in the sam
 | Label quality | ~3.5% of words are the wrong word, ~2% unknown. Inherited from the corpus — training cannot fix labels |
 | First training run | LoRA on MPS shifted output from 5.7% to 48.3% Latin. The labels teach Roman (ADR-016) |
 
-**Phase 2 — training.** Full fine-tuning on a rented GPU is the production path
-and `src/training/finetune.py` is still a stub. `scripts/train.py` is the local
-LoRA experiment and is **not** a substitute: constraint 6's A/B cannot run on
-16 GB, so its numbers validate the pipeline, not the method.
+**Phase 2 — training works.** `src/training/finetune.py` is the production
+recipe and has produced a model. Full walkthrough: **`docs/TRAINING.md`**.
 
-Two things that gate quality more than model size:
+| | Stock 0.6B + romanizer | Fine-tuned 0.6B |
+|---|---|---|
+| CER | 34.9% | **16.4%** |
+| English preserved | 41.9% | **82.5%** |
+| Error split | 58.1 / 39.8 / 2.1 | 70.1 acoustic / 22.3 orthographic / 7.6 code-switch |
 
-- **38% of errors are orthographic.** They are fixed in the romanizer and
-  lexicon, not with more training data. Measure before assuming otherwise.
-- **The eval set is benchmark audio, not target content** (R6, ADR-008). Treat
-  26.7% as optimistic and build a real-content set before quoting it externally.
+Targets are CER < 12% and English > 90%; neither is met. Per category the
+spread is wide — ROADSIDE 7.0%, PODCAST 8.2%, VLOG 10.1% are already under
+target, while FILM 41.7% and INTERVIEWS 26.6% are not.
+
+Four bugs cost a session each, all invisible to the loss curve:
+
+- the training target carried no EOS, so the model never learned to stop
+- the loss mask was a fixed 16 tokens while the processor expands
+  `<|audio_pad|>` per audio frame, so padding and turn scaffolding were scored
+- masking through `<asr_text>` instead overcorrected: the model never learned
+  to *start* and emitted EOS immediately
+- eval ran on CPU because nothing moved the model to the GPU
+
+Each was found by decoding tensors, not by reading code. `tests/test_loss_mask.py`
+and `tests/test_training_target.py` pin all of them.
+
+**1.7B does not fit a 16 GB card.** 2.04B trainable parameters need 12.2 GB
+before activations (bf16 weights + gradients + 8-bit Adam). Measured: OOM at
+step 303/865 on a T4 at 14.4 GB peak, after reaching dev CER 15.7%. It needs
+40 GB+, and it is arithmetic rather than tuning.
+
+What gates quality now:
+
+- **70% of remaining error is acoustic** — more data and more capacity, not
+  lexicon work. That inverts the Phase 1 picture and is what the numbers say.
+- **Untested:** 90 hours vs the 20 used, and more than one epoch. The largest
+  open assumption in the project.
+- **Label noise ~3.5% wrong words** is inherited from the corpus and caps any
+  model trained on it.
