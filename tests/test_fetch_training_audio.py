@@ -142,3 +142,62 @@ class TestRepoPathAliases:
         assert _fetch_with_retry(fake_download, "r", local, tmp_path, 1) is None
         assert (tmp_path / local).exists(), "file must land where the manifest expects it"
         assert not (tmp_path / remote).exists(), "and must not be left at the repo path"
+
+
+class TestArchiveFallback:
+    """One request beats thousands, but a missing archive must not be fatal.
+
+    The Hub throttles by request count -- ~1,000 per 5 minutes, one clip one
+    request -- so 13,470 clips have a ~35 minute floor whatever the thread
+    count. That was paid three times in a week. A single tar is one request at
+    CDN speed. The optimisation is opportunistic, so its absence falls back.
+    """
+
+    def test_a_missing_archive_returns_zero_rather_than_raising(
+        self, tmp_path, monkeypatch
+    ) -> None:  # type: ignore[no-untyped-def]
+        import scripts.fetch_training_audio as module
+
+        def boom(*args, **kwargs):  # type: ignore[no-untyped-def]
+            raise OSError("404")
+
+        monkeypatch.setattr("huggingface_hub.hf_hub_download", boom)
+        assert module.fetch_archive("nope/nope", tmp_path / "urduspeech") == 0
+
+    def test_it_extracts_and_reports_the_count(self, tmp_path, monkeypatch) -> None:  # type: ignore[no-untyped-def]
+        import tarfile
+
+        import scripts.fetch_training_audio as module
+
+        payload = tmp_path / "src" / "urduspeech" / "corpus"
+        payload.mkdir(parents=True)
+        for name in ("a.wav", "b.wav"):
+            (payload / name).write_bytes(b"audio")
+        tar_path = tmp_path / "urduspeech-audio.tar"
+        with tarfile.open(tar_path, "w") as archive:
+            archive.add(tmp_path / "src" / "urduspeech", arcname="urduspeech")
+
+        monkeypatch.setattr("huggingface_hub.hf_hub_download", lambda *a, **k: str(tar_path))
+        root = tmp_path / "out" / "urduspeech"
+        root.parent.mkdir(parents=True, exist_ok=True)
+        assert module.fetch_archive("repo", root) == 2
+        assert (root / "corpus" / "a.wav").exists()
+
+    def test_members_escaping_the_root_are_skipped(self, tmp_path, monkeypatch) -> None:  # type: ignore[no-untyped-def]
+        """The archive is ours, but a tar writing outside its root is worth never having."""
+        import tarfile
+
+        import scripts.fetch_training_audio as module
+
+        evil = tmp_path / "evil.wav"
+        evil.write_bytes(b"x")
+        tar_path = tmp_path / "urduspeech-audio.tar"
+        with tarfile.open(tar_path, "w") as archive:
+            archive.add(evil, arcname="../escaped.wav")
+
+        monkeypatch.setattr("huggingface_hub.hf_hub_download", lambda *a, **k: str(tar_path))
+        root = tmp_path / "out" / "urduspeech"
+        root.parent.mkdir(parents=True, exist_ok=True)
+        assert module.fetch_archive("repo", root) == 0
+        assert not (tmp_path / "out" / "escaped.wav").exists()
+        assert not (tmp_path / "escaped.wav").exists()

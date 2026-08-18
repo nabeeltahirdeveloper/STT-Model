@@ -48,6 +48,53 @@ WORKERS = 8
 RETRIES = 5
 
 
+def fetch_archive(repo: str, root: Path, member_prefix: str = "urduspeech") -> int:
+    """Pull the whole corpus as one tar and extract it. Returns clips extracted.
+
+    The Hub throttles by request count, not bytes: ~1,000 requests per 5
+    minutes, and one clip is one request. 13,470 clips therefore have a floor
+    near 35 minutes however many threads ask, and that cost was paid three
+    times in one week because /content is wiped between sessions.
+
+    One archive is one request. It arrives at CDN speed -- roughly two minutes
+    for 12 GB inside Google's network -- and the rate limit never applies.
+
+    Returns 0 rather than raising if the archive is absent or unreadable, so
+    the caller can fall back to fetching clip by clip. A missing optimisation
+    must not be a failure.
+    """
+    import tarfile
+
+    from huggingface_hub import hf_hub_download
+
+    try:
+        print(f"archive: trying {repo} ...", flush=True)
+        local = hf_hub_download(
+            repo, "urduspeech-audio.tar", repo_type="dataset", local_dir=str(root.parent)
+        )
+    except Exception as error:  # noqa: BLE001 - absence is a fallback, not a failure
+        print(f"archive unavailable ({type(error).__name__}); falling back to per-clip")
+        return 0
+
+    print(f"extracting {local} ...", flush=True)
+    extracted = 0
+    with tarfile.open(local) as archive:
+        for member in archive:
+            # Refuse paths that escape the destination. The archive is ours, but
+            # a tar that writes outside its root is the one bug in this pattern
+            # worth never having.
+            if member.name.startswith(("/", "..")) or ".." in Path(member.name).parts:
+                continue
+            if not member.name.startswith(member_prefix):
+                continue
+            archive.extract(member, path=root.parent, filter="data")
+            if member.isfile():
+                extracted += 1
+    Path(local).unlink(missing_ok=True)
+    print(f"archive: {extracted:,} files extracted")
+    return extracted
+
+
 def _fetch_with_retry(
     download: object,
     repo: str,
@@ -96,8 +143,15 @@ def main(
     repo: str = "ASLP-lab/UrduSpeech",
     workers: int = WORKERS,
     retries: int = RETRIES,
+    archive: str = "",
 ) -> None:
-    """Fetch every clip the manifest references that is not already local."""
+    """Fetch every clip the manifest references that is not already local.
+
+    Args:
+        archive: a dataset repo holding `urduspeech-audio.tar`. Tried first;
+            one request instead of thousands. Falls back to per-clip fetching
+            if it is missing, so the flag is safe to leave set.
+    """
     import concurrent.futures
     import shutil
 
@@ -121,6 +175,16 @@ def main(
     if not wanted:
         print("nothing to do")
         return
+
+    # One request beats thousands. Only worth it when a lot is missing --
+    # below that, pulling 12 GB to obtain a handful of clips is the slower path.
+    if archive and len(wanted) > 500 and fetch_archive(archive, root):
+        still = [name for name in wanted if not (root / name).exists()]
+        print(f"{len(wanted) - len(still):,} of {len(wanted):,} clips came from the archive")
+        wanted = still
+        if not wanted:
+            print("nothing left to fetch")
+            return
 
     failed: list[str] = []
     done_count = 0
